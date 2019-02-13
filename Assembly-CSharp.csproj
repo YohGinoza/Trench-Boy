@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Ammo.cs" />
     <Compile Include="Assets\Scripts\BotEnemy.cs" />
     <Compile Include="Assets\Scripts\BotFriendly.cs" />
+    <Compile Include="Assets\Scripts\ColliderChercker.cs" />
     <Compile Include="Assets\Scripts\Meds.cs" />
     <Compile Include="Assets\Scripts\TrenchBoyController.cs" />
     <Reference Include="UnityEditor.StandardEvents">

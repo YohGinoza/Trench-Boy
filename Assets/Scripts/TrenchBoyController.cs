@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
+﻿using UnityEngine;
 
 public class TrenchBoyController : MonoBehaviour {
     
@@ -12,15 +8,19 @@ public class TrenchBoyController : MonoBehaviour {
     public float movementSpeed = 0.0f;
     public float maxSpeed = 0.0f;
     public float interaction_time = 0.8f;
+    public float carrySpeed = 0.0f;
+    public float defaultSpeed = 0.0f;
 
-    Transform carry;
+    public Transform carry;
     Rigidbody rb;
+    ColliderChercker cc;
     //Crate crate;
     Vector3 refVector = Vector3.zero;
     float delta = 0;
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+        cc = GetComponentInChildren<ColliderChercker>();
     //    crate = GetComponent<Crate>();
 	}
 	
@@ -41,8 +41,12 @@ public class TrenchBoyController : MonoBehaviour {
         {
             if (isCarrying == true)
             {
-                maxSpeed *= 80.0f / 100.0f;
-            }       
+                maxSpeed = carrySpeed;
+            }
+            else
+            {
+                maxSpeed = defaultSpeed;
+            }    
             // ↑↓→←
             // LEFT
             if (Input.GetKey(KeyCode.LeftArrow))
@@ -90,19 +94,15 @@ public class TrenchBoyController : MonoBehaviour {
     
     private void interactions()
     {
-        Debug.Log("khkj");
+        Debug.Log("carry");
         if (isCarrying == false && Input.GetKey(KeyCode.Space))
         {
             isMovable = false;
-            delta += Time.deltaTime;
-            //float holdStartTime = Time.time;
-
+            delta += Time.deltaTime;            
             isMovable = true;
         }
-        else
-        if ((isCarrying == false && Input.GetKeyUp(KeyCode.Space)))
-        {
-            //float delta = Time.time - holdStartTime;
+        else if ((isCarrying == false && Input.GetKeyUp(KeyCode.Space)))
+        {            
             if (delta < interaction_time)
             {
                 // pick ammo/med pouch                    
@@ -111,6 +111,11 @@ public class TrenchBoyController : MonoBehaviour {
             else if (delta >= interaction_time)
             {
                 // pick up the box itself
+                if (cc.isInteractable)
+                {
+                    cc.childTransfer(carry.transform);
+                    isCarrying = true;
+                }
                 Debug.Log("Picking up ammo/med crate");
             }
             delta = 0;
