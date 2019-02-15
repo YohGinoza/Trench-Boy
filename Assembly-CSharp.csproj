@@ -64,9 +64,9 @@
     <Compile Include="Assets\Scripts\Ammo.cs" />
     <Compile Include="Assets\Scripts\BotEnemy.cs" />
     <Compile Include="Assets\Scripts\BotFriendly.cs" />
-    <Compile Include="Assets\Scripts\Character\Player\ColliderChercker.cs" />
-    <Compile Include="Assets\Scripts\Character\Player\TrenchBoyController.cs" />
+    <Compile Include="Assets\Scripts\ColliderChercker.cs" />
     <Compile Include="Assets\Scripts\Meds.cs" />
+    <Compile Include="Assets\Scripts\TrenchBoyController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/ACER/Desktop/Trench Boy dev/Trench-Boy/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
