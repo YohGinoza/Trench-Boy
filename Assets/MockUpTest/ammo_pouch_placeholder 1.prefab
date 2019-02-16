@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4353229834712464}
   - component: {fileID: 212632810409472532}
   m_Layer: 0
-  m_Name: med_pouch_placeholder 1
+  m_Name: ammo_pouch_placeholder 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
