@@ -2,29 +2,39 @@
 
 public class TrenchBoyController : MonoBehaviour {
     
-    public GameObject player;    
+    public GameObject player;
+    // ------------------------------
+    // character movement
+    // ------------------------------
     public bool isMovable = true;
     public bool isCarrying = false;
     public float movementSpeed = 0.0f;
-    public float maxSpeed = 0.0f;
+    private float maxSpeed = 0.0f;
     public float interaction_time = 0.8f;
     public float carrySpeed = 0.0f;
     public float defaultSpeed = 0.0f;
 
+    // ------------------------------
+    // transform position
+    // ------------------------------
     public Transform carry;
+
+
     Rigidbody rb;
     ColliderChercker cc;
-    //Crate crate;
+    //Crate crate; // waiting for Crate script
+
     Vector3 refVector = Vector3.zero;
+
+    // for checking delta time interaction
     float delta = 0;
-    // Use this for initialization
+    
     void Start () {
         rb = GetComponent<Rigidbody>();
         cc = GetComponentInChildren<ColliderChercker>();
-    //    crate = GetComponent<Crate>();
+     //   crate = GetComponent<Crate>(); // wating for Crate script
 	}
-	
-	// Update is called once per frame
+		
 	void Update ()
     {
         if(isMovable == true)
@@ -39,15 +49,24 @@ public class TrenchBoyController : MonoBehaviour {
     {
         if(isMovable == true)
         {
+            // ------------------------------
+            // ms check
+            // ------------------------------
             if (isCarrying == true)
             {
+                // ms lowered while carrying
                 maxSpeed = carrySpeed;
             }
             else
             {
+                // if !carrying ms = default
                 maxSpeed = defaultSpeed;
-            }    
-            // ↑↓→←
+            }
+
+            // ------------------------------
+            // buttons for character controls
+            // ------------------------------
+            // for ↑↓→←
             // LEFT
             if (Input.GetKey(KeyCode.LeftArrow))
             {
@@ -68,8 +87,8 @@ public class TrenchBoyController : MonoBehaviour {
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * movementSpeed, ref refVector, 0.05f, maxSpeed);
             }
-            //========================
-            // WASD
+            //-------------------------------
+            // for WASD
             if (Input.GetKey(KeyCode.A))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * movementSpeed, ref refVector, 0.05f, maxSpeed);
@@ -89,6 +108,7 @@ public class TrenchBoyController : MonoBehaviour {
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * movementSpeed, ref refVector, 0.05f, maxSpeed);
             }
+            // =============================
         }       
     }
     
@@ -105,18 +125,20 @@ public class TrenchBoyController : MonoBehaviour {
         {            
             if (delta < interaction_time)
             {
-                // pick ammo/med pouch                    
+                // pick up the POUCH           
                 Debug.Log("Picking up ammo/med pouch");
+                // -----------------
             }
             else if (delta >= interaction_time)
             {
-                // pick up the box itself
+                // pick up the CRATE
                 if (cc.isInteractable)
                 {
                     cc.childTransfer(carry.transform);
                     isCarrying = true;
                 }
                 Debug.Log("Picking up ammo/med crate");
+                // ------------------
             }
             delta = 0;
         }
