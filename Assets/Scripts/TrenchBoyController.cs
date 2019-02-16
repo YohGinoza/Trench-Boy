@@ -8,6 +8,7 @@ public class TrenchBoyController : MonoBehaviour {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject med_pouch;
     [SerializeField] private GameObject ammo_pouch;
+    private GameObject pouch;
 
     // ------------------------------
     // character movement
@@ -15,8 +16,7 @@ public class TrenchBoyController : MonoBehaviour {
     public bool isMovable = true;
     public bool isCarrying = false;
     public float movementSpeed = 0.0f;
-    private float maxSpeed = 0.0f;
-    public float interaction_time = 0.8f;
+    private float maxSpeed = 0.0f;    
     public float carrySpeed = 0.0f;
     public float defaultSpeed = 0.0f;
 
@@ -29,8 +29,11 @@ public class TrenchBoyController : MonoBehaviour {
     // ------------------------------
     // POUCH or CRATE
     // ------------------------------
+    private float carryDelay = 0.8f;
+    private bool cooldown = false;
     private bool carryingPouch = false;
-    private bool carryingCrate = false;    
+    private bool carryingCrate = false;
+    public float interaction_time = 0.8f;
 
 
 
@@ -42,8 +45,9 @@ public class TrenchBoyController : MonoBehaviour {
     Vector3 facing = Vector3.zero;
     private Vector3 carryPos = new Vector3(0.0f, 0.5f, 0.0f);
 
-    // for checking delta time interaction
-    float delta = 0;
+    // for checking time interaction
+    float delta = 0.0f; // button hold timer
+    float delay = 0.0f; // delay between interactions
     
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -58,6 +62,18 @@ public class TrenchBoyController : MonoBehaviour {
             move();            
         }
         interactions();
+        if (cooldown)
+        {
+            delay += Time.deltaTime;
+            Debug.Log("on cooldown");
+            if(delay >= carryDelay)
+            {
+                Debug.Log("off cooldown");
+                cooldown = false;
+                delay = 0.0f;
+            }
+        }
+        //Debug.Log(pouch);
     }
 
     // ↑↓→← WASD
@@ -137,72 +153,67 @@ public class TrenchBoyController : MonoBehaviour {
     }
     
     private void interactions()
-    {
-        GameObject pouch = null; // initialize pouch
+    {        
+        // ------------------
+        // isCarrying = TRUE
+        // ------------------
+        if (isCarrying && Input.GetKey(KeyCode.Space))
+        {
+            // POUCH
+            if (carryingPouch)
+            {
+                Destroy(pouch.gameObject); // delete pouch                
+                carryingPouch = false;                
+            }
+            if (carryingCrate)
+            {
+                // ************************* will change after engine proof *****************************                
+                carry.transform.localPosition = facing;                
+                carry.transform.SetParent(world);
+                carry.transform.localPosition = new Vector3(carry.position.x, 0.25f, carry.position.z);
+                carry.DetachChildren();
+                carry.transform.SetParent(player.transform);
+                carry.transform.localPosition = carryPos;
+                carryingCrate = false;                
+            }
+            isCarrying = false;
+            cooldown = true;
+        }
+
         // ------------------
         // isCarrying = FALSE
-        // ------------------
-        Debug.Log("carry");
-        if (isCarrying == false && Input.GetKey(KeyCode.Space))
+        // ------------------        
+        if (!isCarrying && Input.GetKey(KeyCode.Space))
         {            
-            delta += Time.deltaTime; // hold timer               
+            delta += Time.deltaTime; // hold timer starts after pressing the button              
         }
-        else if ((isCarrying == false && Input.GetKeyUp(KeyCode.Space)))
+
+        if (!isCarrying && !cooldown && Input.GetKeyUp(KeyCode.Space))
         {            
             if (delta < interaction_time)
-            {
+            {                
                 // pick up the POUCH
                 if (crate_collider.isInteractable)
-                {
-                    isMovable = false;  // prevent moving & picking at the same time
+                {                    
                     // spawn pouch in "carry position"
                     pouch = Instantiate(med_pouch, carry.position, carry.rotation);
                     pouch.transform.SetParent(carry.transform);
                     isCarrying = true;
                     carryingPouch = true;
-                }
-                Debug.Log("Picking up ammo/med pouch");
+                }                
             }
             else if (delta >= interaction_time)
             {
                 // pick up the CRATE
                 if (crate_collider.isInteractable)
-                {
-                    isMovable = false;  // prevent moving & picking at the same time
+                {                    
                     crate_collider.childTransfer(carry.transform);
                     isCarrying = true;
                     carryingCrate = true;
-                }
-                Debug.Log("Picking up ammo/med crate");
+                }                
             }
-            delta = 0;
-            isMovable = true;
-        }
-
-        // ------------------
-        // isCarrying = TRUE
-        // ------------------
-        if (isCarrying == true && Input.GetKey(KeyCode.Space))
-        {
-            // POUCH
-            if (carryingPouch)
-            {
-                Destroy(pouch.gameObject);
-                Debug.Log("Destroying pouch");
-                carryingPouch = false;
-            }
-            if (carryingCrate)
-            {
-                // ************************* will change after engine proof *****************************
-                carry.transform.Translate(facing);
-                carry.transform.SetParent(world);                
-                carry.DetachChildren();                
-                carry.transform.SetParent(player.transform);
-                carry.transform.localPosition = Vector3.zero;
-                carry.transform.Translate(carryPos);
-                carryingCrate = false;                   
-            }
-        }        
+            delta = 0; // stops timer            
+        }                
     }
        
 }
