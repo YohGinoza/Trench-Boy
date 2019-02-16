@@ -33,7 +33,7 @@ public class TrenchBoyController : MonoBehaviour {
     private bool cooldown = false;
     private bool carryingPouch = false;
     private bool carryingCrate = false;
-    public float interaction_time = 0.8f;
+    public float interaction_time = 0.5f;
 
 
 
