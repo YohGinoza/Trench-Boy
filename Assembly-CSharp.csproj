@@ -65,8 +65,8 @@
     <Compile Include="Assets\Scripts\BotEnemy.cs" />
     <Compile Include="Assets\Scripts\BotFriendly.cs" />
     <Compile Include="Assets\Scripts\Character\Ally\AllyTempBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\ColliderChercker.cs" />
     <Compile Include="Assets\Scripts\Character\Player\TrenchBoyController.cs" />
-    <Compile Include="Assets\Scripts\ColliderChercker.cs" />
     <Compile Include="Assets\Scripts\InteractableObject\CargoSlot.cs" />
     <Compile Include="Assets\Scripts\InteractableObject\CartControl.cs" />
     <Compile Include="Assets\Scripts\Meds.cs" />
