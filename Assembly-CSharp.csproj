@@ -71,8 +71,11 @@
     <Compile Include="Assets\Scripts\InteractableObject\CartControl.cs" />
     <Compile Include="Assets\Scripts\Meds.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Rail.cs" />
 =======
+=======
+>>>>>>> parent of 76e45f4... Added rail
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/ACER/Desktop/Trench Boy dev/Trench-Boy/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
