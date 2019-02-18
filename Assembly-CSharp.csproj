@@ -70,7 +70,13 @@
     <Compile Include="Assets\Scripts\InteractableObject\CargoSlot.cs" />
     <Compile Include="Assets\Scripts\InteractableObject\CartControl.cs" />
     <Compile Include="Assets\Scripts\Meds.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Rail.cs" />
+=======
+    <Reference Include="UnityEditor.StandardEvents">
+      <HintPath>C:/Users/ACER/Desktop/Trench Boy dev/Trench-Boy/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+    </Reference>
+>>>>>>> parent of 76e45f4... Added rail
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/ACER/Desktop/Trench Boy dev/Trench-Boy/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
