@@ -1,124 +1,221 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+public class TrenchBoyController : MonoBehaviour
+{
 
+    // ------------------------------
+    // game objects
+    // ------------------------------
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject med_pouch;
+    [SerializeField] private GameObject ammo_pouch;
+    private GameObject pouch;
 
-public class TrenchBoyController : MonoBehaviour {
-    
-    public GameObject player;    
+    // ------------------------------
+    // character movement
+    // ------------------------------
     public bool isMovable = true;
     public bool isCarrying = false;
     public float movementSpeed = 0.0f;
-    public float maxSpeed = 0.0f;
-    public float interaction_time = 0.8f;
+    private float maxSpeed = 0.0f;
+    public float carrySpeed = 0.0f;
+    public float defaultSpeed = 0.0f;
 
-    Transform carry;
+    // ------------------------------
+    // transform position
+    // ------------------------------
+    public Transform carry;
+    [SerializeField] private Transform world;
+
+    // ------------------------------
+    // POUCH or CRATE
+    // ------------------------------
+    private float carryDelay = 0.8f;
+    private bool cooldown = false;
+    private bool carryingPouch = false;
+    private bool carryingCrate = false;
+    public float interaction_time = 0.5f;
+
+
+
     Rigidbody rb;
-    //Crate crate;
+    ColliderChercker crate_collider;
+    //Crate crate; // waiting for Crate script
+
     Vector3 refVector = Vector3.zero;
-    float delta = 0;
-    // Use this for initialization
-    void Start () {
-        rb = GetComponent<Rigidbody>();
-    //    crate = GetComponent<Crate>();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    Vector3 facing = Vector3.zero;
+    private Vector3 carryPos = new Vector3(0.0f, 0.5f, 0.0f);
+
+    // for checking time interaction
+    float delta = 0.0f; // button hold timer
+    float delay = 0.0f; // delay between interactions
+
+    void Start()
     {
-        if(isMovable == true)
+        rb = GetComponent<Rigidbody>();
+        crate_collider = GetComponentInChildren<ColliderChercker>();
+        //   crate = GetComponent<Crate>(); // wating for Crate script
+    }
+
+    void Update()
+    {
+        if (isMovable == true)
         {
-            move();            
+            move();
         }
         interactions();
+        if (cooldown)
+        {
+            delay += Time.deltaTime;
+            Debug.Log("on cooldown");
+            if (delay >= carryDelay)
+            {
+                Debug.Log("off cooldown");
+                cooldown = false;
+                delay = 0.0f;
+            }
+        }
+        //Debug.Log(pouch);
     }
 
     // ↑↓→← WASD
     private void move()
     {
-        if(isMovable == true)
+        if (isMovable == true)
         {
+            // ------------------------------
+            // ms check
+            // ------------------------------
             if (isCarrying == true)
             {
-                maxSpeed *= 80.0f / 100.0f;
-            }       
-            // ↑↓→←
+                // ms lowered while carrying
+                maxSpeed = carrySpeed;
+            }
+            else
+            {
+                // if !carrying ms = default
+                maxSpeed = defaultSpeed;
+            }
+
+            // ------------------------------
+            // buttons for character controls
+            // ------------------------------
+            // for ↑↓→←
             // LEFT
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * movementSpeed, ref refVector, 0.05f, maxSpeed);
+                facing = Vector3.left;
             }
             // RIGHT
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.right * movementSpeed, ref refVector, 0.05f, maxSpeed);
+                facing = Vector3.right;
             }
             // UP
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.forward * movementSpeed, ref refVector, 0.05f, maxSpeed);
+                facing = Vector3.forward;
             }
             // DOWN
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * movementSpeed, ref refVector, 0.05f, maxSpeed);
+                facing = Vector3.back;
             }
-            //========================
-            // WASD
+            //-------------------------------
+            // for WASD
             if (Input.GetKey(KeyCode.A))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * movementSpeed, ref refVector, 0.05f, maxSpeed);
+                facing = Vector3.left;
             }
             // RIGHT
             if (Input.GetKey(KeyCode.D))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.right * movementSpeed, ref refVector, 0.05f, maxSpeed);
+                facing = Vector3.right;
             }
             // UP
             if (Input.GetKey(KeyCode.W))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.forward * movementSpeed, ref refVector, 0.05f, maxSpeed);
+                facing = Vector3.forward;
             }
             // DOWN
             if (Input.GetKey(KeyCode.S))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * movementSpeed, ref refVector, 0.05f, maxSpeed);
+                facing = Vector3.back;
             }
-        }       
+            // =============================
+        }
     }
-    
+
     private void interactions()
     {
-        Debug.Log("khkj");
-        if (isCarrying == false && Input.GetKey(KeyCode.Space))
+        // ------------------
+        // isCarrying = TRUE
+        // ------------------
+        if (isCarrying && Input.GetKey(KeyCode.Space))
         {
-            isMovable = false;
-            delta += Time.deltaTime;
-            //float holdStartTime = Time.time;
-
-            isMovable = true;
+            // POUCH
+            if (carryingPouch)
+            {
+                Destroy(pouch.gameObject); // delete pouch                
+                carryingPouch = false;
+            }
+            if (carryingCrate)
+            {
+                // ************************* will change after engine proof *****************************                
+                carry.transform.localPosition = facing;
+                carry.transform.SetParent(world);
+                carry.transform.localPosition = new Vector3(carry.position.x, 0.25f, carry.position.z);
+                carry.DetachChildren();
+                carry.transform.SetParent(player.transform);
+                carry.transform.localPosition = carryPos;
+                carryingCrate = false;
+            }
+            isCarrying = false;
+            cooldown = true;
         }
-        else
-        if ((isCarrying == false && Input.GetKeyUp(KeyCode.Space)))
+
+        // ------------------
+        // isCarrying = FALSE
+        // ------------------        
+        if (!isCarrying && Input.GetKey(KeyCode.Space))
         {
-            //float delta = Time.time - holdStartTime;
+            delta += Time.deltaTime; // hold timer starts after pressing the button              
+        }
+
+        if (!isCarrying && !cooldown && Input.GetKeyUp(KeyCode.Space))
+        {
             if (delta < interaction_time)
             {
-                // pick ammo/med pouch                    
-                Debug.Log("Picking up ammo/med pouch");
+                // pick up the POUCH
+                if (crate_collider.isInteractable)
+                {
+                    // spawn pouch in "carry position"
+                    pouch = Instantiate(med_pouch, carry.position, carry.rotation);
+                    pouch.transform.SetParent(carry.transform);
+                    isCarrying = true;
+                    carryingPouch = true;
+                }
             }
             else if (delta >= interaction_time)
             {
-                // pick up the box itself
-                Debug.Log("Picking up ammo/med crate");
+                // pick up the CRATE
+                if (crate_collider.isInteractable)
+                {
+                    crate_collider.childTransfer(carry.transform);
+                    isCarrying = true;
+                    carryingCrate = true;
+                }
             }
-            delta = 0;
+            delta = 0; // stops timer            
         }
-        else if (isCarrying == true && Input.GetKey(KeyCode.Space))
-        {
-            //throw or give item
-        }        
-    }  
-    
+    }
+
 }
