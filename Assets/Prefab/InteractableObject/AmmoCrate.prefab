@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3808581519324272019}
   - component: {fileID: 3774830774655175123}
   - component: {fileID: 1043144146368109339}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AmmoCrate
   m_TagString: Crate
   m_Icon: {fileID: 0}

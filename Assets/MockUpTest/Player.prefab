@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6802985124024814885}
   m_Layer: 0
-  m_Name: carry
+  m_Name: Carrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,14 +203,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6802985124201477957}
+  med_pouch: {fileID: 0}
+  ammo_pouch: {fileID: 0}
   isMovable: 1
   isCarrying: 0
   movementSpeed: 50
-  maxSpeed: 0
-  interaction_time: 0.8
   carrySpeed: 30
   defaultSpeed: 50
-  carry: {fileID: 6802985124024814885}
+  Carrier: {fileID: 6802985124024814885}
+  world: {fileID: 0}
+  carryingPouch: 0
+  carryingCrate: 0
+  interaction_time: 0.5
 --- !u!136 &6802985124201477956
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -252,7 +256,6 @@ GameObject:
   - component: {fileID: 6802985124415729474}
   - component: {fileID: 6802985124415729478}
   - component: {fileID: 6802985124415729479}
-  - component: {fileID: 6802985124415729472}
   - component: {fileID: 6802985124415729473}
   m_Layer: 0
   m_Name: ColliderChecker
@@ -320,19 +323,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6802985124415729472
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6802985124415729475}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.6418928, z: 1}
-  m_Center: {x: 0, y: -0.31205195, z: 0}
 --- !u!114 &6802985124415729473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,4 +335,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c899d80bee6fb418e7d7666aa543c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 0
+  isTriggered: 0
+  ClosestTrigerrer: {fileID: 0}
+  TriggererRadius: 0.75
+  TrigererLayer:
+    serializedVersion: 2
+    m_Bits: 3072
+  Carrier: {fileID: 6802985124024814885}

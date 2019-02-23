@@ -24,22 +24,23 @@ public class TrenchBoyController : MonoBehaviour
     // ------------------------------
     // transform position
     // ------------------------------
-    public Transform carry;
+    public Transform Carrier;
+    private Transform CarriedObject;
     [SerializeField] private Transform world;
 
     // ------------------------------
     // POUCH or CRATE
     // ------------------------------
     private float carryDelay = 0.8f;
-    private bool cooldown = false;
-    private bool carryingPouch = false;
-    private bool carryingCrate = false;
+    //private bool cooldown = false;              //timer betwween put down crate and pick up pouch
+    public bool carryingPouch = false;
+    public bool carryingCrate = false;
     public float interaction_time = 0.5f;
 
 
 
     Rigidbody rb;
-    ColliderChercker crate_collider;
+    ColliderChercker Checker;
     //Crate crate; // waiting for Crate script
 
     Vector3 refVector = Vector3.zero;
@@ -53,28 +54,38 @@ public class TrenchBoyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        crate_collider = GetComponentInChildren<ColliderChercker>();
+        Checker = GetComponentInChildren<ColliderChercker>();
         //   crate = GetComponent<Crate>(); // wating for Crate script
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        if (Carrier.childCount > 0)
+        {
+            CarriedObject = Carrier.GetChild(0);
+            isCarrying = true;
+
+            if (Carrier.GetChild(0).CompareTag("Crate"))
+            {
+                carryingCrate = true;
+            }
+            else
+            {
+                carryingCrate = false;
+            }
+        }
+        else
+        {
+            CarriedObject = null;
+            isCarrying = false;
+        }
+
         if (isMovable == true)
         {
             move();
         }
+
         interactions();
-        if (cooldown)
-        {
-            delay += Time.deltaTime;
-            Debug.Log("on cooldown");
-            if (delay >= carryDelay)
-            {
-                Debug.Log("off cooldown");
-                cooldown = false;
-                delay = 0.0f;
-            }
-        }
         //Debug.Log(pouch);
     }
 
@@ -100,66 +111,85 @@ public class TrenchBoyController : MonoBehaviour
             // ------------------------------
             // buttons for character controls
             // ------------------------------
-            // for ↑↓→←
             // LEFT
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * movementSpeed, ref refVector, 0.05f, maxSpeed);
                 facing = Vector3.left;
             }
             // RIGHT
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.right * movementSpeed, ref refVector, 0.05f, maxSpeed);
                 facing = Vector3.right;
             }
             // UP
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.forward * movementSpeed, ref refVector, 0.05f, maxSpeed);
                 facing = Vector3.forward;
             }
             // DOWN
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * movementSpeed, ref refVector, 0.05f, maxSpeed);
                 facing = Vector3.back;
             }
             //-------------------------------
-            // for WASD
-            if (Input.GetKey(KeyCode.A))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * movementSpeed, ref refVector, 0.05f, maxSpeed);
-                facing = Vector3.left;
-            }
-            // RIGHT
-            if (Input.GetKey(KeyCode.D))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.right * movementSpeed, ref refVector, 0.05f, maxSpeed);
-                facing = Vector3.right;
-            }
-            // UP
-            if (Input.GetKey(KeyCode.W))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.forward * movementSpeed, ref refVector, 0.05f, maxSpeed);
-                facing = Vector3.forward;
-            }
-            // DOWN
-            if (Input.GetKey(KeyCode.S))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * movementSpeed, ref refVector, 0.05f, maxSpeed);
-                facing = Vector3.back;
-            }
-            // =============================
         }
     }
 
     private void interactions()
     {
         // ------------------
-        // isCarrying = TRUE
+        // is not Carrying
+        // ------------------        
+        if (!isCarrying && Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("not carry");
+            delta += Time.deltaTime; // hold timer starts after pressing the button
+
+            if (delta >= interaction_time)
+            {
+                //pick up crate
+                if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+                {
+                    Checker.ClosestTrigerrer.GetComponent<CargoSlot>().TakeOffCargo(Carrier, Vector3.zero);
+                    //isCarrying = true;
+                    carryingCrate = true;
+                }
+                else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
+                {
+                    Checker.childTransfer(Carrier.transform);
+                    //isCarrying = true;
+                    carryingCrate = true;
+                }
+                delta = 0; // stops timer    
+            }
+        }
+
+        if (!isCarrying && Input.GetKeyUp(KeyCode.Space))
+        {
+            if (delta < interaction_time)
+            {
+                // pick up the POUCH
+                if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
+                {
+                    // spawn pouch in "carry position"
+                    pouch = Instantiate(med_pouch, Carrier.position, Carrier.rotation);
+                    pouch.transform.SetParent(Carrier.transform);
+                    //isCarrying = true;
+                    carryingPouch = true;
+                }
+            }
+            delta = 0; // stops timer            
+        }
+
+
         // ------------------
-        if (isCarrying && Input.GetKey(KeyCode.Space))
+        // is Carrying
+        // ------------------
+        if (isCarrying && Input.GetKeyDown(KeyCode.Space))
         {
             // POUCH
             if (carryingPouch)
@@ -167,55 +197,32 @@ public class TrenchBoyController : MonoBehaviour
                 Destroy(pouch.gameObject); // delete pouch                
                 carryingPouch = false;
             }
+
+            //crate
             if (carryingCrate)
             {
-                // ************************* will change after engine proof *****************************                
-                carry.transform.localPosition = facing;
-                carry.transform.SetParent(world);
-                carry.transform.localPosition = new Vector3(carry.position.x, 0.25f, carry.position.z);
-                carry.DetachChildren();
-                carry.transform.SetParent(player.transform);
-                carry.transform.localPosition = carryPos;
-                carryingCrate = false;
-            }
-            isCarrying = false;
-            cooldown = true;
-        }
-
-        // ------------------
-        // isCarrying = FALSE
-        // ------------------        
-        if (!isCarrying && Input.GetKey(KeyCode.Space))
-        {
-            delta += Time.deltaTime; // hold timer starts after pressing the button              
-        }
-
-        if (!isCarrying && !cooldown && Input.GetKeyUp(KeyCode.Space))
-        {
-            if (delta < interaction_time)
-            {
-                // pick up the POUCH
-                if (crate_collider.isInteractable)
+                if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
                 {
-                    // spawn pouch in "carry position"
-                    pouch = Instantiate(med_pouch, carry.position, carry.rotation);
-                    pouch.transform.SetParent(carry.transform);
-                    isCarrying = true;
-                    carryingPouch = true;
+                    Debug.Log("F");
+                    Checker.ClosestTrigerrer.GetComponent<CargoSlot>().StoreCargo(CarriedObject);
+                    carryingCrate = false;
+                    //isCarrying = false;
+                }
+                else
+                {
+                    //put down box
+                    // ************************* will change after engine proof *****************************
+                    CarriedObject.localPosition = facing;
+                    CarriedObject.SetParent(world);
+                    CarriedObject.position = new Vector3(CarriedObject.position.x, CarriedObject.transform.lossyScale.y * 0.5f, CarriedObject.position.z);
+
+                    carryingCrate = false;
+                    //isCarrying = false;
                 }
             }
-            else if (delta >= interaction_time)
-            {
-                // pick up the CRATE
-                if (crate_collider.isInteractable)
-                {
-                    crate_collider.childTransfer(carry.transform);
-                    isCarrying = true;
-                    carryingCrate = true;
-                }
-            }
-            delta = 0; // stops timer            
         }
+
+        
     }
 
 }

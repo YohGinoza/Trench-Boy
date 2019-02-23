@@ -229,9 +229,9 @@ GameObject:
   - component: {fileID: 8392434296837260414}
   - component: {fileID: 8392434296837260412}
   - component: {fileID: 8392434296837260415}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Slot_Right
-  m_TagString: Untagged
+  m_TagString: CargoSlot
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +278,8 @@ MonoBehaviour:
   ThisSlot: 1
   TopSlot: {fileID: 8392434297287099967}
   HasCargo: 0
+  HasLeftSupport: 0
+  HasRightSupport: 0
 --- !u!1 &8392434297287099961
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,9 +291,9 @@ GameObject:
   - component: {fileID: 8392434297287099966}
   - component: {fileID: 8392434297287099964}
   - component: {fileID: 8392434297287099967}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Slot_Top
-  m_TagString: Untagged
+  m_TagString: CargoSlot
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,6 +340,8 @@ MonoBehaviour:
   ThisSlot: 2
   TopSlot: {fileID: 8392434297287099967}
   HasCargo: 0
+  HasLeftSupport: 0
+  HasRightSupport: 0
 --- !u!1 &8392434297687232148
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,9 +507,9 @@ GameObject:
   - component: {fileID: 8392434298089262389}
   - component: {fileID: 8392434298089262395}
   - component: {fileID: 8392434298089262394}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Slot_Left
-  m_TagString: Untagged
+  m_TagString: CargoSlot
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -552,3 +556,5 @@ MonoBehaviour:
   ThisSlot: 0
   TopSlot: {fileID: 8392434297287099967}
   HasCargo: 0
+  HasLeftSupport: 0
+  HasRightSupport: 0

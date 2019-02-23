@@ -44,7 +44,7 @@ public class AllyTempBehaviour : MonoBehaviour
         {
             StartCoroutine(AmmoDeplete());
         }
-        else if (CurrentHP < 0)
+        else if (CurrentHP <= 0)
         {
             RequestImage.sprite = HealRequest;
         }
@@ -54,7 +54,7 @@ public class AllyTempBehaviour : MonoBehaviour
         {
             StartCoroutine(HPDeplete());
         }
-        else if (AmmoCount < 0)
+        else if (AmmoCount <= 0)
         {
             RequestImage.sprite = AmmoRequest;
         }
