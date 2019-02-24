@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 4184698838080981600}
   - component: {fileID: 2784288225827915893}
   m_Layer: 9
-  m_Name: Pvt. Ellis Anderson
+  m_Name: Sgt. Allen Baker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,14 +421,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speech: {fileID: 9017754173389570381}
   dialogue:
-  - What are you looking at, punk?
-  - Mind your own business, unless you wanna get slugged in the face.
-  - Listen here, punk, I used to be in the biggest gang in town. Street fight is my
-    specialty.
-  - "See this knife here? If you don\u2019t stop poking your nose where it doesn\u2019t
-    belong, this will be the last thing you will ever see."
-  - "I\u2019d rather shoot some Mr.McNoName rather than being left to rot in jail."
-  - "That Jason\u2026 why is there such a wimp here in the Army?"
+  - "To judge the lost soul of our enemy is our God\u2019s duty. But sending them
+    to him is up to us."
+  - If you ever feel unsure of your way, you can come talk to me.
+  - Mankind was at peace, so God created languages to ensure conflict and strife among
+    men. Genesis 11:1-9.
+  - To keep peace, we need to prepare for war.
+  - God will  grant us this victory.
+  - Ray is a good fellow. He may be a little blunt but he meant well.
+  - "Me and Garrett goes way back. He used to come to me for advice about his work,
+    but now we\u2019re in this together."
+  - "I used to remind Ray to not be too cruel in war, but now I\u2019m not any better
+    than him."
 --- !u!33 &8379685413750234193
 MeshFilter:
   m_ObjectHideFlags: 0

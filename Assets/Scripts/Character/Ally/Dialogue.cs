@@ -6,13 +6,12 @@ using UnityEngine.UI;
 public class Dialogue : MonoBehaviour
 {
     TrenchBoyController player;    
-    public Text speech;
-    public int totalConversations = 0;
-    private int i = 0;
+    public Text speech;    
+    private int i = 0;    
+
     void Update()
     {
-        player = GetComponent<TrenchBoyController>();
-        converse();
+        player = GetComponent<TrenchBoyController>();        
     }
 
     [TextArea(3,10)]
@@ -26,18 +25,7 @@ public class Dialogue : MonoBehaviour
         if (dialogue[i + 1] != null)
         {
             i++;
-        }
-        StopAllCoroutines();
-        StartCoroutine(typeSentence(dialogue[i]));
+        }               
     }
 
-    IEnumerator typeSentence(string dialogue)
-    {
-        speech.text = "";
-        foreach(char letter in dialogue.ToCharArray())
-        {
-            speech.text += letter;
-            yield return null;
-        }
-    }
 }

@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 4184698838080981600}
   - component: {fileID: 2784288225827915893}
   m_Layer: 9
-  m_Name: Pvt. Ellis Anderson
+  m_Name: Pvt. Jason Riley
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,14 +421,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speech: {fileID: 9017754173389570381}
   dialogue:
-  - What are you looking at, punk?
-  - Mind your own business, unless you wanna get slugged in the face.
-  - Listen here, punk, I used to be in the biggest gang in town. Street fight is my
-    specialty.
-  - "See this knife here? If you don\u2019t stop poking your nose where it doesn\u2019t
-    belong, this will be the last thing you will ever see."
-  - "I\u2019d rather shoot some Mr.McNoName rather than being left to rot in jail."
-  - "That Jason\u2026 why is there such a wimp here in the Army?"
+  - Everything is so scary here. The sound of gunshots, explosions, people crying
+    in pain...
+  - "Why do we need to have war? Why can\u2019t we talk things out? I don\u2019t understand\u2026."
+  - "Hey, man, thanks for being there for me. I don\u2019t know if I\u2019d make it
+    through that without your help"
+  - I miss my home. I want to go back to my daily life already
+  - When will this be all over?
+  - "You\u2019re friends with Roy, right? Do you know why he kept glaring at me?"
 --- !u!33 &8379685413750234193
 MeshFilter:
   m_ObjectHideFlags: 0

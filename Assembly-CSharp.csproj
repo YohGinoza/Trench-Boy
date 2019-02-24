@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Character\Ally\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Character\Player\ColliderChercker.cs" />
     <Compile Include="Assets\Scripts\Character\Player\TrenchBoyController.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\InteractableObject\CargoSlot.cs" />
     <Compile Include="Assets\Scripts\InteractableObject\CartControl.cs" />
     <Compile Include="Assets\Scripts\Meds.cs" />
