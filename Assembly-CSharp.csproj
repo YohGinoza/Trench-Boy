@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ammo.cs" />
     <Compile Include="Assets\Scripts\Character\Ally\AllyTempBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Character\Ally\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Character\Player\ColliderChercker.cs" />
     <Compile Include="Assets\Scripts\Character\Player\TrenchBoyController.cs" />
     <Compile Include="Assets\Scripts\InteractableObject\CargoSlot.cs" />
