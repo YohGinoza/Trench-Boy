@@ -219,7 +219,7 @@ public class TrenchBoyController : MonoBehaviour
                 {
                     AllyTempBehaviour ally = Checker.ClosestTrigerrer.GetComponent<AllyTempBehaviour>();
 
-                    if (ally.HandItem(Inventory.GetItem()))
+                    if (ally.HandItem(Inventory.ItemInventory[Inventory.SelectedItem]))
                     {
                         Inventory.RemoveItem();
                     }

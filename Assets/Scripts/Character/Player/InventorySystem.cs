@@ -8,8 +8,8 @@ public enum ItemType { Ammo = 10, Med = 5, None = 0 };           //the number is
 
 public class InventorySystem : MonoBehaviour
 {
-    [SerializeField] private ItemType[] ItemInventory = new ItemType[2];
-    [SerializeField] private int SelectedItem;
+    /*[System.NonSerialized]*/ public ItemType[] ItemInventory = new ItemType[2];
+    /*[System.NonSerialized]*/ public int SelectedItem;
 
     public bool Add(ItemType item)
     {
@@ -35,16 +35,6 @@ public class InventorySystem : MonoBehaviour
             Added = true;
         }
         return Added;
-    }
-
-    public ItemType GetItem()
-    {
-        return ItemInventory[SelectedItem];
-    }
-
-    public ItemType GetItem(int slot)
-    {
-        return ItemInventory[slot];
     }
 
     public void RemoveItem(int slot)
