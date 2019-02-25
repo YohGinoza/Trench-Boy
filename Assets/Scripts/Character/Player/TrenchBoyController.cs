@@ -3,6 +3,8 @@
 public class TrenchBoyController : MonoBehaviour
 {
 
+    private InventorySystem Inventory;
+
     // ------------------------------
     // game objects
     // ------------------------------
@@ -33,7 +35,6 @@ public class TrenchBoyController : MonoBehaviour
     // ------------------------------
     private float carryDelay = 0.8f;
     //private bool cooldown = false;              //timer betwween put down crate and pick up pouch
-    public bool carryingPouch = false;
     public bool carryingCrate = false;
     public float interaction_time = 0.5f;
 
@@ -54,12 +55,14 @@ public class TrenchBoyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Checker = GetComponentInChildren<ColliderChercker>();
+        Checker = this.GetComponentInChildren<ColliderChercker>();
+        Inventory = this.GetComponent<InventorySystem>();
         //   crate = GetComponent<Crate>(); // wating for Crate script
     }
 
     void FixedUpdate()
     {
+        //register carrying statuses
         if (Carrier.childCount > 0)
         {
             CarriedObject = Carrier.GetChild(0);
@@ -73,6 +76,10 @@ public class TrenchBoyController : MonoBehaviour
             {
                 carryingCrate = false;
             }
+        }else if (!Inventory.isEmpty())
+        {
+            isCarrying = true;
+            carryingCrate = false;
         }
         else
         {
@@ -80,17 +87,18 @@ public class TrenchBoyController : MonoBehaviour
             isCarrying = false;
         }
 
+        //check if movable
         if (isMovable == true)
         {
-            move();
+            Move();
         }
 
-        interactions();
-        //Debug.Log(pouch);
+        //other player input
+        Interaction();
     }
 
     // ↑↓→← WASD
-    private void move()
+    private void Move()
     {
         if (isMovable == true)
         {
@@ -139,8 +147,16 @@ public class TrenchBoyController : MonoBehaviour
         }
     }
 
-    private void interactions()
+    private void Interaction()
     {
+        // ------------------
+        // cycle inventory slot
+        // ------------------
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Inventory.CycleInventory();
+        }
+
         // ------------------
         // is not Carrying
         // ------------------        
@@ -168,18 +184,23 @@ public class TrenchBoyController : MonoBehaviour
             }
         }
 
-        if (!isCarrying && Input.GetKeyUp(KeyCode.Space))
+        if ((!isCarrying || Inventory.HasEmptySlot()) && Input.GetKeyUp(KeyCode.Space))
         {
             if (delta < interaction_time)
             {
                 // pick up the POUCH
                 if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
                 {
-                    // spawn pouch in "carry position"
-                    pouch = Instantiate(med_pouch, Carrier.position, Carrier.rotation);
-                    pouch.transform.SetParent(Carrier.transform);
-                    //isCarrying = true;
-                    carryingPouch = true;
+                    Crates crate = Checker.ClosestTrigerrer.GetComponent<Crates>();
+
+                    if (crate.amount > 0)
+                    {
+                        if (Inventory.Add(crate.Type))
+                        {
+                            crate.amount--;
+                            isCarrying = true;
+                        }
+                    }
                 }
             }
             delta = 0; // stops timer            
@@ -192,14 +213,20 @@ public class TrenchBoyController : MonoBehaviour
         if (isCarrying && Input.GetKeyDown(KeyCode.Space))
         {
             // POUCH
-            if (carryingPouch)
+            if (!Inventory.isEmpty())
             {
-                Destroy(pouch.gameObject); // delete pouch                
-                carryingPouch = false;
-            }
+                if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/)
+                {
+                    AllyTempBehaviour ally = Checker.ClosestTrigerrer.GetComponent<AllyTempBehaviour>();
 
-            //crate
-            if (carryingCrate)
+                    if (ally.HandItem(Inventory.GetItem()))
+                    {
+                        Inventory.RemoveItem();
+                    }
+                }
+            }
+            //CRATE
+            else if (carryingCrate)
             {
                 if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
                 {

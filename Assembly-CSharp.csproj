@@ -60,14 +60,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Ammo.cs" />
     <Compile Include="Assets\Scripts\Character\Ally\AllyTempBehaviour.cs" />
     <Compile Include="Assets\Scripts\Character\Player\ColliderChercker.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\InventorySystem.cs" />
     <Compile Include="Assets\Scripts\Character\Player\TrenchBoyController.cs" />
     <Compile Include="Assets\Scripts\Crates.cs" />
     <Compile Include="Assets\Scripts\InteractableObject\CargoSlot.cs" />
     <Compile Include="Assets\Scripts\InteractableObject\CartMover.cs" />
-    <Compile Include="Assets\Scripts\Meds.cs" />
     <Compile Include="Assets\Scripts\Rail.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Projects/University/Trench Boy/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

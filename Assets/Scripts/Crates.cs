@@ -2,30 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Crates_Type { Ammo, Med};
-
 public class Crates : MonoBehaviour
 {
-    public int amount = 100;
-    public int pick = 10;
-    public bool access = true;
-    public Crates_Type type;
+    public ItemType Type;
+    public int amount = 10;
 
+    //temporary var
+    private Color NormalColor;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-
+        NormalColor = GetComponent<Renderer>().material.color;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         //if box is empty access will be false and box will change color to white
         if (amount <= 0)
         {
-            access = false;
             GetComponent<Renderer>().material.color = Color.white;
+        }
+        else
+        {
+            GetComponent<Renderer>().material.color = NormalColor;
         }
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8066341649201431439}
   - component: {fileID: 8057800850543714273}
   - component: {fileID: 8029885895014300149}
-  - component: {fileID: 489858605913647959}
+  - component: {fileID: 3797555326115683815}
   m_Layer: 10
   m_Name: MedCrate
   m_TagString: Crate
@@ -92,7 +92,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &489858605913647959
+--- !u!114 &3797555326115683815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,10 +101,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8034882923775483955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b84d9a75efcc94f42a3ba9904b8f5b64, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b079b966a58a2f489fb12439acccf8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carry: {fileID: 0}
-  amount: 100
-  pick: 10
-  access: 1
+  Type: 5
+  amount: 10

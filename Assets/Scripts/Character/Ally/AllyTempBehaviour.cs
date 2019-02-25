@@ -89,27 +89,34 @@ public class AllyTempBehaviour : MonoBehaviour
         Hrunning = false;
     }
 
-    public void Heal(int Amount)
+    public bool HandItem(ItemType item)
     {
-        if (CurrentHP < (MaxHP - Amount))
+        switch (item)
         {
-            CurrentHP += Amount;
+            case ItemType.Ammo:
+                if (AmmoCount < (MaxAmmo - (int)ItemType.Ammo))
+                {
+                    AmmoCount += (int)ItemType.Ammo;
+                    return true;
+                }
+                else
+                {
+                    print("Me pouches are too heavy mate.");
+                    return false;
+                }
+            case ItemType.Med:
+                if (CurrentHP < (MaxHP - (int)ItemType.Med))
+                {
+                    CurrentHP += (int)ItemType.Med;
+                    return true;
+                }
+                else
+                {
+                    print("Na, I'm good.");
+                    return false;
+                }
         }
-        else
-        {
-            print("Na, I'm good.");
-        }
-    }
-
-    public void ReSupply(int Amount)
-    {
-        if (AmmoCount < (MaxAmmo - Amount))
-        {
-            AmmoCount += Amount;
-        }
-        else
-        {
-            print("Me pouches are too heavy mate.");
-        }
+        Debug.Log("Wrong Item");
+        return false;
     }
 }

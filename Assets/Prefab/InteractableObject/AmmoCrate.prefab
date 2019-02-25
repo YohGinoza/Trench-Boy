@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3818948542523331605}
   - component: {fileID: 3808581519324272019}
   - component: {fileID: 3774830774655175123}
-  - component: {fileID: 1043144146368109339}
+  - component: {fileID: 633862013876049704}
   m_Layer: 10
   m_Name: AmmoCrate
   m_TagString: Crate
@@ -92,7 +92,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1043144146368109339
+--- !u!114 &633862013876049704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,10 +101,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3786496728226439707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91f84cc4f4871af45b85eccc4cd17432, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b079b966a58a2f489fb12439acccf8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carry: {fileID: 0}
-  amount: 100
-  pick: 10
-  access: 1
+  Type: 10
+  amount: 20
