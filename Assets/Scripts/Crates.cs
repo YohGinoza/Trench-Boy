@@ -7,6 +7,9 @@ public class Crates : MonoBehaviour
     public ItemType Type;
     public int amount = 10;
 
+    [SerializeField] private Renderer TopSide = null;
+    [SerializeField] private Material Empty;
+    [SerializeField] private Material NotEmpty;
     //temporary var
     private Color NormalColor;
 
@@ -20,11 +23,13 @@ public class Crates : MonoBehaviour
         //if box is empty access will be false and box will change color to white
         if (amount <= 0)
         {
-            GetComponent<Renderer>().material.color = Color.white;
+            //GetComponent<Renderer>().material.color = Color.white;
+            TopSide.material = Empty;
         }
         else
         {
-            GetComponent<Renderer>().material.color = NormalColor;
+            //GetComponent<Renderer>().material.color = NormalColor;
+            TopSide.material = NotEmpty;
         }
     }
 }
