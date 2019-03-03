@@ -49,7 +49,7 @@ public class TrenchBoyController : MonoBehaviour
     private Vector3 carryPos = new Vector3(0.0f, 0.5f, 0.0f);
 
     // for checking time interaction
-    float delta = 0.0f; // button hold timer
+    public float delta = 0.0f; // button hold timer
     float delay = 0.0f; // delay between interactions
 
     void Start()

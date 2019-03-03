@@ -44,9 +44,8 @@ public class CargoSlot : MonoBehaviour
                     if (HasLeftSupport && HasRightSupport)
                     {
                         //change cargo parent to this
-                        Transform childobj = this.transform.GetChild(0);
-                        childobj.SetParent(this.transform);
-                        childobj.localPosition = Vector3.zero;
+                        cargo.SetParent(this.transform);
+                        cargo.localPosition = Vector3.zero;
 
                         HasCargo = true;
                     }

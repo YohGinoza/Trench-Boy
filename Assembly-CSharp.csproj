@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\InteractableObject\CargoSlot.cs" />
     <Compile Include="Assets\Scripts\InteractableObject\CartMover.cs" />
     <Compile Include="Assets\Scripts\Rail.cs" />
+    <Compile Include="Assets\Scripts\UI\FillCircle.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Projects/University/Trench Boy/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
