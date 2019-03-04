@@ -5,9 +5,15 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
-    TrenchBoyController player;    
+    TrenchBoyController player;
+    GameController gc;
     public Text speech;    
-    private int i = 0;    
+    private int i = 0;
+
+    private void Start()
+    {
+        gc = GetComponent<GameController>();
+    }
 
     void Update()
     {
@@ -20,12 +26,11 @@ public class Dialogue : MonoBehaviour
     public void converse()
     {
         speech.enabled = true;
-        speech.text = dialogue[i];
-        speech.enabled = false;
+        speech.text = dialogue[i];        
         if (dialogue[i + 1] != null)
         {
             i++;
-        }               
+        }
     }
 
 }

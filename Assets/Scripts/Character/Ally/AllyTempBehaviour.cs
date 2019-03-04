@@ -9,6 +9,10 @@ public class AllyTempBehaviour : MonoBehaviour
     [SerializeField] private int MaxHP = 10;
     [SerializeField] private int AmmoCount = 10;
     [SerializeField] private int CurrentHP;
+    public int getCurrentHP() { return CurrentHP; }
+    public int getAmmoCount() { return AmmoCount; }    
+    public bool isDown = false;
+    public bool isDead = false;
     
     [Header("Temp variables")]
     [SerializeField] private float MinAmmoDepletionRate = 5;
@@ -111,5 +115,5 @@ public class AllyTempBehaviour : MonoBehaviour
         {
             print("Me pouches are too heavy mate.");
         }
-    }
+    } 
 }
