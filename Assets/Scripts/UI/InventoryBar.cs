@@ -20,15 +20,12 @@ public class InventoryBar : MonoBehaviour
         //med1 = GetComponentInChildren<Cell_1_Med>().GetComponent<Image>();
         med[0] = GameObject.Find("Cell_1_Med").GetComponent<Image>();
         med[1] = GameObject.Find("Cell_2_Med").GetComponent<Image>();
-        med[2] = GameObject.Find("Cell_3_Med").GetComponent<Image>();
 
         ammo[0] = GameObject.Find("Cell_1_Ammo").GetComponent<Image>();
         ammo[1] = GameObject.Find("Cell_2_Ammo").GetComponent<Image>();
-        ammo[2] = GameObject.Find("Cell_3_Ammo").GetComponent<Image>();
 
         HL[0] = GameObject.Find("Cell_1_HL").GetComponent<Image>();
         HL[1] = GameObject.Find("Cell_2_HL").GetComponent<Image>();
-        HL[2] = GameObject.Find("Cell_3_HL").GetComponent<Image>();
 
 
     }
@@ -47,17 +44,14 @@ public class InventoryBar : MonoBehaviour
             case 0:
                 HL[0].fillAmount = 1;
                 HL[1].fillAmount = 0;
-                HL[2].fillAmount = 0;
                 break;
             case 1:
                 HL[0].fillAmount = 0;
                 HL[1].fillAmount = 1;
-                HL[2].fillAmount = 0;
                 break;
             case 2:
                 HL[0].fillAmount = 0;
                 HL[1].fillAmount = 0;
-                HL[2].fillAmount = 1;
                 break;
         }
 
