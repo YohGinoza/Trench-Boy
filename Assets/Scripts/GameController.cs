@@ -51,15 +51,15 @@ public class GameController : MonoBehaviour
         
     }
 
-    void checkRemainingAllies()
-    {
-        for(int i = 0; i < alliesAmount; i++)
-        {
-            if(allies[i].isDead)
-            {
-                dead[i] = true;
-            }
-        }
-    }
+    //void checkRemainingAllies()
+    //{
+    //    for (int i = 0; i < alliesamount; i++)
+    //    {
+    //        if (allies[i].isdead)
+    //        {
+    //            dead[i] = true;
+    //        }
+    //    }
+    //}
 
 }

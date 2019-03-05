@@ -51,7 +51,6 @@ public class ColliderChercker : MonoBehaviour {
 
     public void childTransfer(Transform newparent)
     {
-        Debug.Log("dasd");
         ClosestTrigerrer.parent = newparent;
         ClosestTrigerrer.localPosition = Vector3.zero;
     }

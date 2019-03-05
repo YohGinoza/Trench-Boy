@@ -19,13 +19,13 @@ public class CargoSlot : MonoBehaviour
     {
         if (!HasCargo)
         {
-            Debug.Log("F");
             switch (ThisSlot)
             {
                 case Slots.Left:
                     //change cargo parent to this
                     cargo.SetParent(this.transform);
                     cargo.localPosition = Vector3.zero;
+                    cargo.gameObject.layer = 0;
 
                     TopSlot.HasLeftSupport = true;
                     HasCargo = true;
@@ -35,6 +35,7 @@ public class CargoSlot : MonoBehaviour
                     //change cargo parent to this
                     cargo.SetParent(this.transform);
                     cargo.localPosition = Vector3.zero;
+                    cargo.gameObject.layer = 0;
 
                     TopSlot.HasRightSupport = true;
                     HasCargo = true;
@@ -46,6 +47,7 @@ public class CargoSlot : MonoBehaviour
                         //change cargo parent to this
                         cargo.SetParent(this.transform);
                         cargo.localPosition = Vector3.zero;
+                        cargo.gameObject.layer = 0;
 
                         HasCargo = true;
                     }
@@ -59,6 +61,8 @@ public class CargoSlot : MonoBehaviour
     {
         if (HasCargo)
         {
+            HasCargo = false;
+
             switch (ThisSlot)
             {
                 case Slots.Left:
@@ -66,11 +70,11 @@ public class CargoSlot : MonoBehaviour
                     {
                         //change parent to lifter
                         Transform childobj = this.transform.GetChild(0);
+                        childobj.gameObject.layer = 10;
                         childobj.SetParent(lifter);
                         childobj.localPosition = localHoldingPosition;
 
                         TopSlot.HasLeftSupport = false;
-                        HasCargo = false;
                     }
                     break;
 
@@ -79,11 +83,11 @@ public class CargoSlot : MonoBehaviour
                     {
                         //change parent to lifter
                         Transform childobj = this.transform.GetChild(0);
+                        childobj.gameObject.layer = 10;
                         childobj.SetParent(lifter);
                         childobj.localPosition = localHoldingPosition;
 
                         TopSlot.HasRightSupport = false;
-                        HasCargo = false;
                     }
                     break;
 
@@ -91,10 +95,9 @@ public class CargoSlot : MonoBehaviour
                     {
                         //change parent to lifter 
                         Transform childobj = this.transform.GetChild(0);
+                        childobj.gameObject.layer = 10;
                         childobj.SetParent(lifter);
                         childobj.localPosition = localHoldingPosition;
-
-                        HasCargo = false;
                     }
                     break;
             }
