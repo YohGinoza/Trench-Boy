@@ -271,8 +271,8 @@ MonoBehaviour:
   MaxAmmoDepletionRate: 1.5
   MinHPDepletionRate: 3
   MaxHPDepletionRate: 4.5
-  AmmoRequest: {fileID: 21300000, guid: 9ac24a0df6a30414fbc02c1f00b91847, type: 3}
-  HealRequest: {fileID: 21300000, guid: 58ff937b78533a94e97750dc291a95c3, type: 3}
+  AmmoRequest: {fileID: 21300000, guid: 076be145c81307b4a8ea7753739935d3, type: 3}
+  HealRequest: {fileID: 21300000, guid: f45466f03868b8248b392342f18a50f3, type: 3}
   RequestImage: {fileID: 8868676952249291326}
   FiringMaterial: {fileID: 2100000, guid: a048e45d4736e8e40a6a771926916afe, type: 2}
   WaitingMaterial: {fileID: 2100000, guid: 5ef528b40b06a4249b9ce593252f6979, type: 2}
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8868676952249291320}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -415,7 +415,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9ac24a0df6a30414fbc02c1f00b91847, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

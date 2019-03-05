@@ -9,10 +9,6 @@ public class AllyTempBehaviour : MonoBehaviour
     [SerializeField] private int MaxHP = 10;
     [SerializeField] private int AmmoCount = 10;
     [SerializeField] private int CurrentHP;
-    public int getCurrentHP() { return CurrentHP; }
-    public int getAmmoCount() { return AmmoCount; }    
-    public bool isDown = false;
-    public bool isDead = false;
     
     [Header("Temp variables")]
     [SerializeField] private float MinAmmoDepletionRate = 5;
@@ -48,7 +44,7 @@ public class AllyTempBehaviour : MonoBehaviour
         {
             StartCoroutine(AmmoDeplete());
         }
-        else if (CurrentHP < 0)
+        else if (CurrentHP <= 0)
         {
             RequestImage.sprite = HealRequest;
         }
@@ -58,7 +54,7 @@ public class AllyTempBehaviour : MonoBehaviour
         {
             StartCoroutine(HPDeplete());
         }
-        else if (AmmoCount < 0)
+        else if (AmmoCount <= 0)
         {
             RequestImage.sprite = AmmoRequest;
         }
@@ -93,27 +89,34 @@ public class AllyTempBehaviour : MonoBehaviour
         Hrunning = false;
     }
 
-    public void Heal(int Amount)
+    public bool HandItem(ItemType item)
     {
-        if (CurrentHP < (MaxHP - Amount))
+        switch (item)
         {
-            CurrentHP += Amount;
+            case ItemType.Ammo:
+                if (AmmoCount < (MaxAmmo - (int)ItemType.Ammo))
+                {
+                    AmmoCount += (int)ItemType.Ammo;
+                    return true;
+                }
+                else
+                {
+                    print("Me pouches are too heavy mate.");
+                    return false;
+                }
+            case ItemType.Med:
+                if (CurrentHP < (MaxHP - (int)ItemType.Med))
+                {
+                    CurrentHP += (int)ItemType.Med;
+                    return true;
+                }
+                else
+                {
+                    print("Na, I'm good.");
+                    return false;
+                }
         }
-        else
-        {
-            print("Na, I'm good.");
-        }
+        Debug.Log("Wrong Item");
+        return false;
     }
-
-    public void ReSupply(int Amount)
-    {
-        if (AmmoCount < (MaxAmmo - Amount))
-        {
-            AmmoCount += Amount;
-        }
-        else
-        {
-            print("Me pouches are too heavy mate.");
-        }
-    } 
 }
