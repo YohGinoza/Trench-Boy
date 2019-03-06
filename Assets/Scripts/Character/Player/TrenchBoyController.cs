@@ -38,6 +38,7 @@ public class TrenchBoyController : MonoBehaviour
     public bool carryingCrate = false;
     public float CratePickUpTime = 0.5f;
     [SerializeField] private float ItemPickUpTime = 0.1f;
+    public SupplyZone ReSupplyZone = null;
 
     //--------------------------
     //Input control
@@ -179,24 +180,32 @@ public class TrenchBoyController : MonoBehaviour
             if (!isCarrying || Inventory.HasEmptySlot())
             {
                 delta += Time.deltaTime; // hold timer starts after pressing the button
-                if (!isCarrying && delta >= CratePickUpTime)
+                if (delta >= CratePickUpTime)
                 {
-                    //pick up crate
-                    if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+
+                    if (!isCarrying)
                     {
-                        Checker.ClosestTrigerrer.GetComponent<CargoSlot>().TakeOffCargo(Carrier, Vector3.zero);
-                        //isCarrying = true;
-                        carryingCrate = true;
-                        delta = 0; // stops timer
-                        spacebarUpped = true;  //count as key up
-                    }
-                    else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
-                    {
-                        Checker.childTransfer(Carrier.transform);
-                        //isCarrying = true;
-                        carryingCrate = true;
-                        delta = 0; // stops timer
-                        spacebarUpped = true;  //count as key up
+                        //pick up crate
+                        if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+                        {
+                            Checker.ClosestTrigerrer.GetComponent<CargoSlot>().TakeOffCargo(Carrier, Vector3.zero);
+                            //isCarrying = true;
+                            carryingCrate = true;
+                            delta = 0; // stops timer
+                            spacebarUpped = true;  //count as key up
+                        }
+                        else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
+                        {
+                            Checker.childTransfer(Carrier);
+                            //isCarrying = true;
+                            carryingCrate = true;
+                            delta = 0; // stops timer
+                            spacebarUpped = true;  //count as key up
+                        }
+                        else if (ReSupplyZone != null)
+                        {
+                            ReSupplyZone.SpawnNew(Carrier);
+                        }
                     }
                 }
             }
@@ -212,11 +221,11 @@ public class TrenchBoyController : MonoBehaviour
                 {
                     Crates crate = Checker.ClosestTrigerrer.GetComponent<Crates>();
 
-                    if (crate.amount > 0)
+                    if (crate.Amount > 0)
                     {
                         if (Inventory.Add(crate.Type))
                         {
-                            crate.amount--;
+                            crate.Amount--;
                             isCarrying = true;
                         }
                     }
@@ -255,6 +264,14 @@ public class TrenchBoyController : MonoBehaviour
                         Checker.ClosestTrigerrer.GetComponent<CargoSlot>().StoreCargo(CarriedObject);
                         carryingCrate = false;
                         //isCarrying = false;
+                    }
+                    else if (ReSupplyZone != null)
+                    {
+                        //refill crate
+                        if (CarriedObject != null && CarriedObject.GetComponent<Crates>())
+                        {
+                            ReSupplyZone.RefillCrate(CarriedObject.GetComponent<Crates>());
+                        }
                     }
                     else
                     {

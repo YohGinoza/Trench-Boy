@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 10
+  MaxAmount: 20
   amount: 20
   TopSide: {fileID: 5895430424000475746}
   Empty: {fileID: 2100000, guid: 2d9038fb74c7b874dbba844bac1b2c0c, type: 2}

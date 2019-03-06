@@ -28,7 +28,7 @@ public class CargoSlot : MonoBehaviour
                     cargo.gameObject.layer = 0;
 
                     TopSlot.HasLeftSupport = true;
-                    HasCargo = true;
+                    //HasCargo = true;
                     break;
 
                 case Slots.Right:
@@ -38,7 +38,7 @@ public class CargoSlot : MonoBehaviour
                     cargo.gameObject.layer = 0;
 
                     TopSlot.HasRightSupport = true;
-                    HasCargo = true;
+                    //HasCargo = true;
                     break;
 
                 case Slots.Top:
@@ -49,10 +49,11 @@ public class CargoSlot : MonoBehaviour
                         cargo.localPosition = Vector3.zero;
                         cargo.gameObject.layer = 0;
 
-                        HasCargo = true;
+                        //HasCargo = true;
                     }
                     break;
             }
+            CheckCargo();
         }
         
     }
@@ -61,8 +62,6 @@ public class CargoSlot : MonoBehaviour
     {
         if (HasCargo)
         {
-            HasCargo = false;
-
             switch (ThisSlot)
             {
                 case Slots.Left:
@@ -101,6 +100,20 @@ public class CargoSlot : MonoBehaviour
                     }
                     break;
             }
+
+            CheckCargo();
+        }
+    }
+
+    private void CheckCargo()
+    {
+        if(this.transform.childCount > 0)
+        {
+            HasCargo = true;
+        }
+        else
+        {
+            HasCargo = false;
         }
     }
 }

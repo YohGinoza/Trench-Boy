@@ -425,13 +425,16 @@ MonoBehaviour:
   ammo_pouch: {fileID: 0}
   isMovable: 1
   isCarrying: 0
-  movementSpeed: 50
-  carrySpeed: 30
-  defaultSpeed: 50
+  movementSpeed: 75
+  carrySpeed: 60
+  defaultSpeed: 75
   Carrier: {fileID: 6802985124024814885}
   world: {fileID: 0}
   carryingCrate: 0
-  interaction_time: 0.5
+  CratePickUpTime: 0.5
+  ItemPickUpTime: 0.1
+  ReSupplyZone: {fileID: 0}
+  spacebarUpped: 0
   delta: 0
 --- !u!114 &8792578434883294859
 MonoBehaviour:
