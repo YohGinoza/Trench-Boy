@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2396467542904058878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00006743496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8953560709846751534}
@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -203, y: 0}
+  m_AnchoredPosition: {x: 0.00001937151, y: 0}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8811346212511579974
@@ -114,7 +114,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6075718794723715484}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0, z: 0.45}
+  m_LocalPosition: {x: 0, y: 0, z: 1.236}
   m_LocalScale: {x: 0.0025, y: 0.0025, z: 0.0025}
   m_Children:
   - {fileID: 440690339201906958}
@@ -123,7 +123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.33, y: -0.3}
+  m_AnchoredPosition: {x: -0.05, y: 1.074}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5733214439684607823
@@ -385,7 +385,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6802985124201477957}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4de296db05ac166439edfa31734dae72, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -425,13 +425,16 @@ MonoBehaviour:
   ammo_pouch: {fileID: 0}
   isMovable: 1
   isCarrying: 0
-  movementSpeed: 50
-  carrySpeed: 30
-  defaultSpeed: 50
+  movementSpeed: 75
+  carrySpeed: 60
+  defaultSpeed: 75
   Carrier: {fileID: 6802985124024814885}
   world: {fileID: 0}
   carryingCrate: 0
-  interaction_time: 0.5
+  CratePickUpTime: 0.5
+  ItemPickUpTime: 0.1
+  ReSupplyZone: {fileID: 0}
+  spacebarUpped: 0
   delta: 0
 --- !u!114 &8792578434883294859
 MonoBehaviour:
@@ -538,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClosestTrigerrer: {fileID: 0}
-  TriggererRadius: 0.75
+  TriggererRadius: 0.85
   TrigererLayer:
     serializedVersion: 2
     m_Bits: 3584

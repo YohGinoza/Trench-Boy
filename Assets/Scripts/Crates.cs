@@ -5,7 +5,8 @@ using UnityEngine;
 public class Crates : MonoBehaviour
 {
     public ItemType Type;
-    public int amount = 10;
+    [SerializeField] private int MaxAmount = 10;
+    public int Amount = 10;
 
     [SerializeField] private Renderer TopSide = null;
     [SerializeField] private Material Empty;
@@ -21,7 +22,7 @@ public class Crates : MonoBehaviour
     private void FixedUpdate()
     {
         //if box is empty access will be false and box will change color to white
-        if (amount <= 0)
+        if (Amount <= 0)
         {
             //GetComponent<Renderer>().material.color = Color.white;
             TopSide.material = Empty;
@@ -31,5 +32,10 @@ public class Crates : MonoBehaviour
             //GetComponent<Renderer>().material.color = NormalColor;
             TopSide.material = NotEmpty;
         }
+    }
+
+    public void Refill()
+    {
+        Amount = MaxAmount;
     }
 }

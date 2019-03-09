@@ -267,10 +267,10 @@ MonoBehaviour:
   MaxHP: 10
   AmmoCount: 15
   CurrentHP: 0
-  MinAmmoDepletionRate: 1
-  MaxAmmoDepletionRate: 1.5
-  MinHPDepletionRate: 3
-  MaxHPDepletionRate: 4.5
+  MinAmmoDepletionRate: 3
+  MaxAmmoDepletionRate: 12
+  MinHPDepletionRate: 4
+  MaxHPDepletionRate: 20
   AmmoRequest: {fileID: 21300000, guid: 076be145c81307b4a8ea7753739935d3, type: 3}
   HealRequest: {fileID: 21300000, guid: f45466f03868b8248b392342f18a50f3, type: 3}
   RequestImage: {fileID: 8868676952249291326}

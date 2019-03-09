@@ -36,8 +36,15 @@ public class TrenchBoyController : MonoBehaviour
     private float carryDelay = 0.8f;
     //private bool cooldown = false;              //timer betwween put down crate and pick up pouch
     public bool carryingCrate = false;
-    public float interaction_time = 0.5f;
+    public float CratePickUpTime = 0.5f;
+    [SerializeField] private float ItemPickUpTime = 0.1f;
+    public SupplyZone ReSupplyZone = null;
 
+    //--------------------------
+    //Input control
+    //--------------------------
+    public bool spacebarUpped = false;             //some situation we don't want the game to register spacebar up twice 
+                                                    //(such as when drop/pick up crate) so it won't pick up item at the same time
 
 
     Rigidbody rb;
@@ -58,6 +65,18 @@ public class TrenchBoyController : MonoBehaviour
         Checker = this.GetComponentInChildren<ColliderChercker>();
         Inventory = this.GetComponent<InventorySystem>();
         //   crate = GetComponent<Crate>(); // wating for Crate script
+    }
+
+    private void Update()
+    {
+        //check if movable
+        if (isMovable == true)
+        {
+            Move();
+        }
+
+        //other player input
+        Interaction();
     }
 
     void FixedUpdate()
@@ -86,15 +105,6 @@ public class TrenchBoyController : MonoBehaviour
             CarriedObject = null;
             isCarrying = false;
         }
-
-        //check if movable
-        if (isMovable == true)
-        {
-            Move();
-        }
-
-        //other player input
-        Interaction();
     }
 
     // ↑↓→← WASD
@@ -157,99 +167,129 @@ public class TrenchBoyController : MonoBehaviour
             Inventory.CycleInventory();
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Inventory.RemoveItem();
+        }
+
         // ------------------
         // is not Carrying
-        // ------------------        
-        if (!isCarrying && Input.GetKey(KeyCode.Space))
+        // ------------------
+        if (!spacebarUpped && Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("not carry");
-            delta += Time.deltaTime; // hold timer starts after pressing the button
-
-            if (delta >= interaction_time)
+            if (!isCarrying || Inventory.HasEmptySlot())
             {
-                //pick up crate
-                if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+                delta += Time.deltaTime; // hold timer starts after pressing the button
+                if (delta >= CratePickUpTime)
                 {
-                    Checker.ClosestTrigerrer.GetComponent<CargoSlot>().TakeOffCargo(Carrier, Vector3.zero);
-                    //isCarrying = true;
-                    carryingCrate = true;
+
+                    if (!isCarrying)
+                    {
+                        //pick up crate
+                        if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+                        {
+                            Checker.ClosestTrigerrer.GetComponent<CargoSlot>().TakeOffCargo(Carrier, Vector3.zero);
+                            //isCarrying = true;
+                            carryingCrate = true;
+                            delta = 0; // stops timer
+                            spacebarUpped = true;  //count as key up
+                        }
+                        else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
+                        {
+                            Checker.childTransfer(Carrier);
+                            //isCarrying = true;
+                            carryingCrate = true;
+                            delta = 0; // stops timer
+                            spacebarUpped = true;  //count as key up
+                        }
+                        else if (ReSupplyZone != null)
+                        {
+                            ReSupplyZone.SpawnNew(Carrier);
+                        }
+                    }
                 }
-                else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
-                {
-                    Checker.childTransfer(Carrier.transform);
-                    //isCarrying = true;
-                    carryingCrate = true;
-                }
-                delta = 0; // stops timer    
             }
         }
 
-        if ((!isCarrying || Inventory.HasEmptySlot()) && Input.GetKeyUp(KeyCode.Space))
+        if (!spacebarUpped && Input.GetKeyUp(KeyCode.Space))
         {
-            if (delta < interaction_time)
+            Debug.Log("UP");
+            if ((!isCarrying || Inventory.HasEmptySlot()) && delta < ItemPickUpTime)
             {
                 // pick up the POUCH
                 if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
                 {
                     Crates crate = Checker.ClosestTrigerrer.GetComponent<Crates>();
 
-                    if (crate.amount > 0)
+                    if (crate.Amount > 0)
                     {
                         if (Inventory.Add(crate.Type))
                         {
-                            crate.amount--;
+                            crate.Amount--;
                             isCarrying = true;
                         }
                     }
                 }
             }
-            delta = 0; // stops timer            
+            delta = 0; // stops timer 
+            spacebarUpped = true;
         }
 
-
-        // ------------------
-        // is Carrying
-        // ------------------
-        if (isCarrying && Input.GetKeyDown(KeyCode.Space))
+        if (spacebarUpped && Input.GetKeyDown(KeyCode.Space))
         {
-            // POUCH
-            if (!Inventory.isEmpty())
+            spacebarUpped = false;
+            // ------------------
+            // is Carrying
+            // ------------------
+            if (isCarrying)
             {
-                if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/)
+                // POUCH
+                if (!Inventory.isEmpty())
                 {
-                    AllyTempBehaviour ally = Checker.ClosestTrigerrer.GetComponent<AllyTempBehaviour>();
-
-                    if (ally.HandItem(Inventory.ItemInventory[Inventory.SelectedItem]))
+                    if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/)
                     {
-                        Inventory.RemoveItem();
+                        AllyTempBehaviour ally = Checker.ClosestTrigerrer.GetComponent<AllyTempBehaviour>();
+
+                        if (ally.HandItem(Inventory.ItemInventory[Inventory.SelectedItem]))
+                        {
+                            Inventory.RemoveItem();
+                        }
                     }
                 }
-            }
-            //CRATE
-            else if (carryingCrate)
-            {
-                if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+                //CRATE
+                else if (carryingCrate)
                 {
-                    Debug.Log("F");
-                    Checker.ClosestTrigerrer.GetComponent<CargoSlot>().StoreCargo(CarriedObject);
-                    carryingCrate = false;
-                    //isCarrying = false;
-                }
-                else
-                {
-                    //put down box
-                    // ************************* will change after engine proof *****************************
-                    CarriedObject.localPosition = facing;
-                    CarriedObject.SetParent(world);
-                    CarriedObject.position = new Vector3(CarriedObject.position.x, CarriedObject.transform.lossyScale.y * 0.5f, CarriedObject.position.z);
+                    if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+                    {
+                        Checker.ClosestTrigerrer.GetComponent<CargoSlot>().StoreCargo(CarriedObject);
+                        carryingCrate = false;
+                        //isCarrying = false;
+                    }
+                    else if (ReSupplyZone != null)
+                    {
+                        //refill crate
+                        if (CarriedObject != null && CarriedObject.GetComponent<Crates>())
+                        {
+                            ReSupplyZone.RefillCrate(CarriedObject.GetComponent<Crates>());
+                        }
+                    }
+                    else
+                    {
+                        //put crate box
+                        // ************************* will change after engine proof *****************************
+                        CarriedObject.localPosition = facing;
+                        CarriedObject.SetParent(world);
+                        CarriedObject.position = new Vector3(CarriedObject.position.x, CarriedObject.transform.lossyScale.y * 0.5f, CarriedObject.position.z);
 
-                    carryingCrate = false;
-                    //isCarrying = false;
+                        carryingCrate = false;
+                        //isCarrying = false;
+                    }
+                    spacebarUpped = true;
+                    delta = 0;
                 }
             }
         }
 
-        
     }
 
 }

@@ -25,7 +25,7 @@ public class FillCircle : MonoBehaviour
 
         //------ Get delta and interaction_time from player --------------
         UIdelta = GameObject.Find("Player").GetComponent<TrenchBoyController>().delta;
-        fill = UIdelta / GameObject.Find("Player").GetComponent<TrenchBoyController>().interaction_time;
+        fill = UIdelta / GameObject.Find("Player").GetComponent<TrenchBoyController>().CratePickUpTime;
 
 
         //------ Check if Interactacle or not ------
