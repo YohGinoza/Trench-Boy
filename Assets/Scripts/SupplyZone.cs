@@ -6,6 +6,7 @@ public class SupplyZone : MonoBehaviour
 {
     [SerializeField] private ItemType SupplyType;
     [SerializeField] GameObject Crate;
+    [SerializeField] private int CrateNumberLimit = 15;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,8 +28,21 @@ public class SupplyZone : MonoBehaviour
 
     public void SpawnNew(Transform Holder)
     {
-        GameObject newCrate = Instantiate(Crate, Holder);
-        newCrate.transform.localPosition = Vector3.zero;
+        int CrateNumber = 0;
+        GameObject[] crates = GameObject.FindGameObjectsWithTag("Crate");
+        foreach(GameObject crate in crates)
+        {
+            if(crate.GetComponent<Crates>().Type == SupplyType)
+            {
+                CrateNumber++;
+            }
+        }
+
+        if (CrateNumber <= CrateNumberLimit)
+        {
+            GameObject newCrate = Instantiate(Crate, Holder);
+            newCrate.transform.localPosition = Vector3.zero;
+        }
     }
 
     public void RefillCrate(Crates crate)

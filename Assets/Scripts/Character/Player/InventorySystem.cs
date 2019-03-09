@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//soon to be moved to gamecontrol ==============
-public enum ItemType { Ammo = 10, Med = 5, None = 0 };           //the number is amount per pouch
-//==============================================
-
 public class InventorySystem : MonoBehaviour
 {
     /*[System.NonSerialized]*/ public ItemType[] ItemInventory = new ItemType[2];
