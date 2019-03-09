@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClosestTrigerrer: {fileID: 0}
-  TriggererRadius: 0.75
+  TriggererRadius: 0.85
   TrigererLayer:
     serializedVersion: 2
     m_Bits: 3584
