@@ -47,7 +47,7 @@ public class FillCircle : MonoBehaviour
             fillImg.fillAmount = 0;
             fillComplete = false;
         }
-        else if (fillImg.fillAmount < 1 && !fillComplete) //if fill amout is less than 1, fill incomplete and canfill start fill circle
+        else if (fillImg.fillAmount < 1 && UIdelta > 0.2f && !fillComplete) //if fill amout is less than 1, fill incomplete and canfill start fill circle
         {
             fillImg.fillAmount = fill; 
         }
