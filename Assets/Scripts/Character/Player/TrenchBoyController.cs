@@ -248,7 +248,7 @@ public class TrenchBoyController : MonoBehaviour
                 {
                     if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/)
                     {
-                        AllyTempBehaviour ally = Checker.ClosestTrigerrer.GetComponent<AllyTempBehaviour>();
+                        AllyBehaviour ally = Checker.ClosestTrigerrer.GetComponent<AllyBehaviour>();
 
                         if (ally.HandItem(Inventory.ItemInventory[Inventory.SelectedItem]))
                         {
