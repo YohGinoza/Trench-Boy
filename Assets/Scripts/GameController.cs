@@ -45,7 +45,7 @@ public enum ItemType
 
 public class GameController : MonoBehaviour
 {
-    public bool[] AlliesAliveStatus = new bool[20];
+    public static bool[] AlliesAliveStatus = new bool[20];
 
     //time
     private GameState CurrentState = GameState.Day;
@@ -57,11 +57,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private EnemySpawner[] EnemySpawners = new EnemySpawner[5];
     [SerializeField] private float EnemySpawnRate;
 
-    [SerializeField] private bool DayEnded = false;
+    public bool DayEnded = false;
 
     //night
-    [SerializeField] private int NightInteractionLimit = 6;
-    private int NightTimeInteractCounter = 0;
+    public int NightInteractionLimit = 6;
+    public int NightTimeInteractCounter = 0;
     public bool CaptainCall = false;
 
     void Start()
