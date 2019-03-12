@@ -42,6 +42,7 @@ public class BulletBehaviour : MonoBehaviour
 
     private void Disable()
     {
+        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         this.gameObject.SetActive(false);
     }
 }
