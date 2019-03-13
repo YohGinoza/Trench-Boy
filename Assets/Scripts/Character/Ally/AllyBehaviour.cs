@@ -10,7 +10,6 @@ public class AllyBehaviour : MonoBehaviour
 
     [Range(0.5f, 2)] [SerializeField] private float ShotDelay;
     [Range(0, 1)] [SerializeField] private float Accuracy;
-    [SerializeField] private float BulletLaunchForce;
     //[Range(0, 10)] [SerializeField] private float AimingPatience;
     //[Range(0, 1)] [SerializeField] private float SteadyHand;
     //[Range(0, 1)] [SerializeField] private float GunQuality;
@@ -19,6 +18,7 @@ public class AllyBehaviour : MonoBehaviour
     [Range(0, 30)] [SerializeField] private float WaitingPatience;
 
     [Header("General Setting")]
+    const float BulletLaunchForce = 4;
     [SerializeField] private int MaxAmmo = 30;
     [SerializeField] private int AmmoCount = 10;
     [SerializeField] private bool Injured = false;
