@@ -291,4 +291,10 @@ public class EnemyBehaviour : MonoBehaviour
     {
         Gizmos.DrawWireCube(this.transform.position, new Vector3(AwareBoxSize, AwareBoxSize, 0.2f));
     }
+
+    public IEnumerator cutBarbedWire()
+    {
+        yield return new WaitForSeconds(BarbedWire.CUTTING_TIME);
+        GameController.DayEnded = true;
+    }
 }

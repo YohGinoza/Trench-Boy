@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4270845474083110826}
   m_Layer: 12
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,6 @@ MonoBehaviour:
   AwareBoxSize: 3
   GrenadeLimit: 1
   GrenadesThrowChance: 0.25
-  ThrowingAccuracy: 0
   ThrowingTime: 0.5
   GrenadeArriveTime: 3
   MaxTargetDistance: 15
@@ -113,6 +112,7 @@ MonoBehaviour:
     type: 3}
   CoverIgnoreDistance: 2
   ArrivingDistance: 1.1
+  GrenadeCount: 0
   SuppressedTimer: 0
   MovingTarget: {fileID: 0}
 --- !u!195 &4270845474083110826

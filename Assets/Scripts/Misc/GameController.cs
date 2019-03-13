@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private EnemySpawner[] EnemySpawners = new EnemySpawner[5];
     [SerializeField] private float EnemySpawnRate;
 
-    public bool DayEnded = false;
+   static public bool DayEnded = false;
 
     //night
     public int NightInteractionLimit = 6;
@@ -116,6 +116,10 @@ public class GameController : MonoBehaviour
             case GameState.Wait:
                 
                 break;
+        }
+        if (DayEnded)
+        {
+            Debug.Log("DAY ENDED");
         }
     }
 

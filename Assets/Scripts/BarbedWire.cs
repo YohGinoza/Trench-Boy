@@ -7,10 +7,20 @@ public class BarbedWire : MonoBehaviour
     GameController gc;
     BarbedWire bw;
 
-    private float delta = 0.0f;
+   
     private bool cuttingBarbedWire = false;
     [SerializeField] private bool BarbedWireModeHP = true;
+
+    //============
+    // HP
+    //============
     public float HP = 100.0f;
+    
+    //============
+    // THRESHOLD
+    //============
+    private float delta = 0.0f;
+    static public float CUTTING_TIME = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,22 +33,12 @@ public class BarbedWire : MonoBehaviour
         
     }    
 
-    void DestroyGameObject()
-    {
-        Destroy(bw);
-    }
-
-    void DestroyScriptInstance()
-    {
-        // Removes this script instance from the game object
-        Destroy(this);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
             cuttingBarbedWire = true;
+            other.GetComponent<EnemyBehaviour>().StartCoroutine("cutBarbedWire");
         }        
     }
 
@@ -48,25 +48,24 @@ public class BarbedWire : MonoBehaviour
         {            
             if (BarbedWireModeHP)
             {
+                //============
                 // HP MODE
+                //============
                 HP -= Time.deltaTime;
-            }
-            else
-            {
-                // THRESHOLD MODE
-                delta += Time.deltaTime;
-                if (delta >= 5)
+                if (HP <= 0.0f)
                 {
-                    DestroyGameObject();
-                    DestroyScriptInstance();
+                    GameController.DayEnded = true;
                 }
-            }            
+            }                    
         }        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        cuttingBarbedWire = false;
-        delta = 0.0f;
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyBehaviour>().StopCoroutine("cutBarbedWire");
+            cuttingBarbedWire = false;            
+        }
     }
 }
