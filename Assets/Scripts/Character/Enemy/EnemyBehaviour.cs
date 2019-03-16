@@ -1,36 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    [Header("Personal Data")]
-
     [Range(0.5f, 2)] [SerializeField] private float ShotDelay;
     [Range(0, 1)] [SerializeField] private float Accuracy;
-    [SerializeField] private float BulletLaunchForce;
-    //[Range(0, 10)] [SerializeField] private float AimingPatience;
-    //[Range(0, 1)] [SerializeField] private float SteadyHand;
-    //[Range(0, 1)] [SerializeField] private float GunQuality;
-    //[Range(0, 1)] [SerializeField] private float AimingPrioritizer;
-    //[Tooltip("Time before this unit get back to shooting after medical request is ignnored")]
+    [Range(0, 10)] [SerializeField] private float Aggressiveness;
+    [SerializeField] private float AwareBoxSize = 2.5f;
+    [SerializeField] private int GrenadeLimit = 1;
+    [Range(0, 1)] [SerializeField] private float GrenadesThrowChance = 0.25f;
+    //[Range(0, 1)] [SerializeField] private float ThrowingAccuracy;
+    [SerializeField] private float ThrowingTime = 0.5f;
+    [SerializeField] private float GrenadeArriveTime = 3;
 
-    [Header("General Setting")]
+    const float BulletLaunchForce = 4;
     [SerializeField] private float MaxTargetDistance = 15;
     [SerializeField] private float UrgentTargetZDistance = 3;
-    [SerializeField] private LayerMask EnemyLayer;
+    [SerializeField] private LayerMask TargetLayer;
+
+    [SerializeField] private LayerMask BulletLayer;
 
     [SerializeField] private Transform Muzzle;
     [SerializeField] private int BulletPoolSize = 2;
     [SerializeField] private GameObject BulletPrefab;
+    [SerializeField] private GameObject GrenadePrefab;
+
+    [SerializeField] private float CoverIgnoreDistance = 1.5f;
+    [SerializeField] private float ArrivingDistance = 2;
 
     //background process variable
+    private NavMeshAgent Agent;
     private Transform CurrentTarget;
-    //private float TargetDistance;
     private bool Shooting = false;
+
     private GameObject[] BulletPool;
+    private GameObject[] GrenadePool;
 
+    public float GrenadeCount = 0;
 
+    public float SuppressedTimer = 0;
+    public Transform MovingTarget;
+    bool ThrowingDecided = false;
+    bool WillThrowGrenade = false;
 
 
     private void Start()
@@ -41,15 +54,161 @@ public class EnemyBehaviour : MonoBehaviour
             BulletPool[i] = Instantiate(BulletPrefab);
             BulletPool[i].SetActive(false);
         }
+
+        GrenadePool = new GameObject[GrenadeLimit];
+        for (int i = 0; i < GrenadeLimit; i++)
+        {
+            GrenadePool[i] = Instantiate(GrenadePrefab);
+            GrenadePool[i].SetActive(false);
+        }
+    }
+
+    private void Awake()
+    {
+        Agent = this.GetComponent<NavMeshAgent>();
+        Agent.enabled = false;
+        GrenadeCount = GrenadeLimit;
+        MovingTarget = this.transform;
     }
 
     private void FixedUpdate()
     {
         //if not shooting, find new target
-
-        if (!Shooting)
+        
+        if (SuppressedTimer > (10 - Aggressiveness))
         {
-            StartCoroutine(Shoot());
+            //take action
+            Action();
+            //Debug.Log("actions");
+        }
+        else
+        {
+            //hold position and fire
+            Agent.enabled = false;
+            if (!Shooting)
+            {
+                StartCoroutine(Shoot());
+            }
+        }
+
+        //suppressed
+        Collider[] Bullets = Physics.OverlapBox(this.transform.position, new Vector3(AwareBoxSize / 2, AwareBoxSize / 2, 0.1f), this.transform.rotation, BulletLayer);
+        foreach(Collider bullet in Bullets)
+        {
+            if(bullet.GetComponent<Rigidbody>().velocity.z > 0)
+            {
+                SuppressedTimer = 0;
+                break;
+            }
+        }
+
+        SuppressedTimer += Time.fixedDeltaTime;
+    }
+
+    private void Action()
+    {
+        //pop out
+        if (!ThrowingDecided)
+        {
+            if (GrenadeCount > 0 && Random.Range(0, 1) < GrenadesThrowChance)
+            {
+                WillThrowGrenade = true;
+                StartCoroutine(ThrowGrenade());
+            }
+            else
+            {
+                WillThrowGrenade = false;
+            }
+            ThrowingDecided = true;
+        }
+
+        if(ThrowingDecided && !WillThrowGrenade)
+        {
+            if (!Agent.enabled)
+            {
+                Agent.enabled = true;
+                AdvancePosition();
+                Agent.SetDestination(MovingTarget.position);
+            }
+            else if ((this.transform.position - Agent.destination).magnitude < ArrivingDistance)
+            {
+                Agent.SetDestination(this.transform.position);
+                ThrowingDecided = false;
+                SuppressedTimer = 0;
+                Agent.enabled = false;
+            }
+        }
+        //print("this " + this.transform.position + "target " + Agent.destination + "distance" + (this.transform.position - Agent.destination).magnitude);
+    }
+
+    private IEnumerator ThrowGrenade()
+    {
+        FindNewTarget();
+        yield return new WaitForSeconds(ThrowingTime);
+        //throws at target
+        if (CurrentTarget != null)
+        {
+            foreach (GameObject grenade in GrenadePool)
+            {
+                if (!grenade.activeSelf)
+                {
+                    grenade.SetActive(true);
+                    //change later
+                    grenade.transform.position = Muzzle.position;
+
+                    float Xdiff = CurrentTarget.position.x - this.transform.position.x;
+                    float zdiff = CurrentTarget.position.z - this.transform.position.z;
+                    Vector2 Direction = new Vector2(Xdiff, zdiff);
+                    float heightDiff = CurrentTarget.position.y - this.transform.position.y;
+                    float mass = grenade.GetComponent<Rigidbody>().mass;
+                    float Ux = Direction.magnitude / GrenadeArriveTime;
+                    float Uy = heightDiff - (0.5f * Physics.gravity.y * GrenadeArriveTime);
+
+                    Vector3 ThrowForce = new Vector3((Direction.normalized * Ux).x, Uy, (Direction.normalized * Ux).y) * mass;
+                    grenade.GetComponent<Rigidbody>().AddForce(ThrowForce, ForceMode.Impulse);
+                    GrenadeCount--;
+                    break;
+                }
+            }
+        }
+
+        WillThrowGrenade = false;
+    }
+
+    private void AdvancePosition()
+    {
+        float closestDistance = 100;
+        GameObject ClosestPoint = null;
+        GameObject[] Covers = GameObject.FindGameObjectsWithTag("EnemyCover");
+        GameObject[] BarbedWires = GameObject.FindGameObjectsWithTag("BarbedWire");
+
+        Debug.Log(Covers.Length);
+        foreach (GameObject BarbedWire in BarbedWires)
+        {
+            if ((BarbedWire.transform.position.z < this.transform.position.z) && ((BarbedWire.transform.position - this.transform.position).magnitude > CoverIgnoreDistance) && ((BarbedWire.transform.position - this.transform.position).magnitude < closestDistance))
+            {
+                closestDistance = (BarbedWire.transform.position - this.transform.position).magnitude;
+                ClosestPoint = BarbedWire;
+            }
+        }
+
+        foreach (GameObject Cover in Covers)
+        {
+            if ((Cover.transform.position.z < this.transform.position.z) && ((Cover.transform.position - this.transform.position).magnitude > CoverIgnoreDistance) && ((Cover.transform.position - this.transform.position).magnitude < closestDistance))
+            {
+                closestDistance = (Cover.transform.position - this.transform.position).magnitude;
+                ClosestPoint = Cover;
+            }
+        }
+
+        if(ClosestPoint != null)
+        {
+            Debug.Log(ClosestPoint);
+            MovingTarget = ClosestPoint.transform;
+        }
+        else
+        {
+            MovingTarget = this.transform;
         }
     }
 
@@ -59,35 +218,21 @@ public class EnemyBehaviour : MonoBehaviour
         CurrentTarget = null;
 
         //collect targets
-        Collider[] Enemies = Physics.OverlapSphere(this.transform.position, MaxTargetDistance, EnemyLayer);
+        Collider[] Targets = Physics.OverlapSphere(this.transform.position, MaxTargetDistance, TargetLayer);
 
         //find target
         float ClosestPriorDistance = MaxTargetDistance;
         float ClosestLowPriorDistance = MaxTargetDistance;
         bool HasUrgentTarget = false; //target that is too close to trench line
 
-        foreach (Collider enemy in Enemies)
+        foreach (Collider target in Targets)
         {
-            float ZDistance = enemy.transform.position.z - this.transform.position.z;
-            float Distance = (enemy.transform.position - this.transform.position).magnitude;
+            float Distance = (target.transform.position - this.transform.position).magnitude;
 
-            if (ZDistance <= UrgentTargetZDistance)
+            if (Distance <= ClosestLowPriorDistance)
             {
-                HasUrgentTarget = true;
-                if (Distance <= ClosestPriorDistance)
-                {
-                    ClosestPriorDistance = Distance;
-                    CurrentTarget = enemy.transform;
-                }
-
-            }
-            else if (!HasUrgentTarget)
-            {
-                if (Distance <= ClosestLowPriorDistance)
-                {
-                    ClosestLowPriorDistance = Distance;
-                    CurrentTarget = enemy.transform;
-                }
+                ClosestLowPriorDistance = Distance;
+                CurrentTarget = target.transform;
             }
         }
     }
@@ -125,7 +270,7 @@ public class EnemyBehaviour : MonoBehaviour
                 bullet.SetActive(true);
                 bullet.transform.position = Muzzle.position;
                 bullet.GetComponent<Rigidbody>().AddForce(FiringDirection, ForceMode.Impulse);
-                bullet.GetComponent<BulletBehaviour>().TargetLayer = EnemyLayer;
+                bullet.GetComponent<BulletBehaviour>().TargetLayer = TargetLayer;
                 break;
             }
         }
@@ -142,8 +287,14 @@ public class EnemyBehaviour : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        //Gizmos.DrawLine;
+        Gizmos.DrawWireCube(this.transform.position, new Vector3(AwareBoxSize, AwareBoxSize, 0.2f));
+    }
+
+    public IEnumerator cutBarbedWire()
+    {
+        yield return new WaitForSeconds(BarbedWire.CUTTING_TIME);
+        GameController.DayEnded = true;
     }
 }

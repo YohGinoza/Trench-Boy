@@ -419,16 +419,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34681ed3360b6944b4a32da484a4cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue_text: []
+  ending_text: []
+  special_text: []
   speech: {fileID: 9017754173389570381}
-  dialogue:
-  - "My family is a family of doctor. The saved a lot of lives back at my hometown,
-    but I think there\u2019s more to do than sitting in the office and waiting for
-    the injured to come to you."
-  - Sometimes, the best way to save lives is to take one.
-  - "We need to do something about the condition of medical room. If it\u2019s not
-    cleaned properly, the wounds will be infected and more people will die."
-  - "Helping other people is fine and all, but don\u2019t forget to take care of yourself."
-  - "Take care. You can\u2019t save anyone if you\u2019re dead yourself."
+  dayLimit: 0
+  specialTrigger: 0
+  friends: 0000000001000000
 --- !u!33 &8379685413750234193
 MeshFilter:
   m_ObjectHideFlags: 0
