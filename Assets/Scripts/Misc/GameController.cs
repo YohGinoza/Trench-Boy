@@ -45,7 +45,10 @@ public enum ItemType
 
 public class GameController : MonoBehaviour
 {
-    public static bool[] AlliesAliveStatus = new bool[20];
+    public static bool[] AlliesAliveStatus = new bool[12];
+    
+    public static bool[] AlliesDieToday = new bool[12];
+    public static bool[] AlliesDiePrev = new bool[12];
 
     //time
     private GameState CurrentState = GameState.Day;
@@ -66,7 +69,10 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-
+        for(int i = 0;i < AlliesAliveStatus.Length; i++)
+        {
+            AlliesAliveStatus[i] = true; 
+        }
     }
 
     // Update is called once per frame
@@ -114,13 +120,45 @@ public class GameController : MonoBehaviour
                 CaptainCall = NightTimeInteractCounter >= NightInteractionLimit;
                 break;
             case GameState.Wait:
-                
+                Debug.Log("Wait");
+                DayEnd();
                 break;
         }
+
         if (DayEnded)
         {
+            
             Debug.Log("DAY ENDED");
+            CurrentState = GameState.Wait;
         }
+    }
+
+    void DayEnd()
+    {
+        
+        //check from AlliesAliveStatus and AlliesDiePrev
+        for (int i = 0;i < AlliesAliveStatus.Length; i++)
+        {
+            if (!AlliesAliveStatus[i] && !AlliesDiePrev[i])
+            {
+                AlliesDieToday[i] = true;
+            }
+
+        }
+
+        AlliesDiePrev = AlliesDieToday;
+
+        //for debug
+        for (int i = 0; i < AlliesDieToday.Length; i++)
+        {
+            if (AlliesDieToday[i])
+            {
+                Debug.Log(i);
+            }
+            
+        }
+
+
     }
 
     //void checkRemainingAllies()
