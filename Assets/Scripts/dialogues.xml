@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DialogueCollection>
+  <dialogues>
+    <friend name ="TEMPLATE TEMPLATE">
+      <dialogue id ="D"> <!--normal dialogue-->
+        <number n ="1">
+          <conversation speaker ="NPC">   TEXT</conversation>
+          <conversation speaker ="Player">TEXT</conversation>
+        </number>
+        <number n ="2">
+          <conversation speaker ="NPC">   TEXT</conversation>
+          <conversation speaker ="Player">TEXT</conversation>
+        </number>
+      </dialogue>
+      <dialogue id ="E"> <!--ending dialogue-->
+        <number n ="1">
+          <conversation speaker ="NPC">   TEXT</conversation>
+        </number>
+      </dialogue>
+      <dialogue id ="S"> <!--special dialogue-->
+        <condition dead ="NAME">
+          <conversation speaker ="NPC">   TEXT</conversation>
+          <conversation speaker ="Player">TEXT</conversation>
+        </condition>
+      </dialogue>
+    </friend>
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <friend name ="Sgt. Allen Baker">
+      <dialogue id ="D"> <!--normal dialogue-->
+        <number n ="1">
+          <conversation speaker ="NPC">   Greetings, soldier. It's late at night, a perfect time for prayer, don't you agree?</conversation>
+          <conversation speaker ="Player">Yes, sir!</conversation>
+          <conversation speaker ="NPC">   Haha, don't be so stiff. It's relax time so I won't mind some informal conversation.</conversation>
+          <conversation speaker ="Player">Understood.</conversation>
+          <conversation speaker ="NPC">   I don't think we've met before being deployed here. I'm Allen. Allen Baker.</conversation>
+          <conversation speaker ="NPC">   Nice to meet you. Hope we will make it through this together.</conversation>
+          <conversation speaker ="Player">I hope so, sir</conversation>
+          <conversation speaker ="NPC">   Don't be so negative. If you ever feel unsure of your way forward, you are welcome to come and talk to me.</conversation>
+          <conversation speaker ="Player">Thank you, sir.</conversation>
+        </number>"
+      </dialogue>
+      <dialogue id ="E"> <!--ending dialogue-->
+        <number n ="1">
+          <conversation speaker ="NPC">   I'll stay here a while longer for prayer. May God bless you.</conversation>
+        </number>
+      </dialogue>
+      <dialogue id ="S"> <!--special dialogue-->
+        <condition dead ="Cpl. Ray Garett">
+          <conversation speaker ="NPC">   Damn, can't believe this is happenning for real...</conversation>
+          <conversation speaker ="Player">What happened, sir?</conversation>
+          <conversation speaker ="NPC">   That bastard Garett, he actually went and die before me. Always acting cool and composed. He shouldn't be killed this easily...</conversation>
+          <conversation speaker ="Player">My condolence, sir...</conversation>
+          <conversation speaker ="NPC">   It's okay. We just have to avenge him. That's all we need to do.</conversation>
+        </condition>
+      </dialogue>"
+    </friend>    
+  </dialogues>
+</DialogueCollection>
