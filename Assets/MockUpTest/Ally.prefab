@@ -259,7 +259,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8868676952117954862}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4de296db05ac166439edfa31734dae72, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -296,13 +296,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Identity: 0
   ShotDelay: 1
-  Accuracy: 0.773
+  Accuracy: 0.5
   WaitingPatience: 30
   MaxAmmo: 30
   AmmoCount: 10
   Injured: 0
   MaxTargetDistance: 15
-  UrgentTargetZDistance: 3
+  UrgentTargetZDistance: 6
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 4096

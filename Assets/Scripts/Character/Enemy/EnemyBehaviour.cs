@@ -290,5 +290,6 @@ public class EnemyBehaviour : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireCube(this.transform.position, new Vector3(AwareBoxSize, AwareBoxSize, 0.2f));
+        Gizmos.DrawWireSphere(this.transform.position, MaxTargetDistance);
     }
 }

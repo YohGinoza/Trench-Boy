@@ -238,8 +238,10 @@ public class AllyBehaviour : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        //Gizmos.DrawLine;
+        Gizmos.DrawWireSphere(this.transform.position, MaxTargetDistance);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(this.transform.position + Vector3.left * 3 + Vector3.forward * UrgentTargetZDistance + Vector3.up * 2, this.transform.position + Vector3.right * 3 + Vector3.forward * UrgentTargetZDistance + Vector3.up * 2);
     }
 }
