@@ -12,7 +12,7 @@ public class BulletBehaviour : MonoBehaviour
     private void Start()
     {
         //Ignore Bullet/BarbedWire
-        Physics.GetIgnoreLayerCollision(13, 14);
+        Physics.IgnoreLayerCollision(13, 14);
     }
 
     private void FixedUpdate()

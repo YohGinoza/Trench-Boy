@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class AllyBehaviour : MonoBehaviour
 {
+    public enum State { Shooting, Waiting, Downed, Healing };
+
     [Header("Personal Data")]
     [SerializeField] private Ally Identity;
 
@@ -21,7 +23,8 @@ public class AllyBehaviour : MonoBehaviour
     const float BulletLaunchForce = 4;
     [SerializeField] private int MaxAmmo = 30;
     [SerializeField] private int AmmoCount = 10;
-    [SerializeField] private bool Injured = false;
+    [SerializeField] private float BleedingEndurance = 30;
+    [SerializeField] private float RecoverTime = 10;
 
     [SerializeField] private float MaxTargetDistance = 15;
     [SerializeField] private float UrgentTargetZDistance = 3;
@@ -32,10 +35,16 @@ public class AllyBehaviour : MonoBehaviour
     [SerializeField] private GameObject BulletPrefab;
 
     //background process variable
+    public State CurrentState = State.Shooting;
     private Transform CurrentTarget;
     //private float TargetDistance;
     private bool Shooting = false;
     private GameObject[] BulletPool;
+    [SerializeField] private bool Injured = false;
+    private bool Downed = false;
+    private bool Healing = false;
+    private float BleedingTimer;
+    private float RecoveryTimer;
 
     private float WaitTimer = 0;
 
@@ -43,6 +52,8 @@ public class AllyBehaviour : MonoBehaviour
     [SerializeField] private Sprite AmmoRequest;
     [SerializeField] private Sprite HealRequest;
     [SerializeField] private Image RequestImage;
+    [SerializeField] private Image RescueGauge;
+    [SerializeField] private Image HealGauge;
 
     [SerializeField] private Material FiringMaterial;
     [SerializeField] private Material WaitingMaterial;
@@ -57,85 +68,147 @@ public class AllyBehaviour : MonoBehaviour
             BulletPool[i] = Instantiate(BulletPrefab);
             BulletPool[i].SetActive(false);
         }
+
+        BleedingTimer = 1;
+        RecoveryTimer = 0;
     }
 
     private void FixedUpdate()
     {
         //if not shooting, find new target
-        
 
-        if(Injured && WaitTimer <= WaitingPatience)
+        if (!Downed)
         {
-            WaitTimer += Time.fixedDeltaTime;
-            //stop shooting
-            StopCoroutine(Shoot());
-        }
-        else
-        {
-            if (!Shooting && AmmoCount > 0)
+            if (AmmoCount > 0 && (!Injured || WaitTimer >= WaitingPatience))
             {
-                StartCoroutine(Shoot());
+                CurrentState = State.Shooting;
             }
+            else if (AmmoCount <= 0 || (Injured && WaitTimer < WaitingPatience))
+            {
+                CurrentState = State.Waiting;
+            }
+        }
+        else if (Downed && BleedingTimer <= 0)
+        {
+            Dead();
+        }
+        else if (CurrentState != State.Healing)
+        {
+            CurrentState = State.Downed;
         }
 
         //check availability
-        if (AmmoCount > 0 && (!Injured || WaitTimer >= WaitingPatience))
-        {
-            RequestImage.enabled = false;
-            renderer.material = FiringMaterial;
+        //if (AmmoCount > 0 && (!Injured || WaitTimer >= WaitingPatience))
+        //{
+        //    RequestImage.enabled = false;
+        //    renderer.material = FiringMaterial;
 
-            //duck
-            this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
-        }
-        else
-        {
-            RequestImage.enabled = true;
-            renderer.material = WaitingMaterial;
+        //    //popup
+        //    this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
+        //}
+        //else
+        //{
+        //    RequestImage.enabled = true;
+        //    renderer.material = WaitingMaterial;
 
-            //popup
-            this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
-        }
+        //    //duck
+        //    this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
+        //}
 
         //set request image
-        if (Injured)
-        {
-            RequestImage.sprite = HealRequest;
-        }else if (AmmoCount <= 0)
-        {
-            RequestImage.sprite = AmmoRequest;
-        }
-    }
+        //if (Downed)
+        //{
+        //    //Show timer
+        //}
+        //else if (Injured)
+        //{
+        //    RequestImage.sprite = HealRequest;
+        //}
+        //else if (AmmoCount <= 0)
+        //{
+        //    RequestImage.sprite = AmmoRequest;
+        //}
 
-    public bool HandItem(ItemType item)
-    {
-        switch (item)
+        switch (CurrentState)
         {
-            case ItemType.Ammo:
-                if (AmmoCount < (MaxAmmo - (int)ItemType.Ammo))
+            case State.Shooting:
+                //toggle UI
+                RescueGauge.gameObject.SetActive(false);
+                RequestImage.enabled = false;
+                HealGauge.gameObject.SetActive(false);
+
+                renderer.material = FiringMaterial;
+
+                if (!Shooting && AmmoCount > 0)
                 {
-                    AmmoCount += (int)ItemType.Ammo;
-                    return true;
+                    StartCoroutine(Shoot());
                 }
-                else
-                {
-                    print("Me pouches are too heavy mate.");
-                    return false;
-                }
-            case ItemType.Med:
+                //popup
+                this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
+                break;
+
+            case State.Waiting:
+                //toggle UI
+                RescueGauge.gameObject.SetActive(false);
+                RequestImage.enabled = true;
+                HealGauge.gameObject.SetActive(false);
+
+                renderer.material = WaitingMaterial;
+
+                //duck
+                this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
+
+                //stop shooting
+                StopCoroutine(Shoot());
+
                 if (Injured)
                 {
-                    Injured = false;
-                    WaitTimer = 0;
-                    return true;
+                    RequestImage.sprite = HealRequest;
+                    WaitTimer += Time.fixedDeltaTime;
                 }
-                else
+                else if (AmmoCount <= 0)
                 {
-                    print("Na, I'm good.");
-                    return false;
+                    RequestImage.sprite = AmmoRequest;
                 }
+
+                break;
+
+            case State.Downed:
+                //toggle UI
+                RequestImage.enabled = false;
+                RescueGauge.gameObject.SetActive(true);
+                HealGauge.gameObject.SetActive(false);
+
+                renderer.material = WaitingMaterial;
+
+                //lie down
+                this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
+
+                //stop shooting
+                StopCoroutine(Shoot());
+
+                //update timer
+                BleedingTimer -= Time.fixedDeltaTime / BleedingEndurance;
+                RescueGauge.transform.GetChild(0).GetComponent<Image>().fillAmount = BleedingTimer;
+                break;
+
+            case State.Healing:
+                //toggle UI
+                RequestImage.enabled = false;
+                RescueGauge.gameObject.SetActive(false);
+                HealGauge.gameObject.SetActive(true);
+
+                if (!Healing)
+                {
+                    StartCoroutine(Recover());
+                }
+
+                //show timer
+                RecoveryTimer += Time.fixedDeltaTime / RecoverTime;
+                HealGauge.transform.GetChild(0).GetComponent<Image>().fillAmount = RecoveryTimer;
+
+                break;
         }
-        Debug.Log("Wrong Item");
-        return false;
     }
 
     private void FindNewTarget()
@@ -211,6 +284,7 @@ public class AllyBehaviour : MonoBehaviour
                 bullet.transform.position = Muzzle.position;
                 bullet.GetComponent<Rigidbody>().AddForce(FiringDirection, ForceMode.Impulse);
                 bullet.GetComponent<BulletBehaviour>().TargetLayer = EnemyLayer;
+                AmmoCount--;
                 break;
             }
         }
@@ -225,12 +299,63 @@ public class AllyBehaviour : MonoBehaviour
         }
         else
         {
-            Dead();
+            Down();
+            RecoveryTimer = 0;
         }
+    }
+
+    private IEnumerator Recover()
+    {
+        Healing = true;
+        yield return new WaitForSeconds(RecoverTime);
+        Downed = false;
+        Injured = false;
+
+        BleedingTimer = 1;
+        Healing = false;
+    }
+
+    private void Down()
+    {
+        Downed = true;
+    }
+
+    public bool HandItem(ItemType item)
+    {
+        switch (item)
+        {
+            case ItemType.Ammo:
+                if (AmmoCount < (MaxAmmo - (int)ItemType.Ammo))
+                {
+                    AmmoCount += (int)ItemType.Ammo;
+                    return true;
+                }
+                else
+                {
+                    print("Me pouches are too heavy mate.");
+                    return false;
+                }
+            case ItemType.Med:
+                if (Injured)
+                {
+                    Injured = false;
+                    WaitTimer = 0;
+                    return true;
+                }
+                else
+                {
+                    print("Na, I'm good.");
+                    return false;
+                }
+        }
+        Debug.Log("Wrong Item");
+        return false;
     }
 
     private void Dead ()
     {
+        this.transform.parent = null;
+
         //Collect deceased data
         GameController.AlliesAliveStatus[(int)Identity] = false;
 

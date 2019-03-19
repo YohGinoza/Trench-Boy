@@ -31,7 +31,7 @@ public class TrenchBoyController : MonoBehaviour
     [SerializeField] private Transform world;
 
     // ------------------------------
-    // POUCH or CRATE
+    // Interactable Item
     // ------------------------------
     private float carryDelay = 0.8f;
     //private bool cooldown = false;              //timer betwween put down crate and pick up pouch
@@ -39,7 +39,7 @@ public class TrenchBoyController : MonoBehaviour
     public float CratePickUpTime = 0.5f;
     [SerializeField] private float ItemPickUpTime = 0.1f;
     public SupplyZone ReSupplyZone = null;
-
+    public MedicalBed MedBed = null;
     //--------------------------
     //Input control
     //--------------------------
@@ -189,18 +189,22 @@ public class TrenchBoyController : MonoBehaviour
                         if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
                         {
                             Checker.ClosestTrigerrer.GetComponent<CargoSlot>().TakeOffCargo(Carrier, Vector3.zero);
-                            //isCarrying = true;
-                            carryingCrate = true;
                             delta = 0; // stops timer
                             spacebarUpped = true;  //count as key up
                         }
                         else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
                         {
                             Checker.childTransfer(Carrier);
-                            //isCarrying = true;
-                            carryingCrate = true;
                             delta = 0; // stops timer
                             spacebarUpped = true;  //count as key up
+                        }else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Ally") && Checker.ClosestTrigerrer.GetComponent<AllyBehaviour>().CurrentState == AllyBehaviour.State.Downed)
+                        {
+                            Checker.childTransfer(Carrier);
+                            delta = 0; // stops timer
+                            spacebarUpped = true;  //count as key up
+
+                            //prevent from stuck in ground, will change later
+                            Checker.ClosestTrigerrer.GetComponent<Collider>().isTrigger = true;
                         }
                         else if (ReSupplyZone != null)
                         {
@@ -286,6 +290,29 @@ public class TrenchBoyController : MonoBehaviour
                     }
                     spacebarUpped = true;
                     delta = 0;
+                }
+                //ALLY
+                else if (CarriedObject.CompareTag("Ally"))
+                {
+                    if (MedBed != null)
+                    {
+                        //reenable collider, will change later
+                        CarriedObject.GetComponent<Collider>().isTrigger = false;
+
+                        MedBed.PutPatient(CarriedObject);
+                    }
+                    else
+                    {
+                        //just put down
+                        CarriedObject.localPosition = facing;
+                        CarriedObject.SetParent(world);
+                        CarriedObject.position = new Vector3(CarriedObject.position.x, CarriedObject.transform.lossyScale.y * 0.5f, CarriedObject.position.z);
+
+                        //reenable collider, will change later
+                        CarriedObject.GetComponent<Collider>().isTrigger = false;
+
+                        carryingCrate = false;
+                    }
                 }
             }
         }
