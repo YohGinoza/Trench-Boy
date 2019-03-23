@@ -201,7 +201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6802985124024814885
 Transform:
   m_ObjectHideFlags: 0
@@ -434,6 +434,7 @@ MonoBehaviour:
   CratePickUpTime: 0.5
   ItemPickUpTime: 0.1
   ReSupplyZone: {fileID: 0}
+  MedBed: {fileID: 0}
   spacebarUpped: 0
   delta: 0
 --- !u!114 &8792578434883294859
