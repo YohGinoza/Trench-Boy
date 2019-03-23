@@ -83,6 +83,8 @@ public class GameController : MonoBehaviour
     static public bool DayEnded = false;
     static public bool DayEndedCheck = false;
 
+    static public bool BarbedWireDestroyed = false;
+
     //night
     public int NightInteractionLimit = 6;
     public int NightTimeInteractCounter = 0;
@@ -179,7 +181,17 @@ public class GameController : MonoBehaviour
                 if (DayEndedCheck)
                 {
                    DayEnd();
-                   DayEnd_UI.GetComponent<DayEndUI>().addDeadList();
+                   if (!BarbedWireDestroyed)
+                   {
+                        DayEnd_UI.transform.Find("RestartButton").gameObject.SetActive(false);
+                        DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(true);
+                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList();
+                   }
+                   else
+                   {
+                        DayEnd_UI.transform.Find("RestartButton").gameObject.SetActive(true);
+                        DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
+                    }
                 }
 
                 

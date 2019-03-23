@@ -297,5 +297,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(BarbedWire.CUTTING_TIME);
         GameController.DayEnded = true;
+        GameController.BarbedWireDestroyed = true;
     }
 }
