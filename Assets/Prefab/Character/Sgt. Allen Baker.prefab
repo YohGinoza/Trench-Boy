@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 4347858487276783450}
   - component: {fileID: 6167803717407479753}
   - component: {fileID: 9017754173389570381}
-  - component: {fileID: 1632158549536935119}
+  - component: {fileID: 3480768661913030571}
   - component: {fileID: 8379685413750234193}
   - component: {fileID: 2495602363616885711}
   m_Layer: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &1632158549536935119
+--- !u!114 &3480768661913030571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -416,23 +416,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3453186416705926299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34681ed3360b6944b4a32da484a4cf3, type: 3}
+  m_Script: {fileID: 11500000, guid: 352ff97ea00a16e45a73b08e71cc3ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ThisPerson: 1
+  ending_text: []
+  index_Friendship: 0
+  index_Ending: 0
   speech: {fileID: 9017754173389570381}
-  dialogue:
-  - "To judge the lost soul of our enemy is our God\u2019s duty. But sending them
-    to him is up to us."
-  - If you ever feel unsure of your way, you can come talk to me.
-  - Mankind was at peace, so God created languages to ensure conflict and strife among
-    men. Genesis 11:1-9.
-  - To keep peace, we need to prepare for war.
-  - God will  grant us this victory.
-  - Ray is a good fellow. He may be a little blunt but he meant well.
-  - "Me and Garrett goes way back. He used to come to me for advice about his work,
-    but now we\u2019re in this together."
-  - "I used to remind Ray to not be too cruel in war, but now I\u2019m not any better
-    than him."
+  dayLimit: 0
+  specialTrigger: 0
+  friends: 
 --- !u!33 &8379685413750234193
 MeshFilter:
   m_ObjectHideFlags: 0

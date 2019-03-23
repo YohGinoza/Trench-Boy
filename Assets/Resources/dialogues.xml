@@ -23,7 +23,7 @@
           <conversation speaker ="Player">TEXT</conversation>
         </condition>
       </dialogue>
-    </friend>
+    </friend>    
     <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
     <friend name ="Sgt. Allen Baker">
       <dialogue id ="D"> <!--normal dialogue-->
