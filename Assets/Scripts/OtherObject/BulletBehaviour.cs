@@ -9,6 +9,12 @@ public class BulletBehaviour : MonoBehaviour
 
     private float LifeTime = 0;
 
+    private void Start()
+    {
+        //Ignore Bullet/BarbedWire
+        Physics.IgnoreLayerCollision(13, 14);
+    }
+
     private void FixedUpdate()
     {
         if (this.gameObject.activeSelf)

@@ -89,14 +89,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotDelay: 1.5
-  Accuracy: 0.285
-  Aggressiveness: 7
+  Accuracy: 0.2
+  Aggressiveness: 4
   AwareBoxSize: 3
   GrenadeLimit: 1
   GrenadesThrowChance: 0.25
   ThrowingTime: 0.5
   GrenadeArriveTime: 3
-  MaxTargetDistance: 15
+  MaxTargetDistance: 10
   UrgentTargetZDistance: 3
   TargetLayer:
     serializedVersion: 2
