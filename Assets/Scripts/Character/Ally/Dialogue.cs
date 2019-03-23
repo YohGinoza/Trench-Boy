@@ -28,10 +28,4 @@ public class Dialogue
 
     [XmlElement("Text")]
     public string text;
-
-    private void Start()
-    {
-
-        Debug.Log("YAY");
-    }
 }
