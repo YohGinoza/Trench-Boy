@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -170,6 +171,7 @@ public class GameController : MonoBehaviour
                 break;
             case GameState.Wait:
                 Debug.Log("Wait");
+                PauseGame();
 
                 Inventory_UI.SetActive(false);
                 DayEnd_UI.SetActive(true);
@@ -229,6 +231,36 @@ public class GameController : MonoBehaviour
         //checked
         DayEndedCheck = false;
 
+    }
+
+    public void Button_stageChange(int NextState)
+    {
+        if((GameState)NextState != GameState.Wait)
+        {
+            ContinueGame();
+        }
+
+        if((GameState)NextState == GameState.Day)
+        {
+            SceneManager.LoadScene("Angled3D");
+        }
+
+        if ((GameState)NextState == GameState.Night)
+        {
+            //SceneManager.LoadScene("Angled3D");
+        }
+
+        CurrentState = (GameState)NextState;
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void ContinueGame()
+    {
+        Time.timeScale = 1;
     }
 
     //void checkRemainingAllies()
