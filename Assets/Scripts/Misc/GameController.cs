@@ -71,10 +71,10 @@ public class GameController : MonoBehaviour
     };
 
     //time
-    private GameState CurrentState = GameState.Day;
+    public GameState CurrentState = GameState.Day;
     private Day CurrentDay = Day.DAY_1;
-    [Range(0, 1)] [SerializeField] private float TimeOfDay = 0;
-    [SerializeField] private float DayLenght = 180;
+    [Range(0, 1)] public float TimeOfDay = 0;
+    public float DayLenght = 180;
 
     //enemy
     [SerializeField] private EnemySpawner[] EnemySpawners = new EnemySpawner[5];
@@ -169,6 +169,9 @@ public class GameController : MonoBehaviour
 
                 break;
             case GameState.Night:
+                Inventory_UI.SetActive(true);
+                DayEnd_UI.SetActive(false);
+
                 CaptainCall = NightTimeInteractCounter >= NightInteractionLimit;
                 break;
             case GameState.Wait:
