@@ -55,6 +55,7 @@ public class BarbedWire : MonoBehaviour
                 if (HP <= 0.0f)
                 {
                     GameController.DayEnded = true;
+                    GameController.BarbedWireDestroyed = true;
                 }
             }                    
         }        
