@@ -17,9 +17,17 @@ public class DayEndUI : MonoBehaviour
     
     void Update()
     {
-        Text_Head.text = "Day End Result \n" +
+        if (!GameController.BarbedWireDestroyed)
+        {
+            Text_Head.text = "Day End Result \n" +
                          "Remaining Allies = " + GameController.AlliesRamaining +
                          "\n\nDie today:";
+        }
+        else
+        {
+            Text_Head.text = "BarbedWire has been Destroyed !!";
+        }
+        
         
     }
 
