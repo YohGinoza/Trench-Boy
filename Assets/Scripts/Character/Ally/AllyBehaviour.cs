@@ -59,6 +59,11 @@ public class AllyBehaviour : MonoBehaviour
     [SerializeField] private Material WaitingMaterial;
     private Renderer renderer;
 
+    public AudioClip callMedClip;
+    public AudioClip callAmmoClip;
+    public AudioSource callSource;
+    private bool call = false;
+
     private void Start()
     {
         renderer = this.GetComponentInChildren<MeshRenderer>();
@@ -163,12 +168,27 @@ public class AllyBehaviour : MonoBehaviour
 
                 if (Injured)
                 {
+
                     RequestImage.sprite = HealRequest;
+                    if (!call)
+                    {
+                        callSource.clip = callMedClip;
+                        callSource.Play();
+                        call = true;
+                    }
+
                     WaitTimer += Time.fixedDeltaTime;
                 }
                 else if (AmmoCount <= 0)
                 {
                     RequestImage.sprite = AmmoRequest;
+
+                    if (!call)
+                    {
+                        callSource.clip = callAmmoClip;
+                        callSource.Play();
+                        call = true;
+                    }
                 }
 
                 break;
@@ -328,23 +348,27 @@ public class AllyBehaviour : MonoBehaviour
                 if (AmmoCount < (MaxAmmo - (int)ItemType.Ammo))
                 {
                     AmmoCount += (int)ItemType.Ammo;
+                    call = false;
                     return true;
                 }
                 else
                 {
                     print("Me pouches are too heavy mate.");
+                    call = false;
                     return false;
                 }
             case ItemType.Med:
                 if (Injured)
                 {
                     Injured = false;
+                    call = false;
                     WaitTimer = 0;
                     return true;
                 }
                 else
                 {
                     print("Na, I'm good.");
+                    call = false;
                     return false;
                 }
         }
