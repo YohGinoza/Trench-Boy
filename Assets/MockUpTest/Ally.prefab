@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 8868676951994309356}
   - component: {fileID: 8868676951994309347}
   - component: {fileID: 8868676951994309346}
+  - component: {fileID: 6358657687686328800}
   m_Layer: 0
   m_Name: AllyQuad
   m_TagString: Untagged
@@ -408,7 +409,7 @@ Transform:
   m_GameObject: {fileID: 8868676951994309359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 8868676952117954848}
   m_RootOrder: 0
@@ -438,7 +439,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a048e45d4736e8e40a6a771926916afe, type: 2}
+  - {fileID: 2100000, guid: b5a5401ec21d79c488d919887e9b30bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -458,6 +459,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &6358657687686328800
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868676951994309359}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2772539da9b4b2f4b94b2875aa969246, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8868676952073757303
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +608,7 @@ Transform:
   m_GameObject: {fileID: 8868676952117954862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.46, z: 1}
   m_Children:
   - {fileID: 8868676951994309356}
   - {fileID: 8868676952073757300}

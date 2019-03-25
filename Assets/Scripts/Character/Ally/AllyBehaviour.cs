@@ -55,9 +55,10 @@ public class AllyBehaviour : MonoBehaviour
     [SerializeField] private Image RescueGauge;
     [SerializeField] private Image HealGauge;
 
-    [SerializeField] private Material FiringMaterial;
-    [SerializeField] private Material WaitingMaterial;
-    private Renderer renderer;
+    //[SerializeField] private Material FiringMaterial;
+    //[SerializeField] private Material WaitingMaterial;
+    //private Renderer renderer;
+    private Animator animator;
 
     public AudioClip callMedClip;
     public AudioClip callAmmoClip;
@@ -66,7 +67,8 @@ public class AllyBehaviour : MonoBehaviour
 
     private void Start()
     {
-        renderer = this.GetComponentInChildren<MeshRenderer>();
+        animator = this.GetComponentInChildren<Animator>();
+        //renderer = this.GetComponentInChildren<MeshRenderer>();
         BulletPool = new GameObject[BulletPoolSize];
         for (int i = 0; i < BulletPoolSize; i++)
         {
@@ -142,7 +144,7 @@ public class AllyBehaviour : MonoBehaviour
                 RequestImage.enabled = false;
                 HealGauge.gameObject.SetActive(false);
 
-                renderer.material = FiringMaterial;
+                //renderer.material = FiringMaterial;
 
                 if (!Shooting && AmmoCount > 0)
                 {
@@ -158,7 +160,8 @@ public class AllyBehaviour : MonoBehaviour
                 RequestImage.enabled = true;
                 HealGauge.gameObject.SetActive(false);
 
-                renderer.material = WaitingMaterial;
+                //renderer.material = WaitingMaterial;
+
 
                 //duck
                 this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
@@ -199,7 +202,7 @@ public class AllyBehaviour : MonoBehaviour
                 RescueGauge.gameObject.SetActive(true);
                 HealGauge.gameObject.SetActive(false);
 
-                renderer.material = WaitingMaterial;
+                //renderer.material = WaitingMaterial;
 
                 //lie down
                 this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
@@ -229,6 +232,9 @@ public class AllyBehaviour : MonoBehaviour
 
                 break;
         }
+
+        animator.SetBool("Downed", CurrentState == State.Downed);
+        animator.SetBool("Calling", CurrentState == State.Waiting);
     }
 
     private void FindNewTarget()
@@ -286,6 +292,7 @@ public class AllyBehaviour : MonoBehaviour
             yield return new WaitForSeconds(ShotDelay);
             //fire
             ShootBullet(BulletForce);
+            animator.SetTrigger("Fire");
         }
         else
         {

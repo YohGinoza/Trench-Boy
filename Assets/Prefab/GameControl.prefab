@@ -8,36 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2458125570042988540}
+  - component: {fileID: 6453776335399155394}
   - component: {fileID: 6453776335399155393}
-  - component: {fileID: 8287176314428581646}
-  - component: {fileID: 1620632609319967121}
   m_Layer: 0
   m_Name: GameControl
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2458125570042988540
-RectTransform:
+--- !u!4 &6453776335399155394
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6453776335399155392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.076172}
+  m_LocalPosition: {x: 4.217407, y: -5.2226562, z: -4.076172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.217407, y: -5.2226562}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6453776335399155393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c93fbce1f53591429131893318325ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentState: 0
   TimeOfDay: 0
   DayLenght: 180
   EnemySpawners:
@@ -58,45 +52,7 @@ MonoBehaviour:
   NightInteractionLimit: 6
   NightTimeInteractCounter: 0
   CaptainCall: 0
---- !u!222 &8287176314428581646
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453776335399155392}
-  m_CullTransparentMesh: 0
---- !u!114 &1620632609319967121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453776335399155392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
+  Inventory_UI: {fileID: 3220376879124853448, guid: eb25772eeedd11445ae4e92ff19bf63a,
+    type: 3}
+  DayEnd_UI: {fileID: 4801921732705857577, guid: 5e12f5e94f2430d489382d1ff5a94b70,
+    type: 3}
