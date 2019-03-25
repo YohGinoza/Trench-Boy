@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b89d44182eafad4aa291b07e2e19262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotDelay: 1.5
+  ShotDelay: 1
   Accuracy: 0.2
   Aggressiveness: 4
   AwareBoxSize: 3
@@ -96,7 +96,7 @@ MonoBehaviour:
   GrenadesThrowChance: 0.25
   ThrowingTime: 0.5
   GrenadeArriveTime: 3
-  MaxTargetDistance: 10
+  MaxTargetDistance: 30
   UrgentTargetZDistance: 3
   TargetLayer:
     serializedVersion: 2

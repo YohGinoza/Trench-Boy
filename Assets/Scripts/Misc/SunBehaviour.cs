@@ -21,7 +21,6 @@ public class SunBehaviour : MonoBehaviour
     {
         SunLight = this.GetComponent<Light>();
         //SunAxis = this.transform.forward;
-        Debug.Log(this.transform.rotation);
     }
 
     private void FixedUpdate()
@@ -36,21 +35,21 @@ public class SunBehaviour : MonoBehaviour
                     MappedTime = gameController.TimeOfDay / (BrightestMorningTime);
                     CurrentLightColor = Color.Lerp(DawnLightColor, DayLightColor, MappedTime);
                     SunLight.intensity = MappedTime;
-                    Debug.Log("Morning");
+                    //Debug.Log("Morning");
                 }
                 else if (gameController.TimeOfDay >= BrightestAfterNoonTime && gameController.TimeOfDay < DawnTime)
                 {
                     MappedTime = (gameController.TimeOfDay - BrightestAfterNoonTime) / (DawnTime - BrightestAfterNoonTime);
                     CurrentLightColor = Color.Lerp(DayLightColor, DawnLightColor, MappedTime);
                     SunLight.intensity = 1 - (MappedTime - 0.1f);
-                    Debug.Log("Dawn");
+                    //Debug.Log("Dawn");
                 }
                 else if (gameController.TimeOfDay >= DawnTime)
                 {
                     MappedTime = (gameController.TimeOfDay - DawnTime) / (1 - DawnTime);
                     CurrentLightColor = Color.Lerp(DawnLightColor, NightLightColor, MappedTime);
                     SunLight.intensity = 0.1f;
-                    Debug.Log("Night");
+                    //Debug.Log("Night");
                 }
 
                 //rotate sun

@@ -675,7 +675,8 @@ MonoBehaviour:
   AmmoCount: 10
   BleedingEndurance: 30
   RecoverTime: 10
-  MaxTargetDistance: 15
+  MaxTargetDistance: 30
+  MaxTargetAngle: 30
   UrgentTargetZDistance: 6
   EnemyLayer:
     serializedVersion: 2
@@ -691,8 +692,6 @@ MonoBehaviour:
   RequestImage: {fileID: 8868676952249291326}
   RescueGauge: {fileID: 7053294865970538561}
   HealGauge: {fileID: 3168777536581703862}
-  FiringMaterial: {fileID: 2100000, guid: a048e45d4736e8e40a6a771926916afe, type: 2}
-  WaitingMaterial: {fileID: 2100000, guid: 5ef528b40b06a4249b9ce593252f6979, type: 2}
   callMedClip: {fileID: 8300000, guid: 9046ef4a4e880a741adc02883ecdc7f9, type: 3}
   callAmmoClip: {fileID: 8300000, guid: fc7ab028de6b1e34db6a4917af0aabf9, type: 3}
   callSource: {fileID: 750863550397373879}

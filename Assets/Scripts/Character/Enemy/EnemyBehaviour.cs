@@ -92,7 +92,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         //suppressed
-        Collider[] Bullets = Physics.OverlapBox(this.transform.position, new Vector3(AwareBoxSize / 2, AwareBoxSize / 2, 0.1f), this.transform.rotation, BulletLayer);
+        Collider[] Bullets = Physics.OverlapBox(this.transform.position + Vector3.back * AwareBoxSize / 2, new Vector3(AwareBoxSize / 2, AwareBoxSize / 2, AwareBoxSize / 2), this.transform.rotation, BulletLayer);
         foreach(Collider bullet in Bullets)
         {
             if(bullet.GetComponent<Rigidbody>().velocity.z > 0)
@@ -182,7 +182,7 @@ public class EnemyBehaviour : MonoBehaviour
         GameObject[] Covers = GameObject.FindGameObjectsWithTag("EnemyCover");
         GameObject[] BarbedWires = GameObject.FindGameObjectsWithTag("BarbedWire");
 
-        Debug.Log(Covers.Length);
+        //Debug.Log(Covers.Length);
         foreach (GameObject BarbedWire in BarbedWires)
         {
             if ((BarbedWire.transform.position.z < this.transform.position.z) && ((BarbedWire.transform.position - this.transform.position).magnitude > CoverIgnoreDistance) && ((BarbedWire.transform.position - this.transform.position).magnitude < closestDistance))
@@ -203,7 +203,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if(ClosestPoint != null)
         {
-            Debug.Log(ClosestPoint);
+            //Debug.Log(ClosestPoint);
             MovingTarget = ClosestPoint.transform;
         }
         else
@@ -289,7 +289,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireCube(this.transform.position, new Vector3(AwareBoxSize, AwareBoxSize, 0.2f));
+        Gizmos.DrawWireCube(this.transform.position + Vector3.back * AwareBoxSize / 2, new Vector3(AwareBoxSize, AwareBoxSize, AwareBoxSize));
         Gizmos.DrawWireSphere(this.transform.position, MaxTargetDistance);
     }
 

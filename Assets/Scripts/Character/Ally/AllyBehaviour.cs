@@ -27,6 +27,7 @@ public class AllyBehaviour : MonoBehaviour
     [SerializeField] private float RecoverTime = 10;
 
     [SerializeField] private float MaxTargetDistance = 15;
+    [Range(0, 90)] [SerializeField] private float MaxTargetAngle = 60;
     [SerializeField] private float UrgentTargetZDistance = 3;
     [SerializeField] private LayerMask EnemyLayer;
 
@@ -40,6 +41,7 @@ public class AllyBehaviour : MonoBehaviour
     //private float TargetDistance;
     private bool Shooting = false;
     private GameObject[] BulletPool;
+
     [SerializeField] private bool Injured = false;
     private bool Downed = false;
     private bool Healing = false;
@@ -253,8 +255,10 @@ public class AllyBehaviour : MonoBehaviour
         foreach (Collider enemy in Enemies)
         {
             float ZDistance = enemy.transform.position.z - this.transform.position.z;
+            float XDistance = Mathf.Abs(enemy.transform.position.x - this.transform.position.x);
             float Distance = (enemy.transform.position - this.transform.position).magnitude;
 
+            //target get too close
             if (ZDistance <= UrgentTargetZDistance)
             {
                 HasUrgentTarget = true;
@@ -265,12 +269,16 @@ public class AllyBehaviour : MonoBehaviour
                 }
 
             }
+            //no target get close, focus on each own lane
             else if (!HasUrgentTarget)
             {
-                if (Distance <= ClosestLowPriorDistance)
+                if (Mathf.Abs((Mathf.Atan2(ZDistance, XDistance) * Mathf.Rad2Deg) - 90) <= MaxTargetAngle)
                 {
-                    ClosestLowPriorDistance = Distance;
-                    CurrentTarget = enemy.transform;
+                    if (Distance <= ClosestLowPriorDistance)
+                    {
+                        ClosestLowPriorDistance = Distance;
+                        CurrentTarget = enemy.transform;
+                    }
                 }
             }
         }
@@ -394,10 +402,24 @@ public class AllyBehaviour : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, MaxTargetDistance);
+        if (CurrentTarget == null)
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(this.transform.position + Vector3.up, MaxTargetDistance);
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(this.transform.position + Vector3.up, CurrentTarget.position);
+        }
+
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(this.transform.position + Vector3.left * 3 + Vector3.forward * UrgentTargetZDistance + Vector3.up * 2, this.transform.position + Vector3.right * 3 + Vector3.forward * UrgentTargetZDistance + Vector3.up * 2);
+
+        //target cone
+        Gizmos.DrawLine(this.transform.position + Vector3.up, this.transform.position + new Vector3(Mathf.Cos((90 + MaxTargetAngle) * Mathf.Deg2Rad) * 100, 1, Mathf.Sin((90 + MaxTargetAngle) * Mathf.Deg2Rad) * 100));
+        Gizmos.DrawLine(this.transform.position + Vector3.up, this.transform.position + new Vector3(-Mathf.Cos((90 + MaxTargetAngle) * Mathf.Deg2Rad) * 100, 1, Mathf.Sin((90 + MaxTargetAngle) * Mathf.Deg2Rad) * 100));
     }
 }
