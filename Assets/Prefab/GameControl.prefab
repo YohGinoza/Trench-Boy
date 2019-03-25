@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6453776335399155393}
   m_Layer: 0
   m_Name: GameControl
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,12 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c93fbce1f53591429131893318325ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlliesAliveStatus: 01
+  CurrentState: 0
   TimeOfDay: 0
   DayLenght: 180
   EnemySpawners:
   - {fileID: 0}
   EnemySpawnRate: 0
-  DayEnded: 0
   NightInteractionLimit: 6
+  NightTimeInteractCounter: 0
   CaptainCall: 0
+  Inventory_UI: {fileID: 3220376879124853448, guid: eb25772eeedd11445ae4e92ff19bf63a,
+    type: 3}
+  DayEnd_UI: {fileID: 4801921732705857577, guid: 5e12f5e94f2430d489382d1ff5a94b70,
+    type: 3}
