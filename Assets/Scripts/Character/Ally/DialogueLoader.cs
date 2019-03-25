@@ -160,6 +160,8 @@ public class DialogueLoader : MonoBehaviour
         {
             // ending lines / goodbye
             // NPC one-liner
+            PLAYER.enabled = false;
+            NPC.enabled = true;
             NPC.text = ending_text[index_Ending, lineCounter];
             if (ending_text[index_Ending+1,lineCounter] != null)
             {
