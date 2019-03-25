@@ -10,4 +10,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Angled3D");
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
