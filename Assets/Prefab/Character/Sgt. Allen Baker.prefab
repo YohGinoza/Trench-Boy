@@ -420,13 +420,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisPerson: 1
-  ending_text: []
   index_Friendship: 0
   index_Ending: 0
-  speech: {fileID: 9017754173389570381}
+  NPC: {fileID: 9017754173389570381}
+  PLAYER: {fileID: 0}
   dayLimit: 0
   specialTrigger: 0
-  friends: 
+  friends: 04000000
 --- !u!33 &8379685413750234193
 MeshFilter:
   m_ObjectHideFlags: 0
