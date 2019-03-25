@@ -117,9 +117,10 @@ public class TrenchBoyController_NightTime : MonoBehaviour
 
             if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/)
             {
-                GameObject ally = Checker.ClosestTrigerrer.gameObject.transform.Find("AllyCanvas").Find("Text").gameObject;
+                //GameObject ally = Checker.ClosestTrigerrer.gameObject.transform.Find("AllyCanvas").Find("Text").gameObject;
+                Checker.ClosestTrigerrer.GetComponentInChildren<DialogueLoader>().converse();
 
-                ally.GetComponent<Dialogue>().converse();
+                //ally.GetComponent<DialogueLoader>().converse();
             }
             
         }
