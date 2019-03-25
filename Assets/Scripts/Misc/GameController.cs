@@ -183,13 +183,13 @@ public class GameController : MonoBehaviour
                    DayEnd();
                    if (!BarbedWireDestroyed)
                    {
-                        DayEnd_UI.transform.Find("RestartButton").gameObject.SetActive(false);
+                        DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(false);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(true);
                         DayEnd_UI.GetComponent<DayEndUI>().addDeadList();
                    }
                    else
                    {
-                        DayEnd_UI.transform.Find("RestartButton").gameObject.SetActive(true);
+                        DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
                     }
                 }
@@ -263,6 +263,12 @@ public class GameController : MonoBehaviour
         }
 
         CurrentState = (GameState)NextState;
+    }
+
+    public void Button_MainMenu()
+    {
+        ContinueGame();
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void PauseGame()
