@@ -23,6 +23,8 @@ public class DialogueLoader : MonoBehaviour
 
     public Text NPC;
     public Text PLAYER;
+    public Image iNPC;
+    public Image iPLAYER;
 
     private int lineCounter = 0;
     // once converse, set to true and trigger line Ex
@@ -88,6 +90,7 @@ public class DialogueLoader : MonoBehaviour
     public void converse()
     {
         Text speaker;
+        Image iSpeaker;
         if (!dayLimit)
         {
             if (specialTrigger)
@@ -99,14 +102,20 @@ public class DialogueLoader : MonoBehaviour
                 if (S_NPCSpeaking[diedToday, lineCounter])
                 {
                     speaker = NPC;
+                    iSpeaker = iNPC;
                     NPC.enabled = true;
+                    iNPC.enabled = true;
                     PLAYER.enabled = false;
+                    iPLAYER.enabled = false;
                 }
                 else
                 {
                     speaker = PLAYER;
+                    iSpeaker = iPLAYER;
                     NPC.enabled = false;
+                    iNPC.enabled = false;
                     PLAYER.enabled = true;
+                    iPLAYER.enabled = true;
                 }
 
                 // text body
@@ -130,14 +139,20 @@ public class DialogueLoader : MonoBehaviour
                 if(D_NPCSpeaking[index_Friendship, lineCounter])
                 {
                     speaker = NPC;
+                    iSpeaker = iNPC;
                     NPC.enabled = true;
+                    iNPC.enabled = true;
                     PLAYER.enabled = false;
+                    iPLAYER.enabled = false;
                 }
                 else
                 {
                     speaker = PLAYER;
+                    iSpeaker = iPLAYER;
                     NPC.enabled = false;
+                    iNPC.enabled = false;
                     PLAYER.enabled = true;
+                    iPLAYER.enabled = true;
                 }
                 // if NORMAL
 
@@ -161,7 +176,9 @@ public class DialogueLoader : MonoBehaviour
             // ending lines / goodbye
             // NPC one-liner
             PLAYER.enabled = false;
+            iPLAYER.enabled = false;
             NPC.enabled = true;
+            iNPC.enabled = true;
             NPC.text = ending_text[index_Ending, lineCounter];
             if (ending_text[index_Ending+1,lineCounter] != null)
             {
@@ -170,6 +187,7 @@ public class DialogueLoader : MonoBehaviour
             else
             {
                 NPC.enabled = false;
+                iNPC.enabled = false;
             }
         }
     }
