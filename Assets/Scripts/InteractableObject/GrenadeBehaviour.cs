@@ -11,6 +11,8 @@ public class GrenadeBehaviour : MonoBehaviour
 
     private float ExplodeTimer;
 
+    public AudioClip grenadeSFX;
+
     private void FixedUpdate()
     {
         ExplodeTimer += Time.fixedDeltaTime;
@@ -20,6 +22,11 @@ public class GrenadeBehaviour : MonoBehaviour
             ExplodeTimer = 0;
             Explode();
         }
+    }
+
+    private void Awake()
+    {
+        this.GetComponent<MeshRenderer>().enabled = true;
     }
 
     private void Explode()
@@ -35,12 +42,24 @@ public class GrenadeBehaviour : MonoBehaviour
             }
         }
 
+        this.GetComponent<AudioSource>().Play();
+        StartCoroutine(Disable());
+
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         this.gameObject.SetActive(false);
+        
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(this.transform.position, ExplosionRadius);
     }
+
+    IEnumerator Disable()
+    {
+        yield return new WaitForSeconds(0.4f);
+        this.gameObject.SetActive(false);
+    }
+
+
 }
