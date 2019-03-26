@@ -107,6 +107,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+
+        DayStart();
         for(int i = 0;i < AlliesAliveStatus.Length; i++)
         {
             AlliesAliveStatus[i] = true; 
