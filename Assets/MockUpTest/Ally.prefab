@@ -682,7 +682,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   Muzzle: {fileID: 2951056595815713584}
-  BulletPoolSize: 2
+  BulletPoolSize: 5
   BulletPrefab: {fileID: 1020358505660544101, guid: fc393f853ec6c024aa5e0459ce863d4a,
     type: 3}
   CurrentState: 0

@@ -15,6 +15,11 @@ public class BulletBehaviour : MonoBehaviour
         Physics.IgnoreLayerCollision(13, 14);
     }
 
+    private void OnEnable()
+    {
+        this.GetComponent<TrailRenderer>().enabled = true;
+    }
+
     private void FixedUpdate()
     {
         if (this.gameObject.activeSelf)
@@ -49,6 +54,7 @@ public class BulletBehaviour : MonoBehaviour
     private void Disable()
     {
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        this.GetComponent<TrailRenderer>().enabled = false;
         this.gameObject.SetActive(false);
     }
 }

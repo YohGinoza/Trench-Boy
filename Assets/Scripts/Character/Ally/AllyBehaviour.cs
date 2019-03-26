@@ -315,8 +315,8 @@ public class AllyBehaviour : MonoBehaviour
         {
             if (!bullet.activeSelf)
             {
-                bullet.SetActive(true);
                 bullet.transform.position = Muzzle.position;
+                bullet.SetActive(true);
                 bullet.GetComponent<Rigidbody>().AddForce(FiringDirection, ForceMode.Impulse);
                 bullet.GetComponent<BulletBehaviour>().TargetLayer = EnemyLayer;
                 AmmoCount--;

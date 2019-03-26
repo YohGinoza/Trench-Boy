@@ -38,13 +38,14 @@ public class EnemyBehaviour : MonoBehaviour
     private GameObject[] BulletPool;
     private GameObject[] GrenadePool;
 
-    public float GrenadeCount = 0;
+    public int GrenadeCount = 0;
 
     public float SuppressedTimer = 0;
     public Transform MovingTarget;
     bool ThrowingDecided = false;
     bool WillThrowGrenade = false;
 
+    private Animator animator;
 
     private void Start()
     {
@@ -61,6 +62,8 @@ public class EnemyBehaviour : MonoBehaviour
             GrenadePool[i] = Instantiate(GrenadePrefab);
             GrenadePool[i].SetActive(false);
         }
+
+        animator = this.GetComponentInChildren<Animator>();
     }
 
     private void Awake()
@@ -107,6 +110,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Action()
     {
+        //stop shooting
+        StopCoroutine(Shoot());
+
         //pop out
         if (!ThrowingDecided)
         {
@@ -129,6 +135,9 @@ public class EnemyBehaviour : MonoBehaviour
                 Agent.enabled = true;
                 AdvancePosition();
                 Agent.SetDestination(MovingTarget.position);
+
+                //animation
+                animator.SetBool("Running", true);
             }
             else if ((this.transform.position - Agent.destination).magnitude < ArrivingDistance)
             {
@@ -136,6 +145,10 @@ public class EnemyBehaviour : MonoBehaviour
                 ThrowingDecided = false;
                 SuppressedTimer = 0;
                 Agent.enabled = false;
+                //Debug.Log("arrived");
+
+                //animation
+                animator.SetBool("Running", false);
             }
         }
         //print("this " + this.transform.position + "target " + Agent.destination + "distance" + (this.transform.position - Agent.destination).magnitude);
@@ -144,7 +157,7 @@ public class EnemyBehaviour : MonoBehaviour
     private IEnumerator ThrowGrenade()
     {
         FindNewTarget();
-        yield return new WaitForSeconds(ThrowingTime);
+
         //throws at target
         if (CurrentTarget != null)
         {
@@ -152,9 +165,14 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 if (!grenade.activeSelf)
                 {
+                    //animation
+                    animator.SetTrigger("Grenade");
+                    yield return new WaitForSeconds(ThrowingTime);
+
+                    grenade.transform.position = Muzzle.position;
                     grenade.SetActive(true);
                     //change later
-                    grenade.transform.position = Muzzle.position;
+                    
 
                     float Xdiff = CurrentTarget.position.x - this.transform.position.x;
                     float zdiff = CurrentTarget.position.z - this.transform.position.z;
@@ -253,6 +271,8 @@ public class EnemyBehaviour : MonoBehaviour
             yield return new WaitForSeconds(ShotDelay);
             //fire
             ShootBullet(BulletForce);
+            //animation
+            animator.SetTrigger("Fire");
         }
         else
         {
@@ -267,8 +287,8 @@ public class EnemyBehaviour : MonoBehaviour
         {
             if (!bullet.activeSelf)
             {
-                bullet.SetActive(true);
                 bullet.transform.position = Muzzle.position;
+                bullet.SetActive(true);
                 bullet.GetComponent<Rigidbody>().AddForce(FiringDirection, ForceMode.Impulse);
                 bullet.GetComponent<BulletBehaviour>().TargetLayer = TargetLayer;
                 break;
