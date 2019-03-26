@@ -23,7 +23,7 @@
     
     - PERSON_ID       Please refer from the gamecontrol script in enum Ally
     
-    - ID              Starts from 0
+    - ID              Starts from 0 (Dialogue number: eg D0 D1 D2)
     
     - LINE_NO         Starts from 0
     
@@ -144,6 +144,7 @@
       <Line>8</Line>
       <Text>Thank you, sir.</Text>
     </Dialogue>
+    
     <!--D1-->
     <Dialogue name ="Sgt. Allen Baker D1 0">
       <Who>1</Who>
@@ -151,11 +152,431 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>1</Line>
-      <Text>TEXT</Text>
+      <Text>Greetings. What brings you here?</Text>
     </Dialogue>
+        <Dialogue name ="Sgt. Allen Baker D1 1">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>I'm feeling a bit lost with all these commotion going on. I'm not sure if I am doing the right thing.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D1 2">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>What do you mean by that?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D1 3">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>While I am not good at shooting and I'm taking the supporting role myself.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D1 4">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>I can't help but feel bad for everyone involved in war.</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D1 5">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>And why is that?</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D1 6">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>Because they are here for various reason.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D1 7">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>Some might come here to protect their country. Some might be justfollowing orders.</Text>
+    </Dialogue>
+      <Dialogue name ="Sgt. Allen Baker D1 8">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>When I think about that, I can't help but feel scared of helping our allies kill them.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D1 9">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>9</Line>
+      <Text>They're basically the same as us, but on the other side.</Text>
+    </Dialogue>
+        <Dialogue name ="Sgt. Allen Baker D1 10">
+      <Who>1</Who>
+      <Speaker>N{C</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>10</Line>
+      <Text>You shouldn't overthink things too much. Just think of it that they're doing their jobs and you're doing yours.</Text>
+    </Dialogue>
+        <Dialogue name ="Sgt. Allen Baker D1 11">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>11</Line>
+      <Text>But, sir...</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D1 12">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>12</Line>
+      <Text>Stop. It's not our place to judge whether they are good or bad. That is up for God to decide.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D1 13">
+      <Who>1</Who>
+      <Speaker>N{C</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>13</Line>
+      <Text>Our role here is to send them along to God, or else they'll send us to him instead.</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D1 14">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>14</Line>
+      <Text>Understood, sir...</Text>
+    </Dialogue>
+    
     <!--D2-->
+         <Dialogue name ="Sgt. Allen Baker D2 0">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Sir, I have a personal question I want to ask you, if you wouldn't mind.</Text>
+    </Dialogue>
+       <Dialogue name ="Sgt. Allen Baker D2 1">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>Whether I answer on not depend on the question but sure, you can try asking</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D2 3">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>You mentioned prayer quite a few times before, were you part of the Church or something before?</Text>
+    </Dialogue>
+      <Dialogue name ="Sgt. Allen Baker D2 4">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>Let's just say that I used to be a priest before the war.</Text>
+    </Dialogue>
+        <Dialogue name ="Sgt. Allen Baker D2 5">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>Alright. Sorry for prying, I won't ask anymore.</Text>
+    </Dialogue>
+    
     <!--D3-->
+    <Dialogue name ="Sgt. Allen Baker D3 0">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>Si vis pacem para bellum. Dulce bellum inexpertis.</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D3 1">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>Casus Belli. Deus Vult. Inter arma, silent leges...</Text>
+    </Dialogue>
+      <Dialogue name ="Sgt. Allen Baker D3 2">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>...Sir?</Text>
+    </Dialogue>
+       <Dialogue name ="Sgt. Allen Baker D3 3">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Oh, was that too loud? Sorry about that. I was just chanting something for peace of mind.</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D3 4">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>So that was a chant, what is it about, sir?</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D3 5">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>It's an ancient latin chant that speak of war.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D3 6">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>Wow. Sir, you seem to be knowledgable in this kind of thing.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D3 7">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>When you're a priest and read books provided by the Church, you picked up on a lot of things.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D3 8">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>Uh, about the chant earlier, can you tell me what it actually said there?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D3 9">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>It's something along the line of "If you want peace, prepare for war."</Text>
+    </Dialogue>
+      <Dialogue name ="Sgt. Allen Baker D3 10">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>10</Line>
+      <Text>"War starts because God wills it.In time of war, law falls silent"</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D3 11">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>11</Line>
+      <Text>Hmm, I still don't really understand any of that..</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D3 12">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>12</Line>
+      <Text>Someday you will. Someday....</Text>
+    </Dialogue>    
+    
     <!--D4-->
+     <Dialogue name ="Sgt. Allen Baker D4 0">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>0</Line>
+      <Text>Hey thre, sorry about what how I acted the day before.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 1">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>1</Line>
+      <Text>Ah, it's okay, sir. I don't really mind.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 2">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>2</Line>
+      <Text>I'm just a little awkward at times too, so it might've been the cause for that.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 3">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>3</Line>
+      <Text>It's actually the same here. I haven't talked to anyone much since I joined the military.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 4">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>4</Line>
+      <Text>To be honest, sir, you do give off quite aura that make you hard to approach.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 5">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>5</Line>
+      <Text>Is that so? I'll have to improve myself then. I guess it must've been like this since 'that' happened.</Text>
+    </Dialogue>
+      <Dialogue name ="Sgt. Allen Baker D4 6">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>6</Line>
+      <Text>What's wrong, sir?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 7">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>7</Line>
+      <Text>Well, it's just.... Okay, I owe it to you to make it this far so I think you have the rights to know.</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D4 8">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>8</Line>
+      <Text>Before the war, me and my family were living abroad. Everything was peaceful....until war broke out.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 9">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>9</Line>
+      <Text>We tried to escape to somewhere safe, but my wife and daugther was taken away when the army came into the town and sack the church.</Text>
+    </Dialogue>
+      <Dialogue name ="Sgt. Allen Baker D4 10">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>10</Line>
+      <Text>They thought that we've been spying for our home country. I tried talking to them but they just won't listen.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 11">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>11</Line>
+      <Text>I was beaten up and left for dead.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 12">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>12</Line>
+      <Text>Eventhough I somehow managed to survive through that, I never found trace of my family despite my best effort.</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D4 13">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>13</Line>
+      <Text>That's why I came back to my hometown and decided join the army to prepare myself to take back my families.</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Allen Baker D4 14">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>14</Line>
+      <Text>And here I am, left for dead in the face of the same enemy again. Ironic, isn't it?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 15">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>15</Line>
+      <Text>Uh, I don't know what to say, sir. It's a lot to take in.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 16">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>16</Line>
+      <Text>Ah, darn. Sorry I dragged you into my boring rant. Forget it happened.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 17">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>17</Line>
+      <Text> It's not like that, sir. I think that what you're doing is admirable. Fighting for your family, that is.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 18">
+      <Who>1</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>18</Line>
+      <Text>I-is that so? Thanks, I guess..</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Allen Baker D4 19">
+      <Who>1</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>19</Line>
+      <Text> You're welcome, sir.</Text>
+    </Dialogue>
+    
     <!--E0-->
     <Dialogue name ="Sgt. Allen Baker E0 0">
       <Who>1</Who>
@@ -165,65 +586,2283 @@
       <Line>0</Line>
       <Text>I'll stay here a while longer for prayer. May God bless you.</Text>
     </Dialogue>
-    <!--S4 condition: Cpl. Ray Garrett ID:4-->
-    <Dialogue name ="Sgt. Allen Baker S4 0">
+    
+    <!--S2 condition: Cpl. Ray Garrett ID:2-->
+    <Dialogue name ="Sgt. Allen Baker S2 0">
       <Who>1</Who>
       <Speaker>NPC</Speaker>
       <Type>S</Type>
-      <ID>4</ID>
+      <ID>2</ID>
       <Line>0</Line>
       <Text>Damn, can't believe this is happenning for real...</Text>
     </Dialogue>
-    <Dialogue name ="Sgt. Allen Baker S4 1">
+    <Dialogue name ="Sgt. Allen Baker S2 1">
       <Who>1</Who>
       <Speaker>PLAYER</Speaker>
       <Type>S</Type>
-      <ID>4</ID>
+      <ID>2</ID>
       <Line>1</Line>
       <Text>What happened, sir?</Text>
     </Dialogue>
-    <Dialogue name ="Sgt. Allen Baker S4 2">
+    <Dialogue name ="Sgt. Allen Baker S2 2">
       <Who>1</Who>
       <Speaker>NPC</Speaker>
       <Type>S</Type>
-      <ID>4</ID>
+      <ID>2</ID>
       <Line>2</Line>
       <Text>That bastard Garett, he actually went and die before me.</Text>
     </Dialogue>
-    <Dialogue name ="Sgt. Allen Baker S4 3">
+    <Dialogue name ="Sgt. Allen Baker S2 3">
       <Who>1</Who>
       <Speaker>NPC</Speaker>
       <Type>S</Type>
-      <ID>4</ID>
+      <ID>2</ID>
       <Line>3</Line>
       <Text>Always acting cool and composed. He shouldn't be killed this easily...</Text>
     </Dialogue>
-    <Dialogue name ="Sgt. Allen Baker S4 4">
+    <Dialogue name ="Sgt. Allen Baker S2 4">
       <Who>1</Who>
       <Speaker>PLAYER</Speaker>
       <Type>S</Type>
-      <ID>4</ID>
+      <ID>2</ID>
       <Line>4</Line>
       <Text>My condolence, sir...</Text>
     </Dialogue>
-    <Dialogue name ="Sgt. Allen Baker S4 4">
+    <Dialogue name ="Sgt. Allen Baker S2 4">
       <Who>1</Who>
       <Speaker>PLAYER</Speaker>
       <Type>S</Type>
-      <ID>4</ID>
+      <ID>2</ID>
       <Line>4</Line>
       <Text>My condolence, sir...</Text>
     </Dialogue>
-    <Dialogue name ="Sgt. Allen Baker S4 5">
+    <Dialogue name ="Sgt. Allen Baker S2 5">
       <Who>1</Who>
       <Speaker>NPC</Speaker>
       <Type>S</Type>
-      <ID>4</ID>
+      <ID>2</ID>
       <Line>5</Line>
       <Text>It's okay. We just have to avenge him. That's all we need to do.</Text>
     </Dialogue>
+    
     <!--Cpl. Ray Garrett-->
     <!--D0-->
+    <Dialogue name ="Cpl. Ray Garrett D0 0">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Hey, you there.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D0 1">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>M-me?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D0 2">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>Yeah, you. You don't have the look of a soldier. What are you doing here?</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Ray Garrett D0 3">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>I-I am doing my best to help around the trench, sir.</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Ray Garrett D0 4">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Oh, so you're that one guy from the rumor.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D0 5">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>Rumor?</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Ray Garrett D0 6">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text>I've heard that the higher up placed a new recruit who can't shoot gun at all to our squad. Thought he'd be useless in a fight.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D0 7">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>Uh...I'm sorry, sir.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D0 8">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>8</Line>
+      <Text>Heh, at least you're doing something meaningful rather than wasting bullets trying to kill them.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D0 9">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>9</Line>
+      <Text>I'm Ray. Ray Garrett. Got some deployments under my belt, so if you want to stay alive, you're welcome to ask me for tips.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D0 10">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>10</Line>
+      <Text>Understood. Thank you, sir.</Text>
+    </Dialogue>
+    
+   <!--D1-->
+    <Dialogue name ="Cpl. Ray Garrett D1 0">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Sir, I have something I want to ask you.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 1">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>Go on.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 2">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>About grenade, sir. Is it possible to throw live grenade back?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 3">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>It is.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 4">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>Then why isn't anyone trying to throw it back? All I'm seeing is that everyone just dive away from it.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 5">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Because you probably have less than a second before the thing explode in your face when you pick it up.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 6">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>Eh? Wh-but how come?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 7">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>You see, once you pulled the pin, grenade will have only a few second before it goes boom.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 8">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>And those seconds would probably have been spent flying toward you.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 9">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>9</Line>
+      <Text>But still, if it's possible then I want to...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 10">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>10</Line>
+      <Text>Yeah, sure. It's possible. If you're feeling lucky or suicidal, you can go for it.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D1 11">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>11</Line>
+      <Text>Though I wouldn't recommend wasting your life on that.</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Ray Garrett D1 12">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>12</Line>
+      <Text>..... Understood, sir.</Text>
+    </Dialogue>
+    
+  <!--D2-->
+    <Dialogue name ="Cpl. Ray Garrett D2 0">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Hey, anyone got injured today? I think there should be some, right?</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Ray Garrett D2 1">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>Yes, sir. We have some amount of injured personnel every day.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 2">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>Have you treat their wounds yet?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 3">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>I've done what I can during first aid, sir. Though I'll have to leave the rest to our medics.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 4">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>Did you stop their bleeding and close the wound when you helped them?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 5">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>I did what I can, sir. Though sometimes I don't have time to do so..</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 6">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>Well, shit.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 7">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>Is there any problem, sir?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 8">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>Most people don't really die from the wound himself. From my experience, they die because their wounds are infected.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 9">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>9</Line>
+      <Text>I mean, look at this place. No way it's gonna be clean. Once a wound is infected, you either chop it off or take a lot of meds to kill it.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 10">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>10</Line>
+      <Text>Oh my god.. what have I done...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D2 11">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>11</Line>
+      <Text>Don't beat yourself over it. Not many people know that either. Just remember to do what I told you next time.</Text>
+    </Dialogue>
+    
+  <!--D3-->
+    <Dialogue name ="Cpl. Ray Garrett D3 0">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>I have an advice for you, kid.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 1">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>What is it, sir?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 2">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>I don't know what kind of situation we might be getting into in the future. But it's always a good idea to trust your gut instinct.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 3">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Gut instinct?</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Ray Garrett D3 4">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>Yeah. It's something that kinda pop up in your head. They are usually one of the best way to survive.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 5">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>Huh, I think I have that happened to me from time to time too.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 6">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>Yeah, that. Though you have to think it through carefully first.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 7">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>Why, if I may ask, sir?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 8">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>Well, I did say that it's usually the best. Not the best.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 9">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>Some of it might even be dumb enough to get you killed. Heh.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 10">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>10</Line>
+      <Text>I-I will take that into consideration, sir.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D3 11">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>11</Line>
+      <Text>Good. That's what define whether you're green or you're good. Trust your instinct but don't depend on it.</Text>
+    </Dialogue>
+    
+  <!--D4-->
+    <Dialogue name ="Cpl. Ray Garrett D4 0">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>0</Line>
+      <Text>Sir, I have noticed this for a while. What is with that gun you kept there?</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Ray Garrett D4 1">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>1</Line>
+      <Text>Ah, this? This is my personal gun. Not the one issued by the army.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D4 2">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>2</Line>
+      <Text>Wow, sir. It looks really good.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D4 3">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>3</Line>
+      <Text>Yeah. Spent a lot of money on it. Though it still function nearly the same as the one we get issued with anyway.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D4 4">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>4</Line>
+      <Text>Why did you bring it here, sir?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D4 5">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>5</Line>
+      <Text>For good luck charm. This is my first gun ever.</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Ray Garrett D4 6">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>6</Line>
+      <Text>My father was a veteran too an he bought me this to train me how to shoot even before I join the Army.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D4 7">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>7</Line>
+      <Text>Your father is a soldier too? Wow, he must've been a great man, seeing that his son is doing really great here.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D4 8">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>8</Line>
+      <Text>Was. He died. Kicked the bucket right after I was done with my bootcamp.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D4 9">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>9</Line>
+      <Text>Oh.... I'm sorry to hear that.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D4 10">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>10</Line>
+      <Text>Don't be. Got himself into something stupid. </Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett D4 11">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>11</Line>
+      <Text>He's not even killed while he's in duty. Though I am still thankful for him for teaching me all the useful things in this line of work.</Text>
+    </Dialogue>
+    
+   <!--E0-->
+    <Dialogue name ="Cpl. Ray Garrett E0 0">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Stay alive out there.</Text>
+    </Dialogue>
+    
+    <!--S4 condition: Sgt. Allen Baker ID:1-->
+    <Dialogue name ="Cpl. Ray Garrett S1 0">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Damn that stupid bastard..</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Ray Garrett S1 1">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>What's wrong, sir?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett S1 2">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>That fucker, Allen, he just kicked the bucket today.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett S1 3">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>Oh...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett S1 4">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>That annoying prick always preach me on what to do or what not to do.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett S1 5">
+      <Who>2</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Acting high and mighty, all goody two shoes. Went and got himself killed, damn it...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Ray Garrett S1 6">
+      <Who>2</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text> I'm sorry to hear that, sir....</Text>
+    </Dialogue>
+    
+    <!--Cpl. Darren Reed-->
+    <!--D0-->
+    <Dialogue name ="Cpl. Darren Reed D0 0">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Hey there. You're the one who was helping around the trench, right?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D0 1">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>Yes, that's me.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D0 2">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>Thank you for the help. We appreciate your assistance.</Text>
+    </Dialogue>
+     <Dialogue name ="Cpl. Darren Reed D0 3">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>My name's Darren. I'm a Combat Medic of this squad.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D0 4">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Nice to meet you, sir.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D0 5">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>No need to be formal, just call me Darren.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D0 6">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text>Alright, understood.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D0 7">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>If you have time to spare, you can come to medical treatment room.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D0 8">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>8</Line>
+      <Text>We can always use another pair of helping hands.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D0 9">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>9</Line>
+      <Text>I'll keep that in mind.</Text>
+    </Dialogue>
+    
+  <!--D1-->
+    <Dialogue name ="Cpl. Darren Reed D1 0">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Damn, these muscle heads. Will it kill them to keep things clean for once?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D1 1">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>What's the problem?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D1 2">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>Hygiene is a big problem. You see all these dirty stuff? Don't they care about what go into their body at all?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D1 3">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>I think they don't really put cleanliness at their top priority at the moment...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D1 4">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>That might be true. But hygiene is a very important thing. </Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D1 5">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>If things are dirty, even a scratch wound could get you infected and killed you!</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D1 6">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>Whoa, seriously? Even a scratch wound can kill??</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D1 7">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>It is. Seriously. Trust my words for it. I've saw it happened more than a few times already.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D1 8">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>Ah, I understand now. I'll try to warn them to keep things a bit cleaner from now on.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D1 9">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>9</Line>
+      <Text>Thank you. Finally someone who understand.</Text>
+    </Dialogue>
+    
+  <!--D2-->
+    <Dialogue name ="Cpl. Darren Reed D2 0">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>I've been wondering for a while, are medics allowed to engage in combat?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D2 1">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>No, not really</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D2 2">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text> Eh? Then why're you going out there and shooting?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D2 3">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>Well, better them than us.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D2 4">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text> Eh? I'm not sure I understand...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D2 5">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>It means that it's better to kill them than let them kill us.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D2 6">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>Won't that be against some sort of rules?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D2 7">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>Something like that. If medics engage in combat willingly, it mean that the medic gave up his protection from the law.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D2 8">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>Sound complicated.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D2 9">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>9</Line>
+      <Text>A little, yeah. Don't worry about it though. I'm still doing my job as a medical personnel.</Text>
+    </Dialogue>
+    
+   <!--D3-->
+    <Dialogue name ="Cpl. Darren Reed D3 0">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>Hey, you. You sure you've been resting properly?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D3 1">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>I....think I did. Why?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D3 2">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>You have a face of a dead fish. Most likely from lack of sleep. I can tell, you know?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D3 3">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Well, it's pretty hard to fall asleep lately...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D3 4">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>Something's on your mind?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D3 5">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>A lot of things, actually...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D3 6">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>Well, doubt I can really help if it's about the situation we're in. I'm not expert in psychology either.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D3 7">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>For now, I think you should drink some water and do some exercise to tire yourself out. It should help you goto sleep faster.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D3 8">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>Thanks, I'll try that.</Text>
+    </Dialogue>
+    
+  <!--D4-->
+    <Dialogue name ="Cpl. Darren Reed D4 0">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>0</Line>
+      <Text>This might be a little sudden but why did you decided to be a combat medic?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 1">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>1</Line>
+      <Text>Hm? What compelled you to ask that?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 2">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>2</Line>
+      <Text>Well, you told me that you'll gladly shoot at the enemies to keep our friends safe.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 3">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>3</Line>
+      <Text>And so I thought that you could've joined as a normal soldier instead of a medic.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 4">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>4</Line>
+      <Text>Ah, so that's the reason. Well, my family is a family of doctor and so I was naturally trained to be one too.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 5">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>5</Line>
+      <Text>Huh...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 6">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>6</Line>
+      <Text> But I thought that simply waiting for the patient in the office isn't enough.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 7">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>7</Line>
+      <Text>There's a lot of people out the who can't make it to the hospital. That's why I decided to come out here instead.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 8">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>8</Line>
+      <Text>Wow, that's a really respectable decision.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 9">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>9</Line>
+      <Text>Ironicaly though, I probably killed more people than I had saved by now. Hahaha...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 10">
+      <Who>3</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>10</Line>
+      <Text>Uh oh...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 11">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>11</Line>
+      <Text>Nah, don't worry about it. I've always known that this is going to happen someday.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpl. Darren Reed D4 12">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>12</Line>
+      <Text>Can't really do anything about that now.</Text>
+    </Dialogue>
+    
+       <!--E0-->
+    <Dialogue name ="Cpl. Darren Reed E0 0">
+      <Who>3</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Remember to take care of yourself. You can't help anyone if you're dead.</Text>
+    </Dialogue>
+    
+    <!--Pvt. Jason Riley-->
+    <!--D0-->
+    <Dialogue name ="Pvt. Jason Riley D0 0">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>H-hello..</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D0 1">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>Hm? Hello, do you need something?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D0 2">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>N-no. I just want to thank you for the help..</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D0 3">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>Oh, that. It's okay. Just doing my part.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D0 4">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Y-you don't have to be humble. I-I am grateful for you help.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D0 5">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>Alright. You're welcome. If you're in trouble, call me over and I'll do anything I can to help.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D0 6">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text>T-thank you. My name is Jason, n-nice to meet you.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D0 7">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>Nice to meet you. Let's give it our best shot.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D0 8">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>8</Line>
+      <Text>Y-yes, let's do our best.</Text>
+    </Dialogue>
+    
+   <!--D1-->
+    <Dialogue name ="Pvt. Jason Riley D1 0">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>H-hello..</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 1">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>Ah, hello Jason, do you need something?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 2">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>Ah.. I want to thank you... for being nice to me...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 3">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>Eh?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 4">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>Other people don't like me... because I'm weak...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 5">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Oh...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 6">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>You are the only one who's nice to me... so I want to thank you...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 7">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>Ah.... actually...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 8">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>I think it's because I'm weak too. I can't shoot gun right at all so I'm useless in a fight.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 9">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>9</Line>
+      <Text> ....is that so?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 10">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>10</Line>
+      <Text>Yeah, admittedly. I think I might be acting kind toward you because we're similar...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 11">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>11</Line>
+      <Text>I see... so we're like kindred spirit here. I'm not alone...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 12">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>12</Line>
+      <Text>Yeah, you're not alone. We'll have to help each other from now on.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 13">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>13</Line>
+      <Text>Y-yeah. That's a good idea.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D1 14">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>14</Line>
+      <Text>Yep, so if there's any problem, let's deal with it together</Text>
+    </Dialogue>
+    
+  <!--D2-->
+    <Dialogue name ="Pvt. Jason Riley D2 0">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Oh, hey there!</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 1">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>............</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 2">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>Uh... are you okay?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 3">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>Huh? WHOA?!</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 4">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>Whoa, what the hell, man?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 5">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>O-oh, sorry...I-I was lost in thought..</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 6">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>What were you thinking about?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 7">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>J-just about how things are here. D-don't you think it's scary?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 8">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>The sound of explosion... Gunshot... Bullets flying around...People moaning in pain...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 9">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>9</Line>
+      <Text>Yeah... things are really bad here.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 10">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>10</Line>
+      <Text>I don't understand why people need to do this, we could've just sit down and talk things peacefully....</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 11">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>11</Line>
+      <Text>I don't know either.. but now that it come to this, we have to do our part and prevent others from getting involved.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 12">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>12</Line>
+      <Text>.....You're right. I shouldn't be wasting my time thinking about useless things...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 13">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>13</Line>
+      <Text>Don't worry about it. I think we all have to let it out sometimes.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D2 14">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>14</Line>
+      <Text>T-thank you.</Text>
+    </Dialogue>
+    
+   <!--D3-->
+    <Dialogue name ="Pvt. Jason Riley D3 0">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>H-hey.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D3 1">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>Hi there, something wrong?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D3 2">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>Uh, I just want to tell you something.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D3 3">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Hm? What is it?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D3 4">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>I've decided. I'll do my best out there and won't drag any of you guys down anymore.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D3 5">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>Huh... why are you suddenly so ambitious? What happened?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D3 6">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>You've been helping me and everyone else a lot. I admire and respect your effort.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D3 7">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>That's why I've decided to do my step up my mentality too.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D3 8">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>...I see. In any case, glad to have you.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D3 9">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>Yes. I'll be in your care.</Text>
+    </Dialogue>
+    
+  <!--D4-->
+    <Dialogue name ="Pvt. Jason Riley D4 0">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>0</Line>
+      <Text>Hey, once this is all over, what're you going to do?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D4 1">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>1</Line>
+      <Text>Hmm, I don't really know either. Maybe I'll resign and pursue medical path or something...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D4 2">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>2</Line>
+      <Text>Huh, interesting. I'm not sure what I'll do but I'm thinking about re-enlisting.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D4 3">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>3</Line>
+      <Text>Re-enlist? Never thought you'd do it.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D4 4">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>4</Line>
+      <Text>Yeah, well, I'm still considering it. But I think it's a job worth doing.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D4 5">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>5</Line>
+      <Text>I see....</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Jason Riley D4 6">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>6</Line>
+      <Text>In any case, we'll need to pull through this first.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Jason Riley D4 7">
+      <Who>4</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>7</Line>
+      <Text>Yeah.</Text>
+    </Dialogue>
+    
+  <!--E0-->
+    <Dialogue name ="Pvt. Jason Riley E0 0">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>I'm grateful for your help. I'll have to go now, see you later.</Text>
+    </Dialogue>
+    
+  <!--E1-->
+    <Dialogue name ="Pvt. Jason Riley E1 0">
+      <Who>4</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Let's do our best tomorrow too!</Text>
+    </Dialogue>
+    
+  <!--Pvt. Roy Watson-->
+    <!--D0-->
+    <Dialogue name ="Pvt. Roy Watson D0 0">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>....</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D0 1">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>What are you looking at, punk?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D0 2">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>Oh, no. Nothing...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D0 3">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>Then mind your own business.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D0 4">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Sorry to bother you..</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D0 5">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>If you know you're bothering me then just scram.</Text>
+    </Dialogue>
+    
+  <!--D1-->
+    <Dialogue name ="Pvt. Roy Watson D1 0">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>....</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D1 1">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>What? Do you really want to get punched?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D1 2">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>No, not that. Since we're stuck here together, I though we should get to know each other.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D1 3">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>Heh, what an honor. Name's Roy. That's all you need to know.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D1 4">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>Ah, thank you. Nice to meet you. Hope we can get along.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D1 5">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Piss off.</Text>
+    </Dialogue>
+    
+  <!--D2-->
+    <Dialogue name ="Pvt. Roy Watson D2 0">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Hey, Roy.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D2 1">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>What are you up to this time? Didn't I tell you not to bother me?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D2 2">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>I'm just wondering about why you're so agressive. Is there any reason for that?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D2 3">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>Tch, stop poking your nose where it doesn't belong.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D2 4">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>I just wanna know the reason so I can avoid it from happening, if possible.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D2 5">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>Fine, fine. I was a criminal that got conscripted into the army. So I hate every kind of authority out there. That's it.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D2 6">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>If that's the reason, then I can't really do anything about that. Beside, you're also a soldier like us, why don't you open up a bit?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D2 7">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>Beside, you're also a soldier like us, why don't you open up a bit?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D2 8">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>Oh, fuck off already.</Text>
+    </Dialogue>
+    
+  <!--D3-->
+    <Dialogue name ="Pvt. Roy Watson D3 0">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>Hm, what is that knife there?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D3 1">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>This? This is a trench knife. Have had it since forever ago, carried it with me all the time.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D3 2">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>You have this before even joining the army? What would you use it for?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D3 3">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Stabbing people. Duh. What else could a knife like this be used for?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D3 4">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>Err.. forget I ask anything then.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D3 5">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>Wise decision.</Text>
+    </Dialogue>
+    
+  <!--D4-->
+    <Dialogue name ="Pvt. Roy Watson D4 0">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>0</Line>
+      <Text>Say, you were jailed and then conscripted into the army, right?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D4 1">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>1</Line>
+      <Text>Don't make me repeat myself. What is it this time?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D4 2">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>2</Line>
+      <Text>I wanna know why you'd choose to come out here and risk your life. Isn't the prison safer?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D4 3">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>3</Line>
+      <Text>Heh. Do you want to be chained and rot away in the jail then?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D4 4">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>4</Line>
+      <Text>N-no...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D4 5">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>5</Line>
+      <Text>That's why I am here. I'd rather get ordered around and kill some strangers rather than dying like that in the jail.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D4 6">
+      <Who>5</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>6</Line>
+      <Text>Just how long were you sentenced? What on earth did you do?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Roy Watson D4 7">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>7</Line>
+      <Text>Somethings are better left not known.</Text>
+    </Dialogue>
+    
+   <!--E0-->
+    <Dialogue name ="Pvt. Roy Watson E0 0">
+      <Who>5</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Keep your nose where it belongs and you wouldn't get socked in the face.</Text>
+    </Dialogue>
+    
+  <!--Pvt. Ellis Anderson-->
+    <!--D0-->
+    <Dialogue name ="Pvt. Ellis Anderson D0 0">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Hey, there! You’re looking gloomy, what happened?</Text>
+    </Dialogue>
+  <Dialogue name ="Pvt. Ellis Anderson D0 1">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>I'm not good at shooting so I feel like I'm useless here...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D0 2">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>Ah, so you were the guy who was lugging things around during the day.</Text>
+    </Dialogue>
+  <Dialogue name ="Pvt. Ellis Anderson D0 3">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>Yeah, that was me. That's about all I can do to help.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D0 4">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Haha, don't worry about it. You should brigthen up a little.</Text>
+    </Dialogue>
+  <Dialogue name ="Pvt. Ellis Anderson D0 5">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>I'd like to but I don't really know if I should or how to do that...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D0 6">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text>I'll let you in on a secret, the best way to relieve stress is to joke about stress itself.</Text>
+    </Dialogue>
+  <Dialogue name ="Pvt. Ellis Anderson D0 7">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>..........</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D0 8">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>8</Line>
+      <Text>Well, you don't have to force yourself. It doesn't have to be right now, you can take your time.</Text>
+    </Dialogue>
+    
+   <!--D1-->
+    <Dialogue name ="Pvt. Ellis Anderson D1 0">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Say, you really can't shoot? Like, at all?</Text>
+    </Dialogue>
+  <Dialogue name ="Pvt. Ellis Anderson D1 1">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>I am ashamed to admit it but yes. Never managed to land a shot properly before.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 2">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>Wow, that's actually amazing, in a way.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 3">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>Geez, no need to rub it in.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 4">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>Err, if you never managed to land a shot on your target before.... Have you tried changing the target and see if your stray shot hit your other target?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 5">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Have you tried changing the target and see if your stray shot hit your other target?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 6">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>Sound good. Doesn't work. Tried that already.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 7">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>Whoa.... Well, don't let it get to you. I'm sure you will be able to do it someday.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 8">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>Not sure if I really want to be able to do that to kill someone.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 9">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>9</Line>
+      <Text>Well....it could come in handy someday.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 10">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>10</Line>
+      <Text>Maybe, though I hope that's not the case.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 11">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>11</Line>
+      <Text>In any case, you still know how to operate a gun. That's a nice start.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 12">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>12</Line>
+      <Text>Also, if you call everything you hit a target, you will never miss any shot.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D1 13">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>13</Line>
+      <Text>Gee. Thanks, Captain Obvious.</Text>
+    </Dialogue>
+    
+  <!--D2-->
+    <Dialogue name ="Pvt. Ellis Anderson D2 0">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Hey, dude! Look at this!</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 1">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>Uh oh, is that what I think it is?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 2">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>Totally! It's Mister Pineapple!</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 3">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>Mister-what??</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 4">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>Pineapple. Don't you think frag grenade looks like pineapple?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 5">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>That's new to me, and how'd you get that? I don't think we have that in our standard equipment.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 6">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>Well, the enemy threw it at me but apparently the pin was not pulled.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 7">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>Huh, that's some luck right there.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 8">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>Or maybe the guy who did it was just dumb.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 9">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>9</Line>
+      <Text>Anyway, I'd like to keep it close. Might come in handy.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 10">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>10</Line>
+      <Text>Not sure if this is a good idea....</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 11">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>11</Line>
+      <Text>Well, maybe there will be a good time where I can send Mr.Pineapple back home.... without the pin, of course.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 12">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>12</Line>
+      <Text>In any case, I'd like to fidget with this a little, talk to you later!</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D2 13">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>13</Line>
+      <Text>Make sure you don't blow yourself up then.</Text>
+    </Dialogue>
+    
+  <!--D3-->
+    <Dialogue name ="Pvt. Ellis Anderson D3 0">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>There sure are a lot of enemies out there, why won't they let up already?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 1">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>I don't know either..</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 2">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>Well, I just hope that I can make it back home in one piece.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 3">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Same here...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 4">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>....</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 5">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>....</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 6">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>Hey, man.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 7">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>What is it?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 8">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>If I die, can you put 3 pairs of boot on my grave?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 9">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>Uh.....Why?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 10">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>10</Line>
+      <Text>If you put 3 pairs of boot on my grave when I die...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 11">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>11</Line>
+      <Text>You can say that I'll be 6-feet under by then. Hahaha!</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 12">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>12</Line>
+      <Text>Er.. alright. I'll keep that in mind...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 13">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>13</Line>
+      <Text>Haha, guess it's a bit too early for that kind of joke huh? What a killjoy.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Ellis Anderson D3 14">
+      <Who>6</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>14</Line>
+      <Text>Yeah...</Text>
+    </Dialogue>
+    
+  <!--E0-->
+    <Dialogue name ="Pvt. Ellis Anderson E0 0">
+      <Who>6</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>If you ever come up with a spicy joke, lemme know, okay? I'm can always use another good one.</Text>
+    </Dialogue>
 
   </Dialogues>
 </DialogueCollection>
