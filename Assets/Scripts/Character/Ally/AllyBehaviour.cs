@@ -64,6 +64,7 @@ public class AllyBehaviour : MonoBehaviour
 
     public AudioClip callMedClip;
     public AudioClip callAmmoClip;
+    public AudioClip gunSFX;
     public AudioSource callSource;
     private bool call = false;
 
@@ -301,6 +302,9 @@ public class AllyBehaviour : MonoBehaviour
             //fire
             ShootBullet(BulletForce);
             animator.SetTrigger("Fire");
+            callSource.clip = gunSFX;
+            callSource.Play();
+
         }
         else
         {
