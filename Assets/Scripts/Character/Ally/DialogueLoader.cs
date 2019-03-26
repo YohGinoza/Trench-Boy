@@ -21,6 +21,7 @@ public class DialogueLoader : MonoBehaviour
     TrenchBoyController player;
     GameController gc;
 
+    public GameObject Canvas;
     public Text NPC;
     public Text PLAYER;
     public Image iNPC;
@@ -41,6 +42,11 @@ public class DialogueLoader : MonoBehaviour
 
     private void Start()
     {
+        NPC = Canvas.transform.GetChild(3).GetComponentInChildren<Text>();
+        iNPC = Canvas.transform.GetChild(3).GetComponent<Image>();
+        PLAYER = GameObject.FindGameObjectWithTag("Player").transform.GetChild(4).GetChild(1).GetComponentInChildren<Text>();
+        iPLAYER = GameObject.FindGameObjectWithTag("Player").transform.GetChild(4).GetChild(1).GetComponent<Image>();
+
         gc = GetComponent<GameController>();
 
         for (int i = 0; i < friends.Length; i++)

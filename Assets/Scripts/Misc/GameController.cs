@@ -95,6 +95,12 @@ public class GameController : MonoBehaviour
     public GameObject DayEnd_UI;
     public static bool reset_pressed;
 
+    //camera
+    private Transform Camera;
+    [SerializeField] private Vector3 CamDayZoom;
+    [SerializeField] private Vector3 CamNightZoom;
+    [SerializeField] private float DayCamAngle;
+    [SerializeField] private float NightCamAngle;
 
     void Start()
     {
@@ -105,6 +111,7 @@ public class GameController : MonoBehaviour
 
         Inventory_UI = GameObject.Find("InventoryBar");
         DayEnd_UI = GameObject.Find("DayEndUI");
+        Camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
     // Update is called once per frame
@@ -114,7 +121,10 @@ public class GameController : MonoBehaviour
         switch (CurrentState)
         {
             case GameState.Day:
-
+                //set camera
+                Camera.localPosition = CamDayZoom;
+                Camera.localRotation = Quaternion.Euler(DayCamAngle, 0, 0);
+                
                 Inventory_UI.SetActive(true);
                 DayEnd_UI.SetActive(false);
 
@@ -169,6 +179,10 @@ public class GameController : MonoBehaviour
 
                 break;
             case GameState.Night:
+                //set camera
+                Camera.localPosition = CamNightZoom;
+                Camera.localRotation = Quaternion.Euler(NightCamAngle, 0, 0);
+
                 Inventory_UI.SetActive(false);
                 DayEnd_UI.SetActive(false);
                 CaptainCall = NightTimeInteractCounter >= NightInteractionLimit;
@@ -220,17 +234,17 @@ public class GameController : MonoBehaviour
         foreach (GameObject ally in Allies)
         {
             AllyBehaviour DayBehaviour = ally.GetComponent<AllyBehaviour>();
-            //DialogueLoader NightBehaviour;
+            DialogueLoader NightBehaviour = ally.GetComponentInChildren<DialogueLoader>();
 
             if (DayBehaviour != null)
             {
                 DayBehaviour.enabled = true;
             }
 
-            //if(NightBehavior != null)
-            //{
-            //    NightBehaviour.enabled = false;
-            //}
+            if (NightBehaviour != null)
+            {
+                NightBehaviour.enabled = false;
+            }
         }
         //switch player behaviour to day
         GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
@@ -259,17 +273,17 @@ public class GameController : MonoBehaviour
         foreach (GameObject ally in Allies)
         {
             AllyBehaviour DayBehaviour = ally.GetComponent<AllyBehaviour>();
-            //DialogueLoader NightBehaviour;
+            DialogueLoader NightBehaviour = ally.GetComponent<DialogueLoader>();
 
             if (DayBehaviour != null)
             {
                 DayBehaviour.enabled = false;
             }
 
-            //if(NightBehavior != null)
-            //{
-            //    NightBehaviour.enabled = true;
-            //}
+            if (NightBehaviour != null)
+            {
+                NightBehaviour.enabled = true;
+            }
         }
         //switch player behaviour to night
         GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");

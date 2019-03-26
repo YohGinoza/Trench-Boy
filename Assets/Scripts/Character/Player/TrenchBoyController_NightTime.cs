@@ -25,7 +25,9 @@ public class TrenchBoyController_NightTime : MonoBehaviour
     //--------------------------
     public bool spacebarUpped = false;             //some situation we don't want the game to register spacebar up twice 
                                                    //(such as when drop/pick up crate) so it won't pick up item at the same time
-
+    Animator animator;
+    private bool animatorMoving = false;
+    private bool facingRight = true;
 
     Rigidbody rb;
     ColliderChercker Checker;
@@ -44,7 +46,9 @@ public class TrenchBoyController_NightTime : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Checker = this.GetComponentInChildren<ColliderChercker>();
         Inventory = this.GetComponent<InventorySystem>();
+        animator = this.GetComponentInChildren<Animator>();
         //   crate = GetComponent<Crate>(); // wating for Crate script
+        facingRight = true;
     }
 
     private void Update()
@@ -57,6 +61,8 @@ public class TrenchBoyController_NightTime : MonoBehaviour
 
         //other player input
         Interaction();
+
+        animator.SetBool("Moving", animatorMoving);
     }
 
     // ↑↓→← WASD
@@ -82,31 +88,52 @@ public class TrenchBoyController_NightTime : MonoBehaviour
             // buttons for character controls
             // ------------------------------
             // LEFT
+            animatorMoving = false;
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * movementSpeed, ref refVector, 0.05f, maxSpeed);
+
+                if (facingRight)
+                {
+                    Flip();
+                }
                 facing = Vector3.left;
+                animatorMoving = true;
             }
             // RIGHT
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.right * movementSpeed, ref refVector, 0.05f, maxSpeed);
+
+                if (!facingRight)
+                {
+                    Flip();
+                }
                 facing = Vector3.right;
+                animatorMoving = true;
             }
             // UP
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.forward * movementSpeed, ref refVector, 0.05f, maxSpeed);
                 facing = Vector3.forward;
+                animatorMoving = true;
             }
             // DOWN
             if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
                 rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * movementSpeed, ref refVector, 0.05f, maxSpeed);
                 facing = Vector3.back;
+                animatorMoving = true;
             }
             //-------------------------------
         }
+    }
+
+    void Flip()
+    {
+        this.transform.localScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y, this.transform.localScale.z);
+        facingRight = !facingRight;
     }
 
     private void Interaction()
@@ -118,7 +145,7 @@ public class TrenchBoyController_NightTime : MonoBehaviour
             if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/)
             {
                 //GameObject ally = Checker.ClosestTrigerrer.gameObject.transform.Find("AllyCanvas").Find("Text").gameObject;
-                Checker.ClosestTrigerrer.GetComponentInChildren<DialogueLoader>().converse();
+                Checker.ClosestTrigerrer.GetComponent<DialogueLoader>().converse();
 
                 //ally.GetComponent<DialogueLoader>().converse();
             }
