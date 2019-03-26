@@ -8,11 +8,11 @@ public class DialogueLoader : MonoBehaviour
     //public event Action talkEvent; //trigger everything under that event
     [SerializeField] private Ally ThisPerson;
     
-    public string[,] dialogue_text = new string[7,16];
+    public string[,] dialogue_text = new string[7,20];
     public string[,] ending_text = new string[5,1];
     public string[,] special_text = new string[20,16];
 
-    public bool[,] D_NPCSpeaking = new bool[3,10];    
+    public bool[,] D_NPCSpeaking = new bool[7,20];    
     public bool[,] S_NPCSpeaking = new bool[20,10];
 
     public int index_Friendship = 0;
