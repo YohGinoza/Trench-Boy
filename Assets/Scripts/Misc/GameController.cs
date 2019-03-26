@@ -95,6 +95,9 @@ public class GameController : MonoBehaviour
     public GameObject DayEnd_UI;
     public static bool reset_pressed;
 
+    //Sound
+    public GameObject BGmusic;
+
     //camera
     private Transform Camera;
     [SerializeField] private Vector3 CamDayZoom;
@@ -112,6 +115,8 @@ public class GameController : MonoBehaviour
         Inventory_UI = GameObject.Find("InventoryBar");
         DayEnd_UI = GameObject.Find("DayEndUI");
         Camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+
+        BGmusic = GameObject.Find("BGmusic");
     }
 
     // Update is called once per frame
@@ -127,6 +132,7 @@ public class GameController : MonoBehaviour
                 
                 Inventory_UI.SetActive(true);
                 DayEnd_UI.SetActive(false);
+                BGmusic.SetActive(false);
 
                 if (!DayEnded)
                 {
@@ -185,6 +191,7 @@ public class GameController : MonoBehaviour
 
                 Inventory_UI.SetActive(false);
                 DayEnd_UI.SetActive(false);
+                BGmusic.SetActive(true);
                 CaptainCall = NightTimeInteractCounter >= NightInteractionLimit;
                 break;
             case GameState.Wait:
@@ -193,6 +200,7 @@ public class GameController : MonoBehaviour
 
                 Inventory_UI.SetActive(false);
                 DayEnd_UI.SetActive(true);
+                BGmusic.SetActive(false);
 
                 if (DayEndedCheck)
                 {

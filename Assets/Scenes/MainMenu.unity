@@ -112,24 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &197391749 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3529868032753039490, guid: 54e66daf52988be47b57d96cc303f1b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 783864329}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &197391750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197391749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71e314cccbd4164e9144a2c3eec3216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &783864329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -246,71 +228,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3278226754873150436, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -236
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218997373717462279, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_Name
-      value: StartButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 4910887636128051335, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4910887636128051335, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4910887636128051335, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4910887636128051335, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 197391750}
-    - target: {fileID: 4910887636128051335, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 4910887636128051335, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729008072708038356, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_Text
-      value: START
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729008072708038356, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_FontData.m_FontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729008072708038356, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729008072708038356, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729008072708038356, guid: 54e66daf52988be47b57d96cc303f1b9,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54e66daf52988be47b57d96cc303f1b9, type: 3}
