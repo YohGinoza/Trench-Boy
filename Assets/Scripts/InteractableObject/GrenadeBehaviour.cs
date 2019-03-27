@@ -11,6 +11,8 @@ public class GrenadeBehaviour : MonoBehaviour
 
     private float ExplodeTimer;
 
+    public AudioClip grenadeSFX;
+
     private void FixedUpdate()
     {
         ExplodeTimer += Time.fixedDeltaTime;
@@ -18,11 +20,16 @@ public class GrenadeBehaviour : MonoBehaviour
         if (ExplodeTimer >= ExplodeTime)
         {
             ExplodeTimer = 0;
-            Explode();
+            StartCoroutine(Explode());
         }
     }
 
-    private void Explode()
+    private void Awake()
+    {
+        this.GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    IEnumerator  Explode()
     {
         Collider[] Victims = Physics.OverlapSphere(this.transform.position, ExplosionRadius, VictimLayers);
         foreach (Collider victim in Victims)
@@ -36,7 +43,12 @@ public class GrenadeBehaviour : MonoBehaviour
         }
 
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        this.GetComponent<MeshRenderer>().enabled = false;
+        this.GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(0.4f);
         this.gameObject.SetActive(false);
+        
     }
 
     private void OnDrawGizmosSelected()
