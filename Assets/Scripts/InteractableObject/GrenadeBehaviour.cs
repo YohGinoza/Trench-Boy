@@ -20,7 +20,7 @@ public class GrenadeBehaviour : MonoBehaviour
         if (ExplodeTimer >= ExplodeTime)
         {
             ExplodeTimer = 0;
-            Explode();
+            StartCoroutine(Explode());
         }
     }
 
@@ -29,7 +29,7 @@ public class GrenadeBehaviour : MonoBehaviour
         this.GetComponent<MeshRenderer>().enabled = true;
     }
 
-    private void Explode()
+    IEnumerator  Explode()
     {
         Collider[] Victims = Physics.OverlapSphere(this.transform.position, ExplosionRadius, VictimLayers);
         foreach (Collider victim in Victims)
@@ -42,10 +42,11 @@ public class GrenadeBehaviour : MonoBehaviour
             }
         }
 
-        this.GetComponent<AudioSource>().Play();
-        StartCoroutine(Disable());
-
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        this.GetComponent<MeshRenderer>().enabled = false;
+        this.GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(0.4f);
         this.gameObject.SetActive(false);
         
     }
@@ -54,12 +55,4 @@ public class GrenadeBehaviour : MonoBehaviour
     {
         Gizmos.DrawWireSphere(this.transform.position, ExplosionRadius);
     }
-
-    IEnumerator Disable()
-    {
-        yield return new WaitForSeconds(0.4f);
-        this.gameObject.SetActive(false);
-    }
-
-
 }
