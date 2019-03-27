@@ -49,16 +49,6 @@ public class DialogueLoader : MonoBehaviour
 
         gc = GetComponent<GameController>();
 
-        for (int i = 0; i < friends.Length; i++)
-        {
-            if (dietoday[(int)friends[i]])
-            {
-                specialTrigger = true;
-                diedToday = i;
-                break;
-            }
-        }
-
         DialogueContainer dc = DialogueContainer.Load(path);
 
         foreach(Dialogue dialogue in dc.dialogues)
@@ -89,6 +79,20 @@ public class DialogueLoader : MonoBehaviour
         //========================================================
     }
 
+    void UpdateConverseData()
+    {
+        dietoday = GameController.AlliesDieToday;
+
+        for (int i = 0; i < friends.Length; i++)
+        {
+            if (dietoday[(int)friends[i]])
+            {
+                specialTrigger = true;
+                diedToday = i;
+                break;
+            }
+        }
+    }
 
     // set dayLimit to true after conversing once
     //+ reset dayLimit to true after every day has passed in GAMECONTROL script

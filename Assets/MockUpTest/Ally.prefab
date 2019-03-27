@@ -832,7 +832,7 @@ MonoBehaviour:
   BleedingEndurance: 30
   RecoverTime: 10
   MaxTargetDistance: 30
-  MaxTargetAngle: 30
+  MaxTargetAngle: 15
   UrgentTargetZDistance: 6
   EnemyLayer:
     serializedVersion: 2
