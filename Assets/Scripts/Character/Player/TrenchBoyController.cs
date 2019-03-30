@@ -42,6 +42,7 @@ public class TrenchBoyController : MonoBehaviour
     [SerializeField] private float ItemPickUpTime = 0.1f;
     public SupplyZone ReSupplyZone = null;
     public MedicalBed MedBed = null;
+    public bool ColliderInfront;
     //--------------------------
     //Input control
     //--------------------------
@@ -55,7 +56,7 @@ public class TrenchBoyController : MonoBehaviour
     //Crate crate; // waiting for Crate script
 
     Vector3 refVector = Vector3.zero;
-    Vector3 facing = Vector3.zero;
+    public Vector3 facing = Vector3.zero;
     private Vector3 carryPos = new Vector3(0.0f, 0.5f, 0.0f);
 
     // for checking time interaction
@@ -332,7 +333,7 @@ public class TrenchBoyController : MonoBehaviour
                             ReSupplyZone.RefillCrate(CarriedObject.GetComponent<Crates>());
                         }
                     }
-                    else
+                    else if(!ColliderInfront)
                     {
                         //put crate box
                         // ************************* will change after engine proof *****************************
