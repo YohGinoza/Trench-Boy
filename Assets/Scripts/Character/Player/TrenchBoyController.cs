@@ -42,6 +42,7 @@ public class TrenchBoyController : MonoBehaviour
     [SerializeField] private float ItemPickUpTime = 0.1f;
     public SupplyZone ReSupplyZone = null;
     public MedicalBed MedBed = null;
+    public SleepingBed Bed = null;
     public bool ColliderInfront;
     //--------------------------
     //Input control
@@ -49,7 +50,7 @@ public class TrenchBoyController : MonoBehaviour
     public bool spacebarUpped = false;             //some situation we don't want the game to register spacebar up twice 
                                                    //(such as when drop/pick up crate) so it won't pick up item at the same time
 
-
+    GameController gameController;
     Animator animator;
     Rigidbody rb;
     ColliderChercker Checker;
@@ -69,6 +70,7 @@ public class TrenchBoyController : MonoBehaviour
         Checker = this.GetComponentInChildren<ColliderChercker>();
         Inventory = this.GetComponent<InventorySystem>();
         animator = this.GetComponentInChildren<Animator>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         //   crate = GetComponent<Crate>(); // wating for Crate script
         facingRight = true;
     }
@@ -139,6 +141,14 @@ public class TrenchBoyController : MonoBehaviour
         {
             CarriedObject = null;
             isCarrying = false;
+        }
+
+        if (gameController.CurrentState == GameState.Night || gameController.CurrentState == GameState.Wait)
+        {
+            if (!Inventory.isEmpty())
+            {
+                Inventory.RemoveAllItem();
+            }
         }
     }
 
@@ -253,7 +263,8 @@ public class TrenchBoyController : MonoBehaviour
                             Checker.childTransfer(Carrier);
                             delta = 0; // stops timer
                             spacebarUpped = true;  //count as key up
-                        }else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Ally") && Checker.ClosestTrigerrer.GetComponent<AllyBehaviour>().CurrentState == AllyBehaviour.State.Downed)
+                        }
+                        else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Ally") && Checker.ClosestTrigerrer.GetComponent<AllyBehaviour>().CurrentState == AllyBehaviour.State.Downed)
                         {
                             Checker.childTransfer(Carrier);
                             delta = 0; // stops timer
@@ -266,6 +277,10 @@ public class TrenchBoyController : MonoBehaviour
                         {
                             ReSupplyZone.SpawnNew(Carrier);
                         }
+                        else if (Bed != null)
+                        {
+                            Bed.Sleep();
+                        }
                     }
                 }
             }
@@ -274,7 +289,7 @@ public class TrenchBoyController : MonoBehaviour
         if (!spacebarUpped && Input.GetKeyUp(KeyCode.Space))
         {
             Debug.Log("UP");
-            if ((!isCarrying || Inventory.HasEmptySlot()) && delta < ItemPickUpTime)
+            if ((!isCarrying || Inventory.HasEmptySlot()) && delta < ItemPickUpTime && (gameController.CurrentState == GameState.Day || gameController.CurrentState == GameState.Stalling))
             {
                 // pick up the POUCH
                 if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
@@ -304,7 +319,7 @@ public class TrenchBoyController : MonoBehaviour
             if (isCarrying)
             {
                 // POUCH
-                if (!Inventory.isEmpty())
+                if (!Inventory.isEmpty() && (gameController.CurrentState == GameState.Day || gameController.CurrentState == GameState.Stalling))
                 {
                     if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/)
                     {
@@ -333,7 +348,7 @@ public class TrenchBoyController : MonoBehaviour
                             ReSupplyZone.RefillCrate(CarriedObject.GetComponent<Crates>());
                         }
                     }
-                    else if(!ColliderInfront)
+                    else if (!ColliderInfront)
                     {
                         //put crate box
                         // ************************* will change after engine proof *****************************
@@ -374,8 +389,20 @@ public class TrenchBoyController : MonoBehaviour
                 //set bool in animator
                 animator.SetInteger("Item", 0);
             }
+            else
+            {
+                if (gameController.CurrentState == GameState.Night)
+                {
+                    if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/)
+                    {
+                        //GameObject ally = Checker.ClosestTrigerrer.gameObject.transform.Find("AllyCanvas").Find("Text").gameObject;
+                        Checker.ClosestTrigerrer.GetComponent<DialogueLoader>().converse();
+
+                        //ally.GetComponent<DialogueLoader>().converse();
+                    }
+                }
+            }
         }
 
     }
-
 }

@@ -51,6 +51,17 @@ public class InventorySystem : MonoBehaviour
         CycleInventory();
     }
 
+    public void RemoveAllItem()
+    {
+        for (int i = 0; i < ItemInventory.Length; i++)
+        {
+            if (ItemInventory[i] != ItemType.None)
+            {
+                ItemInventory[i] = ItemType.None;
+            }
+        }
+    }
+
     public void CycleInventory()
     {
         Debug.Log("Cycling Inventory...");

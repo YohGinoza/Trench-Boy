@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public enum GameState
 {
     Day,
+    Stalling,
     Night,
     Wait
 };
@@ -136,38 +137,9 @@ public class GameController : MonoBehaviour
                 DayEnd_UI.SetActive(false);
                 BGmusic.SetActive(false);
 
-                if (!DayEnded)
-                {
-                    TimeOfDay += Time.fixedDeltaTime / DayLenght;
-                }
-
-                if (TimeOfDay >= 1)
-                {
-                    TimeOfDay = 0;
-                    DayEnded = true;
-                }
-                else
-                {
-                    //will move to day triggerer when we have it
-                    foreach (EnemySpawner spawner in EnemySpawners)
-                    {
-                        if (!spawner.CoroutineRunning)
-                        {
-                            spawner.StartCoroutine("SpawnEnemy");
-                        }
-                    }
-                }
-
-                if (DayEnded)
-                {
-                    Debug.Log("DAY ENDED");
-                    DayEndedCheck = true;
-                    CurrentState = GameState.Wait;
-                }
-
                 //check if any ally is alive
                 DayEnded = true;
-                foreach(bool alive in AlliesAliveStatus)
+                foreach (bool alive in AlliesAliveStatus)
                 {
                     if (alive)
                     {
@@ -175,17 +147,73 @@ public class GameController : MonoBehaviour
                     }
                 }
 
+                if (!DayEnded)
+                {
+                    TimeOfDay += Time.fixedDeltaTime / DayLenght;
+                    if (TimeOfDay >= 1)
+                    {
+                        TimeOfDay = 0;
+                        DayEnded = true;
+                    }
+                }
+
                 if (DayEnded)
                 {
-                    Debug.Log("DAY ENDED");
-                    DayEndedCheck = true;
-                    CurrentState = GameState.Wait;
+                    DayEnd();
                 }
 
                 //if barbed wire is destroyed
                 //dayended = true;
 
                 break;
+
+            case GameState.Stalling:
+                DayEndedCheck = true;
+
+                //check if there are any enemy left
+                GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                if (Enemies.Length > 0)
+                {
+                    DayEndedCheck = false;
+                }
+
+                //check if there are any downed ally left
+                GameObject[] Allies = GameObject.FindGameObjectsWithTag("Ally");
+                foreach (GameObject ally in Allies)
+                {
+                    if (ally.GetComponent<AllyBehaviour>().CurrentState == AllyBehaviour.State.Downed)
+                    {
+                        DayEndedCheck = false;
+                    }
+                }
+
+                if (DayEndedCheck)
+                {
+                    CurrentState = GameState.Wait;
+                }
+                break;
+
+            case GameState.Wait:
+                Debug.Log("Wait");
+                PauseGame();
+
+                Inventory_UI.SetActive(false);
+                DayEnd_UI.SetActive(true);
+                BGmusic.SetActive(false);
+
+                if (!BarbedWireDestroyed)
+                {
+                    DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(false);
+                    DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(true);
+                    DayEnd_UI.GetComponent<DayEndUI>().addDeadList();
+                }
+                else
+                {
+                    DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
+                    DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
+                }
+                break;
+
             case GameState.Night:
                 //set camera
                 Camera.localPosition = CamNightZoom;
@@ -195,33 +223,6 @@ public class GameController : MonoBehaviour
                 DayEnd_UI.SetActive(false);
                 BGmusic.SetActive(true);
                 CaptainCall = NightTimeInteractCounter >= NightInteractionLimit;
-                break;
-            case GameState.Wait:
-                Debug.Log("Wait");
-                PauseGame();
-
-                Inventory_UI.SetActive(false);
-                DayEnd_UI.SetActive(true);
-                BGmusic.SetActive(false);
-
-                if (DayEndedCheck)
-                {
-                   DayEnd();
-                    if (!BarbedWireDestroyed)
-                    {
-                        DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(false);
-                        DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(true);
-                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList();
-                    }
-                    else
-                    {
-                        DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
-                        DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
-                    }
-                }
-
-                
-
                 break;
         }
 
@@ -239,29 +240,17 @@ public class GameController : MonoBehaviour
             }
         }
 
-        //switch all bahaviour to day
+        //switch all bahaviour to day and recover all ally
         GameObject[] Allies = GameObject.FindGameObjectsWithTag("Ally");
         foreach (GameObject ally in Allies)
         {
             AllyBehaviour DayBehaviour = ally.GetComponent<AllyBehaviour>();
             DialogueLoader NightBehaviour = ally.GetComponentInChildren<DialogueLoader>();
 
-            if (DayBehaviour != null)
+            if (DayBehaviour != null && DayBehaviour.CurrentState == AllyBehaviour.State.Healing)
             {
-                DayBehaviour.enabled = true;
+                DayBehaviour.CurrentState = AllyBehaviour.State.Shooting;
             }
-
-            if (NightBehaviour != null)
-            {
-                NightBehaviour.enabled = false;
-            }
-        }
-        //switch player behaviour to day
-        GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in Players)
-        {
-            TrenchBoyController DayBehaviour = player.GetComponent<TrenchBoyController>();
-            TrenchBoyController_NightTime NightBehaviour = player.GetComponent<TrenchBoyController_NightTime>();
 
             if (DayBehaviour != null)
             {
@@ -278,41 +267,6 @@ public class GameController : MonoBehaviour
 
     void DayEnd()
     {
-        //switch all bahaviour to night
-        GameObject[] Allies = GameObject.FindGameObjectsWithTag("Ally");
-        foreach (GameObject ally in Allies)
-        {
-            AllyBehaviour DayBehaviour = ally.GetComponent<AllyBehaviour>();
-            DialogueLoader NightBehaviour = ally.GetComponent<DialogueLoader>();
-
-            if (DayBehaviour != null)
-            {
-                DayBehaviour.enabled = false;
-            }
-
-            if (NightBehaviour != null)
-            {
-                NightBehaviour.enabled = true;
-            }
-        }
-        //switch player behaviour to night
-        GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in Players)
-        {
-            TrenchBoyController DayBehaviour = player.GetComponent<TrenchBoyController>();
-            TrenchBoyController_NightTime NightBehaviour = player.GetComponent<TrenchBoyController_NightTime>();
-
-            if (DayBehaviour != null)
-            {
-                DayBehaviour.enabled = false;
-            }
-
-            if (NightBehaviour != null)
-            {
-                NightBehaviour.enabled = true;
-            }
-        }
-
         //stop spawing enemy
         foreach (EnemySpawner spawner in EnemySpawners)
         {
@@ -322,6 +276,33 @@ public class GameController : MonoBehaviour
             }
         }
 
+        Debug.Log("DAY ENDED");
+        CurrentState = GameState.Stalling;
+    }
+
+    void StartNight()
+    {
+        //switch ally bahaviour to night 
+        GameObject[] Allies = GameObject.FindGameObjectsWithTag("Ally");
+        foreach (GameObject ally in Allies)
+        {
+            AllyBehaviour DayBehaviour = ally.GetComponent<AllyBehaviour>();
+            DialogueLoader NightBehaviour = ally.GetComponent<DialogueLoader>();
+
+            //except for those who is healing
+            if (DayBehaviour != null && DayBehaviour.CurrentState != AllyBehaviour.State.Healing)
+            {
+                if (DayBehaviour != null)
+                {
+                    DayBehaviour.enabled = false;
+                }
+
+                if (NightBehaviour != null)
+                {
+                    NightBehaviour.enabled = true;
+                }
+            }
+        }
 
         //clear array 
         for (int i = 0; i < AlliesDieToday.Length; i++)
@@ -330,9 +311,9 @@ public class GameController : MonoBehaviour
         }
 
         AlliesRamaining = 0;
-        
+
         //check from AlliesAliveStatus and AlliesDiePrev
-        for (int i = 0;i < AlliesAliveStatus.Length; i++)
+        for (int i = 0; i < AlliesAliveStatus.Length; i++)
         {
             if (AlliesAliveStatus[i])
             {
@@ -356,12 +337,11 @@ public class GameController : MonoBehaviour
             {
                 Debug.Log(AlliesName[i] + " Die to day ");
             }
-            
+
         }
 
         //checked
         DayEndedCheck = false;
-
     }
 
     public void Button_stageChange(int NextState)

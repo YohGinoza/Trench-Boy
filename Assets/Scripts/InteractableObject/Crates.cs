@@ -11,13 +11,6 @@ public class Crates : MonoBehaviour
     [SerializeField] private Renderer TopSide = null;
     [SerializeField] private Material Empty;
     [SerializeField] private Material NotEmpty;
-    //temporary var
-    private Color NormalColor;
-
-    private void Awake()
-    {
-        NormalColor = GetComponent<Renderer>().material.color;
-    }
 
     private void FixedUpdate()
     {

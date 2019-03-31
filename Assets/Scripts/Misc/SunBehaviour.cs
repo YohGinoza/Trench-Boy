@@ -17,10 +17,13 @@ public class SunBehaviour : MonoBehaviour
     //[SerializeField]private Vector3 SunAxis;
     private Light SunLight;
 
+    Quaternion original;
+
     private void Awake()
     {
         SunLight = this.GetComponent<Light>();
         //SunAxis = this.transform.forward;
+        original = this.transform.rotation;
     }
 
     private void FixedUpdate()
@@ -28,7 +31,7 @@ public class SunBehaviour : MonoBehaviour
         switch (gameController.CurrentState)
         {
             case GameState.Day:
-            case GameState.Wait:
+            case GameState.Stalling:
                 //set light color
                 if (gameController.TimeOfDay <= BrightestMorningTime)
                 {
@@ -53,7 +56,10 @@ public class SunBehaviour : MonoBehaviour
                 }
 
                 //rotate sun
-                this.transform.Rotate(0, 0, -Time.fixedDeltaTime / gameController.DayLenght * 180, Space.World);
+                if (gameController.TimeOfDay < 1)
+                {
+                    this.transform.Rotate(0, 0, -Time.fixedDeltaTime / gameController.DayLenght * 180, Space.World);
+                }
                 break;
             case GameState.Night:
                 SunLight.intensity = 0;

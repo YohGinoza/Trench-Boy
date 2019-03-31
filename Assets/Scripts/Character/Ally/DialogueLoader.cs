@@ -44,8 +44,8 @@ public class DialogueLoader : MonoBehaviour
     {
         NPC = Canvas.transform.GetChild(3).GetComponentInChildren<Text>();
         iNPC = Canvas.transform.GetChild(3).GetComponent<Image>();
-        PLAYER = GameObject.FindGameObjectWithTag("Player").transform.GetChild(4).GetChild(1).GetComponentInChildren<Text>();
-        iPLAYER = GameObject.FindGameObjectWithTag("Player").transform.GetChild(4).GetChild(1).GetComponent<Image>();
+        PLAYER = GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetChild(1).GetComponentInChildren<Text>();
+        iPLAYER = GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetChild(1).GetComponent<Image>();
 
         gc = GetComponent<GameController>();
 

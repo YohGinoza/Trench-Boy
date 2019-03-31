@@ -220,18 +220,18 @@ public class AllyBehaviour : MonoBehaviour
 
             case State.Healing:
                 //toggle UI
-                RequestImage.enabled = false;
-                RescueGauge.gameObject.SetActive(false);
-                HealGauge.gameObject.SetActive(true);
+                //RequestImage.enabled = false;
+                //RescueGauge.gameObject.SetActive(false);
+                //HealGauge.gameObject.SetActive(true);
 
-                if (!Healing)
-                {
-                    StartCoroutine(Recover());
-                }
+                //if (!Healing)
+                //{
+                //    StartCoroutine(Recover());
+                //}
 
                 //show timer
-                RecoveryTimer += Time.fixedDeltaTime / RecoverTime;
-                HealGauge.transform.GetChild(0).GetComponent<Image>().fillAmount = RecoveryTimer;
+                //RecoveryTimer += Time.fixedDeltaTime / RecoverTime;
+                //HealGauge.transform.GetChild(0).GetComponent<Image>().fillAmount = RecoveryTimer;
 
                 break;
         }
