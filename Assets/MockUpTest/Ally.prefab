@@ -833,7 +833,7 @@ MonoBehaviour:
   RecoverTime: 10
   MaxTargetDistance: 30
   MaxTargetAngle: 15
-  UrgentTargetZDistance: 6
+  UrgentTargetZDistance: 10
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -842,6 +842,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 1020358505660544101, guid: fc393f853ec6c024aa5e0459ce863d4a,
     type: 3}
   CurrentState: 0
+  EnteringNight: 0
   Injured: 0
   AmmoRequest: {fileID: 21300000, guid: 076be145c81307b4a8ea7753739935d3, type: 3}
   HealRequest: {fileID: 21300000, guid: f45466f03868b8248b392342f18a50f3, type: 3}

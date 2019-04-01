@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AllyBehaviour : MonoBehaviour
 {
-    public enum State { Shooting, Waiting, Downed, Healing };
+    public enum State { Shooting, Waiting, Downed, Healing, Dead };
 
     [Header("Personal Data")]
     [SerializeField] private Ally Identity;
@@ -37,6 +37,7 @@ public class AllyBehaviour : MonoBehaviour
 
     //background process variable
     public State CurrentState = State.Shooting;
+    public bool EnteringNight = false;
     private Transform CurrentTarget;
     //private float TargetDistance;
     private bool Shooting = false;
@@ -100,6 +101,7 @@ public class AllyBehaviour : MonoBehaviour
         }
         else if (Downed && BleedingTimer <= 0)
         {
+            CurrentState = State.Dead;
             Dead();
         }
         else if (CurrentState != State.Healing)
@@ -143,9 +145,7 @@ public class AllyBehaviour : MonoBehaviour
         {
             case State.Shooting:
                 //toggle UI
-                RescueGauge.gameObject.SetActive(false);
-                RequestImage.enabled = false;
-                HealGauge.gameObject.SetActive(false);
+                ToggleUI(false, false, false);
 
                 //renderer.material = FiringMaterial;
 
@@ -158,52 +158,50 @@ public class AllyBehaviour : MonoBehaviour
                 break;
 
             case State.Waiting:
-                //toggle UI
-                RescueGauge.gameObject.SetActive(false);
-                RequestImage.enabled = true;
-                HealGauge.gameObject.SetActive(false);
-
-                //renderer.material = WaitingMaterial;
-
-
-                //duck
-                this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
-
-                //stop shooting
-                StopCoroutine(Shoot());
-
-                if (Injured)
+                if (!EnteringNight)
                 {
+                    //toggle UI
+                    ToggleUI(true, false, false);
 
-                    RequestImage.sprite = HealRequest;
-                    if (!call)
+                    //renderer.material = WaitingMaterial;
+
+
+                    //duck
+                    this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
+
+                    //stop shooting
+                    StopCoroutine(Shoot());
+
+                    if (Injured)
                     {
-                        callSource.clip = callMedClip;
-                        callSource.Play();
-                        call = true;
+
+                        RequestImage.sprite = HealRequest;
+                        if (!call)
+                        {
+                            callSource.clip = callMedClip;
+                            callSource.Play();
+                            call = true;
+                        }
+
+                        WaitTimer += Time.fixedDeltaTime;
                     }
-
-                    WaitTimer += Time.fixedDeltaTime;
-                }
-                else if (AmmoCount <= 0)
-                {
-                    RequestImage.sprite = AmmoRequest;
-
-                    if (!call)
+                    else if (AmmoCount <= 0)
                     {
-                        callSource.clip = callAmmoClip;
-                        callSource.Play();
-                        call = true;
+                        RequestImage.sprite = AmmoRequest;
+
+                        if (!call)
+                        {
+                            callSource.clip = callAmmoClip;
+                            callSource.Play();
+                            call = true;
+                        }
                     }
                 }
-
                 break;
 
             case State.Downed:
                 //toggle UI
-                RequestImage.enabled = false;
-                RescueGauge.gameObject.SetActive(true);
-                HealGauge.gameObject.SetActive(false);
+                ToggleUI(false, true, false);
 
                 //renderer.material = WaitingMaterial;
 
@@ -343,6 +341,25 @@ public class AllyBehaviour : MonoBehaviour
         }
     }
 
+    public void EnterNight()
+    {
+        //toggle UI
+        RescueGauge.gameObject.SetActive(false);
+        RequestImage.enabled = false;
+        HealGauge.gameObject.SetActive(false);
+
+        //renderer.material = WaitingMaterial;
+
+
+        //duck
+        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
+
+        //stop shooting
+        StopCoroutine(Shoot());
+
+        EnteringNight = true;
+    }
+
     private IEnumerator Recover()
     {
         Healing = true;
@@ -357,6 +374,13 @@ public class AllyBehaviour : MonoBehaviour
     private void Down()
     {
         Downed = true;
+    }
+
+    private void ToggleUI(bool Request,bool Rescue, bool Heal)
+    {
+        RequestImage.enabled = Request;
+        RescueGauge.gameObject.SetActive(Rescue);
+        HealGauge.gameObject.SetActive(Heal);
     }
 
     public bool HandItem(ItemType item)
@@ -398,12 +422,18 @@ public class AllyBehaviour : MonoBehaviour
     private void Dead ()
     {
         this.transform.parent = null;
+        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
 
         //Collect deceased data
         GameController.AlliesAliveStatus[(int)Identity] = false;
 
+        //disable all ui
+        ToggleUI(false, false, false);
+
         //subject to change
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
+        animator.SetBool("isDead", true);
+        this.enabled = false;
     }
 
     private void OnDrawGizmos()

@@ -250,6 +250,7 @@ public class GameController : MonoBehaviour
             if (DayBehaviour != null && DayBehaviour.CurrentState == AllyBehaviour.State.Healing)
             {
                 DayBehaviour.CurrentState = AllyBehaviour.State.Shooting;
+                DayBehaviour.EnteringNight = false;
             }
 
             if (DayBehaviour != null)
@@ -294,6 +295,7 @@ public class GameController : MonoBehaviour
             {
                 if (DayBehaviour != null)
                 {
+                    DayBehaviour.EnterNight();
                     DayBehaviour.enabled = false;
                 }
 

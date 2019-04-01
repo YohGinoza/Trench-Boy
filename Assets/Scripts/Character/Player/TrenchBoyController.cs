@@ -352,9 +352,7 @@ public class TrenchBoyController : MonoBehaviour
                     {
                         //put crate box
                         // ************************* will change after engine proof *****************************
-                        CarriedObject.localPosition = facing;
-                        CarriedObject.SetParent(world);
-                        CarriedObject.position = new Vector3(CarriedObject.position.x, CarriedObject.transform.lossyScale.y * 0.5f, CarriedObject.position.z);
+                        PutDownCarryingObject();
 
                         carryingCrate = false;
                         //isCarrying = false;
@@ -375,9 +373,7 @@ public class TrenchBoyController : MonoBehaviour
                     else
                     {
                         //just put down
-                        CarriedObject.localPosition = facing;
-                        CarriedObject.SetParent(world);
-                        CarriedObject.position = new Vector3(CarriedObject.position.x, CarriedObject.transform.lossyScale.y * 0.5f, CarriedObject.position.z);
+                        PutDownCarryingObject();
 
                         //reenable collider, will change later
                         CarriedObject.GetComponent<Collider>().isTrigger = false;
@@ -404,5 +400,12 @@ public class TrenchBoyController : MonoBehaviour
             }
         }
 
+    }
+
+    private void PutDownCarryingObject()
+    {
+        CarriedObject.position = this.transform.position + facing;
+        CarriedObject.SetParent(world);
+        CarriedObject.position = new Vector3(CarriedObject.position.x, CarriedObject.transform.lossyScale.y * 0.5f, CarriedObject.position.z);
     }
 }

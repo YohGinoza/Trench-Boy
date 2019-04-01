@@ -41,9 +41,11 @@ public class EnemyBehaviour : MonoBehaviour
     public int GrenadeCount = 0;
 
     public float SuppressedTimer = 0;
-    public Transform MovingTarget;
+    public GameObject MovingTarget;
     bool ThrowingDecided = false;
     bool WillThrowGrenade = false;
+
+    bool ReachedBarbedWire = false;
 
     private Animator animator;
 
@@ -71,26 +73,28 @@ public class EnemyBehaviour : MonoBehaviour
         Agent = this.GetComponent<NavMeshAgent>();
         Agent.enabled = false;
         GrenadeCount = GrenadeLimit;
-        MovingTarget = this.transform;
+        MovingTarget = this.gameObject;
     }
 
     private void FixedUpdate()
     {
         //if not shooting, find new target
-        
-        if (SuppressedTimer > (10 - Aggressiveness))
+        if (!ReachedBarbedWire)
         {
-            //take action
-            Action();
-            //Debug.Log("actions");
-        }
-        else
-        {
-            //hold position and fire
-            Agent.enabled = false;
-            if (!Shooting)
+            if (SuppressedTimer > (10 - Aggressiveness))
             {
-                StartCoroutine(Shoot());
+                //take action
+                Action();
+                //Debug.Log("actions");
+            }
+            else
+            {
+                //hold position and fire
+                Agent.enabled = false;
+                if (!Shooting)
+                {
+                    StartCoroutine(Shoot());
+                }
             }
         }
 
@@ -134,13 +138,16 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 Agent.enabled = true;
                 AdvancePosition();
-                Agent.SetDestination(MovingTarget.position);
+                Agent.SetDestination(MovingTarget.transform.position);
 
                 //animation
                 animator.SetBool("Running", true);
             }
             else if ((this.transform.position - Agent.destination).magnitude < ArrivingDistance)
             {
+                ReachedBarbedWire = MovingTarget.CompareTag("BarbedWire");
+                animator.SetBool("ReachedBarbedWire", ReachedBarbedWire);
+
                 Agent.SetDestination(this.transform.position);
                 ThrowingDecided = false;
                 SuppressedTimer = 0;
@@ -222,11 +229,11 @@ public class EnemyBehaviour : MonoBehaviour
         if(ClosestPoint != null)
         {
             //Debug.Log(ClosestPoint);
-            MovingTarget = ClosestPoint.transform;
+            MovingTarget = ClosestPoint;
         }
         else
         {
-            MovingTarget = this.transform;
+            MovingTarget = this.gameObject;
         }
     }
 
