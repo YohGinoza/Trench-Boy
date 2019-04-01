@@ -51,7 +51,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     public AudioClip BarbedWireCut;
     public AudioSource BarbedWireSource;
-    
+
+    public AudioClip DownSFX;
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -314,11 +316,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Shot()
     {
-        Dead();
+        StartCoroutine(Dead());
     }
 
-    private void Dead()
+    private IEnumerator Dead()
     {
+        audioSource.clip = DownSFX;
+        audioSource.Play();
+        yield return new WaitForSeconds(1.3f);
         //subject to change
         this.gameObject.SetActive(false);
     }
