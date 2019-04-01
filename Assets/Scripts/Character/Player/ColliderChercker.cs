@@ -6,6 +6,7 @@ public class ColliderChercker : MonoBehaviour {
 
     private Collider[] Triggerers;
     public Transform ClosestTrigerrer;
+    private SelectedHighlight Selected;
     [SerializeField] private float TriggererRadius = 3;
     [SerializeField] private LayerMask TrigererLayer;
 
@@ -15,7 +16,18 @@ public class ColliderChercker : MonoBehaviour {
     {
         Triggerers = Physics.OverlapSphere(this.transform.position, TriggererRadius, TrigererLayer);
 
-        ClosestTrigerrer = null;
+        if (ClosestTrigerrer != null)
+        {
+            //unselect
+            if (Selected != null)
+            {
+                Selected.UnSelect();
+            }
+
+            ClosestTrigerrer = null;
+            Selected = null;
+        }
+
         if (Triggerers.Length > 0)
         {
             float FarthestDistance = 100;
@@ -26,6 +38,21 @@ public class ColliderChercker : MonoBehaviour {
                 {
                     FarthestDistance = distance;
                     ClosestTrigerrer = Triggerer.transform;
+                }
+            }
+
+            //trigger selected
+            if (ClosestTrigerrer != null)
+            {
+                Selected = ClosestTrigerrer.GetComponentInChildren<SelectedHighlight>();
+                if (Selected != null)
+                {
+                    Selected.Select();
+                    Debug.Log("Found");
+                }
+                else
+                {
+                    Debug.Log("Not Forund");
                 }
             }
         }
