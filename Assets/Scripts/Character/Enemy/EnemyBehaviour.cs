@@ -49,6 +49,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     private Animator animator;
 
+    public AudioClip BarbedWireCut;
+    public AudioSource BarbedWireSource;
+    
+
     private void Start()
     {
         BulletPool = new GameObject[BulletPoolSize];
@@ -147,6 +151,11 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 ReachedBarbedWire = MovingTarget.CompareTag("BarbedWire");
                 animator.SetBool("ReachedBarbedWire", ReachedBarbedWire);
+                if (ReachedBarbedWire)
+                {
+                    BarbedWireSource.clip = BarbedWireCut;
+                    BarbedWireSource.Play();
+                }
 
                 Agent.SetDestination(this.transform.position);
                 ThrowingDecided = false;
