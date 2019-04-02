@@ -64,6 +64,12 @@ public class TrenchBoyController : MonoBehaviour
     public float delta = 0.0f; // button hold timer
     float delay = 0.0f; // delay between interactions
 
+    //sound
+    public AudioClip unavialable;
+    public AudioClip boxDown;
+    public AudioClip boxUp;
+    public AudioSource audioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -261,6 +267,9 @@ public class TrenchBoyController : MonoBehaviour
                         else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
                         {
                             Checker.childTransfer(Carrier);
+                            audioSource.clip = boxUp;
+                            audioSource.Play();
+
                             delta = 0; // stops timer
                             spacebarUpped = true;  //count as key up
                         }
@@ -353,9 +362,15 @@ public class TrenchBoyController : MonoBehaviour
                         //put crate box
                         // ************************* will change after engine proof *****************************
                         PutDownCarryingObject();
+                        audioSource.clip = boxDown;
+                        audioSource.Play();
 
                         carryingCrate = false;
                         //isCarrying = false;
+                    }else if (ColliderInfront)
+                    {
+                        audioSource.clip = unavialable;
+                        audioSource.Play();
                     }
                     spacebarUpped = true;
                     delta = 0;

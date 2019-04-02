@@ -63,9 +63,11 @@ public class AllyBehaviour : MonoBehaviour
     //private Renderer renderer;
     private Animator animator;
 
+    [Header("Sound")]
     public AudioClip callMedClip;
     public AudioClip callAmmoClip;
     public AudioClip gunSFX;
+    public AudioClip deadSFX;
     public AudioSource callSource;
     private bool call = false;
 
@@ -102,7 +104,7 @@ public class AllyBehaviour : MonoBehaviour
         else if (Downed && BleedingTimer <= 0)
         {
             CurrentState = State.Dead;
-            Dead();
+            StartCoroutine(Dead());
         }
         else if (CurrentState != State.Healing)
         {
@@ -419,7 +421,7 @@ public class AllyBehaviour : MonoBehaviour
         return false;
     }
 
-    private void Dead ()
+    private IEnumerator Dead ()
     {
         this.transform.parent = null;
         this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
@@ -433,6 +435,10 @@ public class AllyBehaviour : MonoBehaviour
         //subject to change
         //this.gameObject.SetActive(false);
         animator.SetBool("isDead", true);
+
+        callSource.clip = deadSFX;
+        callSource.Play();
+        yield return new WaitForSeconds(1.0f);
         this.enabled = false;
     }
 

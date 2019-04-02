@@ -49,6 +49,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     private Animator animator;
 
+    public AudioClip BarbedWireCut;
+    public AudioSource BarbedWireSource;
+
+    public AudioClip DownSFX;
+    public AudioSource audioSource;
+
     private void Start()
     {
         BulletPool = new GameObject[BulletPoolSize];
@@ -147,6 +153,11 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 ReachedBarbedWire = MovingTarget.CompareTag("BarbedWire");
                 animator.SetBool("ReachedBarbedWire", ReachedBarbedWire);
+                if (ReachedBarbedWire)
+                {
+                    BarbedWireSource.clip = BarbedWireCut;
+                    BarbedWireSource.Play();
+                }
 
                 Agent.SetDestination(this.transform.position);
                 ThrowingDecided = false;
@@ -305,11 +316,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Shot()
     {
-        Dead();
+        StartCoroutine(Dead());
     }
 
-    private void Dead()
+    private IEnumerator Dead()
     {
+        audioSource.clip = DownSFX;
+        audioSource.Play();
+        yield return new WaitForSeconds(1.3f);
         //subject to change
         this.gameObject.SetActive(false);
     }
