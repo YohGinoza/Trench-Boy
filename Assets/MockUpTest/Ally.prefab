@@ -854,6 +854,7 @@ MonoBehaviour:
   callAmmoClip: {fileID: 8300000, guid: fc7ab028de6b1e34db6a4917af0aabf9, type: 3}
   gunSFX: {fileID: 8300000, guid: ab54e2070bec6b446b14c414e72ccbb8, type: 3}
   deadSFX: {fileID: 8300000, guid: 20c3d9bd90a1b1141bc978441b56d7bc, type: 3}
+  converse: {fileID: 8300000, guid: 6bc41ec730236df4f8f2bcf54db23275, type: 3}
   callSource: {fileID: 750863550397373879}
 --- !u!114 &996244919744816677
 MonoBehaviour:

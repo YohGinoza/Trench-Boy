@@ -68,6 +68,7 @@ public class TrenchBoyController : MonoBehaviour
     public AudioClip unavialable;
     public AudioClip boxDown;
     public AudioClip boxUp;
+    public AudioClip converse;
     public AudioSource audioSource;
     private bool footstepPlay = false;
 
