@@ -20,9 +20,9 @@ public class KeepOrientation : MonoBehaviour
     private void FixedUpdate()
     {
         this.transform.rotation = Quaternion.Euler(OriginalEulerAngle);
-        this.transform.parent = null;
-        this.transform.localScale = OriginalScale;
-        this.transform.parent = parent;
-        this.transform.localPosition = OrginalChildPos;
+        //this.transform.parent = null;
+        //this.transform.localScale = OriginalScale;
+        //this.transform.parent = parent;
+        //this.transform.localPosition = OrginalChildPos;
     }
 }

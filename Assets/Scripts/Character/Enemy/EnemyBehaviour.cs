@@ -83,6 +83,12 @@ public class EnemyBehaviour : MonoBehaviour
         MovingTarget = this.gameObject;
     }
 
+    private void OnEnable()
+    {
+        //reenable mesh renderee
+        this.GetComponentInChildren<MeshRenderer>().enabled = true;
+    }
+
     private void FixedUpdate()
     {
         //if not shooting, find new target
@@ -331,6 +337,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         yield return new WaitForSeconds(1.3f);
         //subject to change
+        BarbedWireSource.Stop();
         this.gameObject.SetActive(false);
     }
 

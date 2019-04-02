@@ -330,7 +330,7 @@ public class TrenchBoyController : MonoBehaviour
                     {
                         if (Inventory.Add(crate.Type))
                         {
-                            crate.Amount--;
+                            crate.PickOut();
                             isCarrying = true;
                         }
                     }

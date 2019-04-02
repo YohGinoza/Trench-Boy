@@ -17,8 +17,10 @@ public class SelectedHighlight : MonoBehaviour
     {
         foreach(Renderer renderer in ChildrenRenderers)
         {
-            renderer.material.SetColor("_EmissionColor", SelectedEmisionColor);
-            renderer.material.EnableKeyword("_EMISSION");
+            Material newMat = renderer.material;
+            newMat.SetColor("_EmissionColor", SelectedEmisionColor);
+            newMat.EnableKeyword("_EMISSION");
+            renderer.material = newMat;
         }
     }
 
@@ -26,8 +28,10 @@ public class SelectedHighlight : MonoBehaviour
     {
         foreach (Renderer renderer in ChildrenRenderers)
         {
-            renderer.material.SetColor("_EmissionColor", Color.black);
-            renderer.material.DisableKeyword("_EMISSION");
+            Material newMat = renderer.material;
+            newMat.SetColor("_EmissionColor", Color.black);
+            newMat.DisableKeyword("_EMISSION");
+            renderer.material = newMat;
         }
     }
 }

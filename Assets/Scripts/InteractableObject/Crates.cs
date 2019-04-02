@@ -14,21 +14,34 @@ public class Crates : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //if box is empty access will be false and box will change color to white
-        if (Amount <= 0)
-        {
-            //GetComponent<Renderer>().material.color = Color.white;
-            TopSide.material = Empty;
-        }
-        else
+
+    }
+
+    public void Refill()
+    {
+        Amount = MaxAmount;
+
+        if (NotEmpty != null)
         {
             //GetComponent<Renderer>().material.color = NormalColor;
             TopSide.material = NotEmpty;
         }
     }
 
-    public void Refill()
+    public void PickOut()
     {
-        Amount = MaxAmount;
+        if (Amount > 0)
+        {
+            Amount--;
+        }
+
+        if (Amount <= 0)
+        {
+            if (Empty != null)
+            {
+                //GetComponent<Renderer>().material.color = Color.white;
+                TopSide.material = Empty;
+            }
+        }
     }
 }
