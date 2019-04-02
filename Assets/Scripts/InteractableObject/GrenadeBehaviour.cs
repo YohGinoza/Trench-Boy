@@ -46,7 +46,7 @@ public class GrenadeBehaviour : MonoBehaviour
         this.GetComponent<MeshRenderer>().enabled = false;
         this.GetComponent<AudioSource>().Play();
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(2.0f);
         this.gameObject.SetActive(false);
         
     }
