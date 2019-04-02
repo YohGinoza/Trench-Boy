@@ -681,6 +681,8 @@ MonoBehaviour:
   boxDown: {fileID: 8300000, guid: 7897f942486d3a24596967f85a046c75, type: 3}
   boxUp: {fileID: 8300000, guid: e53be2838ab9fb84eb26eecaa0ae1706, type: 3}
   converse: {fileID: 8300000, guid: 679898d29c4894b428ccee97a21f35a1, type: 3}
+  pickupPouch: {fileID: 8300000, guid: 13a440680e751c942980b6ca0f6b9aaf, type: 3}
+  handingPouch: {fileID: 8300000, guid: a2a39cd6052db284aa9ee7b7725d3f21, type: 3}
   audioSource: {fileID: 8843107166254461095}
 --- !u!114 &8792578434883294859
 MonoBehaviour:
