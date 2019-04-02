@@ -18,7 +18,7 @@ public class DialogueLoader : MonoBehaviour
     public int index_Friendship = 0;
     public int index_Ending = 0;
 
-    TrenchBoyController player;
+    GameObject player;
     GameController gc;
 
     public GameObject Canvas;
@@ -26,6 +26,8 @@ public class DialogueLoader : MonoBehaviour
     public Text PLAYER;
     public Image iNPC;
     public Image iPLAYER;
+
+    private Animator animator;
 
     private int lineCounter = 0;
     // once converse, set to true and trigger line Ex
@@ -42,11 +44,14 @@ public class DialogueLoader : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        animator = this.GetComponentInChildren<Animator>();
+
         NPC = Canvas.transform.GetChild(3).GetComponentInChildren<Text>();
         iNPC = Canvas.transform.GetChild(3).GetComponent<Image>();
         //get component from player canvas
-        PLAYER = GameObject.FindGameObjectWithTag("Player").transform.GetChild(4).GetChild(1).GetComponentInChildren<Text>();
-        iPLAYER = GameObject.FindGameObjectWithTag("Player").transform.GetChild(4).GetChild(1).GetComponent<Image>();
+        PLAYER = player.transform.GetChild(4).GetChild(1).GetComponentInChildren<Text>();
+        iPLAYER = player.transform.GetChild(4).GetChild(1).GetComponent<Image>();
 
         gc = GetComponent<GameController>();
 
@@ -114,19 +119,13 @@ public class DialogueLoader : MonoBehaviour
                 {
                     speaker = NPC;
                     iSpeaker = iNPC;
-                    NPC.enabled = true;
-                    iNPC.enabled = true;
-                    PLAYER.enabled = false;
-                    iPLAYER.enabled = false;
+                    ShowSpeechBubble(true);
                 }
                 else
                 {
                     speaker = PLAYER;
                     iSpeaker = iPLAYER;
-                    NPC.enabled = false;
-                    iNPC.enabled = false;
-                    PLAYER.enabled = true;
-                    iPLAYER.enabled = true;
+                    ShowSpeechBubble(false);
                 }
 
                 // text body
@@ -151,19 +150,13 @@ public class DialogueLoader : MonoBehaviour
                 {
                     speaker = NPC;
                     iSpeaker = iNPC;
-                    NPC.enabled = true;
-                    iNPC.enabled = true;
-                    PLAYER.enabled = false;
-                    iPLAYER.enabled = false;
+                    ShowSpeechBubble(true);
                 }
                 else
                 {
                     speaker = PLAYER;
                     iSpeaker = iPLAYER;
-                    NPC.enabled = false;
-                    iNPC.enabled = false;
-                    PLAYER.enabled = true;
-                    iPLAYER.enabled = true;
+                    ShowSpeechBubble(false);
                 }
                 // if NORMAL
 
@@ -186,10 +179,7 @@ public class DialogueLoader : MonoBehaviour
         {
             // ending lines / goodbye
             // NPC one-liner
-            PLAYER.enabled = false;
-            iPLAYER.enabled = false;
-            NPC.enabled = true;
-            iNPC.enabled = true;
+            ShowSpeechBubble(true);
             NPC.text = ending_text[index_Ending, lineCounter];
             if (ending_text[index_Ending+1,lineCounter] != null)
             {
@@ -203,4 +193,23 @@ public class DialogueLoader : MonoBehaviour
         }
     }
     
+    private void ShowSpeechBubble(bool NPCTalking)
+    {
+        PLAYER.enabled = !NPCTalking;
+        iPLAYER.enabled = !NPCTalking;
+        NPC.enabled = NPCTalking;
+        iNPC.enabled = NPCTalking;
+
+        //play animation
+        if (NPCTalking)
+        {
+            //(I) you may play npc talking sound here
+            animator.SetTrigger("Talk");
+        }
+        else
+        {
+            player.GetComponentInChildren<Animator>().SetBool("Talking", true);
+            player.GetComponentInChildren<Animator>().SetTrigger("Talk");
+        }
+    }
 }
