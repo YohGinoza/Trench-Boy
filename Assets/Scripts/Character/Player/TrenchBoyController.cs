@@ -68,7 +68,9 @@ public class TrenchBoyController : MonoBehaviour
     public AudioClip unavialable;
     public AudioClip boxDown;
     public AudioClip boxUp;
+    public AudioClip converse;
     public AudioSource audioSource;
+    private bool footstepPlay = false;
 
     void Start()
     {
@@ -176,6 +178,25 @@ public class TrenchBoyController : MonoBehaviour
                 // if !carrying ms = default
                 maxSpeed = defaultSpeed;
             }
+
+            //play foot step sound
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) 
+                || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            {
+                if (!footstepPlay)
+                {
+                    footstepPlay = true;
+                    this.GetComponent<AudioSource>().loop = true;
+                    this.GetComponent<AudioSource>().Play();
+                }
+            }
+            else
+            {
+                footstepPlay = false;
+                this.GetComponent<AudioSource>().loop = false;
+
+            }
+
 
             // ------------------------------
             // buttons for character controls

@@ -204,10 +204,19 @@ public class DialogueLoader : MonoBehaviour
         if (NPCTalking)
         {
             //(I) you may play npc talking sound here
+            player.GetComponent<TrenchBoyController>().audioSource.Stop();
+
+            this.GetComponent<AllyBehaviour>().callSource.clip = this.GetComponent<AllyBehaviour>().converse;
+            this.GetComponent<AllyBehaviour>().callSource.Play();
             animator.SetTrigger("Talk");
         }
         else
         {
+            this.GetComponent<AllyBehaviour>().callSource.Stop();
+
+            player.GetComponent<TrenchBoyController>().audioSource.clip = player.GetComponent<TrenchBoyController>().converse;
+            player.GetComponent<TrenchBoyController>().audioSource.Play();
+
             player.GetComponentInChildren<Animator>().SetBool("Talking", true);
             player.GetComponentInChildren<Animator>().SetTrigger("Talk");
         }

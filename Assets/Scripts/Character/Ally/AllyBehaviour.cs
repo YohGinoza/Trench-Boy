@@ -68,6 +68,7 @@ public class AllyBehaviour : MonoBehaviour
     public AudioClip callAmmoClip;
     public AudioClip gunSFX;
     public AudioClip deadSFX;
+    public AudioClip converse;
     public AudioSource callSource;
     private bool call = false;
 

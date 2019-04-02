@@ -51,6 +51,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public AudioClip BarbedWireCut;
     public AudioSource BarbedWireSource;
+    private bool call = false;
 
     public AudioClip DownSFX;
     public AudioSource audioSource;
@@ -321,8 +322,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     private IEnumerator Dead()
     {
-        audioSource.clip = DownSFX;
-        audioSource.Play();
+
+        this.GetComponentInChildren<MeshRenderer>().enabled = false;
+        if (!call) {
+            call = true;
+            audioSource.clip = DownSFX;
+            audioSource.Play();
+        }
         yield return new WaitForSeconds(1.3f);
         //subject to change
         this.gameObject.SetActive(false);
