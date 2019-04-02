@@ -179,8 +179,12 @@ public class DialogueLoader : MonoBehaviour
         {
             // ending lines / goodbye
             // NPC one-liner
-            ShowSpeechBubble(true);
-            NPC.text = ending_text[index_Ending, lineCounter];
+            if (ending_text[index_Ending, lineCounter] != null)
+            {
+                ShowSpeechBubble(true);
+                NPC.text = ending_text[index_Ending, lineCounter];
+            }
+
             if (ending_text[index_Ending+1,lineCounter] != null)
             {
                 index_Ending++;                
