@@ -247,6 +247,10 @@ public class GameController : MonoBehaviour
             AllyBehaviour DayBehaviour = ally.GetComponent<AllyBehaviour>();
             DialogueLoader NightBehaviour = ally.GetComponentInChildren<DialogueLoader>();
 
+            //trigger day animation
+            ally.GetComponentInChildren<Animator>().SetBool("Night", false);
+
+            //switch behaviour to night
             if (DayBehaviour != null && DayBehaviour.CurrentState == AllyBehaviour.State.Healing)
             {
                 DayBehaviour.CurrentState = AllyBehaviour.State.Shooting;
@@ -293,6 +297,11 @@ public class GameController : MonoBehaviour
             //except for those who is healing
             if (DayBehaviour != null && DayBehaviour.CurrentState != AllyBehaviour.State.Healing)
             {
+                //trigger night animation
+                ally.GetComponentInChildren<Animator>().SetBool("Night", true);
+                ally.GetComponentInChildren<Animator>().Play("AllyNight");
+
+                //switch behaviour to night
                 if (DayBehaviour != null)
                 {
                     DayBehaviour.EnterNight();
@@ -362,6 +371,7 @@ public class GameController : MonoBehaviour
         if ((GameState)NextState == GameState.Night)
         {
             //SceneManager.LoadScene("Angled3D");
+            StartNight();
         }
 
         CurrentState = (GameState)NextState;

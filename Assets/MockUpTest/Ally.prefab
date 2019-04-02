@@ -748,6 +748,7 @@ GameObject:
   - component: {fileID: 8868676952117954860}
   - component: {fileID: 3795466158917087752}
   - component: {fileID: 996244919744816677}
+  - component: {fileID: 3614090251792415655}
   m_Layer: 9
   m_Name: Ally
   m_TagString: Ally
@@ -877,6 +878,19 @@ MonoBehaviour:
   dayLimit: 0
   specialTrigger: 0
   friends: 
+--- !u!114 &3614090251792415655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868676952117954862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c247b4dfcca2e745900abd9be43a973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectedEmisionColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
 --- !u!1 &8868676952249291320
 GameObject:
   m_ObjectHideFlags: 0

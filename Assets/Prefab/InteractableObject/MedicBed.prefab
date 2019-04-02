@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8692914903314883435}
   - component: {fileID: 8692914903314883434}
   - component: {fileID: 8692914903314883438}
+  - component: {fileID: 5756468315552330654}
   m_Layer: 0
   m_Name: MedicBed
   m_TagString: Untagged
@@ -104,3 +105,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291678e01e9fb5a4bb23bc24d0f24356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5756468315552330654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692914903314883433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c247b4dfcca2e745900abd9be43a973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectedEmisionColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
