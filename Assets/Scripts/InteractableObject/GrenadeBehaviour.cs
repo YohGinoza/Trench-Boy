@@ -36,7 +36,7 @@ public class GrenadeBehaviour : MonoBehaviour
         {
             victim.GetComponent<AllyBehaviour>().Shot();
 
-            if (Random.Range(0, 1) < DownChance)
+            if (Random.Range(0.0f, 1.0f) < DownChance)
             {
                 victim.GetComponent<AllyBehaviour>().Shot();
             }

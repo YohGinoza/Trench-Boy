@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplodeTime: 5
   ExplosionRadius: 3
-  DownChance: 0.75
+  DownChance: 0.3
   VictimLayers:
     serializedVersion: 2
     m_Bits: 512
