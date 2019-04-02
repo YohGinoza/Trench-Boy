@@ -69,6 +69,8 @@ public class TrenchBoyController : MonoBehaviour
     public AudioClip boxDown;
     public AudioClip boxUp;
     public AudioClip converse;
+    public AudioClip pickupPouch;
+    public AudioClip handingPouch;
     public AudioSource audioSource;
     private bool footstepPlay = false;
 
@@ -330,6 +332,8 @@ public class TrenchBoyController : MonoBehaviour
                     {
                         if (Inventory.Add(crate.Type))
                         {
+                            audioSource.clip = pickupPouch;
+                            audioSource.Play();
                             crate.PickOut();
                             isCarrying = true;
                         }
@@ -357,6 +361,8 @@ public class TrenchBoyController : MonoBehaviour
 
                         if (ally.HandItem(Inventory.ItemInventory[Inventory.SelectedItem]))
                         {
+                            audioSource.clip = handingPouch;
+                            audioSource.Play();
                             Inventory.RemoveItem();
                         }
                     }
