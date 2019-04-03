@@ -101,8 +101,24 @@ public class DialogueLoader : MonoBehaviour
     }
 
     // set dayLimit to true after conversing once
-    //+ reset dayLimit to true after every day has passed in GAMECONTROL script
-    
+    //+ reset d
+    public void Update()
+    {
+        Debug.Log(dayLimit);
+        if (Input.GetKey(KeyCode.M))
+        {
+            dayLimit = true;
+        }
+
+        if (Input.GetKey(KeyCode.N))
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                Debug.Log(ending_text[i, 0]);
+            }
+        }
+    }
+
     public void converse()
     {
         Text speaker;
@@ -177,23 +193,26 @@ public class DialogueLoader : MonoBehaviour
         }
         else
         {
+            Debug.Log("AAAAAAAAAAAAAA");
             // ending lines / goodbye
             // NPC one-liner
             if (ending_text[index_Ending, lineCounter] != null)
             {
+                Debug.Log("BBBBBBBBBBBBBBBBB");
                 ShowSpeechBubble(true);
-                NPC.text = ending_text[index_Ending, lineCounter];
-            }
+                speaker = NPC;
+                //NPC.text = ending_text[index_Ending, lineCounter];
+                speaker.text = ending_text[0, 0];
 
-            if (ending_text[index_Ending+1,lineCounter] != null)
-            {
-                index_Ending++;                
+                index_Ending++;
             }
             else
             {
                 NPC.enabled = false;
                 iNPC.enabled = false;
+                index_Ending--;
             }
+            
         }
     }
     
