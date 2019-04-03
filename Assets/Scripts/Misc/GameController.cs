@@ -108,7 +108,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-
         DayStart();
         for(int i = 0;i < AlliesAliveStatus.Length; i++)
         {
@@ -189,6 +188,7 @@ public class GameController : MonoBehaviour
 
                 if (DayEndedCheck)
                 {
+                    StartNight();
                     CurrentState = GameState.Wait;
                 }
                 break;

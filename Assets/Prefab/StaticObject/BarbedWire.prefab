@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bd6a8fa82880845a1ca1d6bef7cfbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarbedWireModeHP: 0
-  HP: 100
+  BarbedWireModeHP: 1
+  HP: 20
 --- !u!1 &5281083838234191980
 GameObject:
   m_ObjectHideFlags: 0

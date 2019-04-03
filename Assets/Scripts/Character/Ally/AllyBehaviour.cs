@@ -436,6 +436,8 @@ public class AllyBehaviour : MonoBehaviour
         //subject to change
         //this.gameObject.SetActive(false);
         animator.SetBool("isDead", true);
+        this.tag = "Untagged";
+        this.gameObject.layer = 0;
 
         callSource.clip = deadSFX;
         callSource.Play();

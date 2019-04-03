@@ -52309,6 +52309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarbedWire (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7180480004308297413, guid: f54e63865d77cdf47ad7d4f121ded511,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8067880477584841759, guid: f54e63865d77cdf47ad7d4f121ded511,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -94070,7 +94075,7 @@ PrefabInstance:
     - target: {fileID: 3514030408372399355, guid: 10b804ab5d14a4540af44bb38e306a65,
         type: 3}
       propertyPath: SecondsBetweenSpawns
-      value: 2
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3514030408372399354, guid: 10b804ab5d14a4540af44bb38e306a65,
         type: 3}

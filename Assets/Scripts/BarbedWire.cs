@@ -24,7 +24,7 @@ public class BarbedWire : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -54,7 +54,8 @@ public class BarbedWire : MonoBehaviour
                 HP -= Time.deltaTime;
                 if (HP <= 0.0f)
                 {
-                    GameController.DayEnded = true;
+                    //GameController.DayEnded = true;
+                    gc.CurrentState = GameState.Wait;
                     GameController.BarbedWireDestroyed = true;
                 }
             }                    
