@@ -71,22 +71,23 @@ public class EnemyBehaviour : MonoBehaviour
             GrenadePool[i] = Instantiate(GrenadePrefab);
             GrenadePool[i].SetActive(false);
         }
-
-        animator = this.GetComponentInChildren<Animator>();
     }
 
     private void Awake()
     {
         Agent = this.GetComponent<NavMeshAgent>();
-        Agent.enabled = false;
-        GrenadeCount = GrenadeLimit;
-        MovingTarget = this.gameObject;
+        animator = this.GetComponentInChildren<Animator>();
     }
 
     private void OnEnable()
     {
         //reenable mesh renderee
         this.GetComponentInChildren<MeshRenderer>().enabled = true;
+        //reset a unit
+        ReachedBarbedWire = false;
+        Agent.enabled = false;
+        GrenadeCount = GrenadeLimit;
+        MovingTarget = this.gameObject;
     }
 
     private void FixedUpdate()
