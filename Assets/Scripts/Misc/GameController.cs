@@ -24,18 +24,19 @@ public enum Day
 
 public enum Ally
 {
-    COL_WC = 0,
-    SGT_AB,
-    SGT_JC,
-    SGT_BS,
-    CPL_RG,
-    CPL_DR,
-    PVT_JR,
-    PVT_TB,
-    PVT_RW,
-    PVT_GS,
-    PVT_AS,
-    PVT_EA
+    Cpt_William_Carter = 0,
+    Sgt_Allen_Baker,
+    Cpl_Ray_Garrett,
+    Cpl_Darren_Reed,
+    Pvt_Jason_Riley,
+    Pvt_Roy_Watson,
+    Pvt_Ellis_Anderson,
+    Pvt_Andrew_Summer,
+    Pvt_Tim_Berry,
+    Pvt_Harper_Scott,
+    Pvt_Dwayne_Manning,
+    Lt_Henry_Mattis,
+    Sgt_Becker_Samson
 };
 
 public enum ItemType
@@ -50,25 +51,26 @@ public class GameController : MonoBehaviour
 
     public static int AlliesRamaining;
 
-    public static bool[] AlliesAliveStatus = new bool[12];
+    public static bool[] AlliesAliveStatus = new bool[13];
     
-    public static bool[] AlliesDieToday = new bool[12];
-    public static bool[] AlliesDiePrev = new bool[12];
+    public static bool[] AlliesDieToday = new bool[13];
+    public static bool[] AlliesDiePrev = new bool[13];
 
     public static string[] AlliesName = new string[]
     {
-        "COL_WC",
-        "SGT_AB",
-        "SGT_JC",
-        "SGT_BS",
-        "CPL_RG",
-        "CPL_DR",
-        "PVT_JR",
-        "PVT_TB",
-        "PVT_RW",
-        "PVT_GS",
-        "PVT_AS",
-        "PVT_EA"
+        "Cpt. William Carter",
+        "Sgt. Allen Baker",
+        "Cpl. Ray Garrett",
+        "Cpl. Darren Reed",
+        "Pvt. Jason Riley",
+        "Pvt. Roy Watson",
+        "Pvt. Ellis Anderson",
+        "Pvt. Andrew Summer",
+        "Pvt. Tim Berry",
+        "Pvt. Harper Scott",
+        "Pvt. Dwayne Manning",
+        "Lt. Henry Mattis",
+        "Sgt. Becker Samson"
     };
 
     //time
@@ -138,9 +140,9 @@ public class GameController : MonoBehaviour
 
                 //check if any ally is alive
                 DayEnded = true;
-                foreach (bool alive in AlliesAliveStatus)
+                for (int i = 1; i < AlliesAliveStatus.Length; i++)
                 {
-                    if (alive)
+                    if (AlliesAliveStatus[i])
                     {
                         DayEnded = false;
                     }
@@ -324,7 +326,7 @@ public class GameController : MonoBehaviour
         AlliesRamaining = 0;
 
         //check from AlliesAliveStatus and AlliesDiePrev
-        for (int i = 0; i < AlliesAliveStatus.Length; i++)
+        for (int i = 1; i < AlliesAliveStatus.Length; i++)
         {
             if (AlliesAliveStatus[i])
             {
