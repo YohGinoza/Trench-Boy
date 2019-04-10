@@ -95062,6 +95062,11 @@ PrefabInstance:
       propertyPath: MaxTargetDistance
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3795466158917087752, guid: 9f361def71be9c24c8cc58b4c13909c1,
+        type: 3}
+      propertyPath: Identity
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 996244919744816677, guid: 9f361def71be9c24c8cc58b4c13909c1,
         type: 3}
       propertyPath: ThisPerson
