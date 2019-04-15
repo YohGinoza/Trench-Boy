@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44949555, g: 0.49648237, b: 0.5591182, a: 1}
+  m_IndirectSpecularColor: {r: 0.44949532, g: 0.49648172, b: 0.55911744, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22744,7 +22744,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 7
   m_Depth: -1
   m_CullingMask:
@@ -94298,12 +94298,12 @@ PrefabInstance:
     - target: {fileID: 6453776335399155393, guid: 6980936f465f6184dbfa2d3776da6a29,
         type: 3}
       propertyPath: CamNightZoom.y
-      value: 2.8
+      value: 6.8
       objectReference: {fileID: 0}
     - target: {fileID: 6453776335399155393, guid: 6980936f465f6184dbfa2d3776da6a29,
         type: 3}
       propertyPath: CamNightZoom.z
-      value: -3
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 6453776335399155394, guid: 6980936f465f6184dbfa2d3776da6a29,
         type: 3}
