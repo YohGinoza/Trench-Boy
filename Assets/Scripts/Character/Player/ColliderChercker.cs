@@ -4,32 +4,87 @@ using UnityEngine;
 
 public class ColliderChercker : MonoBehaviour {
 
-    public bool isInteractable;
-    Transform crate;
+    private Collider[] Triggerers;
+    public Transform ClosestTrigerrer;
+    private SelectedHighlight Selected;
+    [SerializeField] private float TriggererRadius = 3;
+    [SerializeField] private LayerMask TrigererLayer;
 
-    private void OnTriggerEnter(UnityEngine.Collider other)
-    {        
-        if (other.CompareTag("Crate"))
+    [SerializeField] private Transform Carrier;
+
+    private void FixedUpdate()
+    {
+        Triggerers = Physics.OverlapSphere(this.transform.position, TriggererRadius, TrigererLayer);
+
+        if (ClosestTrigerrer != null)
         {
-            isInteractable = true;
-            crate = other.transform;
+            //unselect
+            if (Selected != null)
+            {
+                Selected.UnSelect();
+            }
+
+            ClosestTrigerrer = null;
+            Selected = null;
         }
 
+        if (Triggerers.Length > 0)
+        {
+            float FarthestDistance = 100;
+            foreach (Collider Triggerer in Triggerers)
+            {
+                float distance = (Triggerer.transform.position - this.transform.position).magnitude;
+                if (Triggerer.transform.parent != Carrier && distance <= FarthestDistance)
+                {
+                    FarthestDistance = distance;
+                    ClosestTrigerrer = Triggerer.transform;
+                }
+            }
+
+            //trigger selected
+            if (ClosestTrigerrer != null)
+            {
+                Selected = ClosestTrigerrer.GetComponentInChildren<SelectedHighlight>();
+                if (Selected != null)
+                {
+                    Selected.Select();
+                    Debug.Log("Found");
+                }
+                else
+                {
+                    Debug.Log("Not Forund");
+                }
+            }
+        }
+    }
+
+    /*private void OnTriggerEnter(UnityEngine.Collider other)
+    {
+        if (other.CompareTag("CargoSlot") || other.CompareTag("Crate"))
+        {
+            isTriggered = true;
+            Triggerer = other.transform;
+        }
     }
 
     private void OnTriggerExit(UnityEngine.Collider other)
     {
-        if (other.CompareTag("Crate"))
+        if (other.CompareTag("CargoSlot") || other.CompareTag("Crate"))
         {
-            isInteractable = false;
-            crate = null;
+            isTriggered = false;
+            Triggerer = null;
         }
-    }
+    }*/
 
     public void childTransfer(Transform newparent)
     {
-        crate.parent = newparent;
-        crate.localPosition = new Vector3(0, 0, 0);        
+        ClosestTrigerrer.parent = newparent;
+        ClosestTrigerrer.localPosition = Vector3.zero;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, TriggererRadius);
+    }
 }
