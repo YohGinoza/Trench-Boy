@@ -17,7 +17,7 @@ public class DayEndUI : MonoBehaviour
     
     void Update()
     {
-        if (!GameController.BarbedWireDestroyed)
+        if (GameController.loseCondition != LoseCondition.BarbedWire)
         {
             Text_Head.text = "Day End Result \n" +
                          "Remaining Allies = " + GameController.AlliesRamaining +

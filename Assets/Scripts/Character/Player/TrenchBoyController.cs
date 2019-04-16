@@ -309,9 +309,10 @@ public class TrenchBoyController : MonoBehaviour
                         {
                             ReSupplyZone.SpawnNew(Carrier);
                         }
+                        //sleep
                         else if (Bed != null)
                         {
-                            Bed.Sleep();
+                            Bed.StartCoroutine("Sleep");
                         }
                     }
                 }

@@ -21,7 +21,9 @@ public class BarbedWire : MonoBehaviour
     //============
     private float delta = 0.0f;
     static public float CUTTING_TIME = 10.0f;
-    // Start is called before the first frame update
+
+    private bool destroyed = false;
+
     void Start()
     {
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -38,8 +40,11 @@ public class BarbedWire : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             cuttingBarbedWire = true;
-            other.GetComponent<EnemyBehaviour>().StartCoroutine("cutBarbedWire");
-        }        
+            if (!BarbedWireModeHP)
+            {
+                other.GetComponent<EnemyBehaviour>().StartCoroutine("cutBarbedWire");
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -52,14 +57,27 @@ public class BarbedWire : MonoBehaviour
                 // HP MODE
                 //============
                 HP -= Time.deltaTime;
-                if (HP <= 0.0f)
+                if (HP <= 0.0f && !destroyed)
                 {
                     //GameController.DayEnded = true;
-                    gc.CurrentState = GameState.Wait;
-                    GameController.BarbedWireDestroyed = true;
+                    StartCoroutine(Destroyed());
                 }
             }                    
         }        
+    }
+
+    IEnumerator Destroyed()
+    {
+        destroyed = true;
+
+        CameraController cameraController = FindObjectOfType<CameraController>();
+        cameraController.SetTarget(this.transform);
+
+        yield return new WaitForSeconds(2);
+
+        gc.CurrentState = GameState.Wait;
+        GameController.loseCondition = LoseCondition.BarbedWire;
+        GameController.GameOver = true;
     }
 
     private void OnTriggerExit(Collider other)
