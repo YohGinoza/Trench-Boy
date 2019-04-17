@@ -18,6 +18,9 @@ public class AllyBehaviour : MonoBehaviour
     //[Range(0, 1)] [SerializeField] private float AimingPrioritizer;
     //[Tooltip("Time before this unit get back to shooting after medical request is ignnored")]
     [Range(0, 30)] [SerializeField] private float WaitingPatience;
+    [SerializeField] private Transform DayPosition;
+    [SerializeField] private Transform NightPosition;
+    [SerializeField] private Transform GravePosition;
 
     [Header("General Setting")]
     const float BulletLaunchForce = 4;
@@ -42,6 +45,7 @@ public class AllyBehaviour : MonoBehaviour
     //private float TargetDistance;
     private bool Shooting = false;
     private GameObject[] BulletPool;
+    private bool Dying = false;
 
     [SerializeField] private bool Injured = false;
     private bool Downed = false;
@@ -74,6 +78,11 @@ public class AllyBehaviour : MonoBehaviour
 
     private void Start()
     {
+        //eject position transform so it won't move with this object
+        DayPosition.SetParent(null);
+        NightPosition.SetParent(null);
+        GravePosition.SetParent(null);
+
         animator = this.GetComponentInChildren<Animator>();
         //renderer = this.GetComponentInChildren<MeshRenderer>();
         BulletPool = new GameObject[BulletPoolSize];
@@ -105,44 +114,15 @@ public class AllyBehaviour : MonoBehaviour
         else if (Downed && BleedingTimer <= 0)
         {
             CurrentState = State.Dead;
-            StartCoroutine(Dead());
+            if (!Dying)
+            {
+                StartCoroutine(Dead());
+            }
         }
         else if (CurrentState != State.Healing)
         {
             CurrentState = State.Downed;
         }
-
-        //check availability
-        //if (AmmoCount > 0 && (!Injured || WaitTimer >= WaitingPatience))
-        //{
-        //    RequestImage.enabled = false;
-        //    renderer.material = FiringMaterial;
-
-        //    //popup
-        //    this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
-        //}
-        //else
-        //{
-        //    RequestImage.enabled = true;
-        //    renderer.material = WaitingMaterial;
-
-        //    //duck
-        //    this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
-        //}
-
-        //set request image
-        //if (Downed)
-        //{
-        //    //Show timer
-        //}
-        //else if (Injured)
-        //{
-        //    RequestImage.sprite = HealRequest;
-        //}
-        //else if (AmmoCount <= 0)
-        //{
-        //    RequestImage.sprite = AmmoRequest;
-        //}
 
         switch (CurrentState)
         {
@@ -363,6 +343,18 @@ public class AllyBehaviour : MonoBehaviour
         EnteringNight = true;
     }
 
+    public void ChangePosition(bool Day)
+    {
+        if (Day)
+        {
+            this.transform.position = DayPosition.position;
+        }
+        else
+        {
+            this.transform.position = NightPosition.position;
+        }
+    }
+
     private IEnumerator Recover()
     {
         Healing = true;
@@ -424,6 +416,8 @@ public class AllyBehaviour : MonoBehaviour
 
     private IEnumerator Dead ()
     {
+        Dying = true;
+
         this.transform.parent = null;
         this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
 
@@ -436,17 +430,19 @@ public class AllyBehaviour : MonoBehaviour
         //subject to change
         //this.gameObject.SetActive(false);
         animator.SetBool("isDead", true);
-        this.tag = "Untagged";
+        this.tag = "Deceased";
         this.gameObject.layer = 0;
 
         callSource.clip = deadSFX;
         callSource.Play();
         yield return new WaitForSeconds(1.0f);
         this.enabled = false;
+        Dying = false;
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
+        //Target distance & Target
         if (CurrentTarget == null)
         {
             Gizmos.color = Color.white;
@@ -458,11 +454,13 @@ public class AllyBehaviour : MonoBehaviour
             Gizmos.DrawLine(this.transform.position + Vector3.up, CurrentTarget.position);
         }
 
+        //critical line
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(this.transform.position + Vector3.left * 3 + Vector3.forward * UrgentTargetZDistance + Vector3.up * 2, this.transform.position + Vector3.right * 3 + Vector3.forward * UrgentTargetZDistance + Vector3.up * 2);
 
         //target cone
         Gizmos.DrawLine(this.transform.position + Vector3.up, this.transform.position + new Vector3(Mathf.Cos((90 + MaxTargetAngle) * Mathf.Deg2Rad) * 100, 1, Mathf.Sin((90 + MaxTargetAngle) * Mathf.Deg2Rad) * 100));
         Gizmos.DrawLine(this.transform.position + Vector3.up, this.transform.position + new Vector3(-Mathf.Cos((90 + MaxTargetAngle) * Mathf.Deg2Rad) * 100, 1, Mathf.Sin((90 + MaxTargetAngle) * Mathf.Deg2Rad) * 100));
+
     }
 }

@@ -7,7 +7,7 @@ public class DialogueLoader : MonoBehaviour
 {
     //public event Action talkEvent; //trigger everything under that event
     [SerializeField] private Ally ThisPerson;
-    
+
     public string[,] dialogue_text = new string[7,20];
     public string[,] ending_text = new string[5,1];
     public string[,] special_text = new string[20,16];
@@ -50,8 +50,8 @@ public class DialogueLoader : MonoBehaviour
         NPC = Canvas.transform.GetChild(3).GetComponentInChildren<Text>();
         iNPC = Canvas.transform.GetChild(3).GetComponent<Image>();
         //get component from player canvas
-        PLAYER = player.transform.GetChild(4).GetChild(1).GetComponentInChildren<Text>();
-        iPLAYER = player.transform.GetChild(4).GetChild(1).GetComponent<Image>();
+        PLAYER = player.transform.GetChild(3).GetChild(1).GetComponentInChildren<Text>();
+        iPLAYER = player.transform.GetChild(3).GetChild(1).GetComponent<Image>();
 
         gc = GetComponent<GameController>();
 
@@ -85,6 +85,13 @@ public class DialogueLoader : MonoBehaviour
         //========================================================
     }
 
+    //this supposedly called every start of the night
+    private void OnEnable()
+    {
+        //reset day limit
+        dayLimit = false;
+    }
+
     void UpdateConverseData()
     {
         dietoday = GameController.AlliesDieToday;
@@ -101,10 +108,9 @@ public class DialogueLoader : MonoBehaviour
     }
 
     // set dayLimit to true after conversing once
-    //+ reset d
     public void Update()
     {
-        Debug.Log(dayLimit);
+        //Debug.Log(dayLimit);
         if (Input.GetKey(KeyCode.M))
         {
             dayLimit = true;

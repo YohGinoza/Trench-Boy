@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class SleepingBed : MonoBehaviour
 {
+    CameraController camControl;
+
+    private void Start()
+    {
+        camControl = FindObjectOfType<CameraController>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -22,12 +29,20 @@ public class SleepingBed : MonoBehaviour
         }
     }
 
-    public void Sleep()
+    public IEnumerator Sleep()
     {
         GameController controller = FindObjectOfType<GameController>();
         if (controller.CurrentState == GameState.Night)
         {
+            //fade to black
+            camControl.StartCoroutine("FadeInOut", true);
+            yield return new WaitForSecondsRealtime(camControl.FadeTime);
+
             controller.CurrentState = GameState.Day;
+
+            //fade to normal
+            camControl.StartCoroutine("FadeInOut", false);
+            yield return new WaitForSecondsRealtime(camControl.FadeTime);
         }
     }
 }
