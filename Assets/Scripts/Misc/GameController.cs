@@ -367,49 +367,6 @@ public class GameController : MonoBehaviour
     {
         CoroutineRunning = true;
 
-        //switch ally bahaviour to night 
-        GameObject[] Allies = GameObject.FindGameObjectsWithTag("Ally");
-        foreach (GameObject ally in Allies)
-        {
-            AllyBehaviour DayBehaviour = ally.GetComponent<AllyBehaviour>();
-            DialogueLoader NightBehaviour = ally.GetComponent<DialogueLoader>();
-
-            //except for those who is healing
-            if (DayBehaviour != null && DayBehaviour.CurrentState != AllyBehaviour.State.Healing)
-            {
-                //trigger night animation
-                ally.GetComponentInChildren<Animator>().SetBool("Night", true);
-                ally.GetComponentInChildren<Animator>().Play("AllyNight");
-
-                //switch behaviour to night
-                if (DayBehaviour != null)
-                {
-                    DayBehaviour.EnterNight();
-                    //change to night position
-                    DayBehaviour.ChangePosition(false);
-                    DayBehaviour.enabled = false;
-                }
-
-                if (NightBehaviour != null)
-                {
-                    NightBehaviour.enabled = true;
-                }
-            }
-        }
-
-        //+ deal with te dead
-        GameObject[] Fallens = GameObject.FindGameObjectsWithTag("Deceased");
-        foreach(GameObject fallen in Fallens)
-        {
-            
-        }
-
-        //clear dead ally array 
-        for (int i = 0; i < AlliesDieToday.Length; i++)
-        {
-            AlliesDieToday[i] = false;
-        }
-
         AlliesRamaining = 0;
 
         //check from AlliesAliveStatus and AlliesDiePrev
@@ -439,6 +396,59 @@ public class GameController : MonoBehaviour
             }
 
         }
+
+        //switch ally bahaviour to night 
+        GameObject[] Allies = GameObject.FindGameObjectsWithTag("Ally");
+        foreach (GameObject ally in Allies)
+        {
+            AllyBehaviour DayBehaviour = ally.GetComponent<AllyBehaviour>();
+            DialogueLoader NightBehaviour = ally.GetComponent<DialogueLoader>();
+
+
+            //except for those who is healing
+            if (DayBehaviour != null && DayBehaviour.CurrentState != AllyBehaviour.State.Healing)
+            {
+                //trigger night animation
+                ally.GetComponentInChildren<Animator>().SetBool("Night", true);
+                ally.GetComponentInChildren<Animator>().Play("AllyNight");
+
+                //switch behaviour to night
+                if (DayBehaviour != null)
+                {
+                    DayBehaviour.EnterNight();
+                    //change to night position
+                    DayBehaviour.ChangePosition(false);
+                    DayBehaviour.enabled = false;
+                }
+
+                if (NightBehaviour != null)
+                {
+                    // reset daylimit in dialogueLoader script
+                    Debug.Log("resetting daylimit");
+                    NightBehaviour.dayLimit = false;
+                    
+                    // update special dialogue
+                    NightBehaviour.UpdateConverseData();
+
+                    NightBehaviour.enabled = true;
+                }
+            }
+        }
+
+        //+ deal with te dead
+        GameObject[] Fallens = GameObject.FindGameObjectsWithTag("Deceased");
+        foreach(GameObject fallen in Fallens)
+        {
+            
+        }
+
+        //clear dead ally array 
+        for (int i = 0; i < AlliesDieToday.Length; i++)
+        {
+            AlliesDieToday[i] = false;
+        }
+
+        
 
         //checked
         DayEndedCheck = false;
