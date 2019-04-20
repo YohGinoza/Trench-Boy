@@ -23,6 +23,9 @@ public class CameraController : MonoBehaviour
     private bool fading = false;
 
     private bool inDialogue = false;
+    
+    private bool zoomIn = false;
+    private bool zoomOut = false;
 
     private void Start()
     {
@@ -43,6 +46,37 @@ public class CameraController : MonoBehaviour
         if (!inDialogue) {
             LookAtTarget();
         }
+
+        if (zoomIn && !zoomOut)
+        {
+
+           
+
+            if (this.GetComponent<Camera>().orthographicSize > 2.4f)
+            {
+                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.02f, this.transform.position.z);
+                this.GetComponent<Camera>().orthographicSize -= 0.2f;
+            }
+            else
+            {
+                zoomIn = false;
+            }
+        }
+
+        if (zoomOut && !zoomIn)
+        {
+
+            if (this.GetComponent<Camera>().orthographicSize < 7.0f)
+            {
+                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.02f, this.transform.position.z);
+                this.GetComponent<Camera>().orthographicSize += 0.2f;
+            }
+            else
+            {
+                zoomOut = false;
+            }
+        }
+
     }
 
     void LookAtTarget()
@@ -63,23 +97,24 @@ public class CameraController : MonoBehaviour
 
         if (!inDialogue)
         {
+            zoomIn = true;
+            zoomOut = false;
             inDialogue = true;
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
-            this.GetComponent<Camera>().orthographicSize = 2.5f;
+            //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
         }
-    
-
-        //this.transform.rotation = Quaternion.Euler(25.0f,0.0f, 0.0f);
 
     }
 
     public void DialogueZoomOut()
     {
-        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
-        this.GetComponent<Camera>().orthographicSize = 7.0f;
+        //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
+
+        //this.GetComponent<Camera>().orthographicSize = 7.0f;
+
+        zoomIn = false;
+        zoomOut = true;
 
         inDialogue = false;
-        //this.transform.rotation = Quaternion.Euler(45.0f, 0.0f, 0.0f);
     }
 
     IEnumerator FadeInOut(bool toBlack)
@@ -109,4 +144,5 @@ public class CameraController : MonoBehaviour
             yield return null;
         }
     }
+
 }
