@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class TrenchBoyController : MonoBehaviour
 {
@@ -69,8 +71,11 @@ public class TrenchBoyController : MonoBehaviour
     public AudioClip boxDown;
     public AudioClip boxUp;
     public AudioClip converse;
+
+    public AudioClip[] footsteps = new AudioClip[6];
+
     public AudioSource audioSource;
-    private bool footstepPlay = false;
+    private bool footstepPlay = true;
 
     void Start()
     {
@@ -183,18 +188,10 @@ public class TrenchBoyController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) 
                 || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
-                if (!footstepPlay)
+                if (footstepPlay)
                 {
-                    footstepPlay = true;
-                    this.GetComponent<AudioSource>().loop = true;
-                    this.GetComponent<AudioSource>().Play();
+                    StartCoroutine(FootStepsPlay());
                 }
-            }
-            else
-            {
-                footstepPlay = false;
-                this.GetComponent<AudioSource>().loop = false;
-
             }
 
 
@@ -444,5 +441,22 @@ public class TrenchBoyController : MonoBehaviour
         CarriedObject.position = this.transform.position + facing;
         CarriedObject.SetParent(world);
         CarriedObject.position = new Vector3(CarriedObject.position.x, CarriedObject.transform.lossyScale.y * 0.5f, CarriedObject.position.z);
+    }
+
+
+    private IEnumerator FootStepsPlay()
+    {
+        footstepPlay = false;
+
+        int index = Random.Range(0, footsteps.Length);
+        this.GetComponent<AudioSource>().clip = footsteps[index];
+
+        this.GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(0.5f);
+
+
+        footstepPlay = true;
+
     }
 }
