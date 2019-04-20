@@ -470,17 +470,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5595297332492827958}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3681485655447868245}
   m_Father: {fileID: 8868676952073757300}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -400}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5396359870190119314
@@ -951,6 +951,8 @@ MonoBehaviour:
   gunSFX: {fileID: 8300000, guid: ab54e2070bec6b446b14c414e72ccbb8, type: 3}
   deadSFX: {fileID: 8300000, guid: 20c3d9bd90a1b1141bc978441b56d7bc, type: 3}
   converse: {fileID: 8300000, guid: 6bc41ec730236df4f8f2bcf54db23275, type: 3}
+  giveAmmo: {fileID: 8300000, guid: a2a39cd6052db284aa9ee7b7725d3f21, type: 3}
+  giveMed: {fileID: 8300000, guid: 938154d52783faf4c82a1376e2c4bfa2, type: 3}
   callSource: {fileID: 750863550397373879}
 --- !u!114 &996244919744816677
 MonoBehaviour:

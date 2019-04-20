@@ -73,6 +73,8 @@ public class AllyBehaviour : MonoBehaviour
     public AudioClip gunSFX;
     public AudioClip deadSFX;
     public AudioClip converse;
+    public AudioClip giveAmmo;
+    public AudioClip giveMed;
     public AudioSource callSource;
     private bool call = false;
 
@@ -387,6 +389,10 @@ public class AllyBehaviour : MonoBehaviour
                 {
                     AmmoCount += (int)ItemType.Ammo;
                     call = false;
+
+                    callSource.clip = giveAmmo;
+                    callSource.Play();
+
                     return true;
                 }
                 else
@@ -400,6 +406,10 @@ public class AllyBehaviour : MonoBehaviour
                 {
                     Injured = false;
                     call = false;
+
+                    callSource.clip = giveMed;
+                    callSource.Play();
+
                     WaitTimer = 0;
                     return true;
                 }

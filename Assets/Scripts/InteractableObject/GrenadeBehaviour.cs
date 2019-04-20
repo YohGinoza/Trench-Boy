@@ -11,7 +11,7 @@ public class GrenadeBehaviour : MonoBehaviour
 
     private float ExplodeTimer;
 
-    public AudioClip grenadeSFX;
+    public AudioClip[] grenadeSFX = new AudioClip[2];
 
     private void FixedUpdate()
     {
@@ -44,6 +44,9 @@ public class GrenadeBehaviour : MonoBehaviour
 
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         this.GetComponent<MeshRenderer>().enabled = false;
+
+        int index = Random.Range(0, grenadeSFX.Length);
+        this.GetComponent<AudioSource>().clip = grenadeSFX[index];
         this.GetComponent<AudioSource>().Play();
 
         yield return new WaitForSeconds(2.0f);
