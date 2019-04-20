@@ -131,6 +131,14 @@ public class DialogueLoader : MonoBehaviour
         Image iSpeaker;
         if (!dayLimit)
         {
+            if (!player.GetComponent<TrenchBoyController>().facingRight)
+            {
+                player.GetComponent<TrenchBoyController>().Flip();
+            }
+            player.GetComponent<TrenchBoyController>().animatorMoving = false;
+            player.GetComponent<TrenchBoyController>().isMovable = false;
+            GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
+
             if (specialTrigger)
             {
                 // if SPECIAL
@@ -204,6 +212,11 @@ public class DialogueLoader : MonoBehaviour
             // NPC one-liner
             if (ending_text[index_Ending, lineCounter] != null)
             {
+
+                player.GetComponent<TrenchBoyController>().animatorMoving = false;
+                player.GetComponent<TrenchBoyController>().isMovable = false;
+                GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
+
                 Debug.Log("BBBBBBBBBBBBBBBBB");
                 ShowSpeechBubble(true);
                 speaker = NPC;
@@ -214,11 +227,14 @@ public class DialogueLoader : MonoBehaviour
             }
             else
             {
+                player.GetComponent<TrenchBoyController>().isMovable = true;
+                GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomOut();
                 NPC.enabled = false;
                 iNPC.enabled = false;
                 index_Ending--;
             }
-            
+
+
         }
     }
     
