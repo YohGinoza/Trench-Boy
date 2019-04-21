@@ -54,7 +54,7 @@ public class CameraController : MonoBehaviour
 
             if (this.GetComponent<Camera>().orthographicSize > 2.4f)
             {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.02f, this.transform.position.z);
+                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.05f, this.transform.position.z);
                 this.GetComponent<Camera>().orthographicSize -= 0.2f;
             }
             else
@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour
 
             if (this.GetComponent<Camera>().orthographicSize < 7.0f)
             {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.02f, this.transform.position.z);
+                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.05f, this.transform.position.z);
                 this.GetComponent<Camera>().orthographicSize += 0.2f;
             }
             else
