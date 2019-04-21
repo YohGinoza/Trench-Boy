@@ -135,6 +135,15 @@ public class DialogueLoader : MonoBehaviour
         Image iSpeaker;
         if (!dayLimit)
         {
+            //move ment restrict/ camera
+            if (!player.GetComponent<TrenchBoyController>().facingRight)
+            {
+                player.GetComponent<TrenchBoyController>().Flip();
+            }
+            player.GetComponent<TrenchBoyController>().animatorMoving = false;
+            player.GetComponent<TrenchBoyController>().isMovable = false;
+            GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
+
             if (specialTrigger)
             {
                 // if SPECIAL
@@ -207,7 +216,12 @@ public class DialogueLoader : MonoBehaviour
             // ending lines / goodbye
             // NPC one-liner
             if (ending_text[index_Ending, lineCounter] != null)
-            {                
+            {
+                //movement restrict/ camera
+                player.GetComponent<TrenchBoyController>().animatorMoving = false;
+                player.GetComponent<TrenchBoyController>().isMovable = false;
+                GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
+
                 ShowSpeechBubble(true);
                 speaker = NPC;
                 //NPC.text = ending_text[index_Ending, lineCounter];
@@ -217,6 +231,10 @@ public class DialogueLoader : MonoBehaviour
             }
             else
             {
+                //cancel movement restrict/ camera
+                player.GetComponent<TrenchBoyController>().isMovable = true;
+                GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomOut();
+
                 NPC.enabled = false;
                 iNPC.enabled = false;
                 index_Ending = 0;

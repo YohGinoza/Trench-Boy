@@ -70,9 +70,12 @@ public class AllyBehaviour : MonoBehaviour
     [Header("Sound")]
     public AudioClip callMedClip;
     public AudioClip callAmmoClip;
-    public AudioClip gunSFX;
+
+    public AudioClip[] gunSFX;
     public AudioClip deadSFX;
     public AudioClip converse;
+    public AudioClip giveAmmo;
+    public AudioClip giveMed;
     public AudioSource callSource;
     private bool call = false;
 
@@ -283,7 +286,8 @@ public class AllyBehaviour : MonoBehaviour
             //fire
             ShootBullet(BulletForce);
             animator.SetTrigger("Fire");
-            callSource.clip = gunSFX;
+            int index = Random.Range(0, gunSFX.Length);
+            callSource.clip = gunSFX[index];
             callSource.Play();
 
         }
@@ -387,6 +391,10 @@ public class AllyBehaviour : MonoBehaviour
                 {
                     AmmoCount += (int)ItemType.Ammo;
                     call = false;
+
+                    callSource.clip = giveAmmo;
+                    callSource.Play();
+
                     return true;
                 }
                 else
@@ -400,6 +408,10 @@ public class AllyBehaviour : MonoBehaviour
                 {
                     Injured = false;
                     call = false;
+
+                    callSource.clip = giveMed;
+                    callSource.Play();
+
                     WaitTimer = 0;
                     return true;
                 }

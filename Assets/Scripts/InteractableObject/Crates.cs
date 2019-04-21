@@ -32,6 +32,7 @@ public class Crates : MonoBehaviour
     {
         if (Amount > 0)
         {
+            this.GetComponent<AudioSource>().Play();
             Amount--;
         }
 
