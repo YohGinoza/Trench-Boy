@@ -960,6 +960,7 @@ MonoBehaviour:
   converse: {fileID: 8300000, guid: 6bc41ec730236df4f8f2bcf54db23275, type: 3}
   giveAmmo: {fileID: 8300000, guid: a2a39cd6052db284aa9ee7b7725d3f21, type: 3}
   giveMed: {fileID: 8300000, guid: 938154d52783faf4c82a1376e2c4bfa2, type: 3}
+  grenadeCall: {fileID: 8300000, guid: 942f517bae0bc064ab0d4d446f09f859, type: 3}
   callSource: {fileID: 750863550397373879}
 --- !u!114 &996244919744816677
 MonoBehaviour:
