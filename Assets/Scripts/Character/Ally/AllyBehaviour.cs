@@ -76,8 +76,13 @@ public class AllyBehaviour : MonoBehaviour
     public AudioClip converse;
     public AudioClip giveAmmo;
     public AudioClip giveMed;
+
+    public AudioClip grenadeCall;
+
     public AudioSource callSource;
     private bool call = false;
+    public bool callGrenade = false;
+    
 
     private void Start()
     {
