@@ -11,10 +11,14 @@ public class GrenadeBehaviour : MonoBehaviour
 
     private float ExplodeTimer;
 
-    public AudioClip grenadeSFX;
+    public AudioClip[] grenadeSFX = new AudioClip[2];
+
+    public bool Call = true;
 
     private void FixedUpdate()
     {
+        CallOut();
+
         ExplodeTimer += Time.fixedDeltaTime;
 
         if (ExplodeTimer >= ExplodeTime)
@@ -27,6 +31,12 @@ public class GrenadeBehaviour : MonoBehaviour
     private void Awake()
     {
         this.GetComponent<MeshRenderer>().enabled = true;
+
+        GameObject[] Allies = GameObject.FindGameObjectsWithTag("Ally");
+        foreach (GameObject Ally in Allies)
+        {
+            Ally.GetComponent<AllyBehaviour>().callGrenade = true;
+        }
     }
 
     IEnumerator  Explode()
@@ -44,11 +54,33 @@ public class GrenadeBehaviour : MonoBehaviour
 
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         this.GetComponent<MeshRenderer>().enabled = false;
+
+        int index = Random.Range(0, grenadeSFX.Length);
+        this.GetComponent<AudioSource>().clip = grenadeSFX[index];
         this.GetComponent<AudioSource>().Play();
 
         yield return new WaitForSeconds(2.0f);
         this.gameObject.SetActive(false);
         
+    }
+
+    private void CallOut()
+    {
+        Collider[] Victims = Physics.OverlapSphere(this.transform.position, ExplosionRadius, VictimLayers);
+
+        foreach (Collider victim in Victims)
+        {
+            if (victim.GetComponent<AllyBehaviour>().callGrenade) {
+
+                victim.GetComponent<AllyBehaviour>().callSource.clip = victim.GetComponent<AllyBehaviour>().grenadeCall;
+                victim.GetComponent<AllyBehaviour>().callSource.Play();
+
+                victim.GetComponent<AllyBehaviour>().callGrenade = false;
+
+                print("grenade call");
+            }
+        }
+
     }
 
     private void OnDrawGizmosSelected()
