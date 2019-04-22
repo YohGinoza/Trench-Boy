@@ -6,7 +6,7 @@ public class ColliderChercker : MonoBehaviour {
 
     private Collider[] Triggerers;
     public Transform ClosestTrigerrer;
-    private SelectedHighlight Selected;
+    public SelectedHighlight Selected;
     [SerializeField] private float TriggererRadius = 3;
     [SerializeField] private LayerMask TrigererLayer;
 
@@ -19,7 +19,7 @@ public class ColliderChercker : MonoBehaviour {
         if (ClosestTrigerrer != null)
         {
             //unselect
-            if (Selected != null)
+            if (Selected != null && Selected.selected)
             {
                 Selected.UnSelect();
             }
@@ -44,8 +44,15 @@ public class ColliderChercker : MonoBehaviour {
             //trigger selected
             if (ClosestTrigerrer != null)
             {
+                //find in child
                 Selected = ClosestTrigerrer.GetComponentInChildren<SelectedHighlight>();
-                if (Selected != null)
+                //if not found find in the object it self
+                if (Selected == null)
+                {
+                    Selected = ClosestTrigerrer.GetComponent<SelectedHighlight>();
+                }
+
+                if (Selected != null && !Selected.selected)
                 {
                     Selected.Select();
                     Debug.Log("Found");

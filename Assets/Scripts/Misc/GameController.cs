@@ -39,7 +39,7 @@ public enum Ally
     Pvt_Roy_Watson,
     Pvt_Ellis_Anderson,
     Pvt_Andrew_Summer,
-    Pvt_Tim_Berry,
+    Pvt_Tim_Barry,
     Pvt_Harper_Scott,
     Pvt_Dwayne_Manning,
     Lt_Henry_Mattis,
