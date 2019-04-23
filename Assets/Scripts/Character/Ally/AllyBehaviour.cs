@@ -145,7 +145,7 @@ public class AllyBehaviour : MonoBehaviour
                     StartCoroutine(Shoot());
                 }
                 //popup
-                this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
+                //this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
                 break;
 
             case State.Waiting:
@@ -158,7 +158,7 @@ public class AllyBehaviour : MonoBehaviour
 
 
                     //duck
-                    this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
+                    //this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
 
                     //stop shooting
                     StopCoroutine(Shoot());
@@ -197,7 +197,7 @@ public class AllyBehaviour : MonoBehaviour
                 //renderer.material = WaitingMaterial;
 
                 //lie down
-                this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
+                //this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
 
                 //stop shooting
                 StopCoroutine(Shoot());
@@ -343,8 +343,8 @@ public class AllyBehaviour : MonoBehaviour
         //renderer.material = WaitingMaterial;
 
 
-        //duck
-        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
+        //standup
+        //this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
 
         //stop shooting
         StopCoroutine(Shoot());
@@ -436,7 +436,7 @@ public class AllyBehaviour : MonoBehaviour
         Dying = true;
 
         this.transform.parent = null;
-        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
+        //this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
 
         //Collect deceased data
         GameController.AlliesAliveStatus[(int)Identity] = false;
