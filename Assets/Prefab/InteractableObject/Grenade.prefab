@@ -105,7 +105,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3086934431162484898}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4de296db05ac166439edfa31734dae72, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -129,7 +129,9 @@ MonoBehaviour:
   VictimLayers:
     serializedVersion: 2
     m_Bits: 512
-  grenadeSFX: {fileID: 0}
+  grenadeSFX:
+  - {fileID: 8300000, guid: 0c64ff83f56c3104e9b550ec3d8f39f0, type: 3}
+  - {fileID: 8300000, guid: 9994b2c6060b68d48970f11f4dad665c, type: 3}
 --- !u!96 &3086934431162484909
 TrailRenderer:
   serializedVersion: 2

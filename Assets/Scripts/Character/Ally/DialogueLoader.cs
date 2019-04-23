@@ -7,7 +7,7 @@ public class DialogueLoader : MonoBehaviour
 {
     //public event Action talkEvent; //trigger everything under that event
     [SerializeField] private Ally ThisPerson;
-    
+
     public string[,] dialogue_text = new string[7,20];
     public string[,] ending_text = new string[5,1];
     public string[,] special_text = new string[20,16];
@@ -35,9 +35,9 @@ public class DialogueLoader : MonoBehaviour
     public bool specialTrigger = false;    
 
     [SerializeField] private Ally[] friends;
-    private int diedToday;
+    private int DEADFRIEND;
     
-    bool[] dietoday; // ??????????????????????????????????????????????????????????? day_end script
+    //bool[] dietoday; // ??????????????????????????????????????????????????????????? day_end script
     //======================================================
 
     public const string path = "dialogues";  
@@ -50,8 +50,8 @@ public class DialogueLoader : MonoBehaviour
         NPC = Canvas.transform.GetChild(3).GetComponentInChildren<Text>();
         iNPC = Canvas.transform.GetChild(3).GetComponent<Image>();
         //get component from player canvas
-        PLAYER = player.transform.GetChild(4).GetChild(1).GetComponentInChildren<Text>();
-        iPLAYER = player.transform.GetChild(4).GetChild(1).GetComponent<Image>();
+        PLAYER = player.transform.GetChild(3).GetChild(1).GetComponentInChildren<Text>();
+        iPLAYER = player.transform.GetChild(3).GetChild(1).GetComponent<Image>();
 
         gc = GetComponent<GameController>();
 
@@ -71,13 +71,13 @@ public class DialogueLoader : MonoBehaviour
                     ending_text[dialogue.id,dialogue.line] = dialogue.text;
                 }
                 else if (dialogue.type == "S")
-                {
+                {                    
                     special_text[dialogue.id, dialogue.line] = dialogue.text;
                     S_NPCSpeaking[dialogue.id, dialogue.line] = dialogue.speaker == "NPC";
                 }
                 else
                 {
-                    print("UYA");
+                    print("Error: dialogue loading");
                 }
             }
         }
@@ -85,38 +85,48 @@ public class DialogueLoader : MonoBehaviour
         //========================================================
     }
 
-    void UpdateConverseData()
+    public void UpdateConverseData()
     {
-        dietoday = GameController.AlliesDieToday;
-
-        for (int i = 0; i < friends.Length; i++)
-        {
-            if (dietoday[(int)friends[i]])
-            {
-                specialTrigger = true;
-                diedToday = i;
-                break;
+        
+        //dietoday = GameController.AlliesDieToday;        
+        for (int i = 0; i < GameController.AlliesDieToday.Length; i++)
+        {            
+            if (GameController.AlliesDieToday[i])
+            {                
+                for (int j = 0; j < friends.Length; j++)
+                {                                        
+                    if ((Ally)i == (Ally)friends[j])
+                    {                        
+                        specialTrigger = true;
+                        DEADFRIEND = i;
+                        break;
+                    }
+                }
             }
+                       
         }
     }
 
     // set dayLimit to true after conversing once
-    //+ reset d
     public void Update()
     {
-        Debug.Log(dayLimit);
-        if (Input.GetKey(KeyCode.M))
+        if (specialTrigger)
         {
-            dayLimit = true;
+            Debug.Log((Ally)ThisPerson + ": my friend died, i'm sad :(");
         }
-
-        if (Input.GetKey(KeyCode.N))
-        {
-            for(int i = 0; i < 5; i++)
-            {
-                Debug.Log(ending_text[i, 0]);
-            }
-        }
+        ////Debug.Log(dayLimit);
+        //if (Input.GetKey(KeyCode.M))
+        //{
+        //    dayLimit = true;
+        //}
+        //
+        //if (Input.GetKey(KeyCode.N))
+        //{
+        //    for(int i = 0; i < 5; i++)
+        //    {
+        //        Debug.Log(ending_text[i, 0]);
+        //    }
+        //}
     }
 
     public void converse()
@@ -125,17 +135,27 @@ public class DialogueLoader : MonoBehaviour
         Image iSpeaker;
         if (!dayLimit)
         {
+            //move ment restrict/ camera
+            if (!player.GetComponent<TrenchBoyController>().facingRight)
+            {
+                player.GetComponent<TrenchBoyController>().Flip();
+            }
+            player.GetComponent<TrenchBoyController>().animatorMoving = false;
+            player.GetComponent<TrenchBoyController>().isMovable = false;
+            GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
+
             if (specialTrigger)
             {
                 // if SPECIAL
                 //+ trigger this instead of NORMAL
 
                 // set the speaker
-                if (S_NPCSpeaking[diedToday, lineCounter])
+                if (S_NPCSpeaking[DEADFRIEND, lineCounter])
                 {
                     speaker = NPC;
                     iSpeaker = iNPC;
                     ShowSpeechBubble(true);
+                    
                 }
                 else
                 {
@@ -145,10 +165,10 @@ public class DialogueLoader : MonoBehaviour
                 }
 
                 // text body
-                speaker.text = special_text[diedToday,lineCounter];
+                speaker.text = special_text[DEADFRIEND, lineCounter];
 
                 // check further conversation
-                if (special_text[diedToday, lineCounter + 1] == null)
+                if (special_text[DEADFRIEND, lineCounter + 1] != null)
                 {
                     lineCounter++;
                 }
@@ -192,25 +212,32 @@ public class DialogueLoader : MonoBehaviour
             //gc.NightTimeInteractCounter++; // increment night limit counter
         }
         else
-        {
-            Debug.Log("AAAAAAAAAAAAAA");
+        {            
             // ending lines / goodbye
             // NPC one-liner
             if (ending_text[index_Ending, lineCounter] != null)
             {
-                Debug.Log("BBBBBBBBBBBBBBBBB");
+                //movement restrict/ camera
+                player.GetComponent<TrenchBoyController>().animatorMoving = false;
+                player.GetComponent<TrenchBoyController>().isMovable = false;
+                GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
+
                 ShowSpeechBubble(true);
                 speaker = NPC;
                 //NPC.text = ending_text[index_Ending, lineCounter];
-                speaker.text = ending_text[0, 0];
+                speaker.text = ending_text[index_Ending, lineCounter];
 
                 index_Ending++;
             }
             else
             {
+                //cancel movement restrict/ camera
+                player.GetComponent<TrenchBoyController>().isMovable = true;
+                GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomOut();
+
                 NPC.enabled = false;
                 iNPC.enabled = false;
-                index_Ending--;
+                index_Ending = 0;
             }
             
         }

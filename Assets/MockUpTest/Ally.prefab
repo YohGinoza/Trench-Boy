@@ -201,6 +201,36 @@ MonoBehaviour:
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
+--- !u!1 &1728407093095427499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3987374902426368733}
+  m_Layer: 9
+  m_Name: GravePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3987374902426368733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728407093095427499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8868676952117954848}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4292593629609941177
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +415,36 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!1 &5193031223965253447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086025233938032502}
+  m_Layer: 9
+  m_Name: DayPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1086025233938032502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5193031223965253447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8868676952117954848}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5595297332492827958
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,17 +470,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5595297332492827958}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3681485655447868245}
   m_Father: {fileID: 8868676952073757300}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -400}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5396359870190119314
@@ -535,6 +595,36 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!1 &7480656773221915740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6179878308120087149}
+  m_Layer: 9
+  m_Name: NightPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6179878308120087149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7480656773221915740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8868676952117954848}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8868676951994309359
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +861,9 @@ Transform:
   - {fileID: 8868676952073757300}
   - {fileID: 2951056595815713584}
   - {fileID: 4352549650986388583}
+  - {fileID: 1086025233938032502}
+  - {fileID: 6179878308120087149}
+  - {fileID: 3987374902426368733}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -828,6 +921,9 @@ MonoBehaviour:
   ShotDelay: 1
   Accuracy: 0.5
   WaitingPatience: 30
+  DayPosition: {fileID: 1086025233938032502}
+  NightPosition: {fileID: 6179878308120087149}
+  GravePosition: {fileID: 3987374902426368733}
   MaxAmmo: 30
   AmmoCount: 10
   BleedingEndurance: 30
@@ -852,9 +948,19 @@ MonoBehaviour:
   HealGauge: {fileID: 3168777536581703862}
   callMedClip: {fileID: 8300000, guid: 9046ef4a4e880a741adc02883ecdc7f9, type: 3}
   callAmmoClip: {fileID: 8300000, guid: fc7ab028de6b1e34db6a4917af0aabf9, type: 3}
-  gunSFX: {fileID: 8300000, guid: ab54e2070bec6b446b14c414e72ccbb8, type: 3}
+  gunSFX:
+  - {fileID: 8300000, guid: 7d30a50491370cb4db94bc99b176fa0a, type: 3}
+  - {fileID: 8300000, guid: 8be67078f3bbedd499b84ffd7bd26819, type: 3}
+  - {fileID: 8300000, guid: cfaa9b544fbc6914dbe496b989dee534, type: 3}
+  - {fileID: 8300000, guid: ef2b0e4ef8bb7f1448679d30ac3e52f7, type: 3}
+  - {fileID: 8300000, guid: 3aff25997e33bc74883db4731d61c95d, type: 3}
+  - {fileID: 8300000, guid: af1de886a1438f44c9a974b54223f912, type: 3}
+  - {fileID: 8300000, guid: 55fcd0a6c7c337646931ce59deb73adf, type: 3}
   deadSFX: {fileID: 8300000, guid: 20c3d9bd90a1b1141bc978441b56d7bc, type: 3}
   converse: {fileID: 8300000, guid: 6bc41ec730236df4f8f2bcf54db23275, type: 3}
+  giveAmmo: {fileID: 8300000, guid: a2a39cd6052db284aa9ee7b7725d3f21, type: 3}
+  giveMed: {fileID: 8300000, guid: 938154d52783faf4c82a1376e2c4bfa2, type: 3}
+  grenadeCall: {fileID: 8300000, guid: 942f517bae0bc064ab0d4d446f09f859, type: 3}
   callSource: {fileID: 750863550397373879}
 --- !u!114 &996244919744816677
 MonoBehaviour:
