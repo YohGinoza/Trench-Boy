@@ -8,6 +8,8 @@ public class SelectedHighlight : MonoBehaviour
 
     private Renderer[] ChildrenRenderers;
 
+    [System.NonSerialized] public bool selected = false;
+
     private void Start()
     {
         ChildrenRenderers = GetComponentsInChildren<Renderer>();
@@ -15,23 +17,41 @@ public class SelectedHighlight : MonoBehaviour
 
     public void Select()
     {
-        foreach(Renderer renderer in ChildrenRenderers)
+        selected = true;
+        switch (this.tag)
         {
-            Material newMat = renderer.material;
-            newMat.SetColor("_EmissionColor", SelectedEmisionColor);
-            newMat.EnableKeyword("_EMISSION");
-            renderer.material = newMat;
+            case "Ally":
+                transform.GetChild(transform.childCount - 1).GetComponent<Renderer>().enabled = true;
+                break;
+            default:
+                foreach (Renderer renderer in ChildrenRenderers)
+                {
+                    //Material newMat = renderer.material;
+                    renderer.material.SetColor("_EmissionColor", SelectedEmisionColor);
+                    renderer.material.EnableKeyword("_EMISSION");
+                    //renderer.material = newMat;
+                }
+                break;
         }
     }
 
     public void UnSelect()
     {
-        foreach (Renderer renderer in ChildrenRenderers)
+        selected = false;
+        switch (this.tag)
         {
-            Material newMat = renderer.material;
-            newMat.SetColor("_EmissionColor", Color.black);
-            newMat.DisableKeyword("_EMISSION");
-            renderer.material = newMat;
+            case "Ally":
+                transform.GetChild(transform.childCount - 1).GetComponent<Renderer>().enabled = false;
+                break;
+            default:
+                foreach (Renderer renderer in ChildrenRenderers)
+                {
+                    //Material newMat = renderer.material;
+                    renderer.material.SetColor("_EmissionColor", Color.black);
+                    renderer.material.DisableKeyword("_EMISSION");
+                    //renderer.material = newMat;
+                }
+                break;
         }
     }
 }

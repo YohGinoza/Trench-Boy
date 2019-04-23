@@ -39,7 +39,7 @@ public enum Ally
     Pvt_Roy_Watson,
     Pvt_Ellis_Anderson,
     Pvt_Andrew_Summer,
-    Pvt_Tim_Berry,
+    Pvt_Tim_Barry,
     Pvt_Harper_Scott,
     Pvt_Dwayne_Manning,
     Lt_Henry_Mattis,
@@ -111,6 +111,9 @@ public class GameController : MonoBehaviour
 
     //Sound
     public GameObject BGmusic;
+
+    public AudioClip day_START;
+    public AudioClip day_END;
 
     //camera
     private CameraController cameraController;
@@ -276,12 +279,12 @@ public class GameController : MonoBehaviour
                     case LoseCondition.BarbedWire:
                         DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
-                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList();
+                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);
                         break;
                     case LoseCondition.AllDead:
                         DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
-                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList();
+                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);
                         break;
                 }
 
@@ -304,6 +307,10 @@ public class GameController : MonoBehaviour
 
     void DayStart()
     {
+        //play sfx
+        this.GetComponent<AudioSource>().clip = day_START;
+        this.GetComponent<AudioSource>().Play();
+
         //set cam target to player
         cameraController.SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
 
@@ -329,8 +336,8 @@ public class GameController : MonoBehaviour
             //switch behaviour to dat
             if (DayBehaviour != null && DayBehaviour.CurrentState == AllyBehaviour.State.Healing)
             {
+                DayBehaviour.Recover();
                 DayBehaviour.CurrentState = AllyBehaviour.State.Shooting;
-                DayBehaviour.EnteringNight = false;
             }
 
             if (DayBehaviour != null)
@@ -338,6 +345,9 @@ public class GameController : MonoBehaviour
                 DayBehaviour.enabled = true;
                 //change to day position
                 DayBehaviour.ChangePosition(true);
+
+                //eneble UI
+                DayBehaviour.EnteringNight = false;
             }
 
             if (NightBehaviour != null)
@@ -350,6 +360,13 @@ public class GameController : MonoBehaviour
 
     void DayEnd()
     {
+
+        //play sfx
+        this.GetComponent<AudioSource>().clip = day_END;
+        this.GetComponent<AudioSource>().Play();
+
+        DayEnd_UI.GetComponent<DayEndUI>().Day++;
+
         //stop spawing enemy
         foreach (EnemySpawner spawner in EnemySpawners)
         {
@@ -385,7 +402,18 @@ public class GameController : MonoBehaviour
 
         }
 
+        DayEnd_UI.GetComponent<DayEndUI>().Allies_Remaining = AlliesRamaining;
         AlliesDiePrev = AlliesDieToday;
+
+        for (int i = 0; i < AlliesDieToday.Length; i++)
+        {
+            if (AlliesDieToday[i])
+            {
+                DayEnd_UI.GetComponent<DayEndUI>().addDeadList(false);
+                break;
+            }
+
+        }
 
         //for debug
         for (int i = 0; i < AlliesDieToday.Length; i++)
