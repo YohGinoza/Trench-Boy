@@ -1090,8 +1090,8 @@ MonoBehaviour:
   CurrentState: 0
   EnteringNight: 0
   Injured: 0
-  AmmoRequest: {fileID: 21300000, guid: 076be145c81307b4a8ea7753739935d3, type: 3}
-  HealRequest: {fileID: 21300000, guid: f45466f03868b8248b392342f18a50f3, type: 3}
+  AmmoRequest: {fileID: 21300000, guid: 73a69a61305590e41bbba3734b102528, type: 3}
+  HealRequest: {fileID: 21300000, guid: caf553c5081509b45ba78ea338dc095e, type: 3}
   RequestImage: {fileID: 1981730248452748506}
   RescueGauge: {fileID: 1981730248450708772}
   HealGauge: {fileID: 1981730249249640441}
