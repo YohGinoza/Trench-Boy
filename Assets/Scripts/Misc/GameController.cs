@@ -276,12 +276,12 @@ public class GameController : MonoBehaviour
                     case LoseCondition.BarbedWire:
                         DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
-                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList();
+                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);
                         break;
                     case LoseCondition.AllDead:
                         DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
-                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList();
+                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);
                         break;
                 }
 
@@ -350,6 +350,8 @@ public class GameController : MonoBehaviour
 
     void DayEnd()
     {
+        DayEnd_UI.GetComponent<DayEndUI>().Day++;
+
         //stop spawing enemy
         foreach (EnemySpawner spawner in EnemySpawners)
         {
@@ -385,7 +387,18 @@ public class GameController : MonoBehaviour
 
         }
 
+        DayEnd_UI.GetComponent<DayEndUI>().Allies_Remaining = AlliesRamaining;
         AlliesDiePrev = AlliesDieToday;
+
+        for (int i = 0; i < AlliesDieToday.Length; i++)
+        {
+            if (AlliesDieToday[i])
+            {
+                DayEnd_UI.GetComponent<DayEndUI>().addDeadList(false);
+                break;
+            }
+
+        }
 
         //for debug
         for (int i = 0; i < AlliesDieToday.Length; i++)
