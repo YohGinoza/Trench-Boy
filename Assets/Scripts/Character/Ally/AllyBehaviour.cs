@@ -364,10 +364,9 @@ public class AllyBehaviour : MonoBehaviour
         }
     }
 
-    private IEnumerator Recover()
+    public void Recover()
     {
         Healing = true;
-        yield return new WaitForSeconds(RecoverTime);
         Downed = false;
         Injured = false;
 

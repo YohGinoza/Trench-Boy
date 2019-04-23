@@ -336,8 +336,8 @@ public class GameController : MonoBehaviour
             //switch behaviour to dat
             if (DayBehaviour != null && DayBehaviour.CurrentState == AllyBehaviour.State.Healing)
             {
+                DayBehaviour.Recover();
                 DayBehaviour.CurrentState = AllyBehaviour.State.Shooting;
-                DayBehaviour.EnteringNight = false;
             }
 
             if (DayBehaviour != null)
@@ -345,6 +345,9 @@ public class GameController : MonoBehaviour
                 DayBehaviour.enabled = true;
                 //change to day position
                 DayBehaviour.ChangePosition(true);
+
+                //eneble UI
+                DayBehaviour.EnteringNight = false;
             }
 
             if (NightBehaviour != null)
