@@ -892,10 +892,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClosestTrigerrer: {fileID: 0}
+  Selected: {fileID: 0}
   TriggererRadius: 0.85
   TrigererLayer:
     serializedVersion: 2
-    m_Bits: 3584
+    m_Bits: 36352
   Carrier: {fileID: 6802985124024814885}
 --- !u!1 &7962465013830358627
 GameObject:

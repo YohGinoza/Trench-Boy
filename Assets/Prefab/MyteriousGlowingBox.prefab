@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3499052573477489754}
   - component: {fileID: 4700995032549958289}
   - component: {fileID: 8899230732024453551}
+  - component: {fileID: 2778982404859133793}
   m_Layer: 10
   m_Name: MyteriousGlowingBox
   m_TagString: Crate
@@ -130,3 +131,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2778982404859133793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5099373133673963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b079b966a58a2f489fb12439acccf8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  MaxAmount: 0
+  Amount: 0
+  TopSide: {fileID: 0}
+  Empty: {fileID: 0}
+  NotEmpty: {fileID: 0}
