@@ -36,6 +36,9 @@ public class DialogueLoader : MonoBehaviour
 
     [SerializeField] private Ally[] friends;
     private int DEADFRIEND;
+
+    public bool lineRunning = false;
+    public float textSpeed = 0.01f;
     
     //bool[] dietoday; // ??????????????????????????????????????????????????????????? day_end script
     //======================================================
@@ -129,6 +132,17 @@ public class DialogueLoader : MonoBehaviour
         //}
     }
 
+    public IEnumerator runningText(string text, Text person)
+    {
+        lineRunning = true;
+        for(int i = 0; i < text.Length; i++)
+        {
+            person.text = text.Substring(0, i);
+            yield return new WaitForSeconds(textSpeed);
+        }
+        lineRunning = false;
+    }
+
     public void converse()
     {
         Text speaker;
@@ -165,7 +179,8 @@ public class DialogueLoader : MonoBehaviour
                 }
 
                 // text body
-                speaker.text = special_text[DEADFRIEND, lineCounter];
+                //speaker.text = special_text[DEADFRIEND, lineCounter];
+                StartCoroutine(runningText(special_text[DEADFRIEND, lineCounter], speaker));                
 
                 // check further conversation
                 if (special_text[DEADFRIEND, lineCounter + 1] != null)
@@ -195,8 +210,9 @@ public class DialogueLoader : MonoBehaviour
                     ShowSpeechBubble(false);
                 }
                 // if NORMAL
+                //speaker.text = dialogue_text[index_Friendship, lineCounter];
+                StartCoroutine(runningText(dialogue_text[index_Friendship, lineCounter], speaker));
 
-                speaker.text = dialogue_text[index_Friendship, lineCounter];
                 if (dialogue_text[index_Friendship, lineCounter+1] != null)
                 {                    
                     lineCounter++;
@@ -225,7 +241,9 @@ public class DialogueLoader : MonoBehaviour
                 ShowSpeechBubble(true);
                 speaker = NPC;
                 //NPC.text = ending_text[index_Ending, lineCounter];
-                speaker.text = ending_text[index_Ending, lineCounter];
+                //speaker.text = ending_text[index_Ending, lineCounter];
+                StartCoroutine(runningText(ending_text[index_Ending, lineCounter], speaker));
+                
 
                 index_Ending++;
             }
