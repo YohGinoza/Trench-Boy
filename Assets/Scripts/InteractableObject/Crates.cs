@@ -20,6 +20,7 @@ public class Crates : MonoBehaviour
     public void Refill()
     {
         Amount = MaxAmount;
+        this.GetComponent<AudioSource>().Play();
 
         if (NotEmpty != null)
         {

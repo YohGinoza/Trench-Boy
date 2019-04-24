@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (enemy.activeSelf == false)
                 {
-                    //Debug.Log("Spawned");
+                    Debug.Log("Spawned");
                     enemy.SetActive(true);
                     enemy.transform.position = SpawnPosition;
                     break;

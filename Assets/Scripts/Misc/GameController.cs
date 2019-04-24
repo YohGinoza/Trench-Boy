@@ -112,6 +112,9 @@ public class GameController : MonoBehaviour
     //Sound
     public GameObject BGmusic;
 
+    public AudioClip day_START;
+    public AudioClip day_END;
+
     //camera
     private CameraController cameraController;
     //private Transform Camera;
@@ -302,8 +305,12 @@ public class GameController : MonoBehaviour
         
     }
 
-    void DayStart()
+    public void DayStart()
     {
+        //play sfx
+        this.GetComponent<AudioSource>().clip = day_START;
+        this.GetComponent<AudioSource>().Play();
+
         //set cam target to player
         cameraController.SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
 
@@ -353,6 +360,11 @@ public class GameController : MonoBehaviour
 
     void DayEnd()
     {
+
+        //play sfx
+        this.GetComponent<AudioSource>().clip = day_END;
+        this.GetComponent<AudioSource>().Play();
+
         DayEnd_UI.GetComponent<DayEndUI>().Day++;
 
         //stop spawing enemy
@@ -361,6 +373,7 @@ public class GameController : MonoBehaviour
             if (spawner.CoroutineRunning)
             {
                 spawner.StopAllCoroutines();
+                spawner.CoroutineRunning = false;
             }
         }
 
