@@ -73,7 +73,9 @@ public class BarbedWire : MonoBehaviour
         CameraController cameraController = FindObjectOfType<CameraController>();
         cameraController.SetTarget(this.transform);
 
-        yield return new WaitForSeconds(2);
+        //let the player look
+        cameraController.StartCoroutine("FadeInOut", true);
+        yield return new WaitForSeconds(1.5f);
 
         gc.CurrentState = GameState.Wait;
         GameController.loseCondition = LoseCondition.BarbedWire;
