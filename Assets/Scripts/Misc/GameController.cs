@@ -305,7 +305,7 @@ public class GameController : MonoBehaviour
         
     }
 
-    void DayStart()
+    public void DayStart()
     {
         //play sfx
         this.GetComponent<AudioSource>().clip = day_START;
@@ -373,6 +373,7 @@ public class GameController : MonoBehaviour
             if (spawner.CoroutineRunning)
             {
                 spawner.StopAllCoroutines();
+                spawner.CoroutineRunning = false;
             }
         }
 
