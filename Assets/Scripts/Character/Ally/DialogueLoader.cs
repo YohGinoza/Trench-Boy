@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class DialogueLoader : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class DialogueLoader : MonoBehaviour
 
     GameObject player;
     GameController gc;
+    GameObject BoyQuad;
 
     public GameObject Canvas;
     public Text NPC;
@@ -39,6 +41,8 @@ public class DialogueLoader : MonoBehaviour
 
     public bool lineRunning = false;
     public float textSpeed = 0.01f;
+
+    private bool flip = false;
     
     //bool[] dietoday; // ??????????????????????????????????????????????????????????? day_end script
     //======================================================
@@ -55,6 +59,8 @@ public class DialogueLoader : MonoBehaviour
         //get component from player canvas
         PLAYER = player.transform.GetChild(3).GetChild(1).GetComponentInChildren<Text>();
         iPLAYER = player.transform.GetChild(3).GetChild(1).GetComponent<Image>();
+
+        BoyQuad = player.transform.GetChild(3).gameObject;
 
         gc = GetComponent<GameController>();
 
@@ -147,16 +153,20 @@ public class DialogueLoader : MonoBehaviour
     {
         Text speaker;
         Image iSpeaker;
+
+        //move ment restrict/ camera
+        if (!player.GetComponent<TrenchBoyController>().facingRight && !flip)
+        {
+            //player.GetComponent<TrenchBoyController>().Flip();
+            flip = true;
+            BoyQuad.transform.localScale = new Vector3(BoyQuad.transform.localScale.x * -1, BoyQuad.transform.localScale.y, BoyQuad.transform.localScale.z);
+        }
+
+        player.GetComponent<TrenchBoyController>().animatorMoving = false;
+        GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
+
         if (!dayLimit)
         {
-            //move ment restrict/ camera
-            if (!player.GetComponent<TrenchBoyController>().facingRight)
-            {
-                player.GetComponent<TrenchBoyController>().Flip();
-            }
-            player.GetComponent<TrenchBoyController>().animatorMoving = false;
-            player.GetComponent<TrenchBoyController>().isMovable = false;
-            GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
 
             if (specialTrigger)
             {
@@ -233,10 +243,6 @@ public class DialogueLoader : MonoBehaviour
             // NPC one-liner
             if (ending_text[index_Ending, lineCounter] != null)
             {
-                //movement restrict/ camera
-                player.GetComponent<TrenchBoyController>().animatorMoving = false;
-                player.GetComponent<TrenchBoyController>().isMovable = false;
-                GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
 
                 ShowSpeechBubble(true);
                 speaker = NPC;
@@ -250,8 +256,14 @@ public class DialogueLoader : MonoBehaviour
             else
             {
                 //cancel movement restrict/ camera
+                if (flip)
+                {
+                    flip = false;
+                    BoyQuad.transform.localScale = new Vector3(BoyQuad.transform.localScale.x * -1, BoyQuad.transform.localScale.y, BoyQuad.transform.localScale.z);
+                }
                 player.GetComponent<TrenchBoyController>().isMovable = true;
                 GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomOut();
+
 
                 NPC.enabled = false;
                 iNPC.enabled = false;
