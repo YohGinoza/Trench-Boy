@@ -23,6 +23,8 @@ public class DialogueLoader : MonoBehaviour
     GameController gc;
     GameObject BoyQuad;
 
+    ColliderChercker Checker;
+
     public GameObject Canvas;
     public Text NPC;
     public Text PLAYER;
@@ -59,6 +61,8 @@ public class DialogueLoader : MonoBehaviour
         //get component from player canvas
         PLAYER = player.transform.GetChild(3).GetChild(1).GetComponentInChildren<Text>();
         iPLAYER = player.transform.GetChild(3).GetChild(1).GetComponent<Image>();
+
+        Checker = player.GetComponentInChildren<ColliderChercker>();
 
         BoyQuad = player.transform.GetChild(3).gameObject;
 
@@ -162,6 +166,7 @@ public class DialogueLoader : MonoBehaviour
             BoyQuad.transform.localScale = new Vector3(BoyQuad.transform.localScale.x * -1, BoyQuad.transform.localScale.y, BoyQuad.transform.localScale.z);
         }
 
+        Checker.TriggererRadius = 1.0f;
         player.GetComponent<TrenchBoyController>().animatorMoving = false;
         GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
 
@@ -264,6 +269,7 @@ public class DialogueLoader : MonoBehaviour
                 player.GetComponent<TrenchBoyController>().isMovable = true;
                 GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomOut();
 
+                Checker.TriggererRadius = 0.85f;
 
                 NPC.enabled = false;
                 iNPC.enabled = false;
