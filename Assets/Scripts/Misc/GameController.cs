@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
 
     //time
     public GameState CurrentState = GameState.Day;
-    private Day CurrentDay = Day.DAY_1;
+    public Day CurrentDay = Day.DAY_1;
     [Range(0, 1)] public float TimeOfDay = 0;
     public float DayLenght = 180;
 
@@ -108,6 +108,7 @@ public class GameController : MonoBehaviour
     public GameObject Inventory_UI;
     public GameObject DayEnd_UI;
     public static bool reset_pressed;
+    public bool uidown = false;
 
     //Sound
     public GameObject BGmusic;
@@ -262,11 +263,14 @@ public class GameController : MonoBehaviour
                 break;
 
             case GameState.Wait:
+
+
                 Debug.Log("Wait");
                 PauseGame();
 
                 Inventory_UI.SetActive(false);
                 DayEnd_UI.SetActive(true);
+                DayEnd_UI.GetComponent<DayEndUI>().ui_up = true;
                 BGmusic.SetActive(false);
 
                 //show day end screen
@@ -296,13 +300,19 @@ public class GameController : MonoBehaviour
                 //Camera.localRotation = Quaternion.Euler(NightCamAngle, 0, 0);
 
                 Inventory_UI.SetActive(false);
-                DayEnd_UI.SetActive(false);
+                //DayEnd_UI.SetActive(false);
                 BGmusic.SetActive(true);
                 CaptainCall = NightTimeInteractCounter >= NightInteractionLimit;
                 break;
         }
 
-        
+        if (uidown)
+        {
+            DayEnd_UI.GetComponent<DayEndUI>().UI_DOWN();
+        }
+
+
+
     }
 
     public void DayStart()
@@ -366,6 +376,7 @@ public class GameController : MonoBehaviour
         this.GetComponent<AudioSource>().Play();
 
         DayEnd_UI.GetComponent<DayEndUI>().Day++;
+        CurrentDay++;
 
         //stop spawing enemy
         foreach (EnemySpawner spawner in EnemySpawners)
@@ -492,7 +503,10 @@ public class GameController : MonoBehaviour
 
     public void Button_stageChange(int NextState)
     {
-        if((GameState)NextState != GameState.Wait)
+        uidown = true;
+        DayEnd_UI.GetComponent<DayEndUI>().ui_down = true;
+
+        if ((GameState)NextState != GameState.Wait)
         {
             ContinueGame();
             cameraController.StartCoroutine("FadeInOut", false);
