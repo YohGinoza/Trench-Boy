@@ -38,19 +38,35 @@ public class DayEndUI : MonoBehaviour
 
         if (ui_up)
         {
-            UI_UP();
-        }
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + UI_speed, this.transform.position.z);
 
-        if (this.transform.localPosition.y >= -300.0f)
-        {
-            if(this.transform.localPosition.y > -300.0f)
+            if (this.transform.localPosition.y >= -300.0f)
             {
-                this.transform.localPosition = new Vector3(this.transform.localPosition.x, -300.0f, this.transform.position.z);
-            }
+                if (this.transform.localPosition.y > -300.0f)
+                {
+                    this.transform.localPosition = new Vector3(this.transform.localPosition.x, -300.0f, this.transform.position.z);
+                }
 
-            ui_up = false;
+                ui_up = false;
+            }
         }
-        
+
+        if (ui_down)
+        {
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - UI_speed, this.transform.position.z);
+
+            if (this.transform.localPosition.y <= -1500.0f)
+            {
+                if (this.transform.localPosition.y < -1500.0f)
+                {
+                    this.transform.localPosition = new Vector3(this.transform.localPosition.x, -1500.0f, this.transform.position.z);
+                }
+
+                //this.SetActive(false);
+                ui_down = false;
+            }
+        }
+
     }
 
     
@@ -78,31 +94,6 @@ public class DayEndUI : MonoBehaviour
                 Dead_List.text += GameController.AlliesName[i];
                 Dead_List.text += "\n";
             }
-        }
-    }
-
-    public void UI_UP()
-    {
-        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + UI_speed, this.transform.position.z);
-    }
-
-    public void UI_DOWN()
-    {
-
-        if (ui_down)
-        {
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - UI_speed, this.transform.position.z);
-        }
-
-        if (this.transform.localPosition.y <= -1500.0f)
-        {
-            if (this.transform.localPosition.y < -1500.0f)
-            {
-                this.transform.localPosition = new Vector3(this.transform.localPosition.x, -1500.0f, this.transform.position.z);
-            }
-
-            gc.uidown = false;
-            ui_down = false;
         }
     }
 }

@@ -300,18 +300,12 @@ public class GameController : MonoBehaviour
                 //Camera.localRotation = Quaternion.Euler(NightCamAngle, 0, 0);
 
                 Inventory_UI.SetActive(false);
+                StartCoroutine(disable_UI());
                 //DayEnd_UI.SetActive(false);
                 BGmusic.SetActive(true);
                 CaptainCall = NightTimeInteractCounter >= NightInteractionLimit;
                 break;
         }
-
-        if (uidown)
-        {
-            DayEnd_UI.GetComponent<DayEndUI>().UI_DOWN();
-        }
-
-
 
     }
 
@@ -375,8 +369,8 @@ public class GameController : MonoBehaviour
         this.GetComponent<AudioSource>().clip = day_END;
         this.GetComponent<AudioSource>().Play();
 
-        DayEnd_UI.GetComponent<DayEndUI>().Day++;
         CurrentDay++;
+        //DayEnd_UI.GetComponent<DayEndUI>().Day++;
 
         //stop spawing enemy
         foreach (EnemySpawner spawner in EnemySpawners)
@@ -503,9 +497,6 @@ public class GameController : MonoBehaviour
 
     public void Button_stageChange(int NextState)
     {
-        uidown = true;
-        DayEnd_UI.GetComponent<DayEndUI>().ui_down = true;
-
         if ((GameState)NextState != GameState.Wait)
         {
             ContinueGame();
@@ -520,7 +511,15 @@ public class GameController : MonoBehaviour
             //
         }
 
+
+        DayEnd_UI.GetComponent<DayEndUI>().ui_down = true;
         CurrentState = (GameState)NextState;
+    }
+
+    public IEnumerator disable_UI()
+    {
+        yield return new WaitForSeconds(1.0f);
+        DayEnd_UI.SetActive(false);
     }
 
     public void Button_MainMenu()
