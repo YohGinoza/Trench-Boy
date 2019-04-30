@@ -395,7 +395,8 @@ public class AllyBehaviour : MonoBehaviour
                 {
                     AmmoCount += (int)ItemType.Ammo;
                     call = false;
-
+                    //feedback
+                    animator.SetTrigger("Talk");
                     callSource.clip = giveAmmo;
                     callSource.Play();
 
@@ -412,7 +413,8 @@ public class AllyBehaviour : MonoBehaviour
                 {
                     Injured = false;
                     call = false;
-
+                    //feedback
+                    animator.SetTrigger("Talk");
                     callSource.clip = giveMed;
                     callSource.Play();
 
