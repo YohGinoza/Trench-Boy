@@ -332,6 +332,12 @@ public class TrenchBoyController : MonoBehaviour
                             isCarrying = true;
                         }
                     }
+                    else
+                    {
+                        audioSource.clip = unavialable;
+                        audioSource.Play();
+                        animator.SetTrigger("Talk");
+                    }
                 }
             }
             delta = 0; // stops timer 
@@ -356,6 +362,12 @@ public class TrenchBoyController : MonoBehaviour
                         if (ally.HandItem(Inventory.ItemInventory[Inventory.SelectedItem]))
                         {
                             Inventory.RemoveItem();
+                        }
+                        else
+                        {
+                            audioSource.clip = unavialable;
+                            audioSource.Play();
+                            animator.SetTrigger("Talk");
                         }
                     }
                 }
@@ -390,6 +402,7 @@ public class TrenchBoyController : MonoBehaviour
                     {
                         audioSource.clip = unavialable;
                         audioSource.Play();
+                        animator.SetTrigger("Talk");
                     }
                     spacebarUpped = true;
                     delta = 0;
