@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class DialogueLoader : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class DialogueLoader : MonoBehaviour
 
     GameObject player;
     GameController gc;
+    GameObject BoyQuad;
+
+    ColliderChercker Checker;
 
     public GameObject Canvas;
     public Text NPC;
@@ -36,6 +40,11 @@ public class DialogueLoader : MonoBehaviour
 
     [SerializeField] private Ally[] friends;
     private int DEADFRIEND;
+
+    public bool lineRunning = false;
+    public float textSpeed = 0.01f;
+
+    private bool flip = false;
     
     //bool[] dietoday; // ??????????????????????????????????????????????????????????? day_end script
     //======================================================
@@ -52,6 +61,10 @@ public class DialogueLoader : MonoBehaviour
         //get component from player canvas
         PLAYER = player.transform.GetChild(3).GetChild(1).GetComponentInChildren<Text>();
         iPLAYER = player.transform.GetChild(3).GetChild(1).GetComponent<Image>();
+
+        Checker = player.GetComponentInChildren<ColliderChercker>();
+
+        BoyQuad = player.transform.GetChild(3).gameObject;
 
         gc = GetComponent<GameController>();
 
@@ -129,20 +142,36 @@ public class DialogueLoader : MonoBehaviour
         //}
     }
 
+    public IEnumerator runningText(string text, Text person)
+    {
+        lineRunning = true;
+        for(int i = 0; i < text.Length; i++)
+        {
+            person.text = text.Substring(0, i);
+            yield return new WaitForSeconds(textSpeed);
+        }
+        lineRunning = false;
+    }
+
     public void converse()
     {
         Text speaker;
         Image iSpeaker;
+
+        //move ment restrict/ camera
+        if (!player.GetComponent<TrenchBoyController>().facingRight && !flip)
+        {
+            //player.GetComponent<TrenchBoyController>().Flip();
+            flip = true;
+            BoyQuad.transform.localScale = new Vector3(BoyQuad.transform.localScale.x * -1, BoyQuad.transform.localScale.y, BoyQuad.transform.localScale.z);
+        }
+
+        Checker.TriggererRadius = 1.0f;
+        player.GetComponent<TrenchBoyController>().animatorMoving = false;
+        GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
+
         if (!dayLimit)
         {
-            //move ment restrict/ camera
-            if (!player.GetComponent<TrenchBoyController>().facingRight)
-            {
-                player.GetComponent<TrenchBoyController>().Flip();
-            }
-            player.GetComponent<TrenchBoyController>().animatorMoving = false;
-            player.GetComponent<TrenchBoyController>().isMovable = false;
-            GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
 
             if (specialTrigger)
             {
@@ -165,7 +194,8 @@ public class DialogueLoader : MonoBehaviour
                 }
 
                 // text body
-                speaker.text = special_text[DEADFRIEND, lineCounter];
+                //speaker.text = special_text[DEADFRIEND, lineCounter];
+                StartCoroutine(runningText(special_text[DEADFRIEND, lineCounter], speaker));                
 
                 // check further conversation
                 if (special_text[DEADFRIEND, lineCounter + 1] != null)
@@ -195,8 +225,9 @@ public class DialogueLoader : MonoBehaviour
                     ShowSpeechBubble(false);
                 }
                 // if NORMAL
+                //speaker.text = dialogue_text[index_Friendship, lineCounter];
+                StartCoroutine(runningText(dialogue_text[index_Friendship, lineCounter], speaker));
 
-                speaker.text = dialogue_text[index_Friendship, lineCounter];
                 if (dialogue_text[index_Friendship, lineCounter+1] != null)
                 {                    
                     lineCounter++;
@@ -217,23 +248,28 @@ public class DialogueLoader : MonoBehaviour
             // NPC one-liner
             if (ending_text[index_Ending, lineCounter] != null)
             {
-                //movement restrict/ camera
-                player.GetComponent<TrenchBoyController>().animatorMoving = false;
-                player.GetComponent<TrenchBoyController>().isMovable = false;
-                GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomIn();
 
                 ShowSpeechBubble(true);
                 speaker = NPC;
                 //NPC.text = ending_text[index_Ending, lineCounter];
-                speaker.text = ending_text[index_Ending, lineCounter];
+                //speaker.text = ending_text[index_Ending, lineCounter];
+                StartCoroutine(runningText(ending_text[index_Ending, lineCounter], speaker));
+                
 
                 index_Ending++;
             }
             else
             {
                 //cancel movement restrict/ camera
+                if (flip)
+                {
+                    flip = false;
+                    BoyQuad.transform.localScale = new Vector3(BoyQuad.transform.localScale.x * -1, BoyQuad.transform.localScale.y, BoyQuad.transform.localScale.z);
+                }
                 player.GetComponent<TrenchBoyController>().isMovable = true;
                 GameObject.Find("Main Camera").GetComponent<CameraController>().DialogueZoomOut();
+
+                Checker.TriggererRadius = 0.85f;
 
                 NPC.enabled = false;
                 iNPC.enabled = false;

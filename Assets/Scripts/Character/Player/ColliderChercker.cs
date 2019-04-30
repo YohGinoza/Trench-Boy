@@ -7,7 +7,7 @@ public class ColliderChercker : MonoBehaviour {
     private Collider[] Triggerers;
     public Transform ClosestTrigerrer;
     public SelectedHighlight Selected;
-    [SerializeField] private float TriggererRadius = 3;
+    [SerializeField] public float TriggererRadius = 3;
     [SerializeField] private LayerMask TrigererLayer;
 
     [SerializeField] private Transform Carrier;
