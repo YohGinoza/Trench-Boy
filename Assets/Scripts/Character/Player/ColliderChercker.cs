@@ -7,7 +7,7 @@ public class ColliderChercker : MonoBehaviour {
     private Collider[] Triggerers;
     public Transform ClosestTrigerrer;
     public SelectedHighlight Selected;
-    [SerializeField] private float TriggererRadius = 3;
+    [SerializeField] public float TriggererRadius = 3;
     [SerializeField] private LayerMask TrigererLayer;
 
     [SerializeField] private Transform Carrier;
@@ -55,11 +55,11 @@ public class ColliderChercker : MonoBehaviour {
                 if (Selected != null && !Selected.selected)
                 {
                     Selected.Select();
-                    Debug.Log("Found");
+                    //Debug.Log("Found");
                 }
                 else
                 {
-                    Debug.Log("Not Forund");
+                    //Debug.Log("Not Forund");
                 }
             }
         }

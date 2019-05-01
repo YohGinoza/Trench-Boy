@@ -24,8 +24,8 @@ public class CameraController : MonoBehaviour
 
     private bool inDialogue = false;
     
-    private bool zoomIn = false;
-    private bool zoomOut = false;
+    public bool zoomIn = false;
+    public bool zoomOut = false;
 
     private void Start()
     {
