@@ -559,7 +559,7 @@
       <Speaker>NPC</Speaker>
       <Type>D</Type>
       <ID>1</ID>
-      <Line>1</Line>
+      <Line>0</Line>
       <Text>Greetings. What brings you here?</Text>
     </Dialogue>
         <Dialogue name ="Sgt. Allen Baker D1 1">
@@ -567,7 +567,7 @@
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
       <ID>1</ID>
-      <Line>2</Line>
+      <Line>1</Line>
       <Text>I'm feeling a bit lost with all these commotion going on. I'm not sure if I am doing the right thing.</Text>
     </Dialogue>
     <Dialogue name ="Sgt. Allen Baker D1 2">
@@ -575,7 +575,7 @@
       <Speaker>NPC</Speaker>
       <Type>D</Type>
       <ID>1</ID>
-      <Line>3</Line>
+      <Line>2</Line>
       <Text>What do you mean by that?</Text>
     </Dialogue>
     <Dialogue name ="Sgt. Allen Baker D1 3">
@@ -636,7 +636,7 @@
     </Dialogue>
         <Dialogue name ="Sgt. Allen Baker D1 10">
       <Who>1</Who>
-      <Speaker>N{C</Speaker>
+      <Speaker>NPC</Speaker>
       <Type>D</Type>
       <ID>1</ID>
       <Line>10</Line>
@@ -1041,7 +1041,7 @@
       <Speaker>PLAYER</Speaker>
       <Type>S</Type>
       <ID>2</ID>
-      <Line>4</Line>
+      <Line>5</Line>
       <Text>My condolence, sir...</Text>
     </Dialogue>
     <Dialogue name ="Sgt. Allen Baker S2 5">
@@ -1049,7 +1049,7 @@
       <Speaker>NPC</Speaker>
       <Type>S</Type>
       <ID>2</ID>
-      <Line>5</Line>
+      <Line>6</Line>
       <Text>It's okay. We just have to avenge him. That's all we need to do.</Text>
     </Dialogue>
     
@@ -2656,7 +2656,7 @@
       <Speaker>NPC</Speaker>
       <Type>S</Type>
       <ID>5</ID>
-      <Line>0</Line>
+      <Line>2</Line>
       <Text>It's about Roy...</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Jason Riley S5 3">
@@ -2664,7 +2664,7 @@
       <Speaker>PLAYER</Speaker>
       <Type>S</Type>
       <ID>5</ID>
-      <Line>1</Line>
+      <Line>3</Line>
       <Text>Roy? What about him?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Jason Riley S5 4">
@@ -3044,7 +3044,7 @@
       <Line>0</Line>
       <Text>Hey, there! You’re looking gloomy, what happened?</Text>
     </Dialogue>
-  <Dialogue name ="Pvt. Ellis Anderson D0 1">
+    <Dialogue name ="Pvt. Ellis Anderson D0 1">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -3060,7 +3060,7 @@
       <Line>2</Line>
       <Text>Ah, so you were the guy who was lugging things around during the day.</Text>
     </Dialogue>
-  <Dialogue name ="Pvt. Ellis Anderson D0 3">
+    <Dialogue name ="Pvt. Ellis Anderson D0 3">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -3076,7 +3076,7 @@
       <Line>4</Line>
       <Text>Haha, don't worry about it. You should brigthen up a little.</Text>
     </Dialogue>
-  <Dialogue name ="Pvt. Ellis Anderson D0 5">
+    <Dialogue name ="Pvt. Ellis Anderson D0 5">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -3092,7 +3092,7 @@
       <Line>6</Line>
       <Text>I'll let you in on a secret, the best way to relieve stress is to joke about stress itself.</Text>
     </Dialogue>
-  <Dialogue name ="Pvt. Ellis Anderson D0 7">
+    <Dialogue name ="Pvt. Ellis Anderson D0 7">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -3118,7 +3118,7 @@
       <Line>0</Line>
       <Text>Say, you really can't shoot? Like, at all?</Text>
     </Dialogue>
-  <Dialogue name ="Pvt. Ellis Anderson D1 1">
+    <Dialogue name ="Pvt. Ellis Anderson D1 1">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -3984,7 +3984,7 @@
       <Speaker>NPC</Speaker>
       <Type>D</Type>
       <ID>0</ID>
-      <Line>4</Line>
+      <Line>6</Line>
       <Text>Haha, thanks. A happy diner makes a happy chef.</Text>
     </Dialogue>
     
@@ -4596,29 +4596,21 @@
       <Line>5</Line>
       <Text>They told young men that they are fighting for good when the truth is they just want a foreign soil.</Text>
     </Dialogue>
-    <Dialogue name ="Pvt. Harper Scott D1 5">
+    <Dialogue name ="Pvt. Harper Scott D1 6">
       <Who>9</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
       <ID>1</ID>
-      <Line>5</Line>
+      <Line>6</Line>
       <Text>Is it true!? That's horrible!</Text>
     </Dialogue>
-    <Dialogue name ="Pvt. Harper Scott D1 6">
+    <Dialogue name ="Pvt. Harper Scott D1 7">
       <Who>9</Who>
       <Speaker>NPC</Speaker>
       <Type>D</Type>
       <ID>1</ID>
-      <Line>6</Line>
-      <Text>Well, it's a political game. A dirty adult business, and they sent young children like you here, dying for their causes.</Text>
-    </Dialogue>
-    <Dialogue name ="Pvt. Harper Scott D1 7">
-      <Who>9</Who>
-      <Speaker>PLAYER</Speaker>
-      <Type>D</Type>
-      <ID>1</ID>
       <Line>7</Line>
-      <Text>I don't know...I've never think of this before, let alone the thought of dying...</Text>
+      <Text>Well, it's a political game. A dirty adult business, and they sent young children like you here, dying for their causes.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Harper Scott D1 8">
       <Who>9</Who>
@@ -4626,22 +4618,30 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>8</Line>
-      <Text>But what you told me seems to be very interesting...</Text>
+      <Text>I don't know...I've never think of this before, let alone the thought of dying...</Text>
     </Dialogue>
-     <Dialogue name ="Pvt. Harper Scott D1 9">
-      <Who>9</Who>
-      <Speaker>NPC</Speaker>
-      <Type>D</Type>
-      <ID>1</ID>
-      <Line>9</Line>
-      <Text>Hm...I'll tatk to you about it on the other day then. I need to go now, and keep this a secret. Bye</Text>
-    </Dialogue>
-    <Dialogue name ="Pvt. Harper Scott D1 10">
+    <Dialogue name ="Pvt. Harper Scott D1 9">
       <Who>9</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
       <ID>1</ID>
+      <Line>9</Line>
+      <Text>But what you told me seems to be very interesting...</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Harper Scott D1 10">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
       <Line>10</Line>
+      <Text>Hm...I'll tatk to you about it on the other day then. I need to go now, and keep this a secret. Bye</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 11">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>11</Line>
       <Text>Okay...bye.</Text>
     </Dialogue>
     
@@ -5309,7 +5309,7 @@
     </Dialogue>
 
   <!--E0-->
-  <Dialogue name ="Pvt. Dwayne Manning E0 0">
+    <Dialogue name ="Pvt. Dwayne Manning E0 0">
       <Who>10</Who>
       <Speaker>NPC</Speaker>
       <Type>E</Type>
