@@ -31,7 +31,8 @@ public enum Tutorials
 
 public enum Day
 {
-    DAY_1 = 0,
+    DAY_0 = 0,
+    DAY_1,
     DAY_2,
     DAY_3,
     DAY_4,
@@ -92,9 +93,10 @@ public class GameController : MonoBehaviour
 
     //time
     public GameState CurrentState = GameState.Day;
-    public Day CurrentDay = Day.DAY_1;
+    public Day CurrentDay = Day.DAY_0;
     [Range(0, 1)] public float TimeOfDay = 0;
     public float DayLenght = 180;
+    public Day DayEndLimit = Day.DAY_7;
 
     //enemy
     [SerializeField] private EnemySpawner[] EnemySpawners = new EnemySpawner[5];
@@ -299,8 +301,16 @@ public class GameController : MonoBehaviour
                 switch (loseCondition)
                 {
                     case LoseCondition.None:
-                        DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
-                        DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(true);
+                        if(CurrentDay != DayEndLimit)
+                        {
+                            DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
+                            DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
+                            DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
+                        }
                         break;
                     case LoseCondition.BarbedWire:
                         DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
