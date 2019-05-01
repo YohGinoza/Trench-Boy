@@ -76,19 +76,16 @@ public class DialogueLoader : MonoBehaviour
             {
                 Debug.Log(ThisPerson);
                 if(dialogue.type == "D")
-                {                    
-                    Debug.Log("D" + dialogue.id + " " + dialogue.line);
+                {                                        
                     dialogue_text[dialogue.id, dialogue.line] = dialogue.text;
                     D_NPCSpeaking[dialogue.id, dialogue.line] = dialogue.speaker == "NPC";
                 }
                 else if (dialogue.type == "E")
-                {
-                    Debug.Log("E" + dialogue.id + " " + dialogue.line);
+                {                    
                     ending_text[dialogue.id,dialogue.line] = dialogue.text;
                 }
                 else if (dialogue.type == "S")
-                {
-                    Debug.Log("S" + dialogue.id + " " + dialogue.line);
+                {                    
                     special_text[dialogue.id, dialogue.line] = dialogue.text;
                     S_NPCSpeaking[dialogue.id, dialogue.line] = dialogue.speaker == "NPC";
                 }
