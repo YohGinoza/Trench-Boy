@@ -13,6 +13,7 @@ TagManager:
   - Ally
   - Enemy
   - Deceased
+  - Resupply
   layers:
   - Default
   - TransparentFX

@@ -18,6 +18,17 @@ public enum LoseCondition
     BarbedWire,
 };
 
+public enum Tutorials
+{
+    PickUpCrate = 0,
+    PickUpItem,
+    RefillingCrate,
+    AllyDown,
+    InventoryControl,
+    GiveItem,
+    AllyNight
+};
+
 public enum Day
 {
     DAY_1 = 0,
@@ -107,6 +118,7 @@ public class GameController : MonoBehaviour
     //UI
     public GameObject Inventory_UI;
     public GameObject DayEnd_UI;
+    [SerializeField] private TutorialUI tutorialUI;
     public static bool reset_pressed;
     public bool uidown = false;
 
@@ -124,11 +136,20 @@ public class GameController : MonoBehaviour
     //[SerializeField] private float DayCamAngle;
     //[SerializeField] private float NightCamAngle;
 
+    //Tutorial
+    public static bool[] TutorialFinished = new bool[7];
+    public bool[] tt;
+
     void Start()
     {
         for(int i = 0;i < AlliesAliveStatus.Length; i++)
         {
             AlliesAliveStatus[i] = true; 
+        }
+
+        for (int i = 0; i < TutorialFinished.Length; i++)
+        {
+            TutorialFinished[i] = false;
         }
 
         Inventory_UI = GameObject.Find("InventoryBar");
@@ -144,6 +165,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        tt = TutorialFinished;
         //advance daytime
         switch (CurrentState)
         {
@@ -348,7 +370,7 @@ public class GameController : MonoBehaviour
             {
                 DayBehaviour.enabled = true;
                 //change to day position
-                DayBehaviour.ChangePosition(true);
+                DayBehaviour.ChangePosition(0);
 
                 //eneble UI
                 DayBehaviour.EnteringNight = false;
@@ -451,7 +473,7 @@ public class GameController : MonoBehaviour
                 {
                     DayBehaviour.EnterNight();
                     //change to night position
-                    DayBehaviour.ChangePosition(false);
+                    DayBehaviour.ChangePosition(1);
                     DayBehaviour.enabled = false;
                 }
 
@@ -482,8 +504,6 @@ public class GameController : MonoBehaviour
             AlliesDieToday[i] = false;
         }
 
-        
-
         //checked
         DayEndedCheck = false;
 
@@ -508,7 +528,11 @@ public class GameController : MonoBehaviour
 
         if ((GameState)NextState == GameState.Night)
         {
-            //
+            //tutorial
+            if (!TutorialFinished[(int)Tutorials.AllyNight])
+            {
+                tutorialUI.TurnOn(Tutorials.AllyNight);
+            }
         }
 
 
