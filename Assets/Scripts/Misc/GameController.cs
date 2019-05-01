@@ -93,7 +93,7 @@ public class GameController : MonoBehaviour
 
     //time
     public GameState CurrentState = GameState.Day;
-    public Day CurrentDay = Day.DAY_0;
+    public Day CurrentDay = Day.DAY_1;
     [Range(0, 1)] public float TimeOfDay = 0;
     public float DayLenght = 180;
     public Day DayEndLimit = Day.DAY_7;
@@ -401,7 +401,7 @@ public class GameController : MonoBehaviour
         this.GetComponent<AudioSource>().clip = day_END;
         this.GetComponent<AudioSource>().Play();
 
-        CurrentDay++;
+        //CurrentDay++;
         //DayEnd_UI.GetComponent<DayEndUI>().Day++;
 
         //stop spawing enemy
@@ -538,6 +538,8 @@ public class GameController : MonoBehaviour
 
         if ((GameState)NextState == GameState.Night)
         {
+            CurrentDay++;
+            
             //tutorial
             if (!TutorialFinished[(int)Tutorials.AllyNight])
             {
