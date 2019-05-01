@@ -82,7 +82,9 @@ public class AllyBehaviour : MonoBehaviour
     public AudioSource callSource;
     private bool call = false;
     public bool callGrenade = false;
-    
+
+    [Header("Tutorial UI")]
+    [SerializeField] private TutorialUI TutorUI;
 
     private void Start()
     {
@@ -163,6 +165,12 @@ public class AllyBehaviour : MonoBehaviour
                     //stop shooting
                     StopCoroutine(Shoot());
 
+                    //trigger tutorial
+                    if (!GameController.TutorialFinished[(int)Tutorials.GiveItem])
+                    {
+                        TutorUI.TurnOn(Tutorials.GiveItem, this.transform);
+                    }
+
                     if (Injured)
                     {
 
@@ -201,6 +209,12 @@ public class AllyBehaviour : MonoBehaviour
 
                 //stop shooting
                 StopCoroutine(Shoot());
+
+                //trigger tutorial
+                if (!GameController.TutorialFinished[(int)Tutorials.AllyDown])
+                {
+                    TutorUI.TurnOn(Tutorials.AllyDown);
+                }
 
                 //update timer
                 BleedingTimer -= Time.fixedDeltaTime / BleedingEndurance;
@@ -352,15 +366,21 @@ public class AllyBehaviour : MonoBehaviour
         EnteringNight = true;
     }
 
-    public void ChangePosition(bool Day)
+    public void ChangePosition(int State)
     {
-        if (Day)
+        switch (State)
         {
-            this.transform.position = DayPosition.position;
-        }
-        else
-        {
-            this.transform.position = NightPosition.position;
+            //day
+            case 0:
+                this.transform.position = DayPosition.position;
+                break;
+            //night
+            case 1:
+                this.transform.position = NightPosition.position;
+                break;
+            //dead
+            case 2:
+                break;
         }
     }
 
@@ -377,6 +397,12 @@ public class AllyBehaviour : MonoBehaviour
     private void Down()
     {
         Downed = true;
+
+        //tutorial
+        if (!GameController.TutorialFinished[(int)Tutorials.AllyDown])
+        {
+            TutorUI.TurnOn(Tutorials.AllyDown, this.transform);
+        }
     }
 
     private void ToggleUI(bool Request,bool Rescue, bool Heal)
