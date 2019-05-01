@@ -2251,7 +2251,7 @@ GameObject:
   - component: {fileID: 6177410813997550006}
   m_Layer: 15
   m_Name: MedKitSupply
-  m_TagString: Untagged
+  m_TagString: Resupply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
