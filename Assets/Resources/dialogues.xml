@@ -68,8 +68,416 @@
       <Text>TEXT</Text>
     </Dialogue>
     -->
+    
+    <!--
+    Who ID index:
+    0: Cpt. William Carter
+    1: Sgt. Allen Baker
+    2: Cpl. Ray Garrett
+    3: Cpl. Darren Reed
+    4: Pvt. Jason Riley
+    5: Pvt. Roy Watson
+    6: Pvt. Ellis Anderson
+    7: Pvt. Andrew Summer
+    8: Pvt. Tim Berry
+    9: Pvt. Harper Scott
+    10: Pvt. Dwayne Manning
+    11: Lt. Henry Mattis
+    12: Sgt. Becker Samson
+    -->
     <!--==============END OF TEMPLATE==============-->
 
+   
+    <!--Cpt. William Carter-->
+    <!--D0-->
+    <Dialogue name ="Cpt. William Carter D0 0">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Private, I need to talk to you.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D0 1">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>Sir.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D0 2">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>I had a doubt about you when I first see you assigned to this squad.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D0 3">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>.......</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D0 4">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text> I thought you'll feel out of place, seeing that you can't fight at all.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D0 5">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>But I'm glad that you've found a role for yourself and helped out others.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D0 6">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text>Good work, private.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D0 7">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>Thank you, captain.</Text>
+    </Dialogue>
+    
+    <!--D1-->
+     <Dialogue name ="Cpt. William Carter D1 0">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Hey, private. How's the situation?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D1 1">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>Bad, sir. Quite a number of people are injured and the supplies are not enough.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D1 2">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>Hmm...This is not looking good..</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D1 3">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>Captain, are we going to be okay?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D1 4">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>I don't know what will happened. But I will go through hell itself if it means it will save us all.</Text>
+    </Dialogue>
+     <Dialogue name ="Cpt. William Carter D1 5">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Captain....</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D1 6">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text> Pft. I'm joking. Anyway, thank you for the report. Don't be discouraged by the situation. Keep your head high.</Text>
+    </Dialogue>
+    
+     <!--D2-->
+     <Dialogue name ="Cpt. William Carter D2 0">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Captain, any news regarding reinforcement?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D2 1">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>I'm not picking up any radio activity here so I don't know if there's anyone coming at all.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D2 2">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>Damn...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D2 3">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>I've been trying for a while but I guess we can't expect anything from HQ anytime soon.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D2 4">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>In any case, we'll have to defend this place at any cost.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D2 5">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>Can't we retreat, sir? I don't think there's any point fighting a losing battle.</Text>
+    </Dialogue>
+     <Dialogue name ="Cpt. William Carter D2 6">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>We definitely can't retreat. Order from above.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D2 7">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>Even if we're losing this fight, if we all do our part as planned, we'll still win the war.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D2 8">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text> ......</Text>
+    </Dialogue>
+    
+    <!--D3-->
+     <Dialogue name ="Cpt. William Carter D3 0">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>Captain. All night duty's done.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D3 1">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>Good work. Anything important to report?</Text>
+    </Dialogue>
+     <Dialogue name ="Cpt. William Carter D3 2">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>Aside from our dwindling supply and overwhelming disadvantage, nothing, sir.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D3 3">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Good. Tell the cook to ration food carefully and medics take proper rest.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D3 4">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>And for you, private. If you're done with your duty. You can retire for tonight.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D3 5">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>Sir... is it true that we're the sacrifice for the army's plan?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D3 6">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>I cannot confirm or deny that. Where did you hear that from?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D3 7">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>Rumors, sir.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D3 8">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>Hm. Regardless of what the army planned, I aimed to keep you guys alive.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D3 9">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text> We're brother in arms. I'll lead you guys through hell and high water.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D3 10">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>10</Line>
+      <Text>....Thank you, captain.</Text>
+    </Dialogue>
+    
+    <!--D4-->
+    <Dialogue name ="Cpt. William Carter D4 0">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>0</Line>
+      <Text>Private, lend me your ear.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D4 1">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>1</Line>
+      <Text>What is it, sir?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D4 2">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>2</Line>
+      <Text>I have good news.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D4 3">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>3</Line>
+      <Text>Huh?</Text>
+    </Dialogue>
+     <Dialogue name ="Cpt. William Carter D4 4">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>4</Line>
+      <Text>I've finally picked up radio call from HQ. They said that they're done with their plan.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D4 5">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>5</Line>
+      <Text>Does that means...</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D4 6">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>6</Line>
+      <Text>Yes. According to intel, the enemy's formation is going to break anytime soon.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D4 7">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>7</Line>
+      <Text>That's nice to hear but why are you acting all secretive?</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D4 8">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>8</Line>
+      <Text>I don't want our troops to celebrate to early, in case the intel is wrong.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D4 9">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>9</Line>
+      <Text>Keep this a secret. If all's according to the plan, we're going home soon.</Text>
+    </Dialogue>
+    <Dialogue name ="Cpt. William Carter D4 10">
+      <Who>0</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>10</Line>
+      <Text>Understood, sir.</Text>
+    </Dialogue>
+    
+    <!--E0-->
+    <Dialogue name ="Cpt. William Carter E0 0">
+      <Who>0</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>You may leave.</Text>
+    </Dialogue>
+    
+    
     <!--Sgt. Allen Baker-->
     <!--D0-->
     <Dialogue name ="Sgt. Allen Baker D0 0">
@@ -284,28 +692,28 @@
       <Line>1</Line>
       <Text>Whether I answer on not depend on the question but sure, you can try asking</Text>
     </Dialogue>
-     <Dialogue name ="Sgt. Allen Baker D2 3">
+     <Dialogue name ="Sgt. Allen Baker D2 2">
       <Who>1</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
       <ID>2</ID>
-      <Line>3</Line>
+      <Line>2</Line>
       <Text>You mentioned prayer quite a few times before, were you part of the Church or something before?</Text>
     </Dialogue>
-      <Dialogue name ="Sgt. Allen Baker D2 4">
+      <Dialogue name ="Sgt. Allen Baker D2 3">
       <Who>1</Who>
       <Speaker>NPC</Speaker>
       <Type>D</Type>
       <ID>2</ID>
-      <Line>4</Line>
+      <Line>3</Line>
       <Text>Let's just say that I used to be a priest before the war.</Text>
     </Dialogue>
-        <Dialogue name ="Sgt. Allen Baker D2 5">
+        <Dialogue name ="Sgt. Allen Baker D2 4">
       <Who>1</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
       <ID>2</ID>
-      <Line>5</Line>
+      <Line>4</Line>
       <Text>Alright. Sorry for prying, I won't ask anymore.</Text>
     </Dialogue>
     
@@ -2852,7 +3260,8 @@
       <ID>3</ID>
       <Line>14</Line>
       <Text>Yeah...</Text>
-    </Dialogue>
+    </Dialogue> 
+  <!--Only D0-D3 for Ellis-->
     
   <!--E0-->
     <Dialogue name ="Pvt. Ellis Anderson E0 0">
@@ -2863,6 +3272,2666 @@
       <Line>0</Line>
       <Text>If you ever come up with a spicy joke, lemme know, okay? I'm can always use another good one.</Text>
     </Dialogue>
+    
+   <!--Pvt. Andrew Summer-->
+    <!--D0-->
+    <Dialogue name ="Pvt. Andrew Summer D0 0">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>....*scribling*</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 1">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>...M-Mister?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 2">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>Oh, I'm sorry. I'm in a middle of sketching. What's the matter?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 3">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>Sketching?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 4">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Oh, I mean I'm drawing something.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 5">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>You can draw!?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 6">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text>Of course, I do. But I don't really want to talk about it. People often ask me to draw them...for free.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 7">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>But why? You don't like them?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 8">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>8</Line>
+      <Text>Well, I would love to, but drawing people is not my expertise. I prefer to draw birds instead.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 9">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>9</Line>
+      <Text>Really!? But why birds, I don't see anything...likeable about them.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 10">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>10</Line>
+      <Text>But don't you think they are awesome? They have wings to fly freely in the sky and when they are on their legs, they move in a funny way too.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 11">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>11</Line>
+      <Text>I'll continue my drawing. It's almost finish now. By the way, my name is Andrew. See ya around.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D0 12">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>12</Line>
+      <Text>See you, Andrew.</Text>
+    </Dialogue>
+    
+    <!--D1-->
+    <Dialogue name ="Pvt. Andrew Summer D1 0">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Hi-hi Andrew</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D1 1">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>...*scribling* Oh, hi, what is it? *continue scribling*</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D1 2">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>What are you drawing this time?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D1 3">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>A bird, it's the one I saw this morning.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D1 4">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>Can you remember it, even after all the shooting in the day!?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D1 5">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Yeah. The color of the feather, the size of the eye. I could remember them all precisely, all the details..</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D1 6">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>That's amazing! How could you remember all of that?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D1 7">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>I just...dang it, what's the shade of its wing...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D1 8">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>Andrew...</Text>
+    </Dialogue>
+    
+     <!--D2-->
+    <Dialogue name ="Pvt. Andrew Summer D2 0">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Hi, Andrew. Drawing a bird again today?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 1">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text> It's..finished now. And about yesterday, you asked me how I remember about the bird, right?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 2">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>Yes, I suppose...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 3">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>Well, I have never told anyone abot this. I used to watch them alot when I was a little, same as your age.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 4">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>My father usually took me with him when he was hunting a bird, and he went for it everyday.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 5">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>"We need to sell it to make a living" He always said that, but I can't take myself to watch these little things died. </Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 6">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>I insisted that I will just keep them instead, so he took me to his friend who was a painter and told me that "You can keep it in a paper instead"</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Andrew Summer D2 7">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>I was really fasinated that day and from then, I visited his friend everyday to learn drawing from him.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 8">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>But he was a painter, so why are you drawing then?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 9">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>9</Line>
+      <Text>Well, I haven't got myself into painting even now. </Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 10">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>10</Line>
+      <Text>But he always keep reminding me to study deeper into the detail, and all the things will come up on the paper by themselves.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 11">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>11</Line>
+      <Text>Now, I could even remember the color of every pieces of feather on its wing.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 12">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>12</Line>
+      <Text>I guess it's time to pick up the brush and start to paint. There's lot of things to talk but I gotta prepare for the night duty. See ya around. Bye.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D2 13">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>13</Line>
+      <Text>See you then, bye.</Text>
+    </Dialogue>
+    
+  <!--D3-->
+    <Dialogue name ="Pvt. Andrew Summer D3 0">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>Hi, Andrew. You didn't draw a bird today?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 1">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>I did, finished it a while ago. What is it?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 2">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>I've been wondering, what brings you to draw a bird everyday?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 3">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>You mean motivation? I guess it's because when I show my drawing, it amazed people, and my father sees a potential in that.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 4">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>He believes that I shoud be better off with drawing, rather than going out and hunting birds everyday.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 5">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>But how is that any better when you still work everyday?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 6">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>Well, even I love what I am doing, it used to be that not everytime that I could bring myself to draw.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 7">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>But it was when people talks about my drawing, I always felt I had left something for this world.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 8">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>It's really hard to explain, but I can feel that at least I am going towards somewhere, unlike my father, who just keep hunting birds everyday.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 9">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>I certainly know how he felt, but I couldn't help but wonder what keeps him doing it everyday.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 10">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>10</Line>
+      <Text>I guess, if he didn't work, he couldn't feed?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 11">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>11</Line>
+      <Text>I know, but he could have done something else then.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 12">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>12</Line>
+      <Text>But what would it be then?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 13">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>13</Line>
+      <Text>Hm...You are right, the man can only stick to what he already knows to take care of his family.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 14">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>14</Line>
+      <Text>I guess even if it was the most boring things in the world, we could do it for someone we care, and it could be why he insisted me to draw.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 15">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>15</Line>
+      <Text>He wanted me to grow better than what he is. I've never had this much talk before. And by the way, I have a drawing of you too, as a gratitude.</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Andrew Summer D3 16">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>16</Line>
+      <Text>Really!?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 17">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>17</Line>
+      <Text>And........here, it's yours. Keep it. </Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Andrew Summer D3 18">
+      <Who>7</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>18</Line>
+      <Text>Great! Thanks, Andrew.</Text>
+    </Dialogue>
+    
+  <!--E0-->
+    <Dialogue name ="Pvt. Andrew Summer E0 0">
+      <Who>7</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>See you later.</Text>
+    </Dialogue>
+    
+   <!--Pvt. Tim Berry-->
+    <!--D0-->
+    <Dialogue name ="Pvt. Tim Berry D0 0">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Hey there, boy. How was the meal?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D0 1">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>It's great, not like anything I imagined it to be.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D0 2">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>Hoho, I'm glad to hear that.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D0 3">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D0 4">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Oh, sorry. That was out of habit. My name's Tim, I'm usually on cook duty.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D0 5">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>Wow, you're really good!</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D0 6">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Haha, thanks. A happy diner makes a happy chef.</Text>
+    </Dialogue>
+    
+  <!--D1-->
+    <Dialogue name ="Pvt. Tim Berry D1 0">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Hey, Tim.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 1">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>Oh, hello there. Something's up?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 2">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>I just wanna know secret to your cooking.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 3">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>Haha, it's nothing much. I'm just following the recipe.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 4">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>That can't be all there is to it. It's too good for a textbook things.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 5">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>You think so?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 6">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>Serious.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 7">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>Hmm... All I can think of is care and experience.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 8">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>Experience, I understand. But care?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 9">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>9</Line>
+      <Text>To make a good food, you need to keep your diner in mind.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 10">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>10</Line>
+      <Text>Think about what kind of person they are, what they need and what they want.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 11">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>11</Line>
+      <Text>If you got that figured out, it's easy to adjust the taste to suit the eater. Something along that line, I suppose.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 12">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>12</Line>
+      <Text>Wow... I never know cooking can be this delicate..</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 13">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>13</Line>
+      <Text>Haha, now you know. Why not try cooking with me some time?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D1 14">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>14</Line>
+      <Text>Sure, if I get the chance, I'd love to.</Text>
+    </Dialogue>
+    
+  <!--D2-->
+    <Dialogue name ="Pvt. Tim Berry D2 0">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Hello Tim, can I ask something?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 1">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>Sure, what do you want to know?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 2">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>You often called people 'diner', were you some sort of master chef?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 3">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>Such flattery. I'm just an ordinary chef.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 4">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>But you're so good at it that I thought you were some high class people.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 5">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>People like that won't be cooking food here, you know.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 6">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>Oh.. right.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 7">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>I used to own a restaurant back home so that gave me a lot of experience.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 8">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>I see. Then why did you enlisted?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 9">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>9</Line>
+      <Text>Hmm....I guess it's because my family is good enough to handle the restaurant themselves.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 10">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>10</Line>
+      <Text>I wanted to feed people who need it and looking at the poor soldiers being malnourished is just sad.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 11">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>11</Line>
+      <Text>That's.... a pretty weird reason.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 12">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>12</Line>
+      <Text>I know, right? But it's how I actually felt. I feel like I'm obligated to do something for our country too.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 13">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>13</Line>
+      <Text>Well, no matter the reason, we need to thank you for making us good food to keep us going.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D2 14">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>14</Line>
+      <Text>No problem. I'm happy that you all like it.</Text>
+    </Dialogue>
+    
+  <!--D3-->
+    <Dialogue name ="Pvt. Tim Berry D3 0">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>Hey, anything you'd like to request?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D3 1">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>Hm? What?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D3 2">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>Is there anything special you want to eat?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D3 3">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Uh, why? Something's the matter?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D3 4">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>Well, cooking the same meal days in and out is gonna make me rusty.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D3 5">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>Figured I should try something else as well.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D3 6">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>Even if you ask me, I don't think we have anything else other than standard ingredients...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D3 7">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>Shh.. Don't underestimate a chef. </Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D3 8">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>....Alright. I'll think of something.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D3 9">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>Cool, let me know what you've got.</Text>
+    </Dialogue>
+    
+  <!--D4-->
+    <Dialogue name ="Pvt. Tim Berry D4 0">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>0</Line>
+      <Text>How was the special dish?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 1">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>1</Line>
+      <Text>........</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 2">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>2</Line>
+      <Text>.....?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 3">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>3</Line>
+      <Text>I'm speechless. It's too good. What the hell.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 4">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>4</Line>
+      <Text>Whew, I almost had a heartattack there. I thought you didn't like it.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 5">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>5</Line>
+      <Text>How did you make something like that? You actually have a secret ingredients, right?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 6">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>6</Line>
+      <Text>Hehe, not really.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 7">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>7</Line>
+      <Text>So it must be in how you cook, right?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 8">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>8</Line>
+      <Text>Now that's a trade secret.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 9">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>9</Line>
+      <Text>Awww.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 10">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>10</Line>
+      <Text>If you want to know, or have another dish like that, come to my restaurant after this war. I'll tell you then. Promise.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Tim Berry D4 11">
+      <Who>8</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>11</Line>
+      <Text>I'll made sure to go!</Text>
+    </Dialogue>
+    
+    <!--E0-->
+    <Dialogue name ="Pvt. Tim Berry E0 0">
+      <Who>8</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Now that you've eaten a good food, make sure to get a good rest too.</Text>
+    </Dialogue>
+    
+    <!--Cpt. Pvt. Harper-->
+    <!--D0-->
+    <Dialogue name ="Pvt. Harper Scott D0 0">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>I knew it from the start that this is gonna happened...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D0 1">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>You mean that we staying here? The communication was cut off...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D0 2">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text> No, I mean the war! I knew it that the war is unavoidable.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D0 3">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>How come did you know it?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D0 4">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Well, something were better left unsaid. Something that the books won't even let you know.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D0 5">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>Can you tell me about it? I'm getting confused here.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D0 6">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text> Well then, if you really wanted to know about them, by the way, my name is Harper. I'll talk to you later.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D0 7">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>Gotta go now. Bye.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D0 8">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>8</Line>
+      <Text>Bye...?</Text>
+    </Dialogue>
+    
+    <!--D1-->
+    <Dialogue name ="Pvt. Harper Scott D1 0">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>It's you again, young boy.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 1">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>Harper, about what you told me yesterday. Now, I wonder why there's a war at all?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 2">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>So, you wanted me to tell you? Please keep it a secret. I don't want people to hear it.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 3">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>Alright, then.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 4">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>Here is what it is, the government said that we will fight for nations, freedom, and liberty. </Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 5">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>They told young men that they are fighting for good when the truth is they just want a foreign soil.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 5">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Is it true!? That's horrible!</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 6">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>Well, it's a political game. A dirty adult business, and they sent young children like you here, dying for their causes.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 7">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>I don't know...I've never think of this before, let alone the thought of dying...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 8">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>But what you told me seems to be very interesting...</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Harper Scott D1 9">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>9</Line>
+      <Text>Hm...I'll tatk to you about it on the other day then. I need to go now, and keep this a secret. Bye</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D1 10">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>10</Line>
+      <Text>Okay...bye.</Text>
+    </Dialogue>
+    
+    <!--D2-->
+    <Dialogue name ="Pvt. Harper Scott D2 0">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Hello there, young boy.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 1">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>Hi, Harper.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 2">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>About what you told me yesterday. You don't feel like you are dying for anything?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 3">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>Well, I do</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 4">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>But you seem to be working so hard in here, even knowing that somebody else sent you here?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 5">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>No, but....seeing everyone besides me struggling, I can't help but to work hard to get through this.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 6">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>And It makes me glad that we could get to live another day.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 7">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>Even knowing that someone else sent you here out of their own selfishness?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 8">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>Hmmm...I don't even know who they are that you are talking about. But all I know is that the only way we can survive is to fight...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 9">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>9</Line>
+      <Text>I see...seeing how you still keep up with this spirit makes me wonder...I'll talk to you on the other day, I need to go now. Bye.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D2 10">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>10</Line>
+      <Text>Okay. Bye.</Text>
+    </Dialogue>
+    
+     <!--D3-->
+    <Dialogue name ="Pvt. Harper Scott D3 0">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>Hi, boy.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 1">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>Hi, Harper. Yesterday you mentioned something...What was it about?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 2">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>Well, to tell you the truth, I was a university student before being drafted to the army.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 3">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>I used to believed that the government was corrupted, but all the thought or ideal become meaningless here.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 4">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>On a battlefield, young men were killing each other not for what they believe, but just to be alive and see another day.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 5">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>It might sounds dumb, but...this place taught me that nothing should ever come to this.</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Harper Scott D3 6">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>Why did you think like that?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 7">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>Just look over the trenches, these people there, they could have enjoyed a dinner with their family.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 8">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>But here they are, stinking corpses littered just over the trench.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 9">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>Just a thought of not being one of them is already enough to comfort me and makes me valued every second I got to breath.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 10">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>10</Line>
+      <Text>I wish everyone nothing more than just...to be happy.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 11">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>11</Line>
+      <Text>Hmmm....you sounds really weird today.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 12">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>12</Line>
+      <Text>Well, you don't need to understand all of them yet. Let's say that we will make it through and survive the war when it's over.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 13">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>13</Line>
+      <Text>Sounds good?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 14">
+      <Who>9</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>14</Line>
+      <Text>Sure...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Harper Scott D3 15">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>15</Line>
+      <Text>Hope we could meet again when the war is over.</Text>
+    </Dialogue>
+    
+  <!--E0-->
+    <Dialogue name ="Pvt. Harper Scott E0 0">
+      <Who>9</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Take care, young boy.</Text>
+    </Dialogue>
+        
+  <!--Pvt. Dwayne Manning-->
+    <!--D0-->
+    <Dialogue name ="Pvt. Dwayne Manning D0 0">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Hi there, My name is Dwayne, young lad.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 1">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>Hi. What are you doing, mister?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 2">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>I'm writing a poem.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 3">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>A poem? What is it about?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 4">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>I'm still thinking. Maybe about an adventure of ...a knight....</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 5">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>WOW! WHAT'S NEXT THEN!?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 6">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text>Well, I still haven't come up with anything concrete yet. Something about glory and honor, I guess</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 7">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>Hm, I have not read a poem before. So, you are going to write about an adventure?</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Dwayne Manning D0 8">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>8</Line>
+      <Text>Hm...Actually, I just wanted something to write out something....compelling to read, but I haven't figure out what to write.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 9">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>9</Line>
+      <Text>I see, maybe something fun?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 10">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>10</Line>
+      <Text>But what makes it "fun" then?...I'm gotta get my stuff ready for the night duty. Take care.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D0 11">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>11</Line>
+      <Text>Okay, bye.</Text>
+    </Dialogue>
+    
+   <!--D1-->
+    <Dialogue name ="Pvt. Dwayne Manning D1 0">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>What is it, young lad?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D1 1">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>About the topics the day before, you said you are trying to figure out what "fun" mean?</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Dwayne Manning D1 2">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>Well, what do you think 'fun' mean when you said that?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D1 3">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>I just found it strange for someone to ask that question...but I think running around is already fun for me.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D1 4">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>Well, not here of course. It's too....</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Dwayne Manning D1 5">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Too thrilling to be fun?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D1 6">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>I guess you can call it that. It just, feels too much here.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D1 7">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>Hm...it's not about thrilling things that make it fun, I suppose.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D1 8">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>But I like it right now, it's all quiet, and I could walk around freely as much as I could, as long as it is not outside.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D1 9">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>9</Line>
+      <Text>Ah...I think I'm getting an idea now, but...well, I still have not come up with anything yet. </Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D1 10">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>10</Line>
+      <Text>But talking to you really give me some idea. Thanks for that.</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Dwayne Manning D1 11">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>11</Line>
+      <Text>Let's talk another day. Gotta prepare for the night duty now. Take care.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D1 12">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>12</Line>
+      <Text>Bye.</Text>
+    </Dialogue>
+    
+  <!--D2-->
+    <Dialogue name ="Pvt. Dwayne Manning D2 0">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>....</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 1">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>You look quiet today, Dwayne. You still can't come up with what to write?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 2">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>Yeah,. It's been a while now, but...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 3">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>I saw a guy, probably same age as me,</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 4">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>he keeps running and running, towards the trench.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 5">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>He could be dreaming about a meal he's going to have tonight, or even going back home but then...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 6">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>He was strucked by a bullet, and just that...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 7">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>...you don't have to be sorry for him. It's just the way things are here...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 8">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>But at least, I'm glad that I got to nothing to worry about right now.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 9">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>9</Line>
+      <Text>You are right, I should be thankful that we are still alive, no matter what we have been through.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D2 10">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>10</Line>
+      <Text>But I gotta go now, for a night duty.</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Dwayne Manning D2 11">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>11</Line>
+      <Text>Okay, bye.</Text>
+    </Dialogue>
+    
+  <!--D3-->
+    <Dialogue name ="Pvt. Dwayne Manning D3 0">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>Hi, young boy.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 1">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>Hi, Dwayne. You looked so cheerful today.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 2">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>Of course I do. I already have my poem filled up the pages now.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 3">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Can you read me a part of it?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 4">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>It's not finished yet, but I can tell you what's it about...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 5">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>Really!? Tell me, tell me, tell me.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 6">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>Hold your horse, boy. So, here we go...It's in the middle of a war, </Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 7">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>but it's about a boy...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 8">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>A BOY!?</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 9">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>Yes, among a band of soldiers, there was a boy who stood out from the others...</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 10">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>10</Line>
+      <Text>Though he is too small to fight, he did everything he could to help his comrades who is in need...</Text>
+    </Dialogue>
+     <Dialogue name ="Pvt. Dwayne Manning D3 11">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>11</Line>
+      <Text>Because of his unrelenting courage, it gives everyone a hope to make it through the darkness.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 12">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>12</Line>
+      <Text>That's pretty much it. I'm planning to print it on a book after the war, and I will give you one for free.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 13">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>13</Line>
+      <Text>Wow, that's really cool. Thanks!</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 14">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>14</Line>
+      <Text>Oh yes, the night duty, I gotta go now, See ya later.</Text>
+    </Dialogue>
+    <Dialogue name ="Pvt. Dwayne Manning D3 15">
+      <Who>10</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>15</Line>
+      <Text>See ya!</Text>
+    </Dialogue>
+
+  <!--E0-->
+  <Dialogue name ="Pvt. Dwayne Manning E0 0">
+      <Who>10</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>15</Line>
+      <Text>Take care.</Text>
+    </Dialogue>
+
+    <!--Lt. Henry Mattis-->
+    <!--D0-->
+    <Dialogue name ="Lt. Henry Mattis D0 0">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Sir...</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D0 1">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>Oh, no need to call me sir. Though I am an officer, but I'd prefer to keep things easy.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D0 2">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>You can call me Henry.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D0 3">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>Yes, Henry. I wonder what's that hanging there on you?</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D0 4">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>Oh, it's a camera, for taking pictures.You can capture what you see here to show other fellows back home.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D0 5">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>Really!? That's cool!</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D0 6">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text>And maybe someday, the picture could be with someone else in the far future too!</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D0 7">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>That's AMAZING!</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D0 8">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>8</Line>
+      <Text>Oh, by the way, I need to go now. It's nice to talk to you.</Text>
+    </Dialogue>
+    
+    <!--D1-->
+    <Dialogue name ="Lt. Henry Mattis D1 0">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Hi Henry. Your camera thingy is really amazing! I wonder where did you get it from?</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D1 1">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>I got it from my family. My father brought me as a birthday gift. It was one of the best thing I got from him.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D1 2">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>Your father must be a very kind man.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D1 3">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>He sure was. But he made me join the army against my wish.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D1 4">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>Why was that?</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D1 5">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Well, I was about to join the Navy, but it turns out I was unfit for them.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D1 6">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>So my father made made me join the Army. He even bribed the recuiting officer and made me a cadet.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D1 7">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>7</Line>
+      <Text>I guess he did everything to make me join the war.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D1 8">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>8</Line>
+      <Text>Let's keep this topic for other day. I need to go now.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D1 9">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>9</Line>
+      <Text>Ok, Henry. Bye.</Text>
+    </Dialogue>
+    
+    <!--D2-->
+    <Dialogue name ="Lt. Henry Mattis D2 0">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Hi, Henry. You look quiet today. What's the matter?</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D2 1">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>Well, This place was much worse than I thought it would be.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D2 2">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>There's no picture of glory or honor here like what they said back home. There's only suffering and death...</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D2 3">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>My father thought that he would be proud if he had a son in the military, but I had failed his expectation here.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D2 4">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>It's just too much for me to bear the lives of other people. I'm not ready to handle it if anything happened to them.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D2 5">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>Hm...at least we could still be useful to one another, I guess.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D2 6">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>You're right. Even a young boy like you still helped us a lot in here. I'll keep your words in mind. Thanks.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D2 7">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>Sure, you're welcome.</Text>
+    </Dialogue>
+    
+    <!--D3-->
+    <Dialogue name ="Lt. Henry Mattis D3 0">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>You sure looks fine today, Henry.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 1">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>Yeah. I've been thinking about what you've said.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 2">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>The thing is, I never wanted to join the military in the first place.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 3">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>But I thought that you wanted to be in the Navy?</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 4">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>Well, what I really want is just being anywhere outside and afar.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 5">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>My familiy, we already have everything that money could buy. But it wasn't not fulfilling.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 6">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>I decided that I must go out to somewhere before I could find out what's my life is gonna be, and I think I have figured it out now.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 7">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>I'm going to be a photographer, recording everywhere I have been and made it into a book!</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 8">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>Wow, that's really cool!</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 9">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>By the way, wanna take a picture?</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 10">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>10</Line>
+      <Text>Sure!</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 11">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>11</Line>
+      <Text>Okay Let me set up the camera. Say cheese.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 12">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>12</Line>
+      <Text>CHEESE!</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 13">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>13</Line>
+      <Text>*SNAP*</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 14">
+      <Who>11</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>14</Line>
+      <Text>Can I see it?</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 15">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>15</Line>
+      <Text>Well, it will take me a while to get the picture.</Text>
+    </Dialogue>
+    <Dialogue name ="Lt. Henry Mattis D3 16">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>16</Line>
+      <Text>But don't be sad, I'll give it to you after the war. I'm sure you will be delighted.</Text>
+    </Dialogue>
+    
+     <!--E0-->
+    <Dialogue name ="Lt. Henry Mattis E0 0">
+      <Who>11</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>See you later, take care.</Text>
+    </Dialogue>
+    
+    
+    <!--Sgt. Becker Samson-->
+    <!--D0-->
+    <Dialogue name ="Sgt. Becker Samson D0 0">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>Hah...</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D0 1">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>1</Line>
+      <Text>....</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D0 2">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>2</Line>
+      <Text>.....</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D0 3">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>3</Line>
+      <Text>......</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D0 4">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>4</Line>
+      <Text>.... Hah....</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D0 5">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>5</Line>
+      <Text>Uh, are you alright, sir?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D0 6">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>6</Line>
+      <Text>...Hmm? Nah, it's nothing. Don't mind me.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D0 7">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>0</ID>
+      <Line>7</Line>
+      <Text>Uh... understood.</Text>
+    </Dialogue>
+    
+    <!--D1-->
+    <Dialogue name ="Sgt. Becker Samson D1 0">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>0</Line>
+      <Text>Sir, are you really okay? You're sighing a lot.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D1 1">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>1</Line>
+      <Text>Huh? Oh, uh, sorry about that, private.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D1 2">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>2</Line>
+      <Text>You don't have to apologize, sir. Is something troubling you?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D1 3">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>3</Line>
+      <Text>Well, 'something' is quite and understatement...</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D1 4">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>4</Line>
+      <Text>.....</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D1 5">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>5</Line>
+      <Text>Never mind. I'll have to leave now.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D1 6">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>1</ID>
+      <Line>6</Line>
+      <Text>Ah...</Text>
+    </Dialogue>
+    
+    <!--D2-->
+    <Dialogue name ="Sgt. Becker Samson D2 0">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>0</Line>
+      <Text>Private. Come here for a sec.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 1">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>1</Line>
+      <Text>Sir.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 2">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>2</Line>
+      <Text>Hi. Thank you for worrying about me the other day.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 3">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>3</Line>
+      <Text>No problem, sir...</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 4">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>4</Line>
+      <Text>Becker. Becker Samson.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 5">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>5</Line>
+      <Text>Noted. Anything I can help you with?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 6">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>6</Line>
+      <Text>Nah, I just need to vent. This war has been taking a toll on me.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 7">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>7</Line>
+      <Text>That sound... harsh.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 8">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>8</Line>
+      <Text>Yeah, well.. Being outnumbered and outgunned ain't fun.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 9">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>9</Line>
+      <Text>We're treading on a tightrope here and HQ didn't even bother sending reinforcement.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 10">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>10</Line>
+      <Text>Guess we're going to die. Hah..</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Becker Samson D2 11">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>11</Line>
+      <Text>Don't lose hope, sir. We will fight to the very end. I'm sure things will work out.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 12">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>12</Line>
+      <Text>........</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D2 13">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>2</ID>
+      <Line>13</Line>
+      <Text>Yeah. Keep up that optimisim. We need more people like you around.</Text>
+    </Dialogue>
+    
+     <!--D3-->
+    <Dialogue name ="Sgt. Becker Samson D3 0">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>0</Line>
+      <Text>Sir.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 1">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>1</Line>
+      <Text>Hello there, priv. At ease.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 2">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>2</Line>
+      <Text>Thank you, sir. How are you feeling today?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 3">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>3</Line>
+      <Text>Same thing, different day. Things just don't look any better at all.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 4">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>4</Line>
+      <Text>I don't agree, sir. We survived another day, I think that's a good sign for the better.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 5">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>5</Line>
+      <Text>Heh, if only things were that easy. In the end, we're still outnumbered.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 6">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>6</Line>
+      <Text>.... I can't deny that.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 7">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>7</Line>
+      <Text>Listen to me, kiddo. I'm sure we're all going to die here.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 8">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>8</Line>
+      <Text>Or worse, we're captured and then tortured for infos that we don't even know.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 9">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>9</Line>
+      <Text>If you see things are looking bad, remember to spare a bullet for yourself, alright?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D3 10">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>3</ID>
+      <Line>10</Line>
+      <Text>...........</Text>
+    </Dialogue>
+    
+    <!--D4-->
+    <Dialogue name ="Sgt. Becker Samson D4 0">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>0</Line>
+      <Text>Hey, there, so-- private.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 1">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>1</Line>
+      <Text> ...Son?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 2">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>2</Line>
+      <Text>It's a slip of tongue, forget it.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 3">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>3</Line>
+      <Text>....</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 4">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>4</Line>
+      <Text>....</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 5">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>5</Line>
+      <Text>....</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 6">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>6</Line>
+      <Text> ....This is getting awkward.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 7">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>7</Line>
+      <Text>.....</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 8">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>8</Line>
+      <Text>Alright, alright. You just reminded me of my son, that's all.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 9">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>9</Line>
+      <Text>I didn't know you have a son, is he in other squad?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 10">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>10</Line>
+      <Text>.... I don't know. I haven't heard about him in years.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 11">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>11</Line>
+      <Text>Heard about him?</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 12">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>12</Line>
+      <Text>He was a soldier, just like us. But he was captured by the enemy...</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 13">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>13</Line>
+      <Text>...I'm sorry to hear that, sir..</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 14">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>14</Line>
+      <Text>Mm.... I don't want you to have to go through the things he did, private.</Text>
+    </Dialogue>
+     <Dialogue name ="Sgt. Becker Samson D4 15">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>15</Line>
+      <Text>You've been real good to be. That's why I suggested you to always spare a bullet for yourself.</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 16">
+      <Who>12</Who>
+      <Speaker>PLAYER</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>16</Line>
+      <Text>Sir....</Text>
+    </Dialogue>
+    <Dialogue name ="Sgt. Becker Samson D4 17">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>D</Type>
+      <ID>4</ID>
+      <Line>17</Line>
+      <Text>You don't have to try to convince me. It's already too late. You take care of yourself.</Text>
+    </Dialogue>
+    
+    <!--E0-->
+    <Dialogue name ="Sgt. Becker Samson E0 0">
+      <Who>12</Who>
+      <Speaker>NPC</Speaker>
+      <Type>E</Type>
+      <ID>0</ID>
+      <Line>0</Line>
+      <Text>This is absolutely ridiculous...</Text>
+    </Dialogue>
+    
+    
+    
+    
+  
 
   </Dialogues>
 </DialogueCollection>
