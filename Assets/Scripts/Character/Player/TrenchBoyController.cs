@@ -77,6 +77,9 @@ public class TrenchBoyController : MonoBehaviour
     public AudioSource audioSource;
     private bool footstepPlay = true;
 
+    //tutorialUI
+    [SerializeField] private TutorialUI TutorUI;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -156,12 +159,47 @@ public class TrenchBoyController : MonoBehaviour
             isCarrying = false;
         }
 
+        //clear item at day end
         if (gameController.CurrentState == GameState.Night || gameController.CurrentState == GameState.Wait)
         {
             if (!Inventory.isEmpty())
             {
                 Inventory.RemoveAllItem();
             }
+        }
+
+        //===============
+        //tutorial
+        //===============
+
+        if (Checker.ClosestTrigerrer != null)
+        {
+            //crate pickup
+            if (!GameController.TutorialFinished[(int)Tutorials.PickUpCrate] && Checker.ClosestTrigerrer.CompareTag("Crate"))
+            {
+                //Debug.Log("pickCrate");
+                TutorUI.TurnOn(Tutorials.PickUpCrate);
+            }
+
+            //pickup item
+            if (!GameController.TutorialFinished[(int)Tutorials.PickUpItem] && Checker.ClosestTrigerrer.CompareTag("Crate"))
+            {
+                //Debug.Log("pickItem");
+                TutorUI.TurnOn(Tutorials.PickUpItem);
+            }
+
+            //tutorial refilling
+            if (!GameController.TutorialFinished[(int)Tutorials.RefillingCrate] && Checker.ClosestTrigerrer.CompareTag("Resupply"))
+            {
+                //Debug.Log("refill");
+                TutorUI.TurnOn(Tutorials.RefillingCrate);
+            }
+        }
+
+        //inventory control
+        if (!GameController.TutorialFinished[(int)Tutorials.InventoryControl] && !Inventory.isEmpty())
+        {
+            TutorUI.TurnOn(Tutorials.InventoryControl);
         }
     }
 
@@ -332,6 +370,18 @@ public class TrenchBoyController : MonoBehaviour
                             isCarrying = true;
                         }
                     }
+                    else
+                    {
+                        audioSource.clip = unavialable;
+                        audioSource.Play();
+                        animator.SetTrigger("Talk");
+
+                        //tutorial refilling
+                        if (!GameController.TutorialFinished[(int)Tutorials.RefillingCrate])
+                        {
+                            TutorUI.TurnOn(Tutorials.RefillingCrate);
+                        }
+                    }
                 }
             }
             delta = 0; // stops timer 
@@ -356,6 +406,12 @@ public class TrenchBoyController : MonoBehaviour
                         if (ally.HandItem(Inventory.ItemInventory[Inventory.SelectedItem]))
                         {
                             Inventory.RemoveItem();
+                        }
+                        else
+                        {
+                            audioSource.clip = unavialable;
+                            audioSource.Play();
+                            animator.SetTrigger("Talk");
                         }
                     }
                 }
@@ -390,6 +446,7 @@ public class TrenchBoyController : MonoBehaviour
                     {
                         audioSource.clip = unavialable;
                         audioSource.Play();
+                        animator.SetTrigger("Talk");
                     }
                     spacebarUpped = true;
                     delta = 0;

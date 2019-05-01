@@ -26,14 +26,21 @@ public class DayEndUI : MonoBehaviour
     
     void Update()
     {
-        if (GameController.loseCondition != LoseCondition.BarbedWire)
+        if (GameController.loseCondition == LoseCondition.BarbedWire)
         {
+            Text_Head.text = "BarbedWire has been Destroyed !!";
+        }
+        else if(gc.CurrentDay != gc.DayEndLimit)
+        {
+
             Text_Head.text = "REPORT " + "DAY " + (int)gc.CurrentDay + "\n" +
                          "Remaining Allies = " + Allies_Remaining;
         }
         else
         {
-            Text_Head.text = "BarbedWire has been Destroyed !!";
+            Text_Head.text = "REPORT " + "DAY " + (int)gc.CurrentDay + "\n" +
+                         "Remaining Allies = " + Allies_Remaining + "\n" +
+                         "You Survived!";
         }
 
         if (ui_up)

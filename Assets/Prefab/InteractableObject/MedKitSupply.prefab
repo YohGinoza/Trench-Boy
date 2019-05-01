@@ -734,7 +734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6177410812623453327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.184, y: 0.28999996, z: 0.78899896}
+  m_LocalPosition: {x: -2.184, y: 0.23499997, z: 0.78899896}
   m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
   m_Children: []
   m_Father: {fileID: 6177410812160103745}
@@ -919,7 +919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6177410812816322565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8400002, y: 0.28999996, z: 0.7199987}
+  m_LocalPosition: {x: -2.8400002, y: 0.23499997, z: 0.7199987}
   m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
   m_Children: []
   m_Father: {fileID: 6177410812160103745}
@@ -1592,7 +1592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6177410813452159467}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2029998, y: 0.28999996, z: 1.2669983}
+  m_LocalPosition: {x: -3.2029998, y: 0.235, z: 1.2669983}
   m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
   m_Children: []
   m_Father: {fileID: 6177410812160103745}
@@ -2019,7 +2019,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6177410813657357408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3030005, y: 0.28999996, z: 0.8819987}
+  m_LocalPosition: {x: -4.3030005, y: 0.23499997, z: 0.8819987}
   m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
   m_Children: []
   m_Father: {fileID: 6177410812160103745}
@@ -2188,7 +2188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6177410813949711584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6050003, y: 0.28999996, z: 1.1939977}
+  m_LocalPosition: {x: -2.6050003, y: 0.23499997, z: 1.1939977}
   m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
   m_Children: []
   m_Father: {fileID: 6177410812160103745}
@@ -2251,7 +2251,7 @@ GameObject:
   - component: {fileID: 6177410813997550006}
   m_Layer: 15
   m_Name: MedKitSupply
-  m_TagString: Untagged
+  m_TagString: Resupply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

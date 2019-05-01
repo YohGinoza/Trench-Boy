@@ -55,11 +55,11 @@ public class ColliderChercker : MonoBehaviour {
                 if (Selected != null && !Selected.selected)
                 {
                     Selected.Select();
-                    Debug.Log("Found");
+                    //Debug.Log("Found");
                 }
                 else
                 {
-                    Debug.Log("Not Forund");
+                    //Debug.Log("Not Forund");
                 }
             }
         }
