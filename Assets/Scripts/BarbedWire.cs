@@ -7,15 +7,21 @@ public class BarbedWire : MonoBehaviour
     GameController gc;
     BarbedWire bw;
 
-   
     private bool cuttingBarbedWire = false;
-    [SerializeField] private bool BarbedWireModeHP = true;
+    private bool BarbedWireModeHP = true;
 
     //============
     // HP
     //============
+    public float MaxHP = 100.0f;
     public float HP = 100.0f;
-    
+    [SerializeField] private Texture[] HPStages;
+    [SerializeField] private Renderer renderer;
+    private int previousHPStage = 0;
+    private int currentHPStage = 0;
+
+    [SerializeField] private Animator animator;
+
     //============
     // THRESHOLD
     //============
@@ -27,13 +33,13 @@ public class BarbedWire : MonoBehaviour
     void Start()
     {
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        HP = MaxHP;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
-    }    
+        UpdateTexturebyHP();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -57,6 +63,7 @@ public class BarbedWire : MonoBehaviour
                 // HP MODE
                 //============
                 HP -= Time.deltaTime;
+                //UpdateTexturebyHP();
                 if (HP <= 0.0f && !destroyed)
                 {
                     //GameController.DayEnded = true;
@@ -88,6 +95,29 @@ public class BarbedWire : MonoBehaviour
         {
             other.GetComponent<EnemyBehaviour>().StopCoroutine("cutBarbedWire");
             cuttingBarbedWire = false;            
+        }
+    }
+
+    private void UpdateTexturebyHP()
+    {
+        previousHPStage = currentHPStage;
+        //set for lowest texture
+        currentHPStage = 0;
+
+        //climb up HP level
+        for (int i = 0; i < HPStages.Length; i++)
+        {
+            if (HP > i * (MaxHP / HPStages.Length))
+            {
+                currentHPStage = i;
+            }
+        }
+
+        if (currentHPStage == 0 || currentHPStage != previousHPStage)
+        {
+            //play animation
+            animator.SetTrigger("Bounce");
+            renderer.material.mainTexture = HPStages[currentHPStage];
         }
     }
 }
