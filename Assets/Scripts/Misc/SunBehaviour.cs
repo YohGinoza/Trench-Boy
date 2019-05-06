@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SunBehaviour : MonoBehaviour
 {
-    [SerializeField] private GameController gameController;
+    private GameController gameController;
     [SerializeField] private Color DayLightColor;
     [SerializeField] private Color DawnLightColor;
     [SerializeField] private Color NightLightColor;
@@ -21,6 +21,7 @@ public class SunBehaviour : MonoBehaviour
 
     private void Awake()
     {
+        gameController = FindObjectOfType<GameController>();
         SunLight = this.GetComponent<Light>();
         //SunAxis = this.transform.forward;
         original = this.transform.rotation;
@@ -58,7 +59,7 @@ public class SunBehaviour : MonoBehaviour
                 //rotate sun
                 if (gameController.TimeOfDay < 1)
                 {
-                    this.transform.Rotate(0, 0, -Time.fixedDeltaTime / gameController.DayLenght * 180, Space.World);
+                    this.transform.Rotate(0, 0, -Time.fixedDeltaTime / gameController.DayLenght[(int)gameController.CurrentDay] * 180, Space.World);
                 }
                 break;
             case GameState.Night:

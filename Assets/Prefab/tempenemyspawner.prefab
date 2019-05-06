@@ -44,7 +44,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 895518636, guid: e38b070e886770f4681c35f41b632d6b, type: 3}
-  AreaCovered: 5
-  SecondsBetweenSpawns: 5
-  PoolSize: 10
+  AreaCovered: 50
+  PoolSize: 30
+  Enable: 0101010101
+  SecondsBetweenSpawns:
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  Aggressiveness:
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  GrenadeThrowingChance:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  GrenadeThrowingDistance:
+  - 7.5
+  - 7.5
+  - 7.5
+  - 7.5
+  - 7.5
+  GrenadeNumber: 0100000001000000010000000100000001000000
+  FiringDistance:
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  FiringInterval:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  AimmingError:
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
   CoroutineRunning: 0
