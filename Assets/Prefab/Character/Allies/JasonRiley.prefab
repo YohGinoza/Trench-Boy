@@ -491,7 +491,9 @@ MonoBehaviour:
   iPLAYER: {fileID: 0}
   dayLimit: 0
   specialTrigger: 0
-  friends: 
+  friends: 05000000
+  lineRunning: 0
+  textSpeed: 0.01
 --- !u!114 &5099322488359533137
 MonoBehaviour:
   m_ObjectHideFlags: 0
