@@ -3044,7 +3044,7 @@
       <Line>0</Line>
       <Text>Hey, there! You’re looking gloomy, what happened?</Text>
     </Dialogue>
-    <Dialogue name ="Pvt. Ellis Anderson D0 1">
+  <Dialogue name ="Pvt. Ellis Anderson D0 1">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -3060,7 +3060,7 @@
       <Line>2</Line>
       <Text>Ah, so you were the guy who was lugging things around during the day.</Text>
     </Dialogue>
-    <Dialogue name ="Pvt. Ellis Anderson D0 3">
+  <Dialogue name ="Pvt. Ellis Anderson D0 3">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -3076,7 +3076,7 @@
       <Line>4</Line>
       <Text>Haha, don't worry about it. You should brigthen up a little.</Text>
     </Dialogue>
-    <Dialogue name ="Pvt. Ellis Anderson D0 5">
+  <Dialogue name ="Pvt. Ellis Anderson D0 5">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -3092,7 +3092,7 @@
       <Line>6</Line>
       <Text>I'll let you in on a secret, the best way to relieve stress is to joke about stress itself.</Text>
     </Dialogue>
-    <Dialogue name ="Pvt. Ellis Anderson D0 7">
+  <Dialogue name ="Pvt. Ellis Anderson D0 7">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -3118,7 +3118,7 @@
       <Line>0</Line>
       <Text>Say, you really can't shoot? Like, at all?</Text>
     </Dialogue>
-    <Dialogue name ="Pvt. Ellis Anderson D1 1">
+  <Dialogue name ="Pvt. Ellis Anderson D1 1">
       <Who>6</Who>
       <Speaker>PLAYER</Speaker>
       <Type>D</Type>
@@ -5309,7 +5309,7 @@
     </Dialogue>
 
   <!--E0-->
-    <Dialogue name ="Pvt. Dwayne Manning E0 0">
+  <Dialogue name ="Pvt. Dwayne Manning E0 0">
       <Who>10</Who>
       <Speaker>NPC</Speaker>
       <Type>E</Type>
