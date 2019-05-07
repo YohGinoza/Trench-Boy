@@ -31,7 +31,7 @@ public enum Tutorials
 
 public enum Day
 {
-    DAY_0 = 0,
+    //DAY_0 = 0,
     DAY_1,
     DAY_2,
     DAY_3,
@@ -60,7 +60,7 @@ public enum Ally
 
 public enum ItemType
 {
-    Ammo = 10,
+    Ammo = 20, //this number is the ammo given in pouch
     Med = 5,
     None = 0
 };
@@ -93,9 +93,9 @@ public class GameController : MonoBehaviour
 
     //time
     public GameState CurrentState = GameState.Day;
-    public Day CurrentDay = Day.DAY_0;
+    public Day CurrentDay = Day.DAY_1;
     [Range(0, 1)] public float TimeOfDay = 0;
-    public float DayLenght = 180;
+    public float[] DayLenght;
     public Day DayEndLimit = Day.DAY_7;
 
     //enemy
@@ -118,9 +118,9 @@ public class GameController : MonoBehaviour
     private bool CoroutineRunning = false;
 
     //UI
-    public GameObject Inventory_UI;
-    public GameObject DayEnd_UI;
-    [SerializeField] private TutorialUI tutorialUI;
+    private GameObject Inventory_UI;
+    private GameObject DayEnd_UI;
+    private TutorialUI tutorialUI;
     public static bool reset_pressed;
     public bool uidown = false;
 
@@ -156,6 +156,7 @@ public class GameController : MonoBehaviour
 
         Inventory_UI = GameObject.Find("InventoryBar");
         DayEnd_UI = GameObject.Find("DayEndUI");
+        tutorialUI = FindObjectOfType<TutorialUI>();
         //Camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
         cameraController = FindObjectOfType<CameraController>();
 
@@ -211,7 +212,7 @@ public class GameController : MonoBehaviour
                     //time check
                     if (!DayEnded)
                     {
-                        TimeOfDay += Time.fixedDeltaTime / DayLenght;
+                        TimeOfDay += Time.fixedDeltaTime / DayLenght[(int)CurrentDay];
                         if (TimeOfDay >= 1)
                         {
                             TimeOfDay = 0;
@@ -401,7 +402,7 @@ public class GameController : MonoBehaviour
         this.GetComponent<AudioSource>().clip = day_END;
         this.GetComponent<AudioSource>().Play();
 
-        CurrentDay++;
+        //CurrentDay++;
         //DayEnd_UI.GetComponent<DayEndUI>().Day++;
 
         //stop spawing enemy
@@ -538,6 +539,8 @@ public class GameController : MonoBehaviour
 
         if ((GameState)NextState == GameState.Night)
         {
+            CurrentDay++;
+            
             //tutorial
             if (!TutorialFinished[(int)Tutorials.AllyNight])
             {
