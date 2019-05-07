@@ -46,10 +46,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentState: 0
-  CurrentDay: 1
+  CurrentDay: 0
   TimeOfDay: 0
-  DayLenght: 180
-  DayEndLimit: 7
+  DayLenght:
+  - 30
+  - 30
+  - 30
+  - 30
+  - 30
+  DayEndLimit: 4
   EnemySpawners:
   - {fileID: 0}
   EnemySpawnRate: 0
@@ -57,11 +62,6 @@ MonoBehaviour:
   NightInteractionLimit: 6
   NightTimeInteractCounter: 0
   CaptainCall: 0
-  Inventory_UI: {fileID: 3220376879124853448, guid: eb25772eeedd11445ae4e92ff19bf63a,
-    type: 3}
-  DayEnd_UI: {fileID: 4801921732705857577, guid: 5e12f5e94f2430d489382d1ff5a94b70,
-    type: 3}
-  tutorialUI: {fileID: 0}
   uidown: 0
   BGmusic: {fileID: 0}
   day_START: {fileID: 8300000, guid: b97c76cd9ed551647bd85f1d2d056264, type: 3}
