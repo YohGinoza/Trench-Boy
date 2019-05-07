@@ -20,40 +20,40 @@ public class photograph : MonoBehaviour
             {
                 switch(i){
                     case 1:
-                        this.transform.Find("Ally1").gameObject.SetActive(false);
+                        this.transform.Find("Allen").gameObject.SetActive(false);
                         break;
                     case 2:
-                        this.transform.Find("Ally2").gameObject.SetActive(false);
+                        this.transform.Find("Ray").gameObject.SetActive(false);
                         break;
                     case 3:
-                        this.transform.Find("Ally3").gameObject.SetActive(false);
+                        this.transform.Find("Darren").gameObject.SetActive(false);
                         break;
                     case 4:
-                        this.transform.Find("Ally4").gameObject.SetActive(false);
+                        this.transform.Find("Jason").gameObject.SetActive(false);
                         break;
                     case 5:
-                        this.transform.Find("Ally5").gameObject.SetActive(false);
+                        this.transform.Find("Roy").gameObject.SetActive(false);
                         break;
                     case 6:
-                        this.transform.Find("Ally6").gameObject.SetActive(false);
+                        this.transform.Find("Ellis").gameObject.SetActive(false);
                         break;
                     case 7:
-                        this.transform.Find("Ally7").gameObject.SetActive(false);
+                        this.transform.Find("Andrew").gameObject.SetActive(false);
                         break;
                     case 8:
-                        this.transform.Find("Ally8").gameObject.SetActive(false);
+                        this.transform.Find("Tim").gameObject.SetActive(false);
                         break;
                     case 9:
-                        this.transform.Find("Ally9").gameObject.SetActive(false);
+                        this.transform.Find("Harper").gameObject.SetActive(false);
                         break;
                     case 10:
-                        this.transform.Find("Ally10").gameObject.SetActive(false);
+                        this.transform.Find("Dwayne").gameObject.SetActive(false);
                         break;
                     case 11:
-                        this.transform.Find("Ally11").gameObject.SetActive(false);
+                        this.transform.Find("Henry").gameObject.SetActive(false);
                         break;
                     case 12:
-                        this.transform.Find("Ally12").gameObject.SetActive(false);
+                        this.transform.Find("Becker").gameObject.SetActive(false);
                         break;
                 }
             }
