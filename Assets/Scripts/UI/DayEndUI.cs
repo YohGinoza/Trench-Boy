@@ -33,12 +33,12 @@ public class DayEndUI : MonoBehaviour
         else if(gc.CurrentDay != gc.DayEndLimit)
         {
 
-            Text_Head.text = "REPORT " + "DAY " + (int)gc.CurrentDay + "\n" +
+            Text_Head.text = "REPORT " + "DAY " + ((int)gc.CurrentDay + 1) + "\n" +
                          "Remaining Allies = " + Allies_Remaining;
         }
         else
         {
-            Text_Head.text = "REPORT " + "DAY " + (int)gc.CurrentDay + "\n" +
+            Text_Head.text = "REPORT " + "DAY " + ((int)gc.CurrentDay + 1) + "\n" +
                          "Remaining Allies = " + Allies_Remaining + "\n" +
                          "You Survived!";
         }
