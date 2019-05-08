@@ -8,7 +8,10 @@ public class GrenadeBehaviour : MonoBehaviour
     [SerializeField] private float ExplosionRadius = 3;
     [Range(0, 1)] [SerializeField] private float DownChance = 0.75f;
     [SerializeField] private LayerMask VictimLayers;
+    [SerializeField] private float ExplosionForce = 10;
+    [SerializeField] private float UpwardForceModifier = 1;
 
+    private bool exploded = false;
     private float ExplodeTimer;
 
     public AudioClip[] grenadeSFX = new AudioClip[2];
@@ -21,9 +24,8 @@ public class GrenadeBehaviour : MonoBehaviour
 
         ExplodeTimer += Time.fixedDeltaTime;
 
-        if (ExplodeTimer >= ExplodeTime)
+        if (!exploded && ExplodeTimer >= ExplodeTime)
         {
-            ExplodeTimer = 0;
             StartCoroutine(Explode());
         }
     }
@@ -39,8 +41,21 @@ public class GrenadeBehaviour : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        ExplodeTimer = 0;
+        exploded = false;
+    }
+
     IEnumerator  Explode()
     {
+        exploded = true;
+        //display effect
+        if(this.transform.childCount > 0)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        //damage ally
         Collider[] Victims = Physics.OverlapSphere(this.transform.position, ExplosionRadius, VictimLayers);
         foreach (Collider victim in Victims)
         {
@@ -51,7 +66,11 @@ public class GrenadeBehaviour : MonoBehaviour
                 victim.GetComponent<AllyBehaviour>().Shot();
             }
         }
+        //apply force to player
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().AddExplosionForce(ExplosionForce, this.transform.position, ExplosionRadius, UpwardForceModifier, ForceMode.Impulse);
+        Debug.Log("boom");
 
+        //reset grenade
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         this.GetComponent<MeshRenderer>().enabled = false;
 
@@ -59,9 +78,13 @@ public class GrenadeBehaviour : MonoBehaviour
         this.GetComponent<AudioSource>().clip = grenadeSFX[index];
         this.GetComponent<AudioSource>().Play();
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
+        //turnoff effect
+        if (this.transform.childCount > 0)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(false);
+        }
         this.gameObject.SetActive(false);
-        
     }
 
     private void CallOut()
