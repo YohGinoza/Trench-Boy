@@ -87,7 +87,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2628242362445105008}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 892256311624450262}
   - component: {fileID: 1476268984444455702}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SandBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 4143161125341209740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.75}
+  m_LocalScale: {x: 1, y: 0.5, z: 0.75}
   m_Children:
   - {fileID: 3734408664422027314}
   - {fileID: 553571679343084697}
@@ -228,7 +228,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5700248651923643620}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -320,7 +320,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5940945689922541144}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -412,7 +412,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5944101671769260842}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -504,7 +504,7 @@ BoxCollider:
   m_GameObject: {fileID: 6425779962964045911}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
