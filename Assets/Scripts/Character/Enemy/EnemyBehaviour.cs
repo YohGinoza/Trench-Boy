@@ -114,6 +114,7 @@ public class EnemyBehaviour : MonoBehaviour
                 if (!Shooting)
                 {
                     StartCoroutine(Shoot());
+                    Debug.Log("Aiming");
                 }
             }
         }
@@ -304,6 +305,7 @@ public class EnemyBehaviour : MonoBehaviour
             ShootBullet(BulletForce);
             //animation
             animator.SetTrigger("Fire");
+            //Debug.Log("fire");
         }
         else
         {
@@ -318,6 +320,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             if (!bullet.activeSelf)
             {
+                //Debug.Log("sdfsdfsdfdfdf");
                 bullet.transform.position = Muzzle.position;
                 bullet.SetActive(true);
                 bullet.GetComponent<Rigidbody>().AddForce(FiringDirection, ForceMode.Impulse);

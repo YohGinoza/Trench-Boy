@@ -62,6 +62,8 @@ public class EnemySpawner : MonoBehaviour
         e.ShotDelay = FiringInterval[day];
         e.AimmingError = AimmingError[day];
         e.Aggressiveness = Aggressiveness[day];
+        e.MaxFiringDistance = FiringDistance[day];
+
         e.GrenadeLimit = GrenadeNumber[day];
         e.GrenadesThrowChance = GrenadeThrowingChance[day];
         e.GrenadeThrowingDistance = GrenadeThrowingDistance[day];
@@ -93,10 +95,6 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
-
-/// <summary>
-/// //
-/// </summary>
 
     private void OnDrawGizmos()
     {
