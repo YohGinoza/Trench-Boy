@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 6177410812790902151}
   - component: {fileID: 6177410812790902144}
   m_Layer: 0
-  m_Name: MedkitSupply
+  m_Name: SupplyZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
