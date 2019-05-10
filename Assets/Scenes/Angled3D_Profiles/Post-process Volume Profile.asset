@@ -88,16 +88,16 @@ MonoBehaviour:
     value: -10
   brightness:
     overrideState: 1
-    value: 0
+    value: -2.6
   postExposure:
     overrideState: 0
     value: 0
   contrast:
     overrideState: 1
-    value: 15
+    value: 42.7
   mixerRedOutRedIn:
     overrideState: 1
-    value: 120
+    value: 125
   mixerRedOutGreenIn:
     overrideState: 0
     value: 0
@@ -1374,13 +1374,13 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.3301887, g: 0.24782693, b: 0.15730688, a: 1}
+    value: {r: 0.33962262, g: 0.24404915, b: 0.13937344, a: 1}
   center:
     overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.253
+    value: 0.25
   smoothness:
     overrideState: 1
     value: 1
@@ -1464,13 +1464,13 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 10
+    value: 1.42
   aperture:
     overrideState: 1
-    value: 10
+    value: 6.5
   focalLength:
     overrideState: 1
-    value: 50
+    value: 38
   kernelSize:
     overrideState: 1
     value: 0
@@ -1498,13 +1498,13 @@ MonoBehaviour:
     value: 1
   softKnee:
     overrideState: 1
-    value: 0.5
+    value: 0
   clamp:
     overrideState: 1
     value: 65472
   diffusion:
     overrideState: 1
-    value: 7
+    value: 10
   anamorphicRatio:
     overrideState: 1
     value: 0
@@ -1513,7 +1513,7 @@ MonoBehaviour:
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
     overrideState: 1
-    value: 1
+    value: 0
   dirtTexture:
     overrideState: 0
     value: {fileID: 0}
@@ -1543,7 +1543,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.147
+    value: 0.1
   fastMode:
     overrideState: 1
     value: 1

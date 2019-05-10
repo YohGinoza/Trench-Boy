@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    [System.NonSerialized] public LayerMask TargetLayer;
+     public LayerMask TargetLayer;
     [SerializeField] private float MaxLifeTime = 0.75f;
 
     private float LifeTime = 0;
