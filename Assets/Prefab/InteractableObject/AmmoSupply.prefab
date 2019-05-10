@@ -640,7 +640,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e9c8cfc426e9f40870f966af853bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   SupplyType: 25
+=======
+  SupplyType: 20
+>>>>>>> 13f161d7129bbe0b9bbfe8d0dc41498de5809801
   Crate: {fileID: 3786496728226439707, guid: 6882c4218573bae4898a8ed7cbdbdd2e, type: 3}
   CrateNumberLimit: 15
   SpawnCrate: 0
