@@ -662,9 +662,9 @@ MonoBehaviour:
   ammo_pouch: {fileID: 0}
   isMovable: 1
   isCarrying: 0
-  movementSpeed: 150
-  carrySpeed: 120
-  defaultSpeed: 150
+  movementSpeed: 100
+  carrySpeed: 80
+  defaultSpeed: 100
   facingRight: 1
   animatorMoving: 0
   Carrier: {fileID: 6802985124024814885}
@@ -691,6 +691,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 62006ed49736b554db3fb3e69a180ce8, type: 3}
   - {fileID: 8300000, guid: e00c226459677f446be48bce7e7f11b5, type: 3}
   audioSource: {fileID: 8843107166254461095}
+  TutorUI: {fileID: 0}
 --- !u!114 &8792578434883294859
 MonoBehaviour:
   m_ObjectHideFlags: 0

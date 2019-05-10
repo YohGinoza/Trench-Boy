@@ -65,6 +65,7 @@ public class EnemySpawner : MonoBehaviour
         e.GrenadeLimit = GrenadeNumber[day];
         e.GrenadesThrowChance = GrenadeThrowingChance[day];
         e.GrenadeThrowingDistance = GrenadeThrowingDistance[day];
+        e.MaxFiringDistance = FiringDistance[day];
     }
 
     public IEnumerator SpawnEnemy()

@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082b6793aa5ee1c4c8627fd1340b10a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   EnemyPrefab: {fileID: 895518636, guid: e38b070e886770f4681c35f41b632d6b, type: 3}
   AreaCovered: 50
   PoolSize: 30
@@ -54,17 +55,17 @@ MonoBehaviour:
   - 3
   - 3
   Aggressiveness:
-  - 5
-  - 5
-  - 5
-  - 5
-  - 5
+  - 9.5
+  - 5.5
+  - 6
+  - 7
+  - 8
   GrenadeThrowingChance:
+  - 0
   - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
+  - 0.12
+  - 0.13
+  - 0.15
   GrenadeThrowingDistance:
   - 7.5
   - 7.5
@@ -79,11 +80,11 @@ MonoBehaviour:
   - 10
   - 10
   FiringInterval:
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
+  - 1.5
+  - 1.5
+  - 1.5
+  - 1.2
+  - 1.2
   AimmingError:
   - 0.2
   - 0.2

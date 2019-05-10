@@ -90,16 +90,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b89d44182eafad4aa291b07e2e19262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotDelay: 1
-  Accuracy: 0.2
   Aggressiveness: 4
   AwareBoxSize: 3
+  ShotDelay: 1
+  AimmingError: 0
+  MaxFiringDistance: 50
   GrenadeLimit: 1
   GrenadesThrowChance: 0.25
+  GrenadeThrowingDistance: 7.5
   ThrowingTime: 0
   GrenadeArriveTime: 3
-  MaxTargetDistance: 30
-  UrgentTargetZDistance: 3
   TargetLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -114,7 +114,6 @@ MonoBehaviour:
     type: 3}
   CoverIgnoreDistance: 2
   ArrivingDistance: 1.1
-  GrenadeCount: 0
   SuppressedTimer: 0
   MovingTarget: {fileID: 0}
   BarbedWireCut: {fileID: 8300000, guid: 4dc28ca9b15853743bfefa096b4df089, type: 3}
@@ -280,7 +279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070831156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0.5, z: 0}
+  m_LocalPosition: {x: -0.15, y: 0.5, z: -0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 895518641}

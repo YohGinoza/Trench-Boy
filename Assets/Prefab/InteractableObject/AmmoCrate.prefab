@@ -444,8 +444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b079b966a58a2f489fb12439acccf8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 20
-  MaxAmount: 20
+  Type: 25
+  MaxAmount: 10
   Amount: 10
   TopSide: {fileID: 5895430424000475746}
   Empty: {fileID: 2100000, guid: 2d9038fb74c7b874dbba844bac1b2c0c, type: 2}

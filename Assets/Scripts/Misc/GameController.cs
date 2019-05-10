@@ -60,7 +60,7 @@ public enum Ally
 
 public enum ItemType
 {
-    Ammo = 20, //this number is the ammo given in pouch
+    Ammo = 25, //this number is the ammo given in pouch
     Med = 5,
     None = 0
 };
@@ -239,6 +239,7 @@ public class GameController : MonoBehaviour
                     if (Enemies.Length > 0)
                     {
                         DayEndedCheck = false;
+
                     }
                     //+ focus at last enemy if win
 
