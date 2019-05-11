@@ -24,6 +24,7 @@ public class TrenchBoyController : MonoBehaviour
     private float maxSpeed = 0.0f;
     public float defaultSpeed = 0.0f;
     [Range(0, 1)] [SerializeField] private float carrySpeedMultiplier = 0.8f;
+    [SerializeField] private float TimeToReachMaxSpeed = 0.2f;
     private float carrySpeed = 0.0f;
     public bool facingRight = true;
     public bool animatorMoving = false;
@@ -95,12 +96,6 @@ public class TrenchBoyController : MonoBehaviour
 
     private void Update()
     {
-        //check if movable
-        if (isMovable == true)
-        {
-            Move();
-        }
-
         //other player input
         Interaction();
 
@@ -135,6 +130,12 @@ public class TrenchBoyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //check if movable
+        if (isMovable == true)
+        {
+            Move();
+        }
+
         //register carrying statuses
         if (Carrier.childCount > 0)
         {
@@ -224,66 +225,74 @@ public class TrenchBoyController : MonoBehaviour
                 maxSpeed = defaultSpeed;
             }
 
-            //play foot step sound
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) 
+
+            //check if input walking
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow)
                 || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
+                //play foot step sound
                 if (footstepPlay)
                 {
                     StartCoroutine(FootStepsPlay());
                 }
-            }
 
-
-            // ------------------------------
-            // buttons for character controls
-            // ------------------------------
-            // LEFT
-            animatorMoving = false;
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * defaultSpeed, ref refVector,0.01f, maxSpeed);
-                //rb.velocity = Vector3.left * movementSpeed;
-
-                if (facingRight)
+                // ------------------------------
+                // buttons for character controls
+                // ------------------------------
+                // LEFT
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
                 {
-                    Flip();
-                }
-                facing = Vector3.left;
-                animatorMoving = true;
-            }
-            // RIGHT
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.right * defaultSpeed, ref refVector, 0.01f, maxSpeed);
+                    rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * defaultSpeed, ref refVector, TimeToReachMaxSpeed);
+                    //rb.velocity = Vector3.left * defaultSpeed;
 
-                if (!facingRight)
+                    if (facingRight)
+                    {
+                        Flip();
+                    }
+                    facing = Vector3.left;
+                    animatorMoving = true;
+                }
+                // RIGHT
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
                 {
-                    Flip();
+                    rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.right * defaultSpeed, ref refVector, TimeToReachMaxSpeed);
+                    //rb.velocity = Vector3.right * defaultSpeed;
+
+                    if (!facingRight)
+                    {
+                        Flip();
+                    }
+                    facing = Vector3.right;
+                    animatorMoving = true;
                 }
-                facing = Vector3.right;
-                animatorMoving = true;
+                // UP
+                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+                {
+                    rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.forward * defaultSpeed, ref refVector, TimeToReachMaxSpeed);
+                    //rb.velocity = Vector3.forward * defaultSpeed;
+
+                    facing = Vector3.forward;
+                    animatorMoving = true;
+                }
+                // DOWN
+                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+                {
+                    rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * defaultSpeed, ref refVector, TimeToReachMaxSpeed);
+                    //rb.velocity = Vector3.back * defaultSpeed;
+
+                    facing = Vector3.back;
+                    animatorMoving = true;
+                }
+                //-------------------------------
             }
-            // UP
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            else
             {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.forward * defaultSpeed, ref refVector, 0.01f, maxSpeed);
+                //animation
+                animatorMoving = false;
 
-                facing = Vector3.forward;
-                animatorMoving = true;
+                //slow down
+                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.zero, ref refVector, 0.2f);
             }
-            // DOWN
-            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * defaultSpeed, ref refVector, 0.01f, maxSpeed);
-
-                facing = Vector3.back;
-                animatorMoving = true;
-            }
-            //-------------------------------
-
-            //slow down
-            rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.zero, ref refVector, 0.2f, maxSpeed);
         }
     }
 

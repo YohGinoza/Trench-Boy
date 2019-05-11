@@ -120,7 +120,7 @@ public class GameController : MonoBehaviour
     //UI
     private GameObject Inventory_UI;
     private GameObject DayEnd_UI;
-    private TutorialUI tutorialUI;
+    [SerializeField] private TutorialUI tutorialUI;
     public static bool reset_pressed;
     public bool uidown = false;
 
