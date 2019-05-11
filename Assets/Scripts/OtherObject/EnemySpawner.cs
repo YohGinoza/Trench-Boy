@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("Interval time in second")]
     [Range(0.2f, 2.0f)] [SerializeField] private float[] FiringInterval;
     [Tooltip("maximum bullet spread (degree)")]
-    [Range(0, 5)] [SerializeField] private float[] AimmingError;
+    [Range(0.001f, 5)] [SerializeField] private float[] AimmingError;
 
     public bool CoroutineRunning = false;
 
