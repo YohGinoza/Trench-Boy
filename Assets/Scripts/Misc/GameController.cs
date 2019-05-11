@@ -121,6 +121,7 @@ public class GameController : MonoBehaviour
     private GameObject Inventory_UI;
     private GameObject DayEnd_UI;
     [SerializeField] private TutorialUI tutorialUI;
+    [SerializeField] private LetterUI letterUI;
     public static bool reset_pressed;
     public bool uidown = false;
 
@@ -140,7 +141,6 @@ public class GameController : MonoBehaviour
 
     //Tutorial
     public static bool[] TutorialFinished = new bool[7];
-    public bool[] tt;
 
     void Start()
     {
@@ -168,7 +168,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        tt = TutorialFinished;
         //advance daytime
         switch (CurrentState)
         {
@@ -333,7 +332,6 @@ public class GameController : MonoBehaviour
                 //Camera.localRotation = Quaternion.Euler(NightCamAngle, 0, 0);
 
                 Inventory_UI.SetActive(false);
-                StartCoroutine(disable_UI());
                 //DayEnd_UI.SetActive(false);
                 BGmusic.SetActive(true);
                 CaptainCall = NightTimeInteractCounter >= NightInteractionLimit;
@@ -549,9 +547,13 @@ public class GameController : MonoBehaviour
 
         if ((GameState)NextState == GameState.Night)
         {
-            CurrentDay++;
-            
-            //tutorial
+            //remove day report
+            StartCoroutine(disable_UI());
+
+            //queue in letter
+            letterUI.StartCoroutine(letterUI.RecieveLetter((int)CurrentDay));
+
+            //fade in tutorial
             if (!TutorialFinished[(int)Tutorials.AllyNight])
             {
                 tutorialUI.TurnOn(Tutorials.AllyNight);

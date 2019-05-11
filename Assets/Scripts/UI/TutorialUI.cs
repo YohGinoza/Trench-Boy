@@ -28,6 +28,14 @@ public class TutorialUI : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(showing && Input.GetKeyDown(KeyCode.F))
+        {
+            TurnOff();
+        }
+    }
+
     private void SetTutorial(Tutorials tutorial)
     {
         Holder.sprite = TutorialSprite[(int)tutorial];
