@@ -49,11 +49,11 @@ MonoBehaviour:
   CurrentDay: 0
   TimeOfDay: 0
   DayLenght:
-  - 30
-  - 30
-  - 30
-  - 30
-  - 30
+  - 35
+  - 45
+  - 60
+  - 75
+  - 90
   DayEndLimit: 4
   EnemySpawners:
   - {fileID: 0}

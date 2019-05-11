@@ -22,15 +22,15 @@ public class AllyBehaviour : MonoBehaviour
 
     [Header("General Setting")]
     const float BulletLaunchForce = 4;
-    [SerializeField] private int MaxAmmo = 20;
-    [SerializeField] private int AmmoCount = 20;
+    public int MaxAmmo = 20;
+    [System.NonSerialized] public int AmmoCount = 20;
     [SerializeField] private float BleedingEndurance = 30;
     //[SerializeField] private float RecoverTime = 10;
 
     [Header("Shooting")]
     [Range(0.5f, 2)] [SerializeField] private float ShotDelay;
     [Tooltip("Bullet spread (degree)")]
-    [Range(0, 5)] [SerializeField] private float AimmingError;
+    [Range(0.001f, 5)] [SerializeField] private float AimmingError;
     [SerializeField] private float MaxTargetDistance = 15;
     [Tooltip("Firing cone (degree)")]
     [Range(0, 90)] [SerializeField] private float MaxTargetAngle = 60;
@@ -226,6 +226,7 @@ public class AllyBehaviour : MonoBehaviour
 
             case State.Healing:
                 //toggle UI
+                ToggleUI(false, false, false);
                 //RequestImage.enabled = false;
                 //RescueGauge.gameObject.SetActive(false);
                 //HealGauge.gameObject.SetActive(true);
@@ -303,11 +304,11 @@ public class AllyBehaviour : MonoBehaviour
             Vector3 BulletForce;
             if (Bulleyes)
             {
-                BulletForce = ((CurrentTarget.transform.position + (Vector3.up * CurrentTarget.transform.lossyScale.y / 2)) - this.transform.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
+                BulletForce = ((CurrentTarget.transform.position + (Vector3.up * CurrentTarget.transform.lossyScale.y / 2)) - Muzzle.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
             }
             else
             {
-                BulletForce = (CurrentTarget.transform.position - this.transform.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
+                BulletForce = (CurrentTarget.transform.position - Muzzle.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
             }
 
             BulletForce.Normalize();
@@ -508,7 +509,14 @@ public class AllyBehaviour : MonoBehaviour
         else
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(this.transform.position + Vector3.up, CurrentTarget.position);
+            if (Bulleyes)
+            {
+                Gizmos.DrawLine(Muzzle.position, (CurrentTarget.transform.position + (Vector3.up * CurrentTarget.transform.lossyScale.y / 2)));
+            }
+            else
+            {
+                Gizmos.DrawLine(Muzzle.position, CurrentTarget.position);
+            }
         }
 
         //critical line
