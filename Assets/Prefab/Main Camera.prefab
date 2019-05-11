@@ -100,7 +100,7 @@ MonoBehaviour:
   NormalColor: {r: 0, g: 0, b: 0, a: 0}
   FadedColor: {r: 0.05, g: 0.05, b: 0.05, a: 0.9019608}
   FadeTime: 1.5
-  SmoothTime: 0.1
+  SmoothTime: 0.25
   Target: {fileID: 0}
   zoomIn: 0
   zoomOut: 0

@@ -41,6 +41,8 @@ public class TutorialUI : MonoBehaviour
             showing = true;
             SetTutorial(thistutorial);
             this.gameObject.SetActive(true);
+            this.transform.GetChild(0).gameObject.SetActive(true);
+            this.transform.GetChild(1).gameObject.SetActive(true);
 
             if (CamTarget != null)
             {
