@@ -403,10 +403,9 @@ MonoBehaviour:
   NightPosition: {fileID: 5107180536088408411}
   GravePosition: {fileID: 5107180534562249459}
   MaxAmmo: 25
-  AmmoCount: 25
   BleedingEndurance: 30
   ShotDelay: 1.5
-  AimmingError: 0
+  AimmingError: 0.001
   MaxTargetDistance: 30
   MaxTargetAngle: 15
   UrgentTargetZDistance: 10

@@ -11,7 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Header("Firing")]
     [Range(0.2f, 2)] public float ShotDelay;
-    [Range(0.0f, 5)] public float AimmingError;
+    [Range(0.001f, 5)] public float AimmingError;
     public float MaxFiringDistance = 15;
 
     [Header("Grenade")]
@@ -296,7 +296,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             //calculate
             //float distance = (CurrentTarget.position - this.transform.position).magnitude;
-            Vector3 BulletForce = ((CurrentTarget.transform.position + (Vector3.up * CurrentTarget.transform.lossyScale.y / 2)) - this.transform.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
+            Vector3 BulletForce = ((CurrentTarget.transform.position + (Vector3.up * CurrentTarget.transform.lossyScale.y / 2)) - Muzzle.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
             BulletForce.Normalize();
             BulletForce *= BulletLaunchForce;
             //aim
