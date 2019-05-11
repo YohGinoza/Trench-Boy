@@ -370,11 +370,14 @@ public class GameController : MonoBehaviour
             //trigger day animation
             ally.GetComponentInChildren<Animator>().SetBool("Night", false);
 
-            //switch behaviour to dat
+            //switch behaviour to day
             if (DayBehaviour != null && DayBehaviour.CurrentState == AllyBehaviour.State.Healing)
             {
+                //heal
                 DayBehaviour.Recover();
                 DayBehaviour.CurrentState = AllyBehaviour.State.Shooting;
+                //refill ammo
+                DayBehaviour.AmmoCount = DayBehaviour.MaxAmmo;
             }
 
             if (DayBehaviour != null)
@@ -413,6 +416,13 @@ public class GameController : MonoBehaviour
                 spawner.StopAllCoroutines();
                 spawner.CoroutineRunning = false;
             }
+        }
+
+        //set all enemy aggressiveness to max
+        EnemyBehaviour[] enemies = FindObjectsOfType<EnemyBehaviour>();
+        foreach (EnemyBehaviour enemy in enemies)
+        {
+            enemy.Aggressiveness = 10;
         }
 
         Debug.Log("DAY ENDED");

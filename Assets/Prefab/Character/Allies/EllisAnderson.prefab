@@ -423,16 +423,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identity: 6
-  ShotDelay: 1
-  Accuracy: 0.5
+  Bulleyes: 0
   WaitingPatience: 30
   DayPosition: {fileID: 1742129113}
   NightPosition: {fileID: 1617504992}
   GravePosition: {fileID: 1096118729}
-  MaxAmmo: 30
-  AmmoCount: 10
+  MaxAmmo: 25
+  AmmoCount: 25
   BleedingEndurance: 30
-  RecoverTime: 10
+  ShotDelay: 1.5
+  AimmingError: 0
   MaxTargetDistance: 30
   MaxTargetAngle: 15
   UrgentTargetZDistance: 10
@@ -468,6 +468,7 @@ MonoBehaviour:
   grenadeCall: {fileID: 8300000, guid: 942f517bae0bc064ab0d4d446f09f859, type: 3}
   callSource: {fileID: 1694239594}
   callGrenade: 0
+  TutorUI: {fileID: 0}
 --- !u!114 &480768503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +492,8 @@ MonoBehaviour:
   dayLimit: 0
   specialTrigger: 0
   friends: 
+  lineRunning: 0
+  textSpeed: 0.01
 --- !u!114 &480768502
 MonoBehaviour:
   m_ObjectHideFlags: 0

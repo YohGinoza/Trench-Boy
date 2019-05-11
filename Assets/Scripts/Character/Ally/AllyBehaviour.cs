@@ -22,8 +22,8 @@ public class AllyBehaviour : MonoBehaviour
 
     [Header("General Setting")]
     const float BulletLaunchForce = 4;
-    [SerializeField] private int MaxAmmo = 20;
-    [SerializeField] private int AmmoCount = 20;
+    public int MaxAmmo = 20;
+    [System.NonSerialized] public int AmmoCount = 20;
     [SerializeField] private float BleedingEndurance = 30;
     //[SerializeField] private float RecoverTime = 10;
 
@@ -226,6 +226,7 @@ public class AllyBehaviour : MonoBehaviour
 
             case State.Healing:
                 //toggle UI
+                ToggleUI(false, false, false);
                 //RequestImage.enabled = false;
                 //RescueGauge.gameObject.SetActive(false);
                 //HealGauge.gameObject.SetActive(true);
