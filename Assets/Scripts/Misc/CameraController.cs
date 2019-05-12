@@ -120,7 +120,7 @@ public class CameraController : MonoBehaviour
         inDialogue = false;
     }
 
-    IEnumerator FadeInOut(bool toBlack)
+    public IEnumerator FadeInOut(bool toBlack)
     {
         if (!fading)
         {

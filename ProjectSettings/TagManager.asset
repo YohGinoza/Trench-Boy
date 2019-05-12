@@ -14,6 +14,7 @@ TagManager:
   - Enemy
   - Deceased
   - Resupply
+  - NightLight
   layers:
   - Default
   - TransparentFX
