@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 1887597947368961390}
   - component: {fileID: 1887597947368961389}
   m_Layer: 0
-  m_Name: AmmoSupply (1)
+  m_Name: SupplyZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e9c8cfc426e9f40870f966af853bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SupplyType: 10
+  SupplyType: 20
   Crate: {fileID: 3786496728226439707, guid: 6882c4218573bae4898a8ed7cbdbdd2e, type: 3}
   CrateNumberLimit: 15
   SpawnCrate: 0
@@ -2782,7 +2782,7 @@ GameObject:
   - component: {fileID: 1887597949181691148}
   m_Layer: 15
   m_Name: AmmoSupply
-  m_TagString: Untagged
+  m_TagString: Resupply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

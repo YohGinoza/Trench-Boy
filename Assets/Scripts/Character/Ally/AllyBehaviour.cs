@@ -9,14 +9,12 @@ public class AllyBehaviour : MonoBehaviour
 
     [Header("Personal Data")]
     [SerializeField] private Ally Identity;
-
-    [Range(0.5f, 2)] [SerializeField] private float ShotDelay;
-    [Range(0, 1)] [SerializeField] private float Accuracy;
+    [SerializeField] bool Bulleyes = false;
     //[Range(0, 10)] [SerializeField] private float AimingPatience;
     //[Range(0, 1)] [SerializeField] private float SteadyHand;
     //[Range(0, 1)] [SerializeField] private float GunQuality;
     //[Range(0, 1)] [SerializeField] private float AimingPrioritizer;
-    //[Tooltip("Time before this unit get back to shooting after medical request is ignnored")]
+    [Tooltip("Time before this unit get back to shooting after medical request is ignored")]
     [Range(0, 30)] [SerializeField] private float WaitingPatience;
     [SerializeField] private Transform DayPosition;
     [SerializeField] private Transform NightPosition;
@@ -24,12 +22,17 @@ public class AllyBehaviour : MonoBehaviour
 
     [Header("General Setting")]
     const float BulletLaunchForce = 4;
-    [SerializeField] private int MaxAmmo = 30;
-    [SerializeField] private int AmmoCount = 10;
+    public int MaxAmmo = 20;
+    [System.NonSerialized] public int AmmoCount = 20;
     [SerializeField] private float BleedingEndurance = 30;
-    [SerializeField] private float RecoverTime = 10;
+    //[SerializeField] private float RecoverTime = 10;
 
+    [Header("Shooting")]
+    [Range(0.5f, 2)] [SerializeField] private float ShotDelay;
+    [Tooltip("Bullet spread (degree)")]
+    [Range(0.001f, 5)] [SerializeField] private float AimmingError;
     [SerializeField] private float MaxTargetDistance = 15;
+    [Tooltip("Firing cone (degree)")]
     [Range(0, 90)] [SerializeField] private float MaxTargetAngle = 60;
     [SerializeField] private float UrgentTargetZDistance = 3;
     [SerializeField] private LayerMask EnemyLayer;
@@ -82,7 +85,9 @@ public class AllyBehaviour : MonoBehaviour
     public AudioSource callSource;
     private bool call = false;
     public bool callGrenade = false;
-    
+
+    [Header("Tutorial UI")]
+    [SerializeField] private TutorialUI TutorUI;
 
     private void Start()
     {
@@ -163,6 +168,12 @@ public class AllyBehaviour : MonoBehaviour
                     //stop shooting
                     StopCoroutine(Shoot());
 
+                    //trigger tutorial
+                    if (!GameController.TutorialFinished[(int)Tutorials.GiveItem])
+                    {
+                        TutorUI.TurnOn(Tutorials.GiveItem, this.transform);
+                    }
+
                     if (Injured)
                     {
 
@@ -202,6 +213,12 @@ public class AllyBehaviour : MonoBehaviour
                 //stop shooting
                 StopCoroutine(Shoot());
 
+                //trigger tutorial
+                if (!GameController.TutorialFinished[(int)Tutorials.AllyDown])
+                {
+                    TutorUI.TurnOn(Tutorials.AllyDown);
+                }
+
                 //update timer
                 BleedingTimer -= Time.fixedDeltaTime / BleedingEndurance;
                 RescueGauge.transform.GetChild(0).GetComponent<Image>().fillAmount = BleedingTimer;
@@ -209,6 +226,7 @@ public class AllyBehaviour : MonoBehaviour
 
             case State.Healing:
                 //toggle UI
+                ToggleUI(false, false, false);
                 //RequestImage.enabled = false;
                 //RescueGauge.gameObject.SetActive(false);
                 //HealGauge.gameObject.SetActive(true);
@@ -283,7 +301,16 @@ public class AllyBehaviour : MonoBehaviour
         {
             //calculate
             //float distance = (CurrentTarget.position - this.transform.position).magnitude;
-            Vector3 BulletForce = (CurrentTarget.transform.position - this.transform.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, ((1 - Accuracy) * 5)))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, ((1 - Accuracy) * 5))), 0);
+            Vector3 BulletForce;
+            if (Bulleyes)
+            {
+                BulletForce = ((CurrentTarget.transform.position + (Vector3.up * CurrentTarget.transform.lossyScale.y / 2)) - Muzzle.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
+            }
+            else
+            {
+                BulletForce = (CurrentTarget.transform.position - Muzzle.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
+            }
+
             BulletForce.Normalize();
             BulletForce *= BulletLaunchForce;
             //aim
@@ -352,15 +379,21 @@ public class AllyBehaviour : MonoBehaviour
         EnteringNight = true;
     }
 
-    public void ChangePosition(bool Day)
+    public void ChangePosition(int State)
     {
-        if (Day)
+        switch (State)
         {
-            this.transform.position = DayPosition.position;
-        }
-        else
-        {
-            this.transform.position = NightPosition.position;
+            //day
+            case 0:
+                this.transform.position = DayPosition.position;
+                break;
+            //night
+            case 1:
+                this.transform.position = NightPosition.position;
+                break;
+            //dead
+            case 2:
+                break;
         }
     }
 
@@ -377,6 +410,12 @@ public class AllyBehaviour : MonoBehaviour
     private void Down()
     {
         Downed = true;
+
+        //tutorial
+        if (!GameController.TutorialFinished[(int)Tutorials.AllyDown])
+        {
+            TutorUI.TurnOn(Tutorials.AllyDown, this.transform);
+        }
     }
 
     private void ToggleUI(bool Request,bool Rescue, bool Heal)
@@ -391,11 +430,13 @@ public class AllyBehaviour : MonoBehaviour
         switch (item)
         {
             case ItemType.Ammo:
-                if (AmmoCount < (MaxAmmo - (int)ItemType.Ammo))
+                if (AmmoCount < (MaxAmmo))
                 {
                     AmmoCount += (int)ItemType.Ammo;
+                    AmmoCount = Mathf.Clamp(AmmoCount, 0, MaxAmmo);
                     call = false;
-
+                    //feedback
+                    animator.SetTrigger("Talk");
                     callSource.clip = giveAmmo;
                     callSource.Play();
 
@@ -412,7 +453,8 @@ public class AllyBehaviour : MonoBehaviour
                 {
                     Injured = false;
                     call = false;
-
+                    //feedback
+                    animator.SetTrigger("Talk");
                     callSource.clip = giveMed;
                     callSource.Play();
 
@@ -467,7 +509,14 @@ public class AllyBehaviour : MonoBehaviour
         else
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(this.transform.position + Vector3.up, CurrentTarget.position);
+            if (Bulleyes)
+            {
+                Gizmos.DrawLine(Muzzle.position, (CurrentTarget.transform.position + (Vector3.up * CurrentTarget.transform.lossyScale.y / 2)));
+            }
+            else
+            {
+                Gizmos.DrawLine(Muzzle.position, CurrentTarget.position);
+            }
         }
 
         //critical line

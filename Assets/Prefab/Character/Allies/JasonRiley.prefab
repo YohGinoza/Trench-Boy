@@ -424,16 +424,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identity: 4
-  ShotDelay: 1
-  Accuracy: 0.5
+  Bulleyes: 0
   WaitingPatience: 30
   DayPosition: {fileID: 5099322488672970906}
   NightPosition: {fileID: 5099322489478059469}
   GravePosition: {fileID: 5099322489432542797}
-  MaxAmmo: 30
-  AmmoCount: 10
+  MaxAmmo: 25
   BleedingEndurance: 30
-  RecoverTime: 10
+  ShotDelay: 1.5
+  AimmingError: 0.001
   MaxTargetDistance: 30
   MaxTargetAngle: 15
   UrgentTargetZDistance: 10
@@ -469,6 +468,7 @@ MonoBehaviour:
   grenadeCall: {fileID: 8300000, guid: 942f517bae0bc064ab0d4d446f09f859, type: 3}
   callSource: {fileID: 5099322489027937910}
   callGrenade: 0
+  TutorUI: {fileID: 0}
 --- !u!114 &5099322488359533142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +491,9 @@ MonoBehaviour:
   iPLAYER: {fileID: 0}
   dayLimit: 0
   specialTrigger: 0
-  friends: 
+  friends: 05000000
+  lineRunning: 0
+  textSpeed: 0.01
 --- !u!114 &5099322488359533137
 MonoBehaviour:
   m_ObjectHideFlags: 0

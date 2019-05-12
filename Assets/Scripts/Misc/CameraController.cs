@@ -27,8 +27,11 @@ public class CameraController : MonoBehaviour
     public bool zoomIn = false;
     public bool zoomOut = false;
 
+    float DefaultSize;
+
     private void Start()
     {
+        DefaultSize = this.GetComponent<Camera>().orthographicSize;
         gameController = FindObjectOfType<GameController>();
     }
 
@@ -66,7 +69,7 @@ public class CameraController : MonoBehaviour
         if (zoomOut && !zoomIn)
         {
 
-            if (this.GetComponent<Camera>().orthographicSize < 7.0f)
+            if (this.GetComponent<Camera>().orthographicSize < DefaultSize)
             {
                 this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.05f, this.transform.position.z);
                 this.GetComponent<Camera>().orthographicSize += 0.2f;
@@ -117,7 +120,7 @@ public class CameraController : MonoBehaviour
         inDialogue = false;
     }
 
-    IEnumerator FadeInOut(bool toBlack)
+    public IEnumerator FadeInOut(bool toBlack)
     {
         if (!fading)
         {

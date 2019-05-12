@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 5550711962385365600}
   - component: {fileID: 5949433554805354362}
   - component: {fileID: 9028352337520373230}
+  - component: {fileID: 8026280764139078057}
   m_Layer: 0
   m_Name: BarbedWireQuad
   m_TagString: Untagged
@@ -154,6 +155,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &8026280764139078057
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864467406495618032}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9717c7fb7e9689f4bb6ed544681ff9af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3383010097226454829
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,8 +231,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bd6a8fa82880845a1ca1d6bef7cfbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarbedWireModeHP: 1
+  MaxHP: 100
   HP: 20
+  HPStages:
+  - {fileID: 2800000, guid: fb64fe478e76b8f4faefae646a7a247a, type: 3}
+  - {fileID: 2800000, guid: 6ce32b111b74c4442a42f67bd99a5122, type: 3}
+  - {fileID: 2800000, guid: d6fffe04fbde7504894ad985c9cdf173, type: 3}
+  - {fileID: 2800000, guid: 4f174a23df4a6c645bec4892e4cd2d5f, type: 3}
+  - {fileID: 2800000, guid: fa622cb2feba4c548941bc7532496d6e, type: 3}
+  renderer: {fileID: 9028352337520373230}
+  animator: {fileID: 8026280764139078057}
 --- !u!1 &5281083838234191980
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8067880477584841759}
   - component: {fileID: 1119707898345707979}
+  - component: {fileID: 7568847806882401849}
   m_Layer: 14
   m_Name: BarbedWire
   m_TagString: Untagged
@@ -291,3 +320,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.5, z: 0.1}
   m_Center: {x: 0, y: -0.25, z: 0}
+--- !u!95 &7568847806882401849
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180480004308297413}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
