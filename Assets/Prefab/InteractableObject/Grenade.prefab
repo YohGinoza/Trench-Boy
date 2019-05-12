@@ -172,6 +172,9 @@ MonoBehaviour:
   VictimLayers:
     serializedVersion: 2
     m_Bits: 512
+  PlayerLayers:
+    serializedVersion: 2
+    m_Bits: 65536
   ExplosionForce: 500
   UpwardForceModifier: 0.5
   meshes:
@@ -483,16 +486,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3086934431162484905}
     m_Modifications:
-    - target: {fileID: 2417998497784308478, guid: bf4c23a7bb2de8447877d8cf9ede66d9,
-        type: 3}
-      propertyPath: m_Name
-      value: GrenadeEffect
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417998497784308478, guid: bf4c23a7bb2de8447877d8cf9ede66d9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 214305793644333549, guid: bf4c23a7bb2de8447877d8cf9ede66d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -562,6 +555,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417998497784308478, guid: bf4c23a7bb2de8447877d8cf9ede66d9,
+        type: 3}
+      propertyPath: m_Name
+      value: GrenadeEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417998497784308478, guid: bf4c23a7bb2de8447877d8cf9ede66d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4c23a7bb2de8447877d8cf9ede66d9, type: 3}

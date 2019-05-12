@@ -481,6 +481,8 @@ public class TrenchBoyController : MonoBehaviour
                         CarriedObject.GetComponent<Collider>().isTrigger = false;
 
                         MedBed.PutPatient(CarriedObject);
+
+                        gameController.HelpFriend++;
                     }
                     else
                     {

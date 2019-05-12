@@ -3961,7 +3961,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>3</Line>
-      <Text>?</Text>
+      <Text>Huh?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Tim Berry D0 4">
       <Who>8</Who>
@@ -4931,7 +4931,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>6</Line>
-      <Text>Well, I still haven't come up with anything concrete yet. Something about glory and honor, I guess</Text>
+      <Text>Well, I still haven't come up with anything concrete yet. Something about glory and honor, I guess.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Dwayne Manning D0 7">
       <Who>10</Who>
@@ -4947,7 +4947,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>8</Line>
-      <Text>Hm...Actually, I just wanted something to write out something....compelling to read, but I haven't figure out what to write.</Text>
+      <Text>Hm...Actually, I just wanted something to write out something....compelling to read, but I haven't figured out what to write.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Dwayne Manning D0 9">
       <Who>10</Who>

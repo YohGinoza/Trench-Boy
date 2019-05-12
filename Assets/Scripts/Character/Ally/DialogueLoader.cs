@@ -146,7 +146,7 @@ public class DialogueLoader : MonoBehaviour
     public IEnumerator runningText(string text, Text person)
     {
         lineRunning = true;
-        for(int i = 0; i < text.Length; i++)
+        for(int i = 0; i <= text.Length; i++)
         {
             person.text = text.Substring(0, i);
             yield return new WaitForSeconds(textSpeed);
