@@ -45,8 +45,6 @@ public class News : MonoBehaviour
     {
         if (GameController.loseCondition == LoseCondition.BarbedWire || GameController.loseCondition == LoseCondition.AllDead)
         {
-            this.transform.localPosition = new Vector3(0.0f, this.transform.localPosition.y, this.transform.localPosition.z);
-            mainmenuButton.transform.localPosition = new Vector3(1000.0f, mainmenuButton.transform.localPosition.y, mainmenuButton.transform.localPosition.z);
 
             slot[0].sprite = header[1];
             slot[1].sprite = slot1[2];
