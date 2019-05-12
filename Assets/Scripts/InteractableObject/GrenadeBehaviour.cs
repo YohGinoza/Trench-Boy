@@ -8,6 +8,7 @@ public class GrenadeBehaviour : MonoBehaviour
     [SerializeField] private float ExplosionRadius = 3;
     [Range(0, 1)] [SerializeField] private float DownChance = 0.75f;
     [SerializeField] private LayerMask VictimLayers;
+    [SerializeField] private LayerMask PlayerLayers;
     [SerializeField] private float ExplosionForce = 10;
     [SerializeField] private float UpwardForceModifier = 1;
 
@@ -17,6 +18,14 @@ public class GrenadeBehaviour : MonoBehaviour
     public AudioClip[] grenadeSFX = new AudioClip[2];
 
     public bool Call = true;
+    private bool nadeHit = false;
+
+    GameController gc;
+
+    void Start()
+    {
+        gc = GameObject.Find("GameControl").GetComponent<GameController>();
+    }
 
     private void FixedUpdate()
     {
@@ -49,6 +58,7 @@ public class GrenadeBehaviour : MonoBehaviour
 
     IEnumerator  Explode()
     {
+        nadeHit = false;
         exploded = true;
         //display effect
         if(this.transform.childCount > 0)
@@ -64,6 +74,16 @@ public class GrenadeBehaviour : MonoBehaviour
             if (Random.Range(0.0f, 1.0f) < DownChance)
             {
                 victim.GetComponent<AllyBehaviour>().Shot();
+            }
+        }
+
+        Collider[] HitBoy = Physics.OverlapSphere(this.transform.position, ExplosionRadius, PlayerLayers);
+        foreach (Collider player in HitBoy)
+        {
+            if (!nadeHit)
+            {
+                gc.GrenadeHit++;
+                nadeHit = true;
             }
         }
         //apply force to player
