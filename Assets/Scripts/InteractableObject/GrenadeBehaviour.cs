@@ -10,7 +10,7 @@ public class GrenadeBehaviour : MonoBehaviour
     [SerializeField] private LayerMask VictimLayers;
     [SerializeField] private float ExplosionForce = 10;
     [SerializeField] private float UpwardForceModifier = 1;
-
+    [SerializeField] private MeshRenderer[] meshes;
     private bool exploded = false;
     private float ExplodeTimer;
 
@@ -32,8 +32,6 @@ public class GrenadeBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        this.GetComponent<MeshRenderer>().enabled = true;
-
         GameObject[] Allies = GameObject.FindGameObjectsWithTag("Ally");
         foreach (GameObject Ally in Allies)
         {
@@ -45,6 +43,11 @@ public class GrenadeBehaviour : MonoBehaviour
     {
         ExplodeTimer = 0;
         exploded = false;
+
+        foreach (MeshRenderer childmesh in meshes)
+        {
+            childmesh.enabled = true;
+        }
     }
 
     IEnumerator  Explode()
@@ -67,12 +70,20 @@ public class GrenadeBehaviour : MonoBehaviour
             }
         }
         //apply force to player
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().AddExplosionForce(ExplosionForce, this.transform.position, ExplosionRadius, UpwardForceModifier, ForceMode.Impulse);
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().AddExplosionForce(ExplosionForce, this.transform.position, ExplosionRadius, UpwardForceModifier, ForceMode.Impulse);
+        }
         Debug.Log("boom");
 
         //reset grenade
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        this.GetComponent<MeshRenderer>().enabled = false;
+        //this.GetComponent<MeshRenderer>().enabled = false;
+
+        foreach (MeshRenderer childmesh in meshes)
+        {
+            childmesh.enabled = false;
+        }
 
         int index = Random.Range(0, grenadeSFX.Length);
         this.GetComponent<AudioSource>().clip = grenadeSFX[index];
