@@ -334,13 +334,13 @@ public class TrenchBoyController : MonoBehaviour
                         if (!isCarrying)
                         {
                             //pick up crate
-                            if (Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+                            if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
                             {
                                 Checker.ClosestTrigerrer.GetComponent<CargoSlot>().TakeOffCargo(Carrier, Vector3.zero);
                                 delta = 0; // stops timer
                                 spacebarUpped = true;  //count as key up
                             }
-                            else if (Checker.ClosestTrigerrer.CompareTag("Crate"))
+                            else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
                             {
                                 Checker.childTransfer(Carrier);
                                 audioSource.clip = boxUp;
@@ -349,7 +349,7 @@ public class TrenchBoyController : MonoBehaviour
                                 delta = 0; // stops timer
                                 spacebarUpped = true;  //count as key up
                             }
-                            else if (Checker.ClosestTrigerrer.CompareTag("Ally") && Checker.ClosestTrigerrer.GetComponent<AllyBehaviour>().CurrentState == AllyBehaviour.State.Downed)
+                            else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Ally") && Checker.ClosestTrigerrer.GetComponent<AllyBehaviour>().CurrentState == AllyBehaviour.State.Downed)
                             {
                                 Checker.childTransfer(Carrier);
                                 delta = 0; // stops timer
