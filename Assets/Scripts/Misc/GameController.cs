@@ -574,7 +574,7 @@ public class GameController : MonoBehaviour
     public void Button_MainMenu()
     {
         ContinueGame();
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 
     private void PauseGame()
