@@ -128,7 +128,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>4</Line>
-      <Text> I thought you'll feel out of place, seeing that you can't fight at all.</Text>
+      <Text>I thought you'll feel out of place, seeing that you can't fight at all.</Text>
     </Dialogue>
     <Dialogue name ="Cpt. William Carter D0 5">
       <Who>0</Who>
@@ -210,7 +210,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>6</Line>
-      <Text> Pft. I'm joking. Anyway, thank you for the report. Don't be discouraged by the situation. Keep your head high.</Text>
+      <Text>Pft. I'm joking. Anyway, thank you for the report. Don't be discouraged by the situation. Keep your head high.</Text>
     </Dialogue>
     
      <!--D2-->
@@ -310,7 +310,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>2</Line>
-      <Text>Aside from our dwindling supply and overwhelming disadvantage, nothing, sir.</Text>
+      <Text>Aside from our dwindling supplies and overwhelming disadvantage, nothing, sir.</Text>
     </Dialogue>
     <Dialogue name ="Cpt. William Carter D3 3">
       <Who>0</Who>
@@ -326,7 +326,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>4</Line>
-      <Text>And for you, private. If you're done with your duty. You can retire for tonight.</Text>
+      <Text>And for you, private, if you're done with your duty, you can retire for tonight.</Text>
     </Dialogue>
     <Dialogue name ="Cpt. William Carter D3 5">
       <Who>0</Who>
@@ -342,7 +342,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>6</Line>
-      <Text>I cannot confirm or deny that. Where did you hear that from?</Text>
+      <Text>I cannot confirm nor deny that. Where did you hear that from?</Text>
     </Dialogue>
     <Dialogue name ="Cpt. William Carter D3 7">
       <Who>0</Who>
@@ -358,7 +358,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>8</Line>
-      <Text>Hm. Regardless of what the army planned, I aimed to keep you guys alive.</Text>
+      <Text>Hmm. Regardless of what the army had planned, I aimed to keep you guys alive.</Text>
     </Dialogue>
     <Dialogue name ="Cpt. William Carter D3 9">
       <Who>0</Who>
@@ -366,7 +366,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>9</Line>
-      <Text> We're brother in arms. I'll lead you guys through hell and high water.</Text>
+      <Text>We're brother in arms. I'll lead you guys through hell and high water.</Text>
     </Dialogue>
     <Dialogue name ="Cpt. William Carter D3 10">
       <Who>0</Who>
@@ -542,7 +542,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>7</Line>
-      <Text>Don't be so negative. If you ever feel unsure of your way forward, you are welcome to come and talk to me.</Text>
+      <Text>Don't be so negative. If you ever feel unsure of your way forward, you are welcomed to come and talk to me.</Text>
     </Dialogue>
     <Dialogue name ="Sgt. Allen Baker D0 8">
       <Who>1</Who>
@@ -616,7 +616,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>7</Line>
-      <Text>Some might come here to protect their country. Some might be justfollowing orders.</Text>
+      <Text>Some might come here to protect their country. Some might just be following orders.</Text>
     </Dialogue>
       <Dialogue name ="Sgt. Allen Baker D1 8">
       <Who>1</Who>
@@ -660,7 +660,7 @@
     </Dialogue>
     <Dialogue name ="Sgt. Allen Baker D1 13">
       <Who>1</Who>
-      <Speaker>N{C</Speaker>
+      <Speaker>NPC</Speaker>
       <Type>D</Type>
       <ID>1</ID>
       <Line>13</Line>
@@ -690,7 +690,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>1</Line>
-      <Text>Whether I answer on not depend on the question but sure, you can try asking</Text>
+      <Text>Whether I answer on not depend on the question but sure, you can try asking.</Text>
     </Dialogue>
      <Dialogue name ="Sgt. Allen Baker D2 2">
       <Who>1</Who>
@@ -796,7 +796,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>9</Line>
-      <Text>It's something along the line of "If you want peace, prepare for war."</Text>
+      <Text>It's something along the line of "If you want peace, prepare for war.".</Text>
     </Dialogue>
       <Dialogue name ="Sgt. Allen Baker D3 10">
       <Who>1</Who>
@@ -804,7 +804,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>10</Line>
-      <Text>"War starts because God wills it.In time of war, law falls silent"</Text>
+      <Text>"War starts because God wills it. In time of war, law falls silent".</Text>
     </Dialogue>
     <Dialogue name ="Sgt. Allen Baker D3 11">
       <Who>1</Who>
@@ -830,7 +830,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>0</Line>
-      <Text>Hey thre, sorry about what how I acted the day before.</Text>
+      <Text>Hey there, sorry about what how I acted the day before.</Text>
     </Dialogue>
     <Dialogue name ="Sgt. Allen Baker D4 1">
       <Who>1</Who>
@@ -886,7 +886,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>7</Line>
-      <Text>Well, it's just.... Okay, I owe it to you to make it this far so I think you have the rights to know.</Text>
+      <Text>Well, it's just.... Okay, I owe it to you to make it this far so I think you have the right to know.</Text>
     </Dialogue>
      <Dialogue name ="Sgt. Allen Baker D4 8">
       <Who>1</Who>
@@ -902,7 +902,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>9</Line>
-      <Text>We tried to escape to somewhere safe, but my wife and daugther was taken away when the army came into the town and sack the church.</Text>
+      <Text>We tried to escape to somewhere safe, but my wife and daugther was taken away when the army came into the town and sack the Church.</Text>
     </Dialogue>
       <Dialogue name ="Sgt. Allen Baker D4 10">
       <Who>1</Who>
@@ -926,7 +926,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>12</Line>
-      <Text>Eventhough I somehow managed to survive through that, I never found trace of my family despite my best effort.</Text>
+      <Text>Eventhough, I somehow managed to survive through that, I never found trace of my family despite my best effort.</Text>
     </Dialogue>
      <Dialogue name ="Sgt. Allen Baker D4 13">
       <Who>1</Who>
@@ -934,7 +934,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>13</Line>
-      <Text>That's why I came back to my hometown and decided join the army to prepare myself to take back my families.</Text>
+      <Text>That's why I came back to my hometown and decided join the army to prepare myself to take back my family.</Text>
     </Dialogue>
      <Dialogue name ="Sgt. Allen Baker D4 14">
       <Who>1</Who>
@@ -966,7 +966,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>17</Line>
-      <Text> It's not like that, sir. I think that what you're doing is admirable. Fighting for your family, that is.</Text>
+      <Text>It's not like that, sir. I think that what you're doing is admirable. Fighting for your family, that is.</Text>
     </Dialogue>
     <Dialogue name ="Sgt. Allen Baker D4 18">
       <Who>1</Who>
@@ -982,7 +982,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>19</Line>
-      <Text> You're welcome, sir.</Text>
+      <Text>You're welcome, sir.</Text>
     </Dialogue>
     
     <!--E0-->
@@ -1036,20 +1036,12 @@
       <Line>4</Line>
       <Text>My condolence, sir...</Text>
     </Dialogue>
-    <Dialogue name ="Sgt. Allen Baker S2 4">
-      <Who>1</Who>
-      <Speaker>PLAYER</Speaker>
-      <Type>S</Type>
-      <ID>2</ID>
-      <Line>5</Line>
-      <Text>My condolence, sir...</Text>
-    </Dialogue>
     <Dialogue name ="Sgt. Allen Baker S2 5">
       <Who>1</Who>
       <Speaker>NPC</Speaker>
       <Type>S</Type>
       <ID>2</ID>
-      <Line>6</Line>
+      <Line>5</Line>
       <Text>It's okay. We just have to avenge him. That's all we need to do.</Text>
     </Dialogue>
     
@@ -1247,7 +1239,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>12</Line>
-      <Text>..... Understood, sir.</Text>
+      <Text>.....Understood, sir.</Text>
     </Dialogue>
     
   <!--D2-->
@@ -1387,7 +1379,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>4</Line>
-      <Text>Yeah. It's something that kinda pop up in your head. They are usually one of the best way to survive.</Text>
+      <Text>Yeah. It's something that kinda pops up in your head. They are usually one of the best ways to survive.</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Ray Garrett D3 5">
       <Who>2</Who>
@@ -1443,7 +1435,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>11</Line>
-      <Text>Good. That's what define whether you're green or you're good. Trust your instinct but don't depend on it.</Text>
+      <Text>Good. That's what define whether you're green or you're good. Trust your instincts but don't depend on it.</Text>
     </Dialogue>
     
   <!--D4-->
@@ -1477,7 +1469,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>3</Line>
-      <Text>Yeah. Spent a lot of money on it. Though it still function nearly the same as the one we get issued with anyway.</Text>
+      <Text>Yeah. Spent a lot of money on it. Though it still functions nearly the same as the one we get issued with anyway.</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Ray Garrett D4 4">
       <Who>2</Who>
@@ -1501,7 +1493,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>6</Line>
-      <Text>My father was a veteran too an he bought me this to train me how to shoot even before I join the Army.</Text>
+      <Text>My father was a veteran too and he bought me this to train me how to shoot even before I join the Army.</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Ray Garrett D4 7">
       <Who>2</Who>
@@ -1558,7 +1550,7 @@
     <Dialogue name ="Cpl. Ray Garrett S1 0">
       <Who>2</Who>
       <Speaker>NPC</Speaker>
-      <Type>D</Type>
+      <Type>S</Type>
       <ID>1</ID>
       <Line>0</Line>
       <Text>Damn that stupid bastard..</Text>
@@ -1566,7 +1558,7 @@
      <Dialogue name ="Cpl. Ray Garrett S1 1">
       <Who>2</Who>
       <Speaker>PLAYER</Speaker>
-      <Type>D</Type>
+      <Type>S</Type>
       <ID>1</ID>
       <Line>1</Line>
       <Text>What's wrong, sir?</Text>
@@ -1574,7 +1566,7 @@
     <Dialogue name ="Cpl. Ray Garrett S1 2">
       <Who>2</Who>
       <Speaker>NPC</Speaker>
-      <Type>D</Type>
+      <Type>S</Type>
       <ID>1</ID>
       <Line>2</Line>
       <Text>That fucker, Allen, he just kicked the bucket today.</Text>
@@ -1582,7 +1574,7 @@
     <Dialogue name ="Cpl. Ray Garrett S1 3">
       <Who>2</Who>
       <Speaker>PLAYER</Speaker>
-      <Type>D</Type>
+      <Type>S</Type>
       <ID>1</ID>
       <Line>3</Line>
       <Text>Oh...</Text>
@@ -1590,7 +1582,7 @@
     <Dialogue name ="Cpl. Ray Garrett S1 4">
       <Who>2</Who>
       <Speaker>NPC</Speaker>
-      <Type>D</Type>
+      <Type>S</Type>
       <ID>1</ID>
       <Line>4</Line>
       <Text>That annoying prick always preach me on what to do or what not to do.</Text>
@@ -1598,7 +1590,7 @@
     <Dialogue name ="Cpl. Ray Garrett S1 5">
       <Who>2</Who>
       <Speaker>NPC</Speaker>
-      <Type>D</Type>
+      <Type>S</Type>
       <ID>1</ID>
       <Line>5</Line>
       <Text>Acting high and mighty, all goody two shoes. Went and got himself killed, damn it...</Text>
@@ -1606,10 +1598,10 @@
     <Dialogue name ="Cpl. Ray Garrett S1 6">
       <Who>2</Who>
       <Speaker>PLAYER</Speaker>
-      <Type>D</Type>
+      <Type>S</Type>
       <ID>1</ID>
       <Line>6</Line>
-      <Text> I'm sorry to hear that, sir....</Text>
+      <Text>I'm sorry to hear that, sir....</Text>
     </Dialogue>
     
     <!--Cpl. Darren Reed-->
@@ -1758,7 +1750,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>7</Line>
-      <Text>It is. Seriously. Trust my words for it. I've saw it happened more than a few times already.</Text>
+      <Text>It can. Seriously. Trust my words for it. I've seen it happened more than a few times already.</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed D1 8">
       <Who>3</Who>
@@ -1774,7 +1766,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>9</Line>
-      <Text>Thank you. Finally someone who understand.</Text>
+      <Text>Thank you. Finally, someone who understands.</Text>
     </Dialogue>
     
   <!--D2-->
@@ -1784,7 +1776,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>0</Line>
-      <Text>I've been wondering for a while, are medics allowed to engage in combat?</Text>
+      <Text>I've been wondering for a while, are medics even allowed to engage in combat?</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed D2 1">
       <Who>3</Who>
@@ -1800,7 +1792,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>2</Line>
-      <Text> Eh? Then why're you going out there and shooting?</Text>
+      <Text>Eh? Then why're you going out there and shooting?</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed D2 3">
       <Who>3</Who>
@@ -1816,7 +1808,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>4</Line>
-      <Text> Eh? I'm not sure I understand...</Text>
+      <Text>Huh? I'm not sure I understand...</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed D2 5">
       <Who>3</Who>
@@ -1840,7 +1832,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>7</Line>
-      <Text>Something like that. If medics engage in combat willingly, it mean that the medic gave up his protection from the law.</Text>
+      <Text>Something like that. If a medic engages in combat willingly, it means that the medic gave up his protection from the law.</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed D2 8">
       <Who>3</Who>
@@ -1848,7 +1840,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>8</Line>
-      <Text>Sound complicated.</Text>
+      <Text>Sounds complicated.</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed D2 9">
       <Who>3</Who>
@@ -1922,7 +1914,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>7</Line>
-      <Text>For now, I think you should drink some water and do some exercise to tire yourself out. It should help you goto sleep faster.</Text>
+      <Text>For now, I think you should drink some water and do some exercise to tire yourself out. It should help you go to sleep faster.</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed D3 8">
       <Who>3</Who>
@@ -1988,7 +1980,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>6</Line>
-      <Text> But I thought that simply waiting for the patient in the office isn't enough.</Text>
+      <Text>But I thought that simply waiting for the patient in the office isn't enough.</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed D4 7">
       <Who>3</Who>
@@ -2012,7 +2004,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>9</Line>
-      <Text>Ironicaly though, I probably killed more people than I had saved by now. Hahaha...</Text>
+      <Text>Ironically though, I probably killed more people than I had saved by now. Hahaha...</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed D4 10">
       <Who>3</Who>
@@ -2072,7 +2064,7 @@
       <Type>S</Type>
       <ID>8</ID>
       <Line>2</Line>
-      <Text>Do you know TIm, the cook?</Text>
+      <Text>Do you know Tim, the cook?</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed S8 3">
       <Who>3</Who>
@@ -2104,7 +2096,7 @@
       <Type>S</Type>
       <ID>8</ID>
       <Line>6</Line>
-      <Text>Yeah, I know I tried. But I think it's a waste to lost a good cook.</Text>
+      <Text>Yeah, I know I tried. But I think it's a waste to lose a good cook.</Text>
     </Dialogue>
     <Dialogue name ="Cpl. Darren Reed S8 7">
       <Who>3</Who>
@@ -2301,7 +2293,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>9</Line>
-      <Text> ....is that so?</Text>
+      <Text>.... Is that so?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Jason Riley D1 10">
       <Who>4</Who>
@@ -2325,7 +2317,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>12</Line>
-      <Text>Yeah, you're not alone. We'll have to help each other from now on.</Text>
+      <Text>You're not alone. We'll have to help each other from now on.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Jason Riley D1 13">
       <Who>4</Who>
@@ -2415,7 +2407,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>8</Line>
-      <Text>The sound of explosion... Gunshot... Bullets flying around...People moaning in pain...</Text>
+      <Text>The sound of explosion... Gunshot... Bullets flying around... People moaning in pain...</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Jason Riley D2 9">
       <Who>4</Who>
@@ -2713,7 +2705,7 @@
       <Type>S</Type>
       <ID>5</ID>
       <Line>9</Line>
-      <Text>We should make sure to survive ourself,</Text>
+      <Text>We should make sure to survive ourselves,</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Jason Riley S5 10">
       <Who>4</Who>
@@ -2889,7 +2881,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>6</Line>
-      <Text>If that's the reason, then I can't really do anything about that. Beside, you're also a soldier like us, why don't you open up a bit?</Text>
+      <Text>If that's the reason, then I can't really do anything about that.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Roy Watson D2 7">
       <Who>5</Who>
@@ -2897,7 +2889,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>7</Line>
-      <Text>Beside, you're also a soldier like us, why don't you open up a bit?</Text>
+      <Text>Besides, you're also a soldier like us, why don't you open up a bit?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Roy Watson D2 8">
       <Who>5</Who>
@@ -3021,7 +3013,7 @@
       <Type>D</Type>
       <ID>4</ID>
       <Line>7</Line>
-      <Text>Somethings are better left not known.</Text>
+      <Text>Some things are better left not known.</Text>
     </Dialogue>
     
    <!--E0-->
@@ -3148,7 +3140,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>4</Line>
-      <Text>Err, if you never managed to land a shot on your target before.... Have you tried changing the target and see if your stray shot hit your other target?</Text>
+      <Text>Err, if you never managed to land a shot on your target before....</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Ellis Anderson D1 5">
       <Who>6</Who>
@@ -3164,7 +3156,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>6</Line>
-      <Text>Sound good. Doesn't work. Tried that already.</Text>
+      <Text>Sounds good. Doesn't work. Tried that already.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Ellis Anderson D1 7">
       <Who>6</Who>
@@ -3246,7 +3238,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>2</Line>
-      <Text>Totally! It's Mister Pineapple!</Text>
+      <Text>Totally! It's Mister Potato Masher!</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Ellis Anderson D2 3">
       <Who>6</Who>
@@ -3262,7 +3254,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>4</Line>
-      <Text>Pineapple. Don't you think frag grenade looks like pineapple?</Text>
+      <Text>Potato Masher. Don't you think this looks like a potato masher?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Ellis Anderson D2 5">
       <Who>6</Who>
@@ -3318,7 +3310,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>11</Line>
-      <Text>Well, maybe there will be a good time where I can send Mr.Pineapple back home.... without the pin, of course.</Text>
+      <Text>Well, maybe there will be a good time where I can send Mr.Potato Masher back home.... without the pin, of course.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Ellis Anderson D2 12">
       <Who>6</Who>
@@ -3352,7 +3344,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>1</Line>
-      <Text>I don't know either..</Text>
+      <Text>I don't know either...</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Ellis Anderson D3 2">
       <Who>6</Who>
@@ -3526,7 +3518,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>6</Line>
-      <Text>Of course, I do. But I don't really want to talk about it. People often ask me to draw them...for free.</Text>
+      <Text>Of course, I can. But I don't really want to talk about it. People often ask me to draw them...for free.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D0 7">
       <Who>7</Who>
@@ -3566,7 +3558,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>11</Line>
-      <Text>I'll continue my drawing. It's almost finish now. By the way, my name is Andrew. See ya around.</Text>
+      <Text>I'll continue my drawing. It's almost finished now. By the way, my name is Andrew. See ya around.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D0 12">
       <Who>7</Who>
@@ -3698,7 +3690,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>5</Line>
-      <Text>"We need to sell it to make a living" He always said that, but I can't take myself to watch these little things died. </Text>
+      <Text>"We need to sell it to make a living." He always said that, but I can't take myself to watch these little things died.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D2 6">
       <Who>7</Who>
@@ -3706,7 +3698,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>6</Line>
-      <Text>I insisted that I will just keep them instead, so he took me to his friend who was a painter and told me that "You can keep it in a paper instead"</Text>
+      <Text>I insisted that I will just keep them instead, so he took me to his friend who was a painter and told me that "You can keep it in a paper instead".</Text>
     </Dialogue>
      <Dialogue name ="Pvt. Andrew Summer D2 7">
       <Who>7</Who>
@@ -3714,7 +3706,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>7</Line>
-      <Text>I was really fasinated that day and from then, I visited his friend everyday to learn drawing from him.</Text>
+      <Text>I was really fascinated that day and from then, I visited his friend every day to learn drawing from him.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D2 8">
       <Who>7</Who>
@@ -3730,7 +3722,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>9</Line>
-      <Text>Well, I haven't got myself into painting even now. </Text>
+      <Text>Well, I haven't got myself into painting even now.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D2 10">
       <Who>7</Who>
@@ -3738,7 +3730,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>10</Line>
-      <Text>But he always keep reminding me to study deeper into the detail, and all the things will come up on the paper by themselves.</Text>
+      <Text>But he had always kept reminding me to study deeper into the detail, and all the things will come upon the paper by themselves.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D2 11">
       <Who>7</Who>
@@ -3746,7 +3738,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>11</Line>
-      <Text>Now, I could even remember the color of every pieces of feather on its wing.</Text>
+      <Text>Now, I could even remember the colour of every pieces of feathers on its wing.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D2 12">
       <Who>7</Who>
@@ -3754,7 +3746,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>12</Line>
-      <Text>I guess it's time to pick up the brush and start to paint. There's lot of things to talk but I gotta prepare for the night duty. See ya around. Bye.</Text>
+      <Text>I guess it's time to pick up the brush and start to paint. There's a lot of things to talk but I gotta prepare for the night duty. See ya around. Bye.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D2 13">
       <Who>7</Who>
@@ -3796,7 +3788,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>3</Line>
-      <Text>You mean motivation? I guess it's because when I show my drawing, it amazed people, and my father sees a potential in that.</Text>
+      <Text>You mean motivation? I guess it's because when I show my drawing, it amazed people, and my father saw potential in that.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D3 4">
       <Who>7</Who>
@@ -3804,7 +3796,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>4</Line>
-      <Text>He believes that I shoud be better off with drawing, rather than going out and hunting birds everyday.</Text>
+      <Text>He believed that I'd be better off drawing rather than going out and hunting birds every day.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D3 5">
       <Who>7</Who>
@@ -3812,7 +3804,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>5</Line>
-      <Text>But how is that any better when you still work everyday?</Text>
+      <Text>But how is that any better when you still work every day?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D3 6">
       <Who>7</Who>
@@ -3820,7 +3812,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>6</Line>
-      <Text>Well, even I love what I am doing, it used to be that not everytime that I could bring myself to draw.</Text>
+      <Text>Well, even I love what I am doing, it used to be that not every time that I could bring myself to draw.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D3 7">
       <Who>7</Who>
@@ -3828,7 +3820,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>7</Line>
-      <Text>But it was when people talks about my drawing, I always felt I had left something for this world.</Text>
+      <Text>But it was when people talked about my drawing, I always felt that I had left something for this world.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D3 8">
       <Who>7</Who>
@@ -3844,7 +3836,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>9</Line>
-      <Text>I certainly know how he felt, but I couldn't help but wonder what keeps him doing it everyday.</Text>
+      <Text>I certainly know how he felt, but I couldn't help but wonder what kept him doing it everyday.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D3 10">
       <Who>7</Who>
@@ -3876,7 +3868,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>13</Line>
-      <Text>Hm...You are right, the man can only stick to what he already knows to take care of his family.</Text>
+      <Text>Hm...You are right, the man could only stick to what he already knew to take care of his family.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Andrew Summer D3 14">
       <Who>7</Who>
@@ -3892,7 +3884,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>15</Line>
-      <Text>He wanted me to grow better than what he is. I've never had this much talk before. And by the way, I have a drawing of you too, as a gratitude.</Text>
+      <Text>He wanted me to grow better than what he was. I've never had this much talk before. By the way, I have a drawing of you too, as gratitude.</Text>
     </Dialogue>
      <Dialogue name ="Pvt. Andrew Summer D3 16">
       <Who>7</Who>
@@ -3961,7 +3953,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>3</Line>
-      <Text>Huh?</Text>
+      <Text>?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Tim Berry D0 4">
       <Who>8</Who>
@@ -4011,7 +4003,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>2</Line>
-      <Text>I just wanna know secret to your cooking.</Text>
+      <Text>I just wanna know the secret to your cooking.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Tim Berry D1 3">
       <Who>8</Who>
@@ -4043,7 +4035,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>6</Line>
-      <Text>Serious.</Text>
+      <Text>Seriously, what is it?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Tim Berry D1 7">
       <Who>8</Who>
@@ -4091,7 +4083,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>12</Line>
-      <Text>Wow... I never know cooking can be this delicate..</Text>
+      <Text>Wow... I never know cooking can be this delicate...</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Tim Berry D1 13">
       <Who>8</Who>
@@ -4099,7 +4091,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>13</Line>
-      <Text>Haha, now you know. Why not try cooking with me some time?</Text>
+      <Text>Haha, now you know. Why not try cooking with me sometime?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Tim Berry D1 14">
       <Who>8</Who>
@@ -4165,7 +4157,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>6</Line>
-      <Text>Oh.. right.</Text>
+      <Text>Oh... right.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Tim Berry D2 7">
       <Who>8</Who>
@@ -4480,7 +4472,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>0</Line>
-      <Text>I knew it from the start that this is gonna happened...</Text>
+      <Text>I knew it from the start that this was gonna happened...</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Harper Scott D0 1">
       <Who>9</Who>
@@ -4512,7 +4504,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>4</Line>
-      <Text>Well, something were better left unsaid. Something that the books won't even let you know.</Text>
+      <Text>Well, some things were better left unsaid. Something that the books won't even let you know.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Harper Scott D0 5">
       <Who>9</Who>
@@ -4634,7 +4626,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>10</Line>
-      <Text>Hm...I'll tatk to you about it on the other day then. I need to go now, and keep this a secret. Bye</Text>
+      <Text>Hmm... I'll talk to you about it on the other day then. I need to go now, and keep this a secret. Bye</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Harper Scott D1 11">
       <Who>9</Who>
@@ -4782,7 +4774,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>5</Line>
-      <Text>It might sounds dumb, but...this place taught me that nothing should ever come to this.</Text>
+      <Text>It might sound dumb, but...this place taught me that nothing should ever come to this.</Text>
     </Dialogue>
      <Dialogue name ="Pvt. Harper Scott D3 6">
       <Who>9</Who>
@@ -4814,7 +4806,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>9</Line>
-      <Text>Just a thought of not being one of them is already enough to comfort me and makes me valued every second I got to breath.</Text>
+      <Text>Just the thought of not being one of them is already enough to comfort me and makes me value every second I got to breathe.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Harper Scott D3 10">
       <Who>9</Who>
@@ -4830,7 +4822,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>11</Line>
-      <Text>Hmmm....you sounds really weird today.</Text>
+      <Text>Hmmm....you sound really weird today.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Harper Scott D3 12">
       <Who>9</Who>
@@ -4947,7 +4939,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>8</Line>
-      <Text>Hm...Actually, I just wanted something to write out something....compelling to read, but I haven't figured out what to write.</Text>
+      <Text>Hm...Actually, I just wanted something to write out something....compelling to read, but I haven't figure out what to write.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Dwayne Manning D0 9">
       <Who>10</Who>
@@ -4989,7 +4981,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>1</Line>
-      <Text>About the topics the day before, you said you are trying to figure out what "fun" mean?</Text>
+      <Text>About the topic the day before, you said you were trying to figure out what "fun" means?</Text>
     </Dialogue>
      <Dialogue name ="Pvt. Dwayne Manning D1 2">
       <Who>10</Who>
@@ -4997,7 +4989,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>2</Line>
-      <Text>Well, what do you think 'fun' mean when you said that?</Text>
+      <Text>Well, what do you think "fun" means when you said that?</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Dwayne Manning D1 3">
       <Who>10</Who>
@@ -5143,7 +5135,7 @@
       <Type>D</Type>
       <ID>2</ID>
       <Line>7</Line>
-      <Text>...you don't have to be sorry for him. It's just the way things are here...</Text>
+      <Text>...You don't have to be sorry for him. It's just the way things are here...</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Dwayne Manning D2 8">
       <Who>10</Who>
@@ -5193,7 +5185,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>1</Line>
-      <Text>Hi, Dwayne. You looked so cheerful today.</Text>
+      <Text>Hi, Dwayne. You look so cheerful today.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Dwayne Manning D3 2">
       <Who>10</Who>
@@ -5201,7 +5193,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>2</Line>
-      <Text>Of course I do. I already have my poem filled up the pages now.</Text>
+      <Text>Of course, I do. I already have my poem filled up the pages now.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Dwayne Manning D3 3">
       <Who>10</Who>
@@ -5273,7 +5265,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>11</Line>
-      <Text>Because of his unrelenting courage, it gives everyone a hope to make it through the darkness.</Text>
+      <Text>Because of his unrelenting courage, it gave everyone hopes to make it through the darkness.</Text>
     </Dialogue>
     <Dialogue name ="Pvt. Dwayne Manning D3 12">
       <Who>10</Who>
@@ -5358,7 +5350,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>4</Line>
-      <Text>Oh, it's a camera, for taking pictures.You can capture what you see here to show other fellows back home.</Text>
+      <Text>Oh, it's a camera, for taking pictures. You can capture what you see here to show other fellows back home.</Text>
     </Dialogue>
     <Dialogue name ="Lt. Henry Mattis D0 5">
       <Who>11</Who>
@@ -5390,7 +5382,7 @@
       <Type>D</Type>
       <ID>0</ID>
       <Line>8</Line>
-      <Text>Oh, by the way, I need to go now. It's nice to talk to you.</Text>
+      <Text>Oh, by the way, I need to go now. It's nice talking to you.</Text>
     </Dialogue>
     
     <!--D1-->
@@ -5408,7 +5400,7 @@
       <Type>D</Type>
       <ID>1</ID>
       <Line>1</Line>
-      <Text>I got it from my family. My father brought me as a birthday gift. It was one of the best thing I got from him.</Text>
+      <Text>I got it from my family. My father brought me as a birthday gift. It was one of the best things I got from him.</Text>
     </Dialogue>
     <Dialogue name ="Lt. Henry Mattis D1 2">
       <Who>11</Who>
@@ -5588,7 +5580,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>5</Line>
-      <Text>My familiy, we already have everything that money could buy. But it wasn't not fulfilling.</Text>
+      <Text>My familiy, we already had everything that money could buy. But it was not fulfilling.</Text>
     </Dialogue>
     <Dialogue name ="Lt. Henry Mattis D3 6">
       <Who>11</Who>
@@ -5604,7 +5596,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>7</Line>
-      <Text>I'm going to be a photographer, recording everywhere I have been and made it into a book!</Text>
+      <Text>I'm going to be a photographer, recording everywhere I have been and make it into a book!</Text>
     </Dialogue>
     <Dialogue name ="Lt. Henry Mattis D3 8">
       <Who>11</Who>
@@ -6108,7 +6100,7 @@
       <Type>D</Type>
       <ID>3</ID>
       <Line>9</Line>
-      <Text>If you see things are looking bad, remember to spare a bullet for yourself, alright?</Text>
+      <Text>If things are looking bad, remember to spare a bullet for yourself, alright?</Text>
     </Dialogue>
     <Dialogue name ="Sgt. Becker Samson D3 10">
       <Who>12</Who>
@@ -6274,11 +6266,6 @@
       <Line>0</Line>
       <Text>This is absolutely ridiculous...</Text>
     </Dialogue>
-    
-    
-    
-    
-  
 
   </Dialogues>
 </DialogueCollection>
