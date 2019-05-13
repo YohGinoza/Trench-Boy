@@ -73,6 +73,7 @@ public class TrenchBoyController : MonoBehaviour
     public AudioClip boxDown;
     public AudioClip boxUp;
     public AudioClip converse;
+    public AudioClip give;
 
     public AudioClip[] footsteps = new AudioClip[6];
 
@@ -368,7 +369,22 @@ public class TrenchBoyController : MonoBehaviour
                                 Bed.StartCoroutine("Sleep");
                             }
                         }
+                        else
+                        {
+                            audioSource.clip = unavialable;
+                            audioSource.Play();
+                            animator.SetTrigger("Talk");
+                        }
                     }
+                }
+            }
+            else if (!Inventory.HasEmptySlot())
+            {
+                if (Checker.ClosestTrigerrer != null || ReSupplyZone != null || Bed != null)
+                {
+                    audioSource.clip = unavialable;
+                    audioSource.Play();
+                    animator.SetTrigger("Talk");
                 }
             }
         }
@@ -426,6 +442,8 @@ public class TrenchBoyController : MonoBehaviour
 
                         if (ally.HandItem(Inventory.ItemInventory[Inventory.SelectedItem]))
                         {
+                            audioSource.clip = give;
+                            audioSource.Play();
                             Inventory.RemoveItem();
                         }
                         else
