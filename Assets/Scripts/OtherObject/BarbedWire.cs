@@ -46,6 +46,15 @@ public class BarbedWire : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             cuttingBarbedWire = true;
+
+            other.GetComponent<EnemyBehaviour>().BarbedWireSource.clip = other.GetComponent<EnemyBehaviour>().BarbedWireSFX;
+            other.GetComponent<EnemyBehaviour>().BarbedWireSource.loop = true;
+            other.GetComponent<EnemyBehaviour>().BarbedWireSource.Play();
+
+            other.GetComponent<EnemyBehaviour>().CutSource.clip = other.GetComponent<EnemyBehaviour>().BarbedWireCut;
+            other.GetComponent<EnemyBehaviour>().CutSource.loop = true;
+            other.GetComponent<EnemyBehaviour>().CutSource.Play();
+
             if (!BarbedWireModeHP)
             {
                 other.GetComponent<EnemyBehaviour>().StartCoroutine("cutBarbedWire");

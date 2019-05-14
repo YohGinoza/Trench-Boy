@@ -693,10 +693,11 @@ MonoBehaviour:
   spacebarUpped: 0
   facing: {x: 0, y: 0, z: 0}
   delta: 0
-  unavialable: {fileID: 8300000, guid: cffb5a313daf6f1499767e22529616a6, type: 3}
-  boxDown: {fileID: 8300000, guid: 7897f942486d3a24596967f85a046c75, type: 3}
-  boxUp: {fileID: 8300000, guid: e53be2838ab9fb84eb26eecaa0ae1706, type: 3}
+  unavialable: {fileID: 8300000, guid: f778640f55ad7fc4a936af2804766355, type: 3}
+  boxDown: {fileID: 8300000, guid: 77d299552177ce244b143d4089389c93, type: 3}
+  boxUp: {fileID: 8300000, guid: b57c964a7f0957a44b37c399c4119dbd, type: 3}
   converse: {fileID: 8300000, guid: 679898d29c4894b428ccee97a21f35a1, type: 3}
+  give: {fileID: 8300000, guid: 6212efd88f16b9d4a929b4059feb47b1, type: 3}
   footsteps:
   - {fileID: 8300000, guid: ff30c956cd393334880a02b54e0951ac, type: 3}
   - {fileID: 8300000, guid: b111146824bfbdd47a5b4986c1b0fee4, type: 3}

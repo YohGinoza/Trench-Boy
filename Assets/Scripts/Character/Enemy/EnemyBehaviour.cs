@@ -55,7 +55,9 @@ public class EnemyBehaviour : MonoBehaviour
     private Animator animator;
 
     public AudioClip BarbedWireCut;
+    public AudioClip BarbedWireSFX;
     public AudioSource BarbedWireSource;
+    public AudioSource CutSource;
     private bool call = false;
 
     public AudioClip DownSFX;
@@ -131,6 +133,15 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         SuppressedTimer += Time.fixedDeltaTime;
+
+        if(GameController.loseCondition == LoseCondition.BarbedWire)
+        {
+            BarbedWireSource.loop = false;
+            BarbedWireSource.Stop();
+
+            CutSource.loop = false;
+            CutSource.Stop();
+        }
     }
 
     private void Action()
@@ -168,11 +179,6 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 ReachedBarbedWire = MovingTarget.CompareTag("BarbedWire");
                 animator.SetBool("ReachedBarbedWire", ReachedBarbedWire);
-                if (ReachedBarbedWire)
-                {
-                    BarbedWireSource.clip = BarbedWireCut;
-                    BarbedWireSource.Play();
-                }
 
                 Agent.SetDestination(this.transform.position);
                 ThrowingDecided = false;
@@ -338,6 +344,12 @@ public class EnemyBehaviour : MonoBehaviour
     private IEnumerator Dead()
     {
 
+        BarbedWireSource.loop = false;
+        BarbedWireSource.Stop();
+
+        CutSource.loop = false;
+        CutSource.Stop();
+
         this.GetComponentInChildren<MeshRenderer>().enabled = false;
         if (!call) {
             call = true;
@@ -346,7 +358,6 @@ public class EnemyBehaviour : MonoBehaviour
         }
         yield return new WaitForSeconds(1.3f);
         //subject to change
-        BarbedWireSource.Stop();
         this.gameObject.SetActive(false);
     }
 
