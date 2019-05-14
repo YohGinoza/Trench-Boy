@@ -498,14 +498,21 @@ public class TrenchBoyController : MonoBehaviour
                         //reenable collider, will change later
                         CarriedObject.GetComponent<Collider>().isTrigger = false;
 
+                        //put on med bed
                         MedBed.PutPatient(CarriedObject);
+
+                        //return the x size to normal
+                        CarriedObject.localScale = new Vector3(Mathf.Abs(CarriedObject.localScale.x), CarriedObject.localScale.y, CarriedObject.localScale.z);
 
                         gameController.HelpFriend++;
                     }
                     else
-                    {
+                    {                        
                         //just put down
                         PutDownCarryingObject();
+
+                        //return the x size to normal
+                        CarriedObject.localScale = new Vector3(Mathf.Abs(CarriedObject.localScale.x), CarriedObject.localScale.y, CarriedObject.localScale.z);
 
                         //reenable collider, will change later
                         CarriedObject.GetComponent<Collider>().isTrigger = false;
@@ -533,7 +540,7 @@ public class TrenchBoyController : MonoBehaviour
                         rb.angularVelocity = Vector3.zero;
                         isMovable = false;
 
-                        if(rb.velocity == Vector3.zero)
+                        if(rb.velocity == Vector3.zero && Checker.ClosestTrigerrer.GetComponent<DialogueLoader>().enabled)
                         {
                             Checker.ClosestTrigerrer.GetComponent<DialogueLoader>().converse();
                         }
