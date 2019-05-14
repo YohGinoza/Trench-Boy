@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CameraController : MonoBehaviour
 {
     private GameController gameController;
+    private Camera cam;
 
     [Header("Fading Setting")]
     [SerializeField] private Image Fader;
@@ -29,8 +30,16 @@ public class CameraController : MonoBehaviour
 
     float DefaultSize;
 
+    [Header("Scout")]
+    [SerializeField] private KeyCode ScoutKey;
+    [SerializeField] private Transform ScouttingTarget;
+    private bool Scouting;
+    private float ScoutingSize = 16;
+    private float refVel;
+
     private void Start()
     {
+        cam = this.GetComponent<Camera>();
         DefaultSize = this.GetComponent<Camera>().orthographicSize;
         gameController = FindObjectOfType<GameController>();
     }
@@ -46,18 +55,30 @@ public class CameraController : MonoBehaviour
                 break;
         }
 
+        //for scouting
+        if (gameController.CurrentState == GameState.Day && Input.GetKey(ScoutKey))
+        {
+            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, ScoutingSize, ref refVel, 1f);
+            SetTarget(ScouttingTarget);
+        }
+        else if(gameController.CurrentState == GameState.Day || gameController.CurrentState == GameState.Wait)
+        {
+            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, DefaultSize, ref refVel, 1f);
+            if (!Target.CompareTag("Player"))
+            {
+                SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
+            }
+        }
+
         
         LookAtTarget();
         
 
         if (zoomIn && !zoomOut)
         {
-
-           
-
-            if (this.GetComponent<Camera>().orthographicSize > 2.4f)
+            if (cam.orthographicSize > 2.4f)
             {
-                this.GetComponent<Camera>().orthographicSize -= 0.2f;
+                cam.orthographicSize -= 0.2f;
             }
             else
             {
@@ -68,9 +89,9 @@ public class CameraController : MonoBehaviour
         if (zoomOut && !zoomIn)
         {
 
-            if (this.GetComponent<Camera>().orthographicSize < DefaultSize)
+            if (cam.orthographicSize < DefaultSize)
             {
-                this.GetComponent<Camera>().orthographicSize += 0.2f;
+                cam.orthographicSize += 0.2f;
             }
             else
             {
