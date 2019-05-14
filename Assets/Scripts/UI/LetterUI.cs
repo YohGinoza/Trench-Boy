@@ -24,7 +24,7 @@ public class LetterUI : MonoBehaviour
     [SerializeField] private Image ReaderBGPanel;
     [SerializeField] private Color ReaderBGDefaultColor;
 
-    [SerializeField] private Text InstructorText;
+    [SerializeField] private Text[] InstructorTexts;
 
     [Range(0, 0.5f)] [SerializeField] private float FadeTime = 0.2f;
 
@@ -73,7 +73,10 @@ public class LetterUI : MonoBehaviour
         //remove envelop
         envelope.rectTransform.position = new Vector3(-2000, 0, 0);
         //remove instruction text
-        InstructorText.enabled = false;
+        foreach (Text InstructorText in InstructorTexts)
+        {
+            InstructorText.enabled = false;
+        }
 
         //remove letter
         StartCoroutine(ThrowLetter());
@@ -85,7 +88,10 @@ public class LetterUI : MonoBehaviour
     public IEnumerator RecieveLetter(int day)
     {
         //show instructor
-        InstructorText.enabled = true;
+        foreach (Text InstructorText in InstructorTexts)
+        {
+            InstructorText.enabled = true;
+        }
 
         //setup letter
         ReadingText.text = Messages[day];

@@ -88,8 +88,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("enabled");
+        //Debug.Log("enabled");
         //reenable mesh renderee
+        animator.SetBool("isDead", false);
+        call = false;
         this.GetComponentInChildren<MeshRenderer>().enabled = true;
         //reset a unit
         ReachedBarbedWire = false;
@@ -350,13 +352,14 @@ public class EnemyBehaviour : MonoBehaviour
         CutSource.loop = false;
         CutSource.Stop();
 
-        this.GetComponentInChildren<MeshRenderer>().enabled = false;
+        animator.SetBool("isDead", true);
+        //this.GetComponentInChildren<MeshRenderer>().enabled = false;
         if (!call) {
             call = true;
             audioSource.clip = DownSFX;
             audioSource.Play();
         }
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.5f);
         //subject to change
         this.gameObject.SetActive(false);
     }

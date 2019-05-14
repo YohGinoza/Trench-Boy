@@ -37,7 +37,7 @@ public class MedicalBed : MonoBehaviour
         if (patient.CompareTag("Ally"))
         {
             patient.transform.parent = this.transform;
-            patient.transform.localPosition = Vector3.zero;
+            patient.transform.localPosition = Vector3.zero + (Vector3.up * 0.4f);
             Patient = patient.GetComponent<AllyBehaviour>();
             Patient.CurrentState = AllyBehaviour.State.Healing;
         }
