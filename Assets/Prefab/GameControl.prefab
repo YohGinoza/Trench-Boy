@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5736731837343924617
+--- !u!1 &3079764019368404886
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6674355885890588685}
-  - component: {fileID: 5442228639759691181}
+  - component: {fileID: 506523213165459179}
+  - component: {fileID: 8747118533576515163}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Endingmusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6674355885890588685
+--- !u!4 &506523213165459179
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5736731837343924617}
+  m_GameObject: {fileID: 3079764019368404886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 6453776335399155394}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &5442228639759691181
+--- !u!82 &8747118533576515163
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5736731837343924617}
+  m_GameObject: {fileID: 3079764019368404886}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -157,7 +157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3900541254486406354}
-  - {fileID: 6674355885890588685}
+  - {fileID: 506523213165459179}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -198,6 +198,7 @@ MonoBehaviour:
   day_START: {fileID: 8300000, guid: b97c76cd9ed551647bd85f1d2d056264, type: 3}
   day_END: {fileID: 8300000, guid: eb4d39ec992469c4a99ca43316981eb9, type: 3}
   day_finish: {fileID: 8300000, guid: 32dcb3e6f8216b24aba3da972365d17a, type: 3}
+  day_report: {fileID: 8300000, guid: c1a00b7e8630a9b4eb37ad5bc1f747e3, type: 3}
   WinBG: {fileID: 8300000, guid: ca671521a2ce10c46ad65ced0f2f90ad, type: 3}
   LoseBG: {fileID: 8300000, guid: be2dddd342d94264996b3c591747d795, type: 3}
   GrenadeHit: 0
