@@ -125,6 +125,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private LetterUI letterUI;
     public static bool reset_pressed;
     public bool uidown = false;
+    public bool END_GAME = false;
 
     //Sound
     public GameObject BGmusic;
@@ -315,7 +316,7 @@ public class GameController : MonoBehaviour
                 switch (loseCondition)
                 {
                     case LoseCondition.None:
-                        if(CurrentDay != DayEndLimit)
+                        if(!END_GAME)
                         {
                             DayEnd_UI.SetActive(true);
                             DayEnd_UI.GetComponent<DayEndUI>().ui_up = true;
