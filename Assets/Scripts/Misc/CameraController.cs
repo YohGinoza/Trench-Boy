@@ -46,9 +46,9 @@ public class CameraController : MonoBehaviour
                 break;
         }
 
-        if (!inDialogue) {
-            LookAtTarget();
-        }
+        
+        LookAtTarget();
+        
 
         if (zoomIn && !zoomOut)
         {
@@ -57,7 +57,6 @@ public class CameraController : MonoBehaviour
 
             if (this.GetComponent<Camera>().orthographicSize > 2.4f)
             {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.05f, this.transform.position.z);
                 this.GetComponent<Camera>().orthographicSize -= 0.2f;
             }
             else
@@ -71,7 +70,6 @@ public class CameraController : MonoBehaviour
 
             if (this.GetComponent<Camera>().orthographicSize < DefaultSize)
             {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.05f, this.transform.position.z);
                 this.GetComponent<Camera>().orthographicSize += 0.2f;
             }
             else
@@ -84,8 +82,20 @@ public class CameraController : MonoBehaviour
 
     void LookAtTarget()
     {
-        //center
-        Vector3 idealPosition = new Vector3(Target.position.x, Target.position.y + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30));
+        Vector3 idealPosition;
+
+        if (inDialogue)
+        {
+            //move camera up a little bit
+            idealPosition = new Vector3(Target.position.x, Target.position.y + 1.0f + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30));
+
+        }
+        else
+        {
+            //center
+            idealPosition = new Vector3(Target.position.x, Target.position.y + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30));
+
+        }
 
         this.transform.position = Vector3.SmoothDamp(this.transform.position, idealPosition, ref moveRef, SmoothTime);
     }
