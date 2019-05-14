@@ -612,7 +612,7 @@ public class GameController : MonoBehaviour
     public void Button_MainMenu()
     {
         ContinueGame();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("CinematicMainMenu");
     }
 
     private void PauseGame()
