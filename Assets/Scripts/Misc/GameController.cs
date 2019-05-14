@@ -128,9 +128,16 @@ public class GameController : MonoBehaviour
 
     //Sound
     public GameObject BGmusic;
+    public GameObject Endingmusic;
 
     public AudioClip day_START;
     public AudioClip day_END;
+    public AudioClip day_finish;
+
+    public AudioClip day_report;
+    
+    public AudioClip WinBG;
+    public AudioClip LoseBG;
 
     //News
     public int GrenadeHit = 0;
@@ -167,6 +174,7 @@ public class GameController : MonoBehaviour
         cameraController = FindObjectOfType<CameraController>();
 
         BGmusic = GameObject.Find("BGmusic");
+        Endingmusic = GameObject.Find("Endingmusic");
 
         DayStart();
     }
@@ -187,6 +195,7 @@ public class GameController : MonoBehaviour
                     DayEnd_UI.SetActive(false);
                     News_UI.SetActive(false);
                     BGmusic.SetActive(false);
+                    Endingmusic.SetActive(false);
 
                     //check if any ally is alive
                     DayEnded = false;
@@ -315,6 +324,8 @@ public class GameController : MonoBehaviour
                         }
                         else
                         {
+                            Endingmusic.GetComponent<AudioSource>().clip = WinBG;
+                            Endingmusic.SetActive(true);
                             News_UI.SetActive(true);
                             News_UI.GetComponent<News>().ui_up = true;
                         }
@@ -323,6 +334,8 @@ public class GameController : MonoBehaviour
                         /*DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
                         DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);*/
+                        Endingmusic.GetComponent<AudioSource>().clip = LoseBG;
+                        Endingmusic.SetActive(true);
                         News_UI.SetActive(true);
                         News_UI.GetComponent<News>().ui_up = true;
                         break;
@@ -330,6 +343,8 @@ public class GameController : MonoBehaviour
                         /*DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
                         DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);*/
+                        Endingmusic.GetComponent<AudioSource>().clip = LoseBG;
+                        Endingmusic.SetActive(true);
                         News_UI.SetActive(true);
                         News_UI.GetComponent<News>().ui_up = true;
                         break;
@@ -441,6 +456,9 @@ public class GameController : MonoBehaviour
 
     IEnumerator StartNight()
     {
+        this.GetComponent<AudioSource>().clip = day_finish;
+        this.GetComponent<AudioSource>().Play();
+
         CoroutineRunning = true;
 
         AlliesRamaining = 0;
@@ -543,6 +561,10 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(cameraController.FadeTime);
 
         CurrentState = GameState.Wait;
+
+        this.GetComponent<AudioSource>().clip = day_report;
+
+        this.GetComponent<AudioSource>().Play();
 
         CoroutineRunning = false;
     }

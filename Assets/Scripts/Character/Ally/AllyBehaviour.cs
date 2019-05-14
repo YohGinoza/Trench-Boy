@@ -76,6 +76,7 @@ public class AllyBehaviour : MonoBehaviour
 
     public AudioClip[] gunSFX;
     public AudioClip deadSFX;
+    public AudioClip downSFX;
     public AudioClip converse;
     public AudioClip giveAmmo;
     public AudioClip giveMed;
@@ -409,6 +410,9 @@ public class AllyBehaviour : MonoBehaviour
 
     private void Down()
     {
+        callSource.clip = downSFX;
+        callSource.Play();
+
         Downed = true;
 
         //tutorial
