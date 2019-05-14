@@ -133,6 +133,8 @@ public class GameController : MonoBehaviour
     public AudioClip day_START;
     public AudioClip day_END;
     public AudioClip day_finish;
+
+    public AudioClip day_report;
     
     public AudioClip WinBG;
     public AudioClip LoseBG;
@@ -559,6 +561,10 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(cameraController.FadeTime);
 
         CurrentState = GameState.Wait;
+
+        this.GetComponent<AudioSource>().clip = day_report;
+
+        this.GetComponent<AudioSource>().Play();
 
         CoroutineRunning = false;
     }
