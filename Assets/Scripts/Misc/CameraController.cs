@@ -56,12 +56,12 @@ public class CameraController : MonoBehaviour
         }
 
         //for scouting
-        if (gameController.CurrentState == GameState.Day && Input.GetKey(ScoutKey))
+        if ((gameController.CurrentState == GameState.Day || gameController.CurrentState == GameState.Stalling) && Input.GetKey(ScoutKey))
         {
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, ScoutingSize, ref refVel, 1f);
             SetTarget(ScouttingTarget);
         }
-        else if(gameController.CurrentState == GameState.Day || gameController.CurrentState == GameState.Wait)
+        else if (gameController.CurrentState == GameState.Wait || !Input.GetKey(ScoutKey))
         {
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, DefaultSize, ref refVel, 1f);
             if (!Target.CompareTag("Player"))
