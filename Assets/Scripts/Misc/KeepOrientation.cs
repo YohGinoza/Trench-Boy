@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class KeepOrientation : MonoBehaviour
 {
-    public Vector3 OriginalEulerAngle;
-    public Vector3 OriginalScale;
-    public Vector3 OrginalChildPos;
+    [SerializeField] private Vector3 OriginalEulerAngle;
+    [SerializeField] private Vector3 OriginalScale;
+    [SerializeField] private Vector3 OrginalChildPos;
     Transform parent;
+    [SerializeField] private bool YOnly = true;
 
     private void Start()
     {
@@ -19,7 +20,14 @@ public class KeepOrientation : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.transform.rotation = Quaternion.Euler(OriginalEulerAngle);
+        if (YOnly)
+        {
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.eulerAngles.x, OriginalEulerAngle.y, this.transform.rotation.eulerAngles.z);
+        }
+        else
+        {
+            this.transform.rotation = Quaternion.Euler(OriginalEulerAngle);
+        }
         //this.transform.parent = null;
         //this.transform.localScale = OriginalScale;
         //this.transform.parent = parent;

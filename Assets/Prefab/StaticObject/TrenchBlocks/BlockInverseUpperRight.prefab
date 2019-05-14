@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043839686}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.25, y: 1.49, z: 0}
+  m_LocalPosition: {x: -0.25, y: 1.499, z: 0}
   m_LocalScale: {x: 1.5, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1642837238}
@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1642837238}
   m_Layer: 0
-  m_Name: BlockMiddle 1
+  m_Name: BlockInverseUpperRight
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

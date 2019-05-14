@@ -401,8 +401,6 @@ public class GameController : MonoBehaviour
                 //heal
                 DayBehaviour.Recover();
                 DayBehaviour.CurrentState = AllyBehaviour.State.Shooting;
-                //refill ammo
-                DayBehaviour.AmmoCount = DayBehaviour.MaxAmmo;
             }
 
             if (DayBehaviour != null)
@@ -410,6 +408,8 @@ public class GameController : MonoBehaviour
                 DayBehaviour.enabled = true;
                 //change to day position
                 DayBehaviour.ChangePosition(0);
+                //refill ammo
+                DayBehaviour.AmmoCount = DayBehaviour.MaxAmmo;
 
                 //eneble UI
                 DayBehaviour.EnteringNight = false;
@@ -541,11 +541,14 @@ public class GameController : MonoBehaviour
             }
         }
 
-        //+ deal with te dead
+        //deal with the deceased
         GameObject[] Fallens = GameObject.FindGameObjectsWithTag("Deceased");
         foreach(GameObject fallen in Fallens)
         {
-            
+            //burry the fallen
+            AllyBehaviour fallenSoul = fallen.GetComponent<AllyBehaviour>();
+            fallenSoul.ChangePosition(2);
+            fallen.GetComponentInChildren<Animator>().SetBool("isBuried", true);
         }
 
         //clear dead ally array 
@@ -609,7 +612,7 @@ public class GameController : MonoBehaviour
     public void Button_MainMenu()
     {
         ContinueGame();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("CinematicMainMenu");
     }
 
     private void PauseGame()

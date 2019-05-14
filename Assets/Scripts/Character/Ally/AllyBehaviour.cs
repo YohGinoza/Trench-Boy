@@ -23,7 +23,7 @@ public class AllyBehaviour : MonoBehaviour
     [Header("General Setting")]
     const float BulletLaunchForce = 4;
     public int MaxAmmo = 20;
-    [System.NonSerialized] public int AmmoCount = 20;
+    public int AmmoCount = 20;
     [SerializeField] private float BleedingEndurance = 30;
     //[SerializeField] private float RecoverTime = 10;
 
@@ -244,7 +244,7 @@ public class AllyBehaviour : MonoBehaviour
                 break;
         }
 
-        animator.SetBool("Downed", CurrentState == State.Downed);
+        animator.SetBool("Downed", CurrentState == State.Downed || CurrentState == State.Healing);
         animator.SetBool("Calling", CurrentState == State.Waiting);
     }
 
@@ -394,6 +394,7 @@ public class AllyBehaviour : MonoBehaviour
                 break;
             //dead
             case 2:
+                this.transform.position = GravePosition.position;
                 break;
         }
     }
@@ -481,6 +482,7 @@ public class AllyBehaviour : MonoBehaviour
         Dying = true;
 
         this.transform.parent = null;
+        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
         //this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
 
         //Collect deceased data
@@ -488,9 +490,10 @@ public class AllyBehaviour : MonoBehaviour
 
         //disable all ui
         ToggleUI(false, false, false);
+        //disable selector
+        transform.GetChild(transform.childCount - 1).GetComponent<Renderer>().enabled = false;
 
-        //subject to change
-        //this.gameObject.SetActive(false);
+        //change all status to dead
         animator.SetBool("isDead", true);
         this.tag = "Deceased";
         this.gameObject.layer = 0;
@@ -499,6 +502,7 @@ public class AllyBehaviour : MonoBehaviour
         callSource.Play();
         yield return new WaitForSeconds(1.0f);
         this.enabled = false;
+        this.GetComponent<DialogueLoader>().enabled = false;
         Dying = false;
     }
 
