@@ -10,7 +10,7 @@ public class StartUp : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!vp.isPlaying && Time.time > 10 || Input.GetKeyDown(KeyCode.Space))
+        if ((!vp.isPlaying && Time.time > 10) || Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("CinematicMainMenu");
         }
