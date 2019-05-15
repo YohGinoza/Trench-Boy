@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: f30aa093216fa0546883ca3d30fcd344
+    path: Assets/Scenes/TestLoader.unity
+    guid: 5af679cd8ac0eaa4c81c50a2b0ea7245
+  - enabled: 1
+    path: Assets/Scenes/CinematicMainMenu.unity
+    guid: 4c295fb41aa627e42a92674b88545826
   - enabled: 1
     path: Assets/Scenes/Angled3D.unity
     guid: c6df911a9262af84287ba9505d29bfe1

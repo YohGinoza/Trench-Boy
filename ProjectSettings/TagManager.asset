@@ -14,6 +14,7 @@ TagManager:
   - Enemy
   - Deceased
   - Resupply
+  - NightLight
   layers:
   - Default
   - TransparentFX
@@ -31,9 +32,9 @@ TagManager:
   - Bullet
   - BarbedWire
   - Interactable
-  - 
-  - 
-  - 
+  - Player
+  - Props
+  - InvisiblePlayerWall
   - 
   - 
   - 

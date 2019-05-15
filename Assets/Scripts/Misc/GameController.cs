@@ -31,7 +31,7 @@ public enum Tutorials
 
 public enum Day
 {
-    DAY_0 = 0,
+    //DAY_0 = 0,
     DAY_1,
     DAY_2,
     DAY_3,
@@ -60,7 +60,7 @@ public enum Ally
 
 public enum ItemType
 {
-    Ammo = 10,
+    Ammo = 20, //this number is the ammo given in pouch
     Med = 5,
     None = 0
 };
@@ -93,9 +93,9 @@ public class GameController : MonoBehaviour
 
     //time
     public GameState CurrentState = GameState.Day;
-    public Day CurrentDay = Day.DAY_0;
+    public Day CurrentDay = Day.DAY_1;
     [Range(0, 1)] public float TimeOfDay = 0;
-    public float DayLenght = 180;
+    public float[] DayLenght;
     public Day DayEndLimit = Day.DAY_7;
 
     //enemy
@@ -118,17 +118,31 @@ public class GameController : MonoBehaviour
     private bool CoroutineRunning = false;
 
     //UI
-    public GameObject Inventory_UI;
-    public GameObject DayEnd_UI;
+    private GameObject Inventory_UI;
+    private GameObject DayEnd_UI;
+    private GameObject News_UI;
     [SerializeField] private TutorialUI tutorialUI;
+    [SerializeField] private LetterUI letterUI;
     public static bool reset_pressed;
     public bool uidown = false;
+    public bool END_GAME = false;
 
     //Sound
     public GameObject BGmusic;
+    public GameObject Endingmusic;
 
     public AudioClip day_START;
     public AudioClip day_END;
+    public AudioClip day_finish;
+
+    public AudioClip day_report;
+    
+    public AudioClip WinBG;
+    public AudioClip LoseBG;
+
+    //News
+    public int GrenadeHit = 0;
+    public int HelpFriend = 0;
 
     //camera
     private CameraController cameraController;
@@ -140,7 +154,6 @@ public class GameController : MonoBehaviour
 
     //Tutorial
     public static bool[] TutorialFinished = new bool[7];
-    public bool[] tt;
 
     void Start()
     {
@@ -156,10 +169,13 @@ public class GameController : MonoBehaviour
 
         Inventory_UI = GameObject.Find("InventoryBar");
         DayEnd_UI = GameObject.Find("DayEndUI");
+        News_UI = GameObject.Find("News");
+        tutorialUI = FindObjectOfType<TutorialUI>();
         //Camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
         cameraController = FindObjectOfType<CameraController>();
 
         BGmusic = GameObject.Find("BGmusic");
+        Endingmusic = GameObject.Find("Endingmusic");
 
         DayStart();
     }
@@ -167,7 +183,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        tt = TutorialFinished;
         //advance daytime
         switch (CurrentState)
         {
@@ -179,7 +194,9 @@ public class GameController : MonoBehaviour
 
                     Inventory_UI.SetActive(true);
                     DayEnd_UI.SetActive(false);
+                    News_UI.SetActive(false);
                     BGmusic.SetActive(false);
+                    Endingmusic.SetActive(false);
 
                     //check if any ally is alive
                     DayEnded = false;
@@ -211,7 +228,7 @@ public class GameController : MonoBehaviour
                     //time check
                     if (!DayEnded)
                     {
-                        TimeOfDay += Time.fixedDeltaTime / DayLenght;
+                        TimeOfDay += Time.fixedDeltaTime / DayLenght[(int)CurrentDay];
                         if (TimeOfDay >= 1)
                         {
                             TimeOfDay = 0;
@@ -293,34 +310,44 @@ public class GameController : MonoBehaviour
                 PauseGame();
 
                 Inventory_UI.SetActive(false);
-                DayEnd_UI.SetActive(true);
-                DayEnd_UI.GetComponent<DayEndUI>().ui_up = true;
                 BGmusic.SetActive(false);
 
                 //show day end screen
                 switch (loseCondition)
                 {
                     case LoseCondition.None:
-                        if(CurrentDay != DayEndLimit)
+                        if(!END_GAME)
                         {
+                            DayEnd_UI.SetActive(true);
+                            DayEnd_UI.GetComponent<DayEndUI>().ui_up = true;
                             DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                             DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(true);
                         }
                         else
                         {
-                            DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
-                            DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
+                            Endingmusic.GetComponent<AudioSource>().clip = WinBG;
+                            Endingmusic.SetActive(true);
+                            News_UI.SetActive(true);
+                            News_UI.GetComponent<News>().ui_up = true;
                         }
                         break;
                     case LoseCondition.BarbedWire:
-                        DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
+                        /*DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
-                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);
+                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);*/
+                        Endingmusic.GetComponent<AudioSource>().clip = LoseBG;
+                        Endingmusic.SetActive(true);
+                        News_UI.SetActive(true);
+                        News_UI.GetComponent<News>().ui_up = true;
                         break;
                     case LoseCondition.AllDead:
-                        DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
+                        /*DayEnd_UI.transform.Find("MainMenuButton").gameObject.SetActive(true);
                         DayEnd_UI.transform.Find("DayEndButton").gameObject.SetActive(false);
-                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);
+                        DayEnd_UI.GetComponent<DayEndUI>().addDeadList(true);*/
+                        Endingmusic.GetComponent<AudioSource>().clip = LoseBG;
+                        Endingmusic.SetActive(true);
+                        News_UI.SetActive(true);
+                        News_UI.GetComponent<News>().ui_up = true;
                         break;
                 }
 
@@ -332,7 +359,7 @@ public class GameController : MonoBehaviour
                 //Camera.localRotation = Quaternion.Euler(NightCamAngle, 0, 0);
 
                 Inventory_UI.SetActive(false);
-                StartCoroutine(disable_UI());
+                News_UI.SetActive(false);
                 //DayEnd_UI.SetActive(false);
                 BGmusic.SetActive(true);
                 CaptainCall = NightTimeInteractCounter >= NightInteractionLimit;
@@ -369,9 +396,10 @@ public class GameController : MonoBehaviour
             //trigger day animation
             ally.GetComponentInChildren<Animator>().SetBool("Night", false);
 
-            //switch behaviour to dat
+            //switch behaviour to day
             if (DayBehaviour != null && DayBehaviour.CurrentState == AllyBehaviour.State.Healing)
             {
+                //heal
                 DayBehaviour.Recover();
                 DayBehaviour.CurrentState = AllyBehaviour.State.Shooting;
             }
@@ -381,6 +409,8 @@ public class GameController : MonoBehaviour
                 DayBehaviour.enabled = true;
                 //change to day position
                 DayBehaviour.ChangePosition(0);
+                //refill ammo
+                DayBehaviour.AmmoCount = DayBehaviour.MaxAmmo;
 
                 //eneble UI
                 DayBehaviour.EnteringNight = false;
@@ -401,7 +431,7 @@ public class GameController : MonoBehaviour
         this.GetComponent<AudioSource>().clip = day_END;
         this.GetComponent<AudioSource>().Play();
 
-        CurrentDay++;
+        //CurrentDay++;
         //DayEnd_UI.GetComponent<DayEndUI>().Day++;
 
         //stop spawing enemy
@@ -414,12 +444,22 @@ public class GameController : MonoBehaviour
             }
         }
 
+        //set all enemy aggressiveness to max
+        EnemyBehaviour[] enemies = FindObjectsOfType<EnemyBehaviour>();
+        foreach (EnemyBehaviour enemy in enemies)
+        {
+            enemy.Aggressiveness = 10;
+        }
+
         Debug.Log("DAY ENDED");
         CurrentState = GameState.Stalling;
     }
 
     IEnumerator StartNight()
     {
+        this.GetComponent<AudioSource>().clip = day_finish;
+        this.GetComponent<AudioSource>().Play();
+
         CoroutineRunning = true;
 
         AlliesRamaining = 0;
@@ -440,6 +480,7 @@ public class GameController : MonoBehaviour
 
         }
 
+        News_UI.GetComponent<News>().Allies_Remaining = AlliesRamaining;
         DayEnd_UI.GetComponent<DayEndUI>().Allies_Remaining = AlliesRamaining;
         AlliesDiePrev = AlliesDieToday;
 
@@ -501,11 +542,14 @@ public class GameController : MonoBehaviour
             }
         }
 
-        //+ deal with te dead
+        //deal with the deceased
         GameObject[] Fallens = GameObject.FindGameObjectsWithTag("Deceased");
         foreach(GameObject fallen in Fallens)
         {
-            
+            //burry the fallen
+            AllyBehaviour fallenSoul = fallen.GetComponent<AllyBehaviour>();
+            fallenSoul.ChangePosition(2);
+            fallen.GetComponentInChildren<Animator>().SetBool("isBuried", true);
         }
 
         //clear dead ally array 
@@ -521,6 +565,10 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(cameraController.FadeTime);
 
         CurrentState = GameState.Wait;
+
+        this.GetComponent<AudioSource>().clip = day_report;
+
+        this.GetComponent<AudioSource>().Play();
 
         CoroutineRunning = false;
     }
@@ -538,7 +586,13 @@ public class GameController : MonoBehaviour
 
         if ((GameState)NextState == GameState.Night)
         {
-            //tutorial
+            //remove day report
+            StartCoroutine(disable_UI());
+
+            //queue in letter
+            letterUI.StartCoroutine(letterUI.RecieveLetter((int)CurrentDay));
+
+            //fade in tutorial
             if (!TutorialFinished[(int)Tutorials.AllyNight])
             {
                 tutorialUI.TurnOn(Tutorials.AllyNight);
@@ -559,7 +613,7 @@ public class GameController : MonoBehaviour
     public void Button_MainMenu()
     {
         ContinueGame();
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("CinematicMainMenu");
     }
 
     private void PauseGame()

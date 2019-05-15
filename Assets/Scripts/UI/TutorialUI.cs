@@ -28,6 +28,14 @@ public class TutorialUI : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(showing && Input.GetKeyDown(KeyCode.F))
+        {
+            TurnOff();
+        }
+    }
+
     private void SetTutorial(Tutorials tutorial)
     {
         Holder.sprite = TutorialSprite[(int)tutorial];
@@ -41,6 +49,8 @@ public class TutorialUI : MonoBehaviour
             showing = true;
             SetTutorial(thistutorial);
             this.gameObject.SetActive(true);
+            this.transform.GetChild(0).gameObject.SetActive(true);
+            this.transform.GetChild(1).gameObject.SetActive(true);
 
             if (CamTarget != null)
             {

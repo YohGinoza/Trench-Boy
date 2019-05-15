@@ -8,12 +8,24 @@ public class GrenadeBehaviour : MonoBehaviour
     [SerializeField] private float ExplosionRadius = 3;
     [Range(0, 1)] [SerializeField] private float DownChance = 0.75f;
     [SerializeField] private LayerMask VictimLayers;
-
+    [SerializeField] private LayerMask PlayerLayers;
+    [SerializeField] private float ExplosionForce = 10;
+    [SerializeField] private float UpwardForceModifier = 1;
+    [SerializeField] private MeshRenderer[] meshes;
+    private bool exploded = false;
     private float ExplodeTimer;
 
     public AudioClip[] grenadeSFX = new AudioClip[2];
 
     public bool Call = true;
+    private bool nadeHit = false;
+
+    GameController gc;
+
+    void Start()
+    {
+        gc = GameObject.Find("GameControl").GetComponent<GameController>();
+    }
 
     private void FixedUpdate()
     {
@@ -21,17 +33,14 @@ public class GrenadeBehaviour : MonoBehaviour
 
         ExplodeTimer += Time.fixedDeltaTime;
 
-        if (ExplodeTimer >= ExplodeTime)
+        if (!exploded && ExplodeTimer >= ExplodeTime)
         {
-            ExplodeTimer = 0;
             StartCoroutine(Explode());
         }
     }
 
     private void Awake()
     {
-        this.GetComponent<MeshRenderer>().enabled = true;
-
         GameObject[] Allies = GameObject.FindGameObjectsWithTag("Ally");
         foreach (GameObject Ally in Allies)
         {
@@ -39,8 +48,27 @@ public class GrenadeBehaviour : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        ExplodeTimer = 0;
+        exploded = false;
+
+        foreach (MeshRenderer childmesh in meshes)
+        {
+            childmesh.enabled = true;
+        }
+    }
+
     IEnumerator  Explode()
     {
+        nadeHit = false;
+        exploded = true;
+        //display effect
+        if(this.transform.childCount > 0)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        //damage ally
         Collider[] Victims = Physics.OverlapSphere(this.transform.position, ExplosionRadius, VictimLayers);
         foreach (Collider victim in Victims)
         {
@@ -52,16 +80,42 @@ public class GrenadeBehaviour : MonoBehaviour
             }
         }
 
+        Collider[] HitBoy = Physics.OverlapSphere(this.transform.position, ExplosionRadius, PlayerLayers);
+        foreach (Collider player in HitBoy)
+        {
+            if (!nadeHit)
+            {
+                gc.GrenadeHit++;
+                nadeHit = true;
+            }
+        }
+        //apply force to player
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().AddExplosionForce(ExplosionForce, this.transform.position, ExplosionRadius, UpwardForceModifier, ForceMode.Impulse);
+        }
+        Debug.Log("boom");
+
+        //reset grenade
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        this.GetComponent<MeshRenderer>().enabled = false;
+        //this.GetComponent<MeshRenderer>().enabled = false;
+
+        foreach (MeshRenderer childmesh in meshes)
+        {
+            childmesh.enabled = false;
+        }
 
         int index = Random.Range(0, grenadeSFX.Length);
         this.GetComponent<AudioSource>().clip = grenadeSFX[index];
         this.GetComponent<AudioSource>().Play();
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
+        //turnoff effect
+        if (this.transform.childCount > 0)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(false);
+        }
         this.gameObject.SetActive(false);
-        
     }
 
     private void CallOut()
