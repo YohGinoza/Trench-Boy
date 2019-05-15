@@ -415,13 +415,14 @@ public class GameController : MonoBehaviour
             if (DayBehaviour != null)
             {
                 DayBehaviour.enabled = true;
-                //change to day position
-                DayBehaviour.ChangePosition(0);
                 //refill ammo
                 DayBehaviour.AmmoCount = DayBehaviour.MaxAmmo;
 
                 //eneble UI
                 DayBehaviour.EnteringNight = false;
+
+                //change to day position
+                DayBehaviour.ChangePosition(0);
             }
 
             if (NightBehaviour != null)

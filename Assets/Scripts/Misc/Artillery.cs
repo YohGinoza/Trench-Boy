@@ -47,7 +47,7 @@ public class Artillery : MonoBehaviour
             {
                 Pool[i].SetActive(true);
                 Pool[i].transform.position = this.transform.position + new Vector3(Random.Range(-FireArea.x, FireArea.x), this.transform.position.y, Random.Range(-FireArea.y, FireArea.y));
-                Debug.Log("Fuckn Boom");
+                //Debug.Log("Fuckn Boom");
                 break;
             }
         }

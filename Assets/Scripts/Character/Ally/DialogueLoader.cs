@@ -74,7 +74,7 @@ public class DialogueLoader : MonoBehaviour
         {
             if (dialogue.who == (int)ThisPerson)
             {
-                Debug.Log(ThisPerson);
+                //Debug.Log(ThisPerson);
                 if(dialogue.type == "D")
                 {                                        
                     dialogue_text[dialogue.id, dialogue.line] = dialogue.text;
