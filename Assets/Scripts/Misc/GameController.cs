@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public enum GameState
@@ -123,6 +124,7 @@ public class GameController : MonoBehaviour
     private GameObject News_UI;
     [SerializeField] private TutorialUI tutorialUI;
     [SerializeField] private LetterUI letterUI;
+    [SerializeField] private Text[] DayInstructions;
     public static bool reset_pressed;
     public bool uidown = false;
     public bool END_GAME = false;
@@ -370,6 +372,12 @@ public class GameController : MonoBehaviour
 
     public void DayStart()
     {
+        //open zoom instruction
+        foreach(Text t in DayInstructions)
+        {
+            t.enabled = true;
+        }
+
         //play sfx
         this.GetComponent<AudioSource>().clip = day_START;
         this.GetComponent<AudioSource>().Play();
@@ -457,6 +465,12 @@ public class GameController : MonoBehaviour
 
     IEnumerator StartNight()
     {
+        //close zoom instruction
+        foreach (Text t in DayInstructions)
+        {
+            t.enabled = false;
+        }
+
         this.GetComponent<AudioSource>().clip = day_finish;
         this.GetComponent<AudioSource>().Play();
 
