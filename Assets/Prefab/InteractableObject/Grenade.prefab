@@ -175,8 +175,8 @@ MonoBehaviour:
   PlayerLayers:
     serializedVersion: 2
     m_Bits: 65536
-  ExplosionForce: 500
-  UpwardForceModifier: 0.5
+  ExplosionForce: 100
+  UpwardForceModifier: 0.3
   meshes:
   - {fileID: 6148485066798192613}
   - {fileID: 6758595308435504844}
