@@ -303,7 +303,7 @@ MonoBehaviour:
   Text_Head: {fileID: 9058013308135448560}
   Dead_List: {fileID: 8723336594635676714}
   AddRIP: 0
-  UI_speed: 20
+  UI_speed: 25
   Day: 0
   Allies_Remaining: 0
   ui_up: 0

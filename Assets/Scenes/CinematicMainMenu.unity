@@ -30200,7 +30200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui_up: 0
   ui_down: 0
-  UI_speed: 20
+  UI_speed: 25
 --- !u!4 &446685072286836577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5469645972837951931, guid: c845b4a8dfd31d64c9c738d8c699fad4,

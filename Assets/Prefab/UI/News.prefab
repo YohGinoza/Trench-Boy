@@ -540,7 +540,7 @@ MonoBehaviour:
   n_AllyRemainLimit: 5
   n_GrenadeHit: 30
   n_AllyHelp: 15
-  UI_speed: 20
+  UI_speed: 25
   ui_up: 0
   ui_down: 0
   Allies_Remaining: 0
@@ -551,11 +551,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2532619511136305279}
     m_Modifications:
-    - target: {fileID: 804900132361846545, guid: 9766ad0df49d0c04c80598e3c58216c2,
-        type: 3}
-      propertyPath: m_Name
-      value: Photograph
-      objectReference: {fileID: 0}
     - target: {fileID: 6629425047255097278, guid: 9766ad0df49d0c04c80598e3c58216c2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -660,6 +655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 804900132361846545, guid: 9766ad0df49d0c04c80598e3c58216c2,
+        type: 3}
+      propertyPath: m_Name
+      value: Photograph
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9766ad0df49d0c04c80598e3c58216c2, type: 3}

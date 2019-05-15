@@ -41,11 +41,20 @@ public class SleepingBed : MonoBehaviour
             camControl.StartCoroutine(camControl.FadeInOut(true));
             yield return new WaitForSecondsRealtime(camControl.FadeTime + 0.5f);
 
-            //move to next day
-            controller.CurrentDay++;
-            //start day
-            controller.DayStart();
-            controller.CurrentState = GameState.Day;
+            if(controller.CurrentDay != controller.DayEndLimit)
+            {
+                //move to next day
+                controller.CurrentDay++;
+                //start day
+                controller.DayStart();
+                controller.CurrentState = GameState.Day;
+            }
+            else
+            {
+                controller.END_GAME = true;
+                GameController.loseCondition = LoseCondition.None;
+                controller.CurrentState = GameState.Wait;
+            }
 
             //fade to normal
             camControl.StartCoroutine(camControl.FadeInOut(false)) ;
