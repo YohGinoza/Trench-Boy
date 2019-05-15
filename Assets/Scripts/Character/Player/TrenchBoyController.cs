@@ -532,15 +532,15 @@ public class TrenchBoyController : MonoBehaviour
                     /*rb.velocity = Vector3.zero;
                     isMovable = false;*/
 
-                    if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/ 
-                        && !GameObject.Find("Main Camera").GetComponent<CameraController>().zoomOut)
+                    if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/
+                         && Checker.ClosestTrigerrer.GetComponent<DialogueLoader>().enabled && !GameObject.Find("Main Camera").GetComponent<CameraController>().zoomOut)
                     {
                         //GameObject ally = Checker.ClosestTrigerrer.gameObject.transform.Find("AllyCanvas").Find("Text").gameObject;
                         rb.velocity = Vector3.zero;
                         rb.angularVelocity = Vector3.zero;
                         isMovable = false;
 
-                        if(rb.velocity == Vector3.zero && Checker.ClosestTrigerrer.GetComponent<DialogueLoader>().enabled)
+                        if (rb.velocity == Vector3.zero)
                         {
                             Checker.ClosestTrigerrer.GetComponent<DialogueLoader>().converse();
                         }

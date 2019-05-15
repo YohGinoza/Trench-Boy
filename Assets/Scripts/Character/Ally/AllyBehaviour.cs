@@ -432,48 +432,51 @@ public class AllyBehaviour : MonoBehaviour
 
     public bool HandItem(ItemType item)
     {
-        switch (item)
+        if (!Downed)
         {
-            case ItemType.Ammo:
-                if (AmmoCount < (MaxAmmo))
-                {
-                    AmmoCount += (int)ItemType.Ammo;
-                    AmmoCount = Mathf.Clamp(AmmoCount, 0, MaxAmmo);
-                    call = false;
-                    //feedback
-                    animator.SetTrigger("Talk");
-                    callSource.clip = giveAmmo;
-                    callSource.Play();
+            switch (item)
+            {
+                case ItemType.Ammo:
+                    if (AmmoCount < (MaxAmmo))
+                    {
+                        AmmoCount += (int)ItemType.Ammo;
+                        AmmoCount = Mathf.Clamp(AmmoCount, 0, MaxAmmo);
+                        call = false;
+                        //feedback
+                        animator.SetTrigger("Talk");
+                        callSource.clip = giveAmmo;
+                        callSource.Play();
 
-                    return true;
-                }
-                else
-                {
-                    print("Me pouches are too heavy mate.");
-                    call = false;
-                    return false;
-                }
-            case ItemType.Med:
-                if (Injured)
-                {
-                    Injured = false;
-                    call = false;
-                    //feedback
-                    animator.SetTrigger("Talk");
-                    callSource.clip = giveMed;
-                    callSource.Play();
+                        return true;
+                    }
+                    else
+                    {
+                        print("Me pouches are too heavy mate.");
+                        call = false;
+                        return false;
+                    }
+                case ItemType.Med:
+                    if (Injured)
+                    {
+                        Injured = false;
+                        call = false;
+                        //feedback
+                        animator.SetTrigger("Talk");
+                        callSource.clip = giveMed;
+                        callSource.Play();
 
-                    WaitTimer = 0;
-                    return true;
-                }
-                else
-                {
-                    print("Na, I'm good.");
-                    call = false;
-                    return false;
-                }
+                        WaitTimer = 0;
+                        return true;
+                    }
+                    else
+                    {
+                        print("Na, I'm good.");
+                        call = false;
+                        return false;
+                    }
+            }
+            Debug.Log("Wrong Item");
         }
-        Debug.Log("Wrong Item");
         return false;
     }
 
