@@ -60,7 +60,7 @@ Camera:
   far clip plane: 1000
   field of view: 30
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -100,10 +100,12 @@ MonoBehaviour:
   NormalColor: {r: 0, g: 0, b: 0, a: 0}
   FadedColor: {r: 0.05, g: 0.05, b: 0.05, a: 0.9019608}
   FadeTime: 1.5
-  SmoothTime: 0.1
+  SmoothTime: 0.25
   Target: {fileID: 0}
   zoomIn: 0
   zoomOut: 0
+  ScoutKey: 99
+  ScouttingTarget: {fileID: 0}
 --- !u!114 &8366694193734781680
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,14 +9,12 @@ public class AllyBehaviour : MonoBehaviour
 
     [Header("Personal Data")]
     [SerializeField] private Ally Identity;
-
-    [Range(0.5f, 2)] [SerializeField] private float ShotDelay;
-    [Range(0, 1)] [SerializeField] private float Accuracy;
+    [SerializeField] bool Bulleyes = false;
     //[Range(0, 10)] [SerializeField] private float AimingPatience;
     //[Range(0, 1)] [SerializeField] private float SteadyHand;
     //[Range(0, 1)] [SerializeField] private float GunQuality;
     //[Range(0, 1)] [SerializeField] private float AimingPrioritizer;
-    //[Tooltip("Time before this unit get back to shooting after medical request is ignnored")]
+    [Tooltip("Time before this unit get back to shooting after medical request is ignored")]
     [Range(0, 30)] [SerializeField] private float WaitingPatience;
     [SerializeField] private Transform DayPosition;
     [SerializeField] private Transform NightPosition;
@@ -24,12 +22,17 @@ public class AllyBehaviour : MonoBehaviour
 
     [Header("General Setting")]
     const float BulletLaunchForce = 4;
-    [SerializeField] private int MaxAmmo = 30;
-    [SerializeField] private int AmmoCount = 10;
+    public int MaxAmmo = 20;
+    public int AmmoCount = 20;
     [SerializeField] private float BleedingEndurance = 30;
-    [SerializeField] private float RecoverTime = 10;
+    //[SerializeField] private float RecoverTime = 10;
 
+    [Header("Shooting")]
+    [Range(0.5f, 2)] [SerializeField] private float ShotDelay;
+    [Tooltip("Bullet spread (degree)")]
+    [Range(0.001f, 5)] [SerializeField] private float AimmingError;
     [SerializeField] private float MaxTargetDistance = 15;
+    [Tooltip("Firing cone (degree)")]
     [Range(0, 90)] [SerializeField] private float MaxTargetAngle = 60;
     [SerializeField] private float UrgentTargetZDistance = 3;
     [SerializeField] private LayerMask EnemyLayer;
@@ -73,6 +76,7 @@ public class AllyBehaviour : MonoBehaviour
 
     public AudioClip[] gunSFX;
     public AudioClip deadSFX;
+    public AudioClip downSFX;
     public AudioClip converse;
     public AudioClip giveAmmo;
     public AudioClip giveMed;
@@ -223,6 +227,7 @@ public class AllyBehaviour : MonoBehaviour
 
             case State.Healing:
                 //toggle UI
+                ToggleUI(false, false, false);
                 //RequestImage.enabled = false;
                 //RescueGauge.gameObject.SetActive(false);
                 //HealGauge.gameObject.SetActive(true);
@@ -239,7 +244,7 @@ public class AllyBehaviour : MonoBehaviour
                 break;
         }
 
-        animator.SetBool("Downed", CurrentState == State.Downed);
+        animator.SetBool("Downed", CurrentState == State.Downed || CurrentState == State.Healing);
         animator.SetBool("Calling", CurrentState == State.Waiting);
     }
 
@@ -297,7 +302,16 @@ public class AllyBehaviour : MonoBehaviour
         {
             //calculate
             //float distance = (CurrentTarget.position - this.transform.position).magnitude;
-            Vector3 BulletForce = (CurrentTarget.transform.position - this.transform.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, ((1 - Accuracy) * 5)))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, ((1 - Accuracy) * 5))), 0);
+            Vector3 BulletForce;
+            if (Bulleyes)
+            {
+                BulletForce = ((CurrentTarget.transform.position + (Vector3.up * CurrentTarget.transform.lossyScale.y / 2)) - Muzzle.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
+            }
+            else
+            {
+                BulletForce = (CurrentTarget.transform.position - Muzzle.position).normalized + new Vector3(Mathf.Tan(Mathf.Deg2Rad * (Random.Range(0, AimmingError))), Mathf.Tan(Mathf.Deg2Rad * Random.Range(0, AimmingError)), 0);
+            }
+
             BulletForce.Normalize();
             BulletForce *= BulletLaunchForce;
             //aim
@@ -380,6 +394,7 @@ public class AllyBehaviour : MonoBehaviour
                 break;
             //dead
             case 2:
+                this.transform.position = GravePosition.position;
                 break;
         }
     }
@@ -396,6 +411,9 @@ public class AllyBehaviour : MonoBehaviour
 
     private void Down()
     {
+        callSource.clip = downSFX;
+        callSource.Play();
+
         Downed = true;
 
         //tutorial
@@ -414,47 +432,51 @@ public class AllyBehaviour : MonoBehaviour
 
     public bool HandItem(ItemType item)
     {
-        switch (item)
+        if (!Downed)
         {
-            case ItemType.Ammo:
-                if (AmmoCount < (MaxAmmo - (int)ItemType.Ammo))
-                {
-                    AmmoCount += (int)ItemType.Ammo;
-                    call = false;
-                    //feedback
-                    animator.SetTrigger("Talk");
-                    callSource.clip = giveAmmo;
-                    callSource.Play();
+            switch (item)
+            {
+                case ItemType.Ammo:
+                    if (AmmoCount < (MaxAmmo))
+                    {
+                        AmmoCount += (int)ItemType.Ammo;
+                        AmmoCount = Mathf.Clamp(AmmoCount, 0, MaxAmmo);
+                        call = false;
+                        //feedback
+                        animator.SetTrigger("Talk");
+                        callSource.clip = giveAmmo;
+                        callSource.Play();
 
-                    return true;
-                }
-                else
-                {
-                    print("Me pouches are too heavy mate.");
-                    call = false;
-                    return false;
-                }
-            case ItemType.Med:
-                if (Injured)
-                {
-                    Injured = false;
-                    call = false;
-                    //feedback
-                    animator.SetTrigger("Talk");
-                    callSource.clip = giveMed;
-                    callSource.Play();
+                        return true;
+                    }
+                    else
+                    {
+                        print("Me pouches are too heavy mate.");
+                        call = false;
+                        return false;
+                    }
+                case ItemType.Med:
+                    if (Injured)
+                    {
+                        Injured = false;
+                        call = false;
+                        //feedback
+                        animator.SetTrigger("Talk");
+                        callSource.clip = giveMed;
+                        callSource.Play();
 
-                    WaitTimer = 0;
-                    return true;
-                }
-                else
-                {
-                    print("Na, I'm good.");
-                    call = false;
-                    return false;
-                }
+                        WaitTimer = 0;
+                        return true;
+                    }
+                    else
+                    {
+                        print("Na, I'm good.");
+                        call = false;
+                        return false;
+                    }
+            }
+            Debug.Log("Wrong Item");
         }
-        Debug.Log("Wrong Item");
         return false;
     }
 
@@ -463,6 +485,7 @@ public class AllyBehaviour : MonoBehaviour
         Dying = true;
 
         this.transform.parent = null;
+        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
         //this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
 
         //Collect deceased data
@@ -470,9 +493,10 @@ public class AllyBehaviour : MonoBehaviour
 
         //disable all ui
         ToggleUI(false, false, false);
+        //disable selector
+        transform.GetChild(transform.childCount - 1).GetComponent<Renderer>().enabled = false;
 
-        //subject to change
-        //this.gameObject.SetActive(false);
+        //change all status to dead
         animator.SetBool("isDead", true);
         this.tag = "Deceased";
         this.gameObject.layer = 0;
@@ -481,6 +505,7 @@ public class AllyBehaviour : MonoBehaviour
         callSource.Play();
         yield return new WaitForSeconds(1.0f);
         this.enabled = false;
+        this.GetComponent<DialogueLoader>().enabled = false;
         Dying = false;
     }
 
@@ -495,7 +520,14 @@ public class AllyBehaviour : MonoBehaviour
         else
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(this.transform.position + Vector3.up, CurrentTarget.position);
+            if (Bulleyes)
+            {
+                Gizmos.DrawLine(Muzzle.position, (CurrentTarget.transform.position + (Vector3.up * CurrentTarget.transform.lossyScale.y / 2)));
+            }
+            else
+            {
+                Gizmos.DrawLine(Muzzle.position, CurrentTarget.position);
+            }
         }
 
         //critical line

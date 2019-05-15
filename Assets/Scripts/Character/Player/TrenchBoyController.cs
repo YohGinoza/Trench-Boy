@@ -20,10 +20,12 @@ public class TrenchBoyController : MonoBehaviour
     // ------------------------------
     public bool isMovable = true;
     public bool isCarrying = false;
-    public float movementSpeed = 0.0f;
+    //public float movementSpeed = 0.0f;
     private float maxSpeed = 0.0f;
-    public float carrySpeed = 0.0f;
     public float defaultSpeed = 0.0f;
+    [Range(0, 1)] [SerializeField] private float carrySpeedMultiplier = 0.8f;
+    [SerializeField] private float TimeToReachMaxSpeed = 0.2f;
+    private float carrySpeed = 0.0f;
     public bool facingRight = true;
     public bool animatorMoving = false;
 
@@ -71,6 +73,7 @@ public class TrenchBoyController : MonoBehaviour
     public AudioClip boxDown;
     public AudioClip boxUp;
     public AudioClip converse;
+    public AudioClip give;
 
     public AudioClip[] footsteps = new AudioClip[6];
 
@@ -89,16 +92,11 @@ public class TrenchBoyController : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         //   crate = GetComponent<Crate>(); // wating for Crate script
         facingRight = true;
+        carrySpeed = defaultSpeed * carrySpeedMultiplier;
     }
 
     private void Update()
     {
-        //check if movable
-        if (isMovable == true)
-        {
-            Move();
-        }
-
         //other player input
         Interaction();
 
@@ -133,6 +131,12 @@ public class TrenchBoyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //check if movable
+        if (isMovable == true)
+        {
+            Move();
+        }
+
         //register carrying statuses
         if (Carrier.childCount > 0)
         {
@@ -222,60 +226,74 @@ public class TrenchBoyController : MonoBehaviour
                 maxSpeed = defaultSpeed;
             }
 
-            //play foot step sound
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) 
+
+            //check if input walking
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow)
                 || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
+                //play foot step sound
                 if (footstepPlay)
                 {
                     StartCoroutine(FootStepsPlay());
                 }
-            }
 
-
-            // ------------------------------
-            // buttons for character controls
-            // ------------------------------
-            // LEFT
-            animatorMoving = false;
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * movementSpeed, ref refVector, 0.05f, maxSpeed);
-
-                if (facingRight)
+                // ------------------------------
+                // buttons for character controls
+                // ------------------------------
+                // LEFT
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
                 {
-                    Flip();
-                }
-                facing = Vector3.left;
-                animatorMoving = true;
-            }
-            // RIGHT
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.right * movementSpeed, ref refVector, 0.05f, maxSpeed);
+                    rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.left * defaultSpeed, ref refVector, TimeToReachMaxSpeed);
+                    //rb.velocity = Vector3.left * defaultSpeed;
 
-                if (!facingRight)
-                {
-                    Flip();
+                    if (facingRight)
+                    {
+                        Flip();
+                    }
+                    facing = Vector3.left;
+                    animatorMoving = true;
                 }
-                facing = Vector3.right;
-                animatorMoving = true;
+                // RIGHT
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+                {
+                    rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.right * defaultSpeed, ref refVector, TimeToReachMaxSpeed);
+                    //rb.velocity = Vector3.right * defaultSpeed;
+
+                    if (!facingRight)
+                    {
+                        Flip();
+                    }
+                    facing = Vector3.right;
+                    animatorMoving = true;
+                }
+                // UP
+                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+                {
+                    rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.forward * defaultSpeed, ref refVector, TimeToReachMaxSpeed);
+                    //rb.velocity = Vector3.forward * defaultSpeed;
+
+                    facing = Vector3.forward;
+                    animatorMoving = true;
+                }
+                // DOWN
+                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+                {
+                    rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * defaultSpeed, ref refVector, TimeToReachMaxSpeed);
+                    //rb.velocity = Vector3.back * defaultSpeed;
+
+                    facing = Vector3.back;
+                    animatorMoving = true;
+                }
+                //-------------------------------
             }
-            // UP
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            else
             {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.forward * movementSpeed, ref refVector, 0.05f, maxSpeed);
-                facing = Vector3.forward;
-                animatorMoving = true;
+                //animation
+                animatorMoving = false;
+
+                //slow down
+                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.zero, ref refVector, 0.2f);
             }
-            // DOWN
-            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-            {
-                rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.back * movementSpeed, ref refVector, 0.05f, maxSpeed);
-                facing = Vector3.back;
-                animatorMoving = true;
-            }
-            //-------------------------------
         }
     }
 
@@ -307,47 +325,66 @@ public class TrenchBoyController : MonoBehaviour
         {
             if (!isCarrying || Inventory.HasEmptySlot())
             {
-                delta += Time.deltaTime; // hold timer starts after pressing the button
-                if (delta >= CratePickUpTime)
+                //check if any thing is available
+                if (Checker.ClosestTrigerrer != null || ReSupplyZone != null || Bed != null)
                 {
-
-                    if (!isCarrying)
+                    delta += Time.deltaTime; // hold timer starts after pressing the button
+                    if (delta >= CratePickUpTime)
                     {
-                        //pick up crate
-                        if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+
+                        if (!isCarrying)
                         {
-                            Checker.ClosestTrigerrer.GetComponent<CargoSlot>().TakeOffCargo(Carrier, Vector3.zero);
-                            delta = 0; // stops timer
-                            spacebarUpped = true;  //count as key up
+                            //pick up crate
+                            if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("CargoSlot"))
+                            {
+                                Checker.ClosestTrigerrer.GetComponent<CargoSlot>().TakeOffCargo(Carrier, Vector3.zero);
+                                delta = 0; // stops timer
+                                spacebarUpped = true;  //count as key up
+                            }
+                            else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
+                            {
+                                Checker.childTransfer(Carrier);
+                                audioSource.clip = boxUp;
+                                audioSource.Play();
+
+                                delta = 0; // stops timer
+                                spacebarUpped = true;  //count as key up
+                            }
+                            else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Ally") && Checker.ClosestTrigerrer.GetComponent<AllyBehaviour>().CurrentState == AllyBehaviour.State.Downed)
+                            {
+                                Checker.childTransfer(Carrier);
+                                delta = 0; // stops timer
+                                spacebarUpped = true;  //count as key up
+
+                                //prevent from stuck in ground, will change later
+                                Checker.ClosestTrigerrer.GetComponent<Collider>().isTrigger = true;
+                            }
+                            else if (ReSupplyZone != null)
+                            {
+                                ReSupplyZone.SpawnNew(Carrier);
+                            }
+                            //sleep
+                            else if (Bed != null)
+                            {
+                                Bed.StartCoroutine("Sleep");
+                            }
                         }
-                        else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Crate"))
+                        else
                         {
-                            Checker.childTransfer(Carrier);
-                            audioSource.clip = boxUp;
+                            audioSource.clip = unavialable;
                             audioSource.Play();
-
-                            delta = 0; // stops timer
-                            spacebarUpped = true;  //count as key up
-                        }
-                        else if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.CompareTag("Ally") && Checker.ClosestTrigerrer.GetComponent<AllyBehaviour>().CurrentState == AllyBehaviour.State.Downed)
-                        {
-                            Checker.childTransfer(Carrier);
-                            delta = 0; // stops timer
-                            spacebarUpped = true;  //count as key up
-
-                            //prevent from stuck in ground, will change later
-                            Checker.ClosestTrigerrer.GetComponent<Collider>().isTrigger = true;
-                        }
-                        else if (ReSupplyZone != null)
-                        {
-                            ReSupplyZone.SpawnNew(Carrier);
-                        }
-                        //sleep
-                        else if (Bed != null)
-                        {
-                            Bed.StartCoroutine("Sleep");
+                            animator.SetTrigger("Talk");
                         }
                     }
+                }
+            }
+            else if (!Inventory.HasEmptySlot())
+            {
+                if (Checker.ClosestTrigerrer != null || ReSupplyZone != null || Bed != null)
+                {
+                    audioSource.clip = unavialable;
+                    audioSource.Play();
+                    animator.SetTrigger("Talk");
                 }
             }
         }
@@ -405,6 +442,8 @@ public class TrenchBoyController : MonoBehaviour
 
                         if (ally.HandItem(Inventory.ItemInventory[Inventory.SelectedItem]))
                         {
+                            audioSource.clip = give;
+                            audioSource.Play();
                             Inventory.RemoveItem();
                         }
                         else
@@ -459,12 +498,21 @@ public class TrenchBoyController : MonoBehaviour
                         //reenable collider, will change later
                         CarriedObject.GetComponent<Collider>().isTrigger = false;
 
+                        //put on med bed
                         MedBed.PutPatient(CarriedObject);
+
+                        //return the x size to normal
+                        CarriedObject.localScale = new Vector3(Mathf.Abs(CarriedObject.localScale.x), CarriedObject.localScale.y, CarriedObject.localScale.z);
+
+                        gameController.HelpFriend++;
                     }
                     else
-                    {
+                    {                        
                         //just put down
                         PutDownCarryingObject();
+
+                        //return the x size to normal
+                        CarriedObject.localScale = new Vector3(Mathf.Abs(CarriedObject.localScale.x), CarriedObject.localScale.y, CarriedObject.localScale.z);
 
                         //reenable collider, will change later
                         CarriedObject.GetComponent<Collider>().isTrigger = false;
@@ -484,15 +532,15 @@ public class TrenchBoyController : MonoBehaviour
                     /*rb.velocity = Vector3.zero;
                     isMovable = false;*/
 
-                    if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/ 
-                        && !GameObject.Find("Main Camera").GetComponent<CameraController>().zoomOut)
+                    if (Checker.ClosestTrigerrer != null && Checker.ClosestTrigerrer.gameObject.layer == 9/*Ally*/
+                         && Checker.ClosestTrigerrer.GetComponent<DialogueLoader>().enabled && !GameObject.Find("Main Camera").GetComponent<CameraController>().zoomOut)
                     {
                         //GameObject ally = Checker.ClosestTrigerrer.gameObject.transform.Find("AllyCanvas").Find("Text").gameObject;
                         rb.velocity = Vector3.zero;
                         rb.angularVelocity = Vector3.zero;
                         isMovable = false;
 
-                        if(rb.velocity == Vector3.zero)
+                        if (rb.velocity == Vector3.zero)
                         {
                             Checker.ClosestTrigerrer.GetComponent<DialogueLoader>().converse();
                         }

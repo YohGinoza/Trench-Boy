@@ -5,6 +5,7 @@ using UnityEngine;
 public class SleepingBed : MonoBehaviour
 {
     CameraController camControl;
+    bool slept = false;
 
     private void Start()
     {
@@ -32,18 +33,35 @@ public class SleepingBed : MonoBehaviour
     public IEnumerator Sleep()
     {
         GameController controller = FindObjectOfType<GameController>();
-        if (controller.CurrentState == GameState.Night)
+        if (controller.CurrentState == GameState.Night && !slept)
         {
-            //fade to black
-            camControl.StartCoroutine("FadeInOut", true);
-            yield return new WaitForSecondsRealtime(camControl.FadeTime);
+            slept = true;
 
-            controller.DayStart();
-            controller.CurrentState = GameState.Day;
+            //fade to black
+            camControl.StartCoroutine(camControl.FadeInOut(true));
+            yield return new WaitForSecondsRealtime(camControl.FadeTime + 0.5f);
+
+            if(controller.CurrentDay != controller.DayEndLimit)
+            {
+                //move to next day
+                controller.CurrentDay++;
+                //start day
+                controller.DayStart();
+                controller.CurrentState = GameState.Day;
+            }
+            else
+            {
+                controller.END_GAME = true;
+                GameController.loseCondition = LoseCondition.None;
+                controller.CurrentState = GameState.Wait;
+            }
 
             //fade to normal
-            camControl.StartCoroutine("FadeInOut", false);
+            camControl.StartCoroutine(camControl.FadeInOut(false)) ;
             yield return new WaitForSecondsRealtime(camControl.FadeTime);
+
+            slept = false;
         }
+
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CameraController : MonoBehaviour
 {
     private GameController gameController;
+    private Camera cam;
 
     [Header("Fading Setting")]
     [SerializeField] private Image Fader;
@@ -27,8 +28,19 @@ public class CameraController : MonoBehaviour
     public bool zoomIn = false;
     public bool zoomOut = false;
 
+    float DefaultSize;
+
+    [Header("Scout")]
+    [SerializeField] private KeyCode ScoutKey;
+    [SerializeField] private Transform ScouttingTarget;
+    private bool Scouting;
+    private float ScoutingSize = 16;
+    private float refVel;
+
     private void Start()
     {
+        cam = this.GetComponent<Camera>();
+        DefaultSize = this.GetComponent<Camera>().orthographicSize;
         gameController = FindObjectOfType<GameController>();
     }
 
@@ -43,19 +55,30 @@ public class CameraController : MonoBehaviour
                 break;
         }
 
-        if (!inDialogue) {
-            LookAtTarget();
+        //for scouting
+        if ((gameController.CurrentState == GameState.Day || gameController.CurrentState == GameState.Stalling) && Input.GetKey(ScoutKey))
+        {
+            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, ScoutingSize, ref refVel, 1f);
+            SetTarget(ScouttingTarget);
         }
+        else if ((gameController.CurrentState == GameState.Wait || !Input.GetKey(ScoutKey)) && !inDialogue)
+        {
+            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, DefaultSize, ref refVel, 1f);
+            if (!Target.CompareTag("Player"))
+            {
+                SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
+            }
+        }
+
+        
+        LookAtTarget();
+        
 
         if (zoomIn && !zoomOut)
         {
-
-           
-
-            if (this.GetComponent<Camera>().orthographicSize > 2.4f)
+            if (cam.orthographicSize > 2.4f)
             {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.05f, this.transform.position.z);
-                this.GetComponent<Camera>().orthographicSize -= 0.2f;
+                cam.orthographicSize -= 0.2f;
             }
             else
             {
@@ -66,10 +89,9 @@ public class CameraController : MonoBehaviour
         if (zoomOut && !zoomIn)
         {
 
-            if (this.GetComponent<Camera>().orthographicSize < 7.0f)
+            if (cam.orthographicSize < DefaultSize)
             {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.05f, this.transform.position.z);
-                this.GetComponent<Camera>().orthographicSize += 0.2f;
+                cam.orthographicSize += 0.2f;
             }
             else
             {
@@ -81,8 +103,20 @@ public class CameraController : MonoBehaviour
 
     void LookAtTarget()
     {
-        //center
-        Vector3 idealPosition = new Vector3(Target.position.x, Target.position.y + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30));
+        Vector3 idealPosition;
+
+        if (inDialogue)
+        {
+            //move camera up a little bit
+            idealPosition = new Vector3(Target.position.x, Target.position.y + 1.0f + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 45), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 45));
+
+        }
+        else
+        {
+            //center
+            idealPosition = new Vector3(Target.position.x, Target.position.y + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 45), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 45));
+
+        }
 
         this.transform.position = Vector3.SmoothDamp(this.transform.position, idealPosition, ref moveRef, SmoothTime);
     }
@@ -117,7 +151,7 @@ public class CameraController : MonoBehaviour
         inDialogue = false;
     }
 
-    IEnumerator FadeInOut(bool toBlack)
+    public IEnumerator FadeInOut(bool toBlack)
     {
         if (!fading)
         {
