@@ -61,7 +61,7 @@ public class CameraController : MonoBehaviour
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, ScoutingSize, ref refVel, 1f);
             SetTarget(ScouttingTarget);
         }
-        else if (gameController.CurrentState == GameState.Wait || !Input.GetKey(ScoutKey))
+        else if ((gameController.CurrentState == GameState.Wait || !Input.GetKey(ScoutKey)) && !inDialogue)
         {
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, DefaultSize, ref refVel, 1f);
             if (!Target.CompareTag("Player"))
@@ -108,13 +108,13 @@ public class CameraController : MonoBehaviour
         if (inDialogue)
         {
             //move camera up a little bit
-            idealPosition = new Vector3(Target.position.x, Target.position.y + 1.0f + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30));
+            idealPosition = new Vector3(Target.position.x, Target.position.y + 1.0f + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 45), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 45));
 
         }
         else
         {
             //center
-            idealPosition = new Vector3(Target.position.x, Target.position.y + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 30));
+            idealPosition = new Vector3(Target.position.x, Target.position.y + (Mathf.Sin(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 45), Target.position.z - (Mathf.Cos(Mathf.Deg2Rad * this.transform.eulerAngles.x) * 45));
 
         }
 

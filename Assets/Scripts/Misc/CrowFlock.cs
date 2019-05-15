@@ -64,8 +64,9 @@ public class CrowFlock : MonoBehaviour
         this.transform.Rotate(Vector3.up, Random.Range(0, 360), Space.World);
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(this.transform.position, Vector3.one * FlockSpread);
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(this.transform.position, FlockSpread);
     }
 }
