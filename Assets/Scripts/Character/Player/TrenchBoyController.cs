@@ -391,7 +391,7 @@ public class TrenchBoyController : MonoBehaviour
 
         if (!spacebarUpped && Input.GetKeyUp(KeyCode.Space))
         {
-            Debug.Log("UP");
+            //Debug.Log("UP");
             if ((!isCarrying || Inventory.HasEmptySlot()) && delta < ItemPickUpTime && (gameController.CurrentState == GameState.Day || gameController.CurrentState == GameState.Stalling))
             {
                 // pick up the POUCH

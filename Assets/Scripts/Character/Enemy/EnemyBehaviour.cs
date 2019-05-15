@@ -118,7 +118,7 @@ public class EnemyBehaviour : MonoBehaviour
                 if (!Shooting)
                 {
                     StartCoroutine(Shoot());
-                    Debug.Log("Aiming");
+                    //Debug.Log("Aiming");
                 }
             }
         }
@@ -127,7 +127,7 @@ public class EnemyBehaviour : MonoBehaviour
         Collider[] Bullets = Physics.OverlapBox(this.transform.position + Vector3.back * AwareBoxSize / 2, new Vector3(AwareBoxSize / 2, AwareBoxSize / 2, AwareBoxSize / 2), this.transform.rotation, BulletLayer);
         foreach(Collider bullet in Bullets)
         {
-            if(bullet.GetComponent<Rigidbody>().velocity.z > 0)
+            if (bullet.GetComponent<Rigidbody>() && bullet.GetComponent<Rigidbody>().velocity.z > 0)
             {
                 SuppressedTimer = 0;
                 break;
